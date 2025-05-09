@@ -1,0 +1,11 @@
+*/
+*.zip
+!*/.git
+!*/.keep
+!dragon_princess
+!*/dragon_princess
+!legacy
+!*/legacy
+!cover_art
+cover_art/*
+!cover_art/.keep
