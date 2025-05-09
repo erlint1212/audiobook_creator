@@ -17,5 +17,7 @@ I wanted to make audiobooks of some novels I like to read, for use when I go hik
 
 ## Install
 
+Requires Alltalk V2 to work: [https://github.com/erew123/alltalk_tts/tree/alltalkbeta](https://github.com/erew123/alltalk_tts/tree/alltalkbeta)
 1. Clone this folder
-2. `conda env create -f environment.yml`
+2. Install ffmpeg
+3. `conda env create -f environment.yml`
