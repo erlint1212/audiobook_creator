@@ -1,0 +1,90 @@
+{
+    "CAMILLA": {
+        "gender": "f",
+        "original_name": "CAMILLA",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/female_01.wav"
+    },
+    "TIMU": {
+        "gender": "f",
+        "original_name": "TIMU",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/female_01.wav"
+    },
+    "CROWD": {
+        "gender": "m",
+        "original_name": "CROWD",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/male_03.wav"
+    },
+    "CUSTOMER": {
+        "gender": "m",
+        "original_name": "CUSTOMER",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/male_01.wav"
+    },
+    "FOLLOWERS": {
+        "gender": "m",
+        "original_name": "FOLLOWERS",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/male_04.wav"
+    },
+    "HIDLER": {
+        "gender": "m",
+        "original_name": "Hidler",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/male_05.wav"
+    },
+    "VICEROY": {
+        "gender": "m",
+        "original_name": "VICEROY",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/Arnold.wav"
+    },
+    "NARRATOR": {
+        "gender": "n",
+        "original_name": "NARRATOR",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": "C:/Users/etnor/Documents/tts/alltalk_tts/models/rvc_voices/half_light/half_light.pth",
+        "rvc_pitch": -2,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/Half_Light_Disco_Elysium.wav"
+    },
+    "TILEA": {
+        "gender": "f",
+        "original_name": "TILEA",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/female_01.wav"
+    },
+    "YOSE": {
+        "gender": "m",
+        "original_name": "YOSE",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": null,
+        "rvc_pitch": 0,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/male_02.wav"
+    },
+    "YOSE_AND_GROUP": {
+        "gender": "n",
+        "original_name": "YOSE_AND_GROUP",
+        "rvc_index_api_path": null,
+        "rvc_model_api_path": "C:/Users/etnor/Documents/tts/alltalk_tts/models/rvc_voices/half_light/half_light.pth",
+        "rvc_pitch": -2,
+        "xtts_speaker_wav": "C:/Users/etnor/Documents/tts/alltalk_tts/voices/Half_Light_Disco_Elysium.wav"
+    }
+}

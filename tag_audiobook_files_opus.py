@@ -47,7 +47,7 @@ COMPOSER = "Alltalk TTS - Half Light RVC" # Optional: Narrator/TTS credit
 # 'cover_art_file': Path to the cover art image for this specific volume.
 VOLUME_CONFIG = [
     {"name_suffix": "Volume 1", "start_ch": 1, "end_ch": 46, "disc_num": "1", "cover_art_file": "cover_art/tileasworries1.jpg"},
-    {"name_suffix": "Volume 2", "start_ch": 47, "end_ch": 100, "disc_num": "2", "cover_art_file": "cover_art/tileasworries2.jpg"},
+    {"name_suffix": "Volume 2", "start_ch": 47, "end_ch": 110, "disc_num": "2", "cover_art_file": "cover_art/tileasworries2.jpg"},
     # {"name_suffix": "Volume 3", "start_ch": 101, "end_ch": float('inf'), "disc_num": "3", "cover_art_file": "cover_art/tileasworries3.jpg"},
 ]
 TOTAL_DISCS_OVERALL = str(len(VOLUME_CONFIG)) if VOLUME_CONFIG else "1"

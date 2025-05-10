@@ -13,6 +13,7 @@ I wanted to make audiobooks of some novels I like to read, for use when I go hik
 * Tag the files properly as audiobooks so that audio players can recognize it. Done by `tag_audiobook_files_opus.py`.
 
 **OPS:** `generate_wav_to_opusfolder_srt.py` runs on multiprocessing with whispers `medium.en` model, this will require around 10GB VRAM, I have 12GB so it's fine for me but it might break if you have less, reduce the number of workers or choose a smaller model according to your VRAM.
+
 **OPS 2:** multi threading `whisper` was very very slow, it might just be me using a laptop GPU therefore not fully utilizing it (46W/153W).
 
 ## TODO
@@ -24,6 +25,10 @@ I wanted to make audiobooks of some novels I like to read, for use when I go hik
 ## Install
 
 Requires Alltalk V2 to work: [https://github.com/erew123/alltalk_tts/tree/alltalkbeta](https://github.com/erew123/alltalk_tts/tree/alltalkbeta)
+
+For Gemini API calls to work:
+`export GEMINI_API_KEY=your_api_key`
+
 1. Clone this folder
 2. Install ffmpeg
 3. `conda env create -f environment.yml`
