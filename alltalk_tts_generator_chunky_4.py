@@ -38,7 +38,7 @@ AVG_CHARS_PER_TOKEN = 2  # Assuming ~3 chars/token to overestimate tokens slight
 # --- Paths/Values needed by the Alltalk SERVER ---
 XTTS_SPEAKER_WAV = "C:/Users/etnor/Documents/tts/alltalk_tts/voices/Half_Light_Disco_Elysium.wav"
 XTTS_LANGUAGE = "en"
-RVC_MODEL_PATH = "C:/Users/etnor/Documents/tts/alltalk_tts/models/rvc_voices/half_light/half_light.pth"
+RVC_MODEL_PATH = "C:/Users/etnor/Documents/tts/alltalk_tts/models/rvc_voices/half_light/half_light_.pth"
 RVC_MODEL_NAME_FOR_API = 'half_light\\half_light.pth'
 RVC_PITCH = -2
 USE_DEEPSPEED = True # Ensure enabled in Alltalk settings/config

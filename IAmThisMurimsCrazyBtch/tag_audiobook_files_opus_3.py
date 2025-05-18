@@ -18,17 +18,17 @@ except ImportError:
 # ---------------------------
 
 # --- Configuration ---
-AUDIO_DIR = "generated_audio_tileas_worries_opus"
-TEXT_DIR = "scraped_tileas_worries" # Or "scraped_tileas_worries_mystic" - where ch_XXX.txt files are
+AUDIO_DIR = "generated_audio_IATMCB_opus"
+TEXT_DIR = "scraped_IATMCB_celsetial_pavilion" # Or "scraped_tileas_worries_mystic" - where ch_XXX.txt files are
 FILENAME_PATTERN = "ch_*.opus"
 DEFAULT_COVER_ART_PATH = "cover_art/tileasworries_default.jpg"
 
-WEB_NOVEL_SERIES_NAME = "Tilea's Worries"
-BASE_ALBUM_TITLE = "Tilea's Worries"
-ARTIST = "Rina Shito"
-ALBUM_ARTIST = "Rina Shito"
+WEB_NOVEL_SERIES_NAME = "I Am This Murim’s Crazy Bitch"
+BASE_ALBUM_TITLE = "I Am This Murim’s Crazy Bitch"
+ARTIST = "ILikeTraditionalMartialArtsNovels/정통무협조와요"
+ALBUM_ARTIST = "ILikeTraditionalMartialArtsNovels/정통무협조와요"
 GENRE = "Audiobook"
-YEAR = "2020"
+YEAR = "2025"
 COMPOSER = "Alltalk TTS - Half Light RVC"
 
 # =====================================================================================
@@ -37,39 +37,11 @@ COMPOSER = "Alltalk TTS - Half Light RVC"
 # =====================================================================================
 VOLUME_CONFIG = [
     {
-        "name_suffix": "Volume 1 – Village Desertion Arc",
+        "name_suffix": "I Am This Murim’s Crazy Bitch",
         "start_ch": 1,    # Example: Please verify
-        "end_ch": 46,     # Example: Please verify
+        "end_ch": float('inf'),     # Example: Please verify
         "disc_num": "1",
-        "cover_art_file": "cover_art/tileasworries1.jpg"
-    },
-    {
-        "name_suffix": "Volume 2 – Royal Capital Attack Arc",
-        "start_ch": 47,   # Example: Please verify
-        "end_ch": 78,     # Example: Please verify
-        "disc_num": "2",
-        "cover_art_file": "cover_art/tileasworries2.jpg"
-    },
-    {
-        "name_suffix": "Volume 3 – Rival Warlords Arc",
-        "start_ch": 79,   # Example: Please verify/adjust
-        "end_ch": 185,    # Example: Please verify/adjust (e.g., if ch_110.opus is the last of Vol 3)
-        "disc_num": "3",
-        "cover_art_file": "cover_art/tileasworries3.jpg"
-    },
-    {
-        "name_suffix": "Volume 4 – Camilla Academy Arc",
-        "start_ch": 186,  # Example: Please verify/adjust (e.g., if ch_111.opus is the first of Vol 4)
-        "end_ch": 265, # Assumes this is the last volume
-        "disc_num": "4",
-        "cover_art_file": "cover_art/tileasworries4.jpg" # Example: Add path to cover for Vol 4
-    },
-    {
-        "name_suffix": "Volume 4 – Cooking Battle Tournament Arc",
-        "start_ch": 266,  # Example: Please verify/adjust (e.g., if ch_111.opus is the first of Vol 4)
-        "end_ch": float('inf'), # Assumes this is the last volume
-        "disc_num": "5",
-        "cover_art_file": "cover_art/tileasworries5.jpg" # Example: Add path to cover for Vol 4
+        "cover_art_file": "cover_art/I-Am-This-Murims-Crazy-Btch2.jpg"
     },
 ]
 TOTAL_DISCS_OVERALL = str(len(VOLUME_CONFIG)) if VOLUME_CONFIG else "1"

@@ -51,7 +51,7 @@ def reformat_chapter_title_in_text(text_content):
 
 # --- Gemini API Translation Function (Unchanged) ---
 def translate_text_with_gemini(text_to_translate, target_language="English"):
-    model_name_for_api = "models/gemini-2.5-pro-exp-03-25" 
+    model_name_for_api = "models/gemini-2.5-flash-preview-04-17" 
     print(f"Attempting to translate text (length: {len(text_to_translate)} chars) using {model_name_for_api} via genai.Client...")
     try:
         api_key = os.environ.get(API_KEY_ENV_VARIABLE)

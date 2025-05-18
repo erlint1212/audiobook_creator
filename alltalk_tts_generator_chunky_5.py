@@ -27,23 +27,23 @@ except ImportError:
 ALLTALK_API_URL = "http://127.0.0.1:7851/api/tts-generate"
 ALLTALK_BASE_URL = "http://127.0.0.1:7851"
 
-TEXT_FILES_DIR = "scraped_tileas_worries"
-AUDIO_OUTPUT_DIR = "generated_audio_tileas_worries"
-TEMP_CHUNK_DIR = "temp_audio_chunks"
+TEXT_FILES_DIR = "TheArtOfWar/artofwar_chapters_revised"
+AUDIO_OUTPUT_DIR = "generated_audio_TheArtOfWar"
+TEMP_CHUNK_DIR = "temp_audio_chunks_TAoW"
 
 # Character limit for combining \n\n segments initially
 CHUNK_CHAR_LIMIT = 800
 # Token limit check - chunks exceeding this estimated limit will be split further
-TOKEN_LIMIT = 200 # Using 250 gives buffer below XTTS's 400 limit
+TOKEN_LIMIT = 350 # Using 250 gives buffer below XTTS's 400 limit
 # Average characters per token estimate - Use a conservative value
-AVG_CHARS_PER_TOKEN = 2  # Assuming ~3 chars/token to overestimate tokens slightly
+AVG_CHARS_PER_TOKEN = 3  # Assuming ~3 chars/token to overestimate tokens slightly
 
 # --- Paths/Values needed by the Alltalk SERVER ---
 XTTS_SPEAKER_WAV = "C:/Users/etnor/Documents/tts/alltalk_tts/voices/Half_Light_Disco_Elysium.wav"
 XTTS_LANGUAGE = "en"
 RVC_MODEL_PATH = "C:/Users/etnor/Documents/tts/alltalk_tts/models/rvc_voices/half_light/half_light.pth"
 RVC_MODEL_NAME_FOR_API = 'half_light\\half_light.pth'
-RVC_PITCH = -2
+RVC_PITCH = 0
 USE_DEEPSPEED = True # Ensure enabled in Alltalk settings/config
 
 OUTPUT_FORMAT = "wav" # Keep as WAV for generation, convert later if desired

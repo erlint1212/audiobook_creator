@@ -1,5 +1,9 @@
 */
+*.wav
+*.txt
 *.zip
+*.png
+*.jpg
 !*/.git
 !*/.keep
 !dragon_princess
@@ -10,3 +14,4 @@
 cover_art/*
 !cover_art/.keep
 !tests
+!IAmThisMurimsCrazyBtch
