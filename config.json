@@ -1,5 +1,0 @@
-{
-    "api_alltalk_protocol": "http://",
-    "api_alltalk_ip_port": "127.0.0.1:7851",
-    "api_connection_timeout": 5
-}

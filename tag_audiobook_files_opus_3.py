@@ -1,241 +1,116 @@
 import os
 import glob
 import re
-import shutil
-import mimetypes # To guess image mime type
-import base64    # For encoding cover art for Opus
+import json
+import mimetypes
+import base64
 
 # --- Try importing mutagen ---
 try:
     import mutagen
-    from mutagen.oggopus import OggOpus   # For Opus files
-    from mutagen.flac import Picture      # For cover art structure in Ogg containers
+    from mutagen.oggopus import OggOpus
+    from mutagen.flac import Picture
     MUTAGEN_AVAILABLE = True
 except ImportError:
-    print("Error: mutagen library not found. This script cannot tag files.")
-    print("Please install it: pip install mutagen")
+    print("Error: mutagen library not found. Please install it: pip install mutagen")
     MUTAGEN_AVAILABLE = False
-# ---------------------------
 
 # --- Configuration ---
-AUDIO_DIR = "generated_audio_tileas_worries_opus"
-TEXT_DIR = "scraped_tileas_worries" # Or "scraped_tileas_worries_mystic" - where ch_XXX.txt files are
-FILENAME_PATTERN = "ch_*.opus"
-DEFAULT_COVER_ART_PATH = "cover_art/tileasworries_default.jpg"
+AUDIO_DIR = "generated_audio_MistakenFairy_opus"
+TEXT_DIR = "BlleatTL_Novels" 
+METADATA_FILE = os.path.join(TEXT_DIR, "chapters.json")
+DEFAULT_COVER_ART_PATH = "cover.jpg"
 
-WEB_NOVEL_SERIES_NAME = "Tilea's Worries"
-BASE_ALBUM_TITLE = "Tilea's Worries"
-ARTIST = "Rina Shito"
-ALBUM_ARTIST = "Rina Shito"
+WEB_NOVEL_SERIES_NAME = "Mistaken for a Fairy"
+ARTIST = "Mistaken for a Fairy"
+ALBUM_ARTIST = "Blleat"
 GENRE = "Audiobook"
-YEAR = "2020"
-COMPOSER = "Alltalk TTS - Half Light RVC"
-
-# =====================================================================================
-# !!! IMPORTANT: YOU NEED TO UPDATE THE start_ch, end_ch, and cover_art_file FOR THESE VOLUMES !!!
-# The chapter ranges below are EXAMPLES based on common splits and your previous config.
-# =====================================================================================
-VOLUME_CONFIG = [
-    {
-        "name_suffix": "Volume 1 – Village Desertion Arc",
-        "start_ch": 1,    # Example: Please verify
-        "end_ch": 46,     # Example: Please verify
-        "disc_num": "1",
-        "cover_art_file": "cover_art/tileasworries1.jpg"
-    },
-    {
-        "name_suffix": "Volume 2 – Royal Capital Attack Arc",
-        "start_ch": 47,   # Example: Please verify
-        "end_ch": 78,     # Example: Please verify
-        "disc_num": "2",
-        "cover_art_file": "cover_art/tileasworries2.jpg"
-    },
-    {
-        "name_suffix": "Volume 3 – Rival Warlords Arc",
-        "start_ch": 79,   # Example: Please verify/adjust
-        "end_ch": 185,    # Example: Please verify/adjust (e.g., if ch_110.opus is the last of Vol 3)
-        "disc_num": "3",
-        "cover_art_file": "cover_art/tileasworries3.jpg"
-    },
-    {
-        "name_suffix": "Volume 4 – Camilla Academy Arc",
-        "start_ch": 186,  # Example: Please verify/adjust (e.g., if ch_111.opus is the first of Vol 4)
-        "end_ch": 265, # Assumes this is the last volume
-        "disc_num": "4",
-        "cover_art_file": "cover_art/tileasworries4.jpg" # Example: Add path to cover for Vol 4
-    },
-    {
-        "name_suffix": "Volume 4 – Cooking Battle Tournament Arc",
-        "start_ch": 266,  # Example: Please verify/adjust (e.g., if ch_111.opus is the first of Vol 4)
-        "end_ch": float('inf'), # Assumes this is the last volume
-        "disc_num": "5",
-        "cover_art_file": "cover_art/tileasworries5.jpg" # Example: Add path to cover for Vol 4
-    },
-]
-TOTAL_DISCS_OVERALL = str(len(VOLUME_CONFIG)) if VOLUME_CONFIG else "1"
+YEAR = "2026"
 # --- End Configuration ---
 
-
-def get_track_number(filename):
-    """Extracts track number from filenames like ch_XXX.opus"""
-    match = re.search(r'_(\d+)\.(opus|wav|mp3|m4a)$', filename, re.IGNORECASE)
-    if match:
-        try:
-            return int(match.group(1))
-        except ValueError:
-            return None
+def get_full_title_from_file(txt_path):
+    """
+    Reads the text file and returns the first non-empty line 
+    which contains 'Chapter X - Title'.
+    """
+    if not os.path.exists(txt_path):
+        return None
+    
+    try:
+        with open(txt_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                clean_line = line.strip()
+                if clean_line:
+                    return clean_line
+    except Exception as e:
+        print(f"   Error reading {txt_path}: {e}")
     return None
 
-def sanitize_tag_text(text):
-    """Basic sanitization for tag text."""
-    if text:
-        return text.replace('\x00', '') # Remove null characters
-    return text
+def get_track_number(filename):
+    match = re.search(r'ch_(\d+)', filename)
+    return int(match.group(1)) if match else None
 
-def tag_audio_file(audio_filepath, text_filepath, track_num, total_tracks_in_album,
-                   current_album_title, current_disc_number, current_total_discs,
-                   series_name,
-                   current_cover_art_path):
-    print(f"\nProcessing: {os.path.basename(audio_filepath)}")
-
-    if not os.path.exists(text_filepath):
-        print(f"  Warning: Corresponding text file not found: '{text_filepath}'. Skipping title from file.")
-        chapter_title = f"Chapter {track_num:03d}" # Fallback title
-    else:
-        try:
-            with open(text_filepath, 'r', encoding='utf-8') as f:
-                chapter_title = f.readline().strip()
-            if not chapter_title:
-                print(f"  Warning: First line of text file '{text_filepath}' is empty. Using fallback title.")
-                chapter_title = f"Chapter {track_num:03d}"
-            chapter_title = sanitize_tag_text(chapter_title)
-            print(f"  Title from file: '{chapter_title}'")
-        except Exception as e:
-            print(f"  Error reading title from '{text_filepath}': {e}. Using fallback title.")
-            chapter_title = f"Chapter {track_num:03d}"
-
+def tag_audio_file(audio_path, track_num, chapter_title, cover_path):
     try:
-        audio = OggOpus(audio_filepath)
-
+        audio = OggOpus(audio_path)
+        
+        # Metadata Tags
         audio.tags['TITLE'] = [chapter_title]
-        audio.tags['ALBUM'] = [current_album_title]
+        audio.tags['ALBUM'] = [WEB_NOVEL_SERIES_NAME]
         audio.tags['ARTIST'] = [ARTIST]
-        if ALBUM_ARTIST: audio.tags['ALBUMARTIST'] = [ALBUM_ARTIST]
-        if GENRE: audio.tags['GENRE'] = [GENRE]
-        if YEAR: audio.tags['DATE'] = [YEAR]
-        if COMPOSER: audio.tags['COMPOSER'] = [COMPOSER]
+        audio.tags['ALBUMARTIST'] = [ALBUM_ARTIST]
+        audio.tags['GENRE'] = [GENRE]
+        audio.tags['DATE'] = [YEAR]
         audio.tags['TRACKNUMBER'] = [str(track_num)]
-        audio.tags['TRACKTOTAL'] = [str(total_tracks_in_album)]
 
-        if current_disc_number:
-            audio.tags['DISCNUMBER'] = [str(current_disc_number)]
-            if current_total_discs:
-                audio.tags['DISCTOTAL'] = [str(current_total_discs)]
-
-        if series_name:
-            audio.tags['SERIES'] = [series_name]
-            audio.tags['GROUPING'] = [series_name]
-            print(f"  Series/Grouping: '{series_name}'")
-
-        if current_cover_art_path and os.path.exists(current_cover_art_path):
-            try:
-                mime = mimetypes.guess_type(current_cover_art_path)[0]
-                if mime in ['image/jpeg', 'image/png']:
-                    pic = Picture()
-                    pic.type = 3
-                    pic.mime = mime
-                    pic.desc = ''
-                    with open(current_cover_art_path, 'rb') as f:
-                        pic.data = f.read()
-                    pic_data_binary = pic.write()
-                    pic_data_base64 = base64.b64encode(pic_data_binary).decode('ascii')
-                    audio.tags['METADATA_BLOCK_PICTURE'] = [pic_data_base64]
-                    print(f"  Added cover art from: {os.path.basename(current_cover_art_path)}")
-                else:
-                    print(f"  Warning: Unsupported cover art MIME type '{mime}' for {current_cover_art_path}. Skipping cover.")
-            except Exception as e:
-                print(f"  Error adding cover art: {e}")
-        elif current_cover_art_path:
-            print(f"  Warning: Cover art file not found at: {current_cover_art_path}")
+        # Embed Cover Art
+        if cover_path and os.path.exists(cover_path):
+            mime = mimetypes.guess_type(cover_path)[0]
+            if mime in ['image/jpeg', 'image/png']:
+                pic = Picture()
+                pic.type = 3 
+                pic.mime = mime
+                pic.desc = 'Cover'
+                with open(cover_path, 'rb') as f:
+                    pic.data = f.read()
+                
+                pic_data_base64 = base64.b64encode(pic.write()).decode('ascii')
+                audio.tags['METADATA_BLOCK_PICTURE'] = [pic_data_base64]
 
         audio.save()
-        print(f"  Successfully tagged.")
         return True
     except Exception as e:
-        print(f"  Error tagging file '{audio_filepath}': {e}")
+        print(f"   Error tagging {os.path.basename(audio_path)}: {e}")
         return False
 
 if __name__ == "__main__":
-    if not MUTAGEN_AVAILABLE:
+    if not MUTAGEN_AVAILABLE: exit()
+
+    print(f"--- Starting Precise Opus Tagging ---")
+    
+    audio_files = sorted(glob.glob(os.path.join(AUDIO_DIR, "ch_*.opus")))
+
+    if not audio_files:
+        print(f"No files found in {AUDIO_DIR}")
         exit()
 
-    print(f"--- Starting Opus Audiobook Tagger ---")
-    print(f"Audio Directory (Opus files): {os.path.abspath(AUDIO_DIR)}")
-    print(f"Text Directory (for titles): {os.path.abspath(TEXT_DIR)}")
-    print(f"Series Name to be applied: '{WEB_NOVEL_SERIES_NAME}'")
-
-    if DEFAULT_COVER_ART_PATH and os.path.exists(DEFAULT_COVER_ART_PATH):
-        print(f"Default Cover Art File: {os.path.abspath(DEFAULT_COVER_ART_PATH)}")
-    elif DEFAULT_COVER_ART_PATH:
-        print(f"Warning: Default cover art file specified but not found: {DEFAULT_COVER_ART_PATH}")
-
-    if not os.path.isdir(AUDIO_DIR): print(f"Error: Audio directory '{AUDIO_DIR}' not found."); exit()
-    if not os.path.isdir(TEXT_DIR): print(f"Error: Text directory '{TEXT_DIR}' not found."); exit()
-
-    audio_files = glob.glob(os.path.join(AUDIO_DIR, FILENAME_PATTERN))
-    if not audio_files: print(f"No audio files matching '{FILENAME_PATTERN}' found in '{AUDIO_DIR}'."); exit()
-
-    audio_files_sorted = sorted(audio_files, key=lambda x: get_track_number(os.path.basename(x)) or float('inf'))
-    total_tracks_overall = len(audio_files_sorted)
-    print(f"\nFound {total_tracks_overall} audio files to process.")
-    
     success_count = 0
-    fail_count = 0
+    for path in audio_files:
+        filename = os.path.basename(path)
+        track_num = get_track_number(filename)
+        
+        if track_num is None: continue
 
-    for idx, audio_path in enumerate(audio_files_sorted):
-        base_name_audio = os.path.splitext(os.path.basename(audio_path))[0]
-        text_path = os.path.join(TEXT_DIR, f"{base_name_audio}.txt")
-        track_num_overall = get_track_number(os.path.basename(audio_path))
+        # 1. Try to get the formatted title directly from the .txt file first
+        txt_path = os.path.join(TEXT_DIR, f"ch_{track_num:04d}.txt")
+        title = get_full_title_from_file(txt_path)
+        
+        # 2. Fallback to a generic string if the file read fails
+        if not title:
+            title = f"Chapter {track_num}"
 
-        if track_num_overall is None:
-            print(f"\nSkipping {os.path.basename(audio_path)} - could not determine track number.")
-            fail_count += 1
-            continue
-
-        album_title_for_tag = f"{BASE_ALBUM_TITLE}"
-        disc_number_for_tag = "1"
-        total_discs_for_tag = TOTAL_DISCS_OVERALL
-        cover_art_path_for_tag = DEFAULT_COVER_ART_PATH
-        current_volume_details = None
-
-        if VOLUME_CONFIG:
-            for vol_info_entry in VOLUME_CONFIG:
-                if vol_info_entry["start_ch"] <= track_num_overall <= vol_info_entry["end_ch"]:
-                    current_volume_details = vol_info_entry
-                    break
-            
-            if current_volume_details:
-                album_title_for_tag = f"{BASE_ALBUM_TITLE}, {current_volume_details['name_suffix']}" # This now includes the arc name
-                disc_number_for_tag = str(current_volume_details['disc_num'])
-                if 'cover_art_file' in current_volume_details and current_volume_details['cover_art_file']:
-                    cover_art_path_for_tag = current_volume_details['cover_art_file']
-            else:
-                print(f"  Warning: Track {track_num_overall} (file: {os.path.basename(audio_path)}) not in any VOLUME_CONFIG range.")
-        else:
-            print(f"  Info: VOLUME_CONFIG is not defined. Using single volume scheme for track {track_num_overall}.")
-
-        track_num_for_tag = track_num_overall
-
-        if tag_audio_file(audio_path, text_path, track_num_for_tag, total_tracks_overall,
-                          album_title_for_tag,
-                          disc_number_for_tag,
-                          total_discs_for_tag,
-                          WEB_NOVEL_SERIES_NAME,
-                          cover_art_path_for_tag):
+        print(f"Tagging: {filename} -> {title}")
+        if tag_audio_file(path, track_num, title, DEFAULT_COVER_ART_PATH):
             success_count += 1
-        else:
-            fail_count += 1
 
-    print(f"\n--- Tagging Complete ---")
-    print(f"Successfully tagged: {success_count} files.")
-    print(f"Failed/Skipped   : {fail_count} files.")
+    print(f"\nSuccessfully tagged {success_count} files with full titles.")

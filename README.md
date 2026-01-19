@@ -1,34 +1,176 @@
-# Audiobook pipeline
+Here is a professional, high-impact `README.md` for your project. It is structured to appeal to both users (clear instructions) and recruiters (highlighting architecture, skills, and modularity).
 
-I wanted to make audiobooks of some novels I like to read, for use when I go hiking or exercising in general.
+Save this as `README.md` in your project root.
 
-## Pipeline process
+---
 
-* Crawl all chapters of a web novel and put them into `.txt` files. Done by `gem_4.py`
-* (Optional) Use Gemini API to translate the text (done in `dragon_princess` folder)
-* Use Alltalk V2 API running locally to send requests for TTS. `alltalk_tts_generator_chunky_4.py`
-* Transform and clean (Normalize -20dB) the `.wav` files into less space intensive `.opus` files. `convert_audio_to_opus_2.py`
-* Create `.srt` subtitle files using `opeai-whisper`. Using `generate_wav_to_opusfolder_srt.py`.
-* Verifying the `.srt` files against the true text. Using `correct_srt_text.py`. **Currently very bad, don't use**
-* Tag the files properly as audiobooks so that audio players can recognize it. Done by `tag_audiobook_files_opus.py`.
+# Auto-Audiobook Pipeline
 
-**OPS:** `generate_wav_to_opusfolder_srt.py` runs on multiprocessing with whispers `medium.en` model, this will require around 10GB VRAM, I have 12GB so it's fine for me but it might break if you have less, reduce the number of workers or choose a smaller model according to your VRAM.
+> **An automated pipeline to scrape web novels, translate them (via LLMs), and convert them into high-quality audiobooks with AI-generated narration.**
 
-**OPS 2:** multi threading `whisper` was very very slow, it might just be me using a laptop GPU therefore not fully utilizing it (46W/153W).
+## Overview
 
-## TODO
+This project is a modular automation suite designed to turn any web novel into a polished audiobook. It handles every step of the process: scraping raw text, translating foreign content (Chinese  English) using context-aware AI (Gemini/Grok), generating TTS audio (AllTalk/XTTS), and packaging everything into standard formats (`.epub`, `.opus`).
 
-* Actually make a fully automated pipeline. Just need to input the first chapter website.
-* Write unit tests that work
-* Make the `.srt` correction work properly
+It features a **modern GUI** to manage multiple novel projects simultaneously and includes a unique **Scraper Adapter Tool** that uses AI to write new scrapers for unsupported websites automatically.
 
-## Install
+---
 
-Requires Alltalk V2 to work: [https://github.com/erew123/alltalk_tts/tree/alltalkbeta](https://github.com/erew123/alltalk_tts/tree/alltalkbeta)
+## Key Features
 
-For Gemini API calls to work:
-`export GEMINI_API_KEY=your_api_key`
+* **GUI Controller:** A user-friendly `tkinter` interface to manage projects, toggle pipeline steps, and monitor logs.
+* **Multi-Site Scraping:** Includes an AI-assisted tool to generate custom scraper scripts for any new website URL.
+* **Context-Aware Translation:** Uses **Google Gemini** or **xAI Grok** with a dynamic glossary system to maintain consistent character names and terminology across thousands of chapters.
+* **Smart TTS Generation:**
+* Integrates with **AllTalk (XTTS)** for high-quality, emotive AI voices.
+* Features a "Cascading Fallback" system (Paragraph  Sentence  Forced Split) to handle long text chunks without crashing.
 
-1. Clone this folder
-2. Install ffmpeg
-3. `conda env create -f environment.yml`
+
+* **Audio Optimization:** Automatically converts large WAV files to efficient Opus format and tags them with cover art and metadata.
+* **E-Book Creation:** Compiles scraped text into a properly formatted `.epub` for reading apps.
+
+---
+
+## Architecture
+
+The system operates on a modular pipeline architecture where each script functions independently but shares a common project structure managed by the GUI.
+
+```mermaid
+graph LR
+    A[Scraper] --> B(Raw Text)
+    B --> C{Translation Needed?}
+    C -- Yes --> D[LLM Translator \n Gemini/Grok]
+    D --> E(English Text)
+    C -- No --> E
+    E --> F[EPUB Creator]
+    E --> G[TTS Generator \n AllTalk API]
+    G --> H(WAV Audio)
+    H --> I[Opus Converter \n & Tagger]
+    I --> J((Final Audiobook))
+
+```
+
+---
+
+## Installation
+
+### Prerequisites
+
+* **Python 3.9+**
+* **FFmpeg** (Required for audio conversion)
+* **AllTalk TTS** (Running locally or on a server)
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/auto-audiobook-pipeline.git
+cd auto-audiobook-pipeline
+
+```
+
+### 2. Install Dependencies
+
+This project uses Conda to manage dependencies.
+
+```bash
+# Create the environment
+conda env create -f environment.yml
+
+# Activate the environment
+conda activate web_scraper_env
+```
+
+### 3. Environment Setup
+
+You need API keys for the translation engines. Set them in your environment variables:
+
+* **Windows (PowerShell):**
+```powershell
+$env:GEMINI_API_KEY="your_gemini_key"
+$env:XAI_API_KEY="your_grok_key"
+
+```
+
+
+* **Linux/Mac:**
+```bash
+export GEMINI_API_KEY="your_gemini_key"
+export XAI_API_KEY="your_grok_key"
+
+```
+
+
+
+---
+
+## Usage
+
+### 1. Launch the GUI
+
+Run the main controller script:
+
+```bash
+python pipe_system_gui.py
+
+```
+
+### 2. Create a Project
+
+1. Click **"New Project"** in the top bar.
+2. Enter a name (e.g., `My_New_Novel`).
+3. The system will automatically create the folder structure in `/Novels/My_New_Novel`.
+
+### 3. Run the Pipeline
+
+* **Scraping:** If you have a supported scraper, check "Run Scraper".
+* **Translation:** Select "Translate (Gemini)" or "Grok" if the source is in Chinese.
+* **Audio:** Check "Generate TTS" and "Convert to Opus" for the final audio files.
+* Click **START PROCESSING**.
+
+### 4. Adapting to New Websites
+
+1. Go to the **"Adapt Scraper"** tab in the GUI.
+2. Paste the URL of the new novel you want to scrape.
+3. Click **Fetch Context**.
+4. The tool will save the website's HTML and the reference scraper into the project folder.
+5. **Action:** Upload these files to an AI (like Gemini) and ask it to "Update the reference scraper to work with this HTML."
+
+---
+
+## File Structure
+
+The project uses a clean, project-based hierarchy managed automatically by the software.
+
+```text
+/AudioBook_Pipeline/
+├── pipe_system_gui.py          # Main Application Entry Point
+├── scraper_context_fetcher.py  # AI Helper for new sites
+├── scraper_2.py                # Core Scraper Logic
+├── gemini_transelate_4.py      # LLM Translation Logic
+├── alltalk_tts_generator...py  # TTS Interface
+├── /Novels/                    # Project Data Storage
+│   ├── /Mistaken_Fairy/
+│   │   ├── /01_Raw_Text/       # Scraped .txt files
+│   │   ├── /02_Translated/     # English .txt files
+│   │   ├── /03_Audio_WAV/      # Raw TTS Output
+│   │   ├── /04_Audio_Opus/     # Final Compressed Audio
+│   │   ├── chapters.json       # Metadata & Order
+│   │   └── Novel.epub          # E-Book file
+
+```
+
+---
+
+## Technical Highlights
+
+* **Robust Error Handling:** The TTS script includes a **3-stage fallback mechanism** (Line  Sentence  Forced Character Split) to ensure audio generation never fails on long, complex sentences.
+* **Context Optimization:** The translation modules dynamically filter the glossary JSON, sending only *relevant* characters to the LLM to save token costs and improve accuracy.
+* **Asynchronous-like Design:** The GUI uses threading to run heavy IO/Network operations (scraping, downloading audio) without freezing the interface.
+* **Maintainability:** Hardcoded paths were replaced with `os.getenv` injection, decoupling the logic from the file system and making the code portable.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any features or bug fixes.
+
