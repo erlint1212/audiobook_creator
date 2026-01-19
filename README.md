@@ -1,9 +1,3 @@
-Here is a professional, high-impact `README.md` for your project. It is structured to appeal to both users (clear instructions) and recruiters (highlighting architecture, skills, and modularity).
-
-Save this as `README.md` in your project root.
-
----
-
 # Auto-Audiobook Pipeline
 
 > **An automated pipeline to scrape web novels, translate them (via LLMs), and convert them into high-quality audiobooks with AI-generated narration.**
