@@ -1,13 +1,17 @@
 import tkinter as tk
-from tkinter import ttk, scrolledtext, messagebox, simpledialog
+from tkinter import ttk, scrolledtext, messagebox, simpledialog, filedialog
 import subprocess
 import threading
 import sys
 import os
 import shutil
+import json
+import glob
 
 # --- CONFIGURATION ---
 NOVELS_ROOT_DIR = "Novels"
+CONFIG_FILE = "alltalk_path_config.json"
+
 try:
     from constants import GEMINI_MODEL_NAME
 except ImportError:
@@ -28,7 +32,7 @@ class PipelineGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Audiobook Pipe System")
-        self.root.geometry("850x850")
+        self.root.geometry("900x900")
         
         if not os.path.exists(NOVELS_ROOT_DIR):
             os.makedirs(NOVELS_ROOT_DIR)
@@ -36,8 +40,13 @@ class PipelineGUI:
         self.current_project = tk.StringVar()
         self.index_url = tk.StringVar() # For Metadata
         
-        # Source Selection (New)
+        # Source Selection
         self.input_source_var = tk.StringVar(value="Raw") 
+
+        # AllTalk Config Vars
+        self.alltalk_path_var = tk.StringVar()
+        self.selected_voice_var = tk.StringVar()
+        self.selected_rvc_var = tk.StringVar()
 
         self.pipeline_vars = {
             "scraper": tk.BooleanVar(value=True),
@@ -56,8 +65,15 @@ class PipelineGUI:
         self.current_process = None
         self.stop_requested = False
 
+        # Load Config
+        self.load_config()
+
         self.create_ui()
         self.refresh_project_list()
+
+        # Initial Scan
+        if self.alltalk_path_var.get():
+            self.scan_alltalk_content()
 
     def create_ui(self):
         # --- TOP BAR ---
@@ -87,7 +103,32 @@ class PipelineGUI:
 
         # --- TAB 1: PIPELINE ---
         
-        # 1. Source Selection Frame (NEW)
+        # 1. AllTalk Integration Section (New)
+        at_frame = ttk.LabelFrame(self.tab_run, text="External AllTalk TTS Setup")
+        at_frame.pack(fill="x", padx=10, pady=5)
+
+        # Path Selection
+        path_frame = ttk.Frame(at_frame)
+        path_frame.pack(fill="x", padx=5, pady=5)
+        
+        ttk.Label(path_frame, text="AllTalk Root Dir:").pack(side="left")
+        ttk.Entry(path_frame, textvariable=self.alltalk_path_var).pack(side="left", padx=5, fill="x", expand=True)
+        ttk.Button(path_frame, text="Browse", command=self.browse_alltalk).pack(side="left")
+        ttk.Button(path_frame, text="Scan Voices", command=self.scan_alltalk_content).pack(side="left", padx=5)
+
+        # Dropdowns
+        opts_frame = ttk.Frame(at_frame)
+        opts_frame.pack(fill="x", padx=5, pady=5)
+
+        ttk.Label(opts_frame, text="XTTS Voice:").pack(side="left")
+        self.voice_combo = ttk.Combobox(opts_frame, textvariable=self.selected_voice_var, state="readonly", width=30)
+        self.voice_combo.pack(side="left", padx=5)
+
+        ttk.Label(opts_frame, text="RVC Model:").pack(side="left", padx=(15, 0))
+        self.rvc_combo = ttk.Combobox(opts_frame, textvariable=self.selected_rvc_var, state="readonly", width=35)
+        self.rvc_combo.pack(side="left", padx=5)
+
+        # 2. Source Selection Frame
         source_frame = ttk.LabelFrame(self.tab_run, text="Source Content for TTS & EPUB")
         source_frame.pack(fill="x", padx=10, pady=5)
         
@@ -97,7 +138,7 @@ class PipelineGUI:
         rb2 = ttk.Radiobutton(source_frame, text="Translated Text (02_Translated)", variable=self.input_source_var, value="Translated")
         rb2.pack(side="left", padx=20, pady=5)
 
-        # 2. Steps Selection
+        # 3. Steps Selection
         chk_frame = ttk.LabelFrame(self.tab_run, text="Select Steps")
         chk_frame.pack(fill="x", padx=10, pady=5)
 
@@ -121,7 +162,7 @@ class PipelineGUI:
             else:
                 ttk.Checkbutton(chk_frame, text=text, variable=self.pipeline_vars[key]).grid(row=row, column=col, sticky="w", padx=10, pady=2)
 
-        # 3. Control Buttons
+        # 4. Control Buttons
         btn_frame = ttk.Frame(self.tab_run)
         btn_frame.pack(pady=10, fill="x", padx=50)
         self.btn_run = ttk.Button(btn_frame, text="START PROCESSING", command=self.start_pipeline_thread)
@@ -129,7 +170,7 @@ class PipelineGUI:
         self.btn_stop = ttk.Button(btn_frame, text="STOP / TERMINATE", command=self.stop_process, state="disabled")
         self.btn_stop.pack(side="right", fill="x", expand=True, padx=5)
 
-        # 4. Logs
+        # 5. Logs
         log_label_frame = ttk.LabelFrame(self.tab_run, text="Process Logs")
         log_label_frame.pack(fill="both", expand=True, padx=10, pady=5)
         
@@ -156,7 +197,88 @@ class PipelineGUI:
         self.adapt_status = ttk.Label(self.tab_adapt, text="Ready", foreground="gray")
         self.adapt_status.pack()
 
-    # --- LOGIC ---
+    # --- ALLTALK LOGIC ---
+    def load_config(self):
+        try:
+            if os.path.exists(CONFIG_FILE):
+                with open(CONFIG_FILE, "r") as f:
+                    data = json.load(f)
+                    self.alltalk_path_var.set(data.get("alltalk_path", ""))
+        except Exception as e:
+            print(f"Config Error: {e}")
+
+    def save_config(self):
+        try:
+            with open(CONFIG_FILE, "w") as f:
+                json.dump({"alltalk_path": self.alltalk_path_var.get()}, f)
+        except Exception as e:
+            print(f"Config Save Error: {e}")
+
+    def browse_alltalk(self):
+        d = filedialog.askdirectory(title="Select AllTalk Root Directory")
+        if d:
+            self.alltalk_path_var.set(d)
+            self.save_config()
+            self.scan_alltalk_content()
+
+    def scan_alltalk_content(self):
+        base = self.alltalk_path_var.get()
+        if not base or not os.path.exists(base):
+            return
+
+        # 1. Scan Voices (look in /voices)
+        voices_dir = os.path.join(base, "voices")
+        if os.path.exists(voices_dir):
+            wavs = glob.glob(os.path.join(voices_dir, "*.wav"))
+            # Just store the filename!
+            voice_names = [os.path.basename(w) for w in wavs]
+            self.voice_combo['values'] = voice_names
+            if voice_names: 
+                self.voice_combo.current(0)
+            else:
+                self.voice_combo.set("No .wav files found")
+        else:
+            self.voice_combo.set("Voices dir not found")
+
+        # 2. Scan RVC Models (Look for .pth files inside subdirectories)
+        rvc_search_roots = [
+            os.path.join(base, "models", "rvc_voices"), 
+            os.path.join(base, "rvc_models"),
+            os.path.join(base, "models", "rvc")
+        ]
+        
+        rvc_models_found = ["None"]
+        
+        valid_root = None
+        for p in rvc_search_roots:
+            if os.path.exists(p):
+                valid_root = p
+                break
+        
+        if valid_root:
+            try:
+                subdirs = [d for d in os.listdir(valid_root) if os.path.isdir(os.path.join(valid_root, d))]
+                
+                for subdir in subdirs:
+                    subdir_path = os.path.join(valid_root, subdir)
+                    pth_files = glob.glob(os.path.join(subdir_path, "*.pth"))
+                    
+                    for pth in pth_files:
+                        filename = os.path.basename(pth)
+                        # We construct the relative path "folder_name/file_name.pth"
+                        rel_path = os.path.join(subdir, filename)
+                        rvc_models_found.append(rel_path)
+                        
+            except Exception as e:
+                print(f"Error scanning RVC folders: {e}")
+        
+        self.rvc_combo['values'] = rvc_models_found
+        if len(rvc_models_found) > 1:
+             self.rvc_combo.current(1) 
+        else:
+             self.rvc_combo.current(0)
+
+    # --- GENERAL LOGIC ---
     def prevent_typing(self, event):
         if (event.state & 4) and event.keysym.lower() in ['c', 'a']: return None
         if event.keysym in ["Up", "Down", "Left", "Right", "Home", "End", "Prior", "Next"]: return None
@@ -213,7 +335,6 @@ class PipelineGUI:
         dir_wav = os.path.join(base, "03_Audio_WAV")
         dir_opus = os.path.join(base, "04_Audio_Opus")
         
-        # --- NEW LOGIC: Explicit Source Selection ---
         if self.input_source_var.get() == "Translated":
             tts_input = dir_trans
             self.log(f"[Config] Using TRANSLATED text as source.")
@@ -254,10 +375,6 @@ class PipelineGUI:
                 script_path = custom_path
                 self.log(f"--- Using Custom Chapter Scraper ---")
 
-        if script_key == "Metadata" and proj:
-             # This is usually run via separate thread, but handling just in case
-             pass
-
         if script_key.startswith("Translate"):
             script_path = SCRIPTS.get(self.trans_engine.get())
 
@@ -268,9 +385,28 @@ class PipelineGUI:
         self.log(f"--- Running {os.path.basename(script_path)} ---")
         env = self.get_env_for_project()
 
+        cmd = [sys.executable, script_path]
+
+        # --- Inject Arguments for TTS Generator ---
+        if script_key == "TTS Generator":
+            # [FIX] Force basename here to prevent path leakage
+            full_voice_val = self.selected_voice_var.get()
+            voice_filename = os.path.basename(full_voice_val) 
+            rvc = self.selected_rvc_var.get()
+            
+            if not voice_filename or "No" in voice_filename:
+                self.log("Error: Invalid voice selection.")
+                return False
+            
+            cmd.extend(["--voice_filename", voice_filename])
+            
+            if rvc and rvc != "None":
+                cmd.extend(["--rvc_model", rvc])
+        # ------------------------------------------
+
         try:
             self.current_process = subprocess.Popen(
-                [sys.executable, script_path],
+                cmd,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 env=env,
@@ -401,3 +537,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = PipelineGUI(root)
     root.mainloop()
+
