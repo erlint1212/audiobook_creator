@@ -1,45 +1,32 @@
 import os
 import requests
-import shutil
 import sys
 import re
 from urllib.parse import urlparse
-import google.generativeai as genai
-from constants import GEMINI_MODEL_NAME
+try:
+    import google.generativeai as genai
+    from constants import GEMINI_MODEL_NAME
+except ImportError:
+    GEMINI_MODEL_NAME = "gemini-3-flash-preview"
 
 def extract_code_block(response_text):
-    """
-    Extracts the Python code from Gemini's Markdown response.
-    """
     pattern = r"```python\s*(.*?)\s*```"
     match = re.search(pattern, response_text, re.DOTALL)
-    if match:
-        return match.group(1)
-    # Fallback: if no code blocks, assume the whole text is code (rare)
+    if match: return match.group(1)
     return response_text
 
 def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="scraper_2.py"):
-    """
-    Fetches HTML context, sends it + reference script to Gemini, 
-    and saves the generated adapter script.
-    """
-    # 1. Setup Directories
     context_dir = os.path.join(project_root_dir, "Scraper_Context")
-    if not os.path.exists(context_dir):
-        os.makedirs(context_dir)
+    if not os.path.exists(context_dir): os.makedirs(context_dir)
 
     print(f"--- 1. Fetching HTML for: {target_url} ---")
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-    }
+    headers = {'User-Agent': 'Mozilla/5.0'}
     
     html_content = ""
     try:
         response = requests.get(target_url, headers=headers, timeout=15)
         response.raise_for_status()
         html_content = response.text
-        
-        # Save HTML for debugging/reference
         with open(os.path.join(context_dir, "site_structure.html"), "w", encoding="utf-8") as f:
             f.write(html_content)
     except Exception as e:
@@ -56,7 +43,6 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         return
 
     print(f"--- 3. Sending to Gemini ({GEMINI_MODEL_NAME}) ---")
-    
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         print("Error: GEMINI_API_KEY environment variable not set.")
@@ -71,41 +57,45 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
     I need you to write a NEW Python script to scrape a specific web novel.
     
     --- REFERENCE SCRAPER (scraper_2.py) ---
-    The following code is a working example of how I want the output formatted. 
-    It saves chapters to specific directories and handles logic like 'next chapter' links.
-    Reuse the logic for file saving, directory creation (os.getenv calls), and the general loop structure.
+    The following code is a working example. Reuse the file saving, os.getenv logic, and loop structure.
     
     {reference_code}
     
     --- TARGET WEBSITE HTML ---
-    Here is the HTML source code of the first chapter of the novel I want to scrape.
+    Here is the HTML source code of the first chapter. 
     Use BeautifulSoup to parse this structure. 
-    Find the Title, the Main Content, and the 'Next Chapter' link specific to this HTML.
     
-    {html_content[:50000]}  # Truncated to avoid token limits if HTML is massive
+    {html_content[:55000]}
     
-    --- INSTRUCTIONS ---
-    1. Output ONLY the complete, runnable Python code.
-    2. Adapt the BeautifulSoup selectors to match the TARGET WEBSITE HTML provided above.
-    3. Ensure the script uses `os.getenv('PROJECT_RAW_TEXT_DIR')` for output, just like the reference.
-    4. Handle the 'Next Chapter' logic based on the HTML provided.
+    --- CRITICAL INSTRUCTIONS ---
+    1. **CLEAN CONTENT:** The text saved to the .txt file MUST ONLY contain the Chapter Header and the Story Body.
+       - **Remove** "Previous/Next" text, "Read at..." watermarks, and social media buttons from the body.
+    
+    2. **DEDUPLICATION:** - Check if the first line of the body content matches the Chapter Title.
+       - **If it matches, remove it** from the body content to avoid duplication in the output file.
+    
+    3. **STRICT FORMAT:** `f.write(f"{{full_header}}\\n\\n{{cleaned_body}}")`
+    
+    4. **NEXT CHAPTER LOGIC (Crucial):**
+       - **Priority 1:** Look for `<a href="..." rel="next">`. This is the most reliable method.
+       - **Priority 2:** Look for an `<a>` tag inside a "nav" or "pager" div that contains the text "Next".
+       - Ensure the loop breaks cleanly if no next link is found.
+
+    5. Output ONLY the complete, runnable Python code.
     """
 
     try:
         model = genai.GenerativeModel(GEMINI_MODEL_NAME)
-        # Using generate_content method provided by the library
         response = model.generate_content(prompt)
         
         generated_code = extract_code_block(response.text)
         
-        # Save the new scraper
         output_scraper_path = os.path.join(project_root_dir, "custom_scraper.py")
         with open(output_scraper_path, "w", encoding="utf-8") as f:
             f.write(generated_code)
             
         print(f"--- SUCCESS! ---")
         print(f"New scraper saved to: {output_scraper_path}")
-        print(f"To use it, select this project in the GUI and run 'Run Scraper'.")
         
     except Exception as e:
         print(f"Gemini API Error: {e}")

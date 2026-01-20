@@ -1,11 +1,17 @@
 import os
 import glob
+import sys
 from pydub import AudioSegment
 
+# --- 1. WINDOWS UNICODE FIX ---
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding='utf-8')
+
 # --- Configuration ---
-# Matches your latest project folder naming convention
-WAV_AUDIO_DIR = "generated_audio_MistakenFairy" 
-OPUS_OUTPUT_DIR = "generated_audio_MistakenFairy_opus"
+# 1. Dynamic Inputs from GUI
+# Defaults are fallbacks for testing
+WAV_AUDIO_DIR = os.getenv("WAV_AUDIO_DIR", "generated_audio_MistakenFairy")
+OPUS_OUTPUT_DIR = os.getenv("OPUS_OUTPUT_DIR", "generated_audio_MistakenFairy_opus")
 
 # Opus Export Settings
 # 48k is excellent for speech; 32k is the sweet spot for file size vs quality.
@@ -56,20 +62,23 @@ def convert_wav_to_opus(wav_filepath, opus_filepath, bitrate="48k", apply_normal
 
 if __name__ == "__main__":
     print(f"--- Audio Processing & Opus Conversion ---")
+    print(f"Input: {WAV_AUDIO_DIR}")
+    print(f"Output: {OPUS_OUTPUT_DIR}")
     
     if not os.path.isdir(WAV_AUDIO_DIR):
         print(f"Error: Input directory '{WAV_AUDIO_DIR}' not found.")
-        exit()
+        # If run via GUI, we exit cleanly so the pipe catches the error
+        sys.exit(1)
 
     if not os.path.exists(OPUS_OUTPUT_DIR):
         os.makedirs(OPUS_OUTPUT_DIR)
 
-    # Search for files matching the ch_XXXX.wav pattern
-    wav_files = sorted(glob.glob(os.path.join(WAV_AUDIO_DIR, "ch_*.wav")))
+    # Search for files matching any WAV pattern (handling different naming conventions)
+    wav_files = sorted(glob.glob(os.path.join(WAV_AUDIO_DIR, "*.wav")))
 
     if not wav_files:
-        print(f"No WAV files found in '{WAV_AUDIO_DIR}' matching 'ch_*.wav'.")
-        exit()
+        print(f"No WAV files found in '{WAV_AUDIO_DIR}'.")
+        sys.exit(0) # Not an error, just nothing to do
 
     print(f"Found {len(wav_files)} WAV files. Normalization: {'ON' if ENABLE_NORMALIZATION else 'OFF'}")
 
@@ -98,7 +107,11 @@ if __name__ == "__main__":
         if success:
             processed += 1
             if DELETE_ORIGINAL_WAV:
-                os.remove(wav_path)
+                try:
+                    os.remove(wav_path)
+                    print(f"   Deleted original WAV.")
+                except Exception as e:
+                    print(f"   Warning: Could not delete WAV: {e}")
         else:
             failed += 1
 

@@ -5,12 +5,17 @@ import threading
 import sys
 import os
 import shutil
-from constants import GEMINI_MODEL_NAME
 
 # --- CONFIGURATION ---
 NOVELS_ROOT_DIR = "Novels"
+try:
+    from constants import GEMINI_MODEL_NAME
+except ImportError:
+    GEMINI_MODEL_NAME = "gemini-3-flash-preview"
+
 SCRIPTS = {
     "Scraper": "scraper_2.py",
+    "Metadata": "metadata_fetcher.py",
     "Translate (Gemini)": "gemini_transelate_4.py",
     "Translate (Grok)": "grok_transelate.py",
     "TTS Generator": "alltalk_tts_generator_chunky_17.py",
@@ -23,13 +28,17 @@ class PipelineGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Audiobook Pipe System")
-        self.root.geometry("750x700")
+        self.root.geometry("850x850")
         
-        # Ensure Root Novel Directory Exists
         if not os.path.exists(NOVELS_ROOT_DIR):
             os.makedirs(NOVELS_ROOT_DIR)
 
         self.current_project = tk.StringVar()
+        self.index_url = tk.StringVar() # For Metadata
+        
+        # Source Selection (New)
+        self.input_source_var = tk.StringVar(value="Raw") 
+
         self.pipeline_vars = {
             "scraper": tk.BooleanVar(value=True),
             "translate": tk.BooleanVar(value=False),
@@ -39,39 +48,62 @@ class PipelineGUI:
             "tag": tk.BooleanVar(value=True),
         }
         self.trans_engine = tk.StringVar(value="Translate (Gemini)")
-        self.new_url_var = tk.StringVar()
+        
+        # Adapt Vars
+        self.adapt_url_var = tk.StringVar()
+        self.adapt_type_var = tk.StringVar(value="Chapter Scraper")
+        
+        self.current_process = None
+        self.stop_requested = False
 
         self.create_ui()
         self.refresh_project_list()
 
     def create_ui(self):
-        # --- TOP BAR: Project Selection ---
+        # --- TOP BAR ---
         top_frame = ttk.LabelFrame(self.root, text="Project Management")
         top_frame.pack(fill="x", padx=10, pady=5)
         
-        ttk.Label(top_frame, text="Current Novel:").pack(side="left", padx=5)
-        self.project_dropdown = ttk.Combobox(top_frame, textvariable=self.current_project, state="readonly", width=30)
+        ttk.Label(top_frame, text="Project:").pack(side="left", padx=5)
+        self.project_dropdown = ttk.Combobox(top_frame, textvariable=self.current_project, state="readonly", width=25)
         self.project_dropdown.pack(side="left", padx=5)
         self.project_dropdown.bind("<<ComboboxSelected>>", self.on_project_change)
 
-        ttk.Button(top_frame, text="New Project", command=self.create_new_project).pack(side="left", padx=5)
-        ttk.Button(top_frame, text="Open Folder", command=self.open_project_folder).pack(side="left", padx=5)
+        ttk.Button(top_frame, text="New", command=self.create_new_project, width=5).pack(side="left", padx=2)
+        ttk.Button(top_frame, text="Folder", command=self.open_project_folder, width=6).pack(side="left", padx=2)
+        
+        # Metadata URL Input
+        ttk.Label(top_frame, text=" |  Index URL:").pack(side="left", padx=5)
+        ttk.Entry(top_frame, textvariable=self.index_url, width=30).pack(side="left", padx=5)
+        ttk.Button(top_frame, text="Get Meta", command=self.run_metadata_fetch).pack(side="left", padx=2)
 
         # --- TABS ---
         tabs = ttk.Notebook(self.root)
         self.tab_run = ttk.Frame(tabs)
         self.tab_adapt = ttk.Frame(tabs)
         tabs.add(self.tab_run, text="Run Pipeline")
-        tabs.add(self.tab_adapt, text="Adapt Scraper")
+        tabs.add(self.tab_adapt, text="AI Adapter")
         tabs.pack(expand=True, fill="both", padx=10, pady=5)
 
-        # --- TAB 1: RUN PIPELINE ---
+        # --- TAB 1: PIPELINE ---
+        
+        # 1. Source Selection Frame (NEW)
+        source_frame = ttk.LabelFrame(self.tab_run, text="Source Content for TTS & EPUB")
+        source_frame.pack(fill="x", padx=10, pady=5)
+        
+        rb1 = ttk.Radiobutton(source_frame, text="Original Scraped Text (01_Raw_Text)", variable=self.input_source_var, value="Raw")
+        rb1.pack(side="left", padx=20, pady=5)
+        
+        rb2 = ttk.Radiobutton(source_frame, text="Translated Text (02_Translated)", variable=self.input_source_var, value="Translated")
+        rb2.pack(side="left", padx=20, pady=5)
+
+        # 2. Steps Selection
         chk_frame = ttk.LabelFrame(self.tab_run, text="Select Steps")
-        chk_frame.pack(fill="x", padx=5, pady=5)
+        chk_frame.pack(fill="x", padx=10, pady=5)
 
         steps = [
-            ("1. Run Scraper", "scraper"),
-            ("2. Run Translation (Optional)", "translate"),
+            ("1. Scrape Chapters", "scraper"),
+            ("2. Translate (Optional)", "translate"),
             ("3. Create EPUB", "epub"),
             ("4. Generate TTS", "tts"),
             ("5. Convert to Opus", "convert"),
@@ -89,27 +121,57 @@ class PipelineGUI:
             else:
                 ttk.Checkbutton(chk_frame, text=text, variable=self.pipeline_vars[key]).grid(row=row, column=col, sticky="w", padx=10, pady=2)
 
-        self.btn_run = ttk.Button(self.tab_run, text="START PROCESSING", command=self.start_pipeline_thread)
-        self.btn_run.pack(pady=10, fill="x", padx=50)
+        # 3. Control Buttons
+        btn_frame = ttk.Frame(self.tab_run)
+        btn_frame.pack(pady=10, fill="x", padx=50)
+        self.btn_run = ttk.Button(btn_frame, text="START PROCESSING", command=self.start_pipeline_thread)
+        self.btn_run.pack(side="left", fill="x", expand=True, padx=5)
+        self.btn_stop = ttk.Button(btn_frame, text="STOP / TERMINATE", command=self.stop_process, state="disabled")
+        self.btn_stop.pack(side="right", fill="x", expand=True, padx=5)
 
-        # Logs
-        self.log_area = scrolledtext.ScrolledText(self.tab_run, height=15, state='disabled', font=("Consolas", 9))
+        # 4. Logs
+        log_label_frame = ttk.LabelFrame(self.tab_run, text="Process Logs")
+        log_label_frame.pack(fill="both", expand=True, padx=10, pady=5)
+        
+        self.log_area = scrolledtext.ScrolledText(log_label_frame, height=15, state='normal', font=("Consolas", 9))
         self.log_area.pack(fill="both", expand=True, padx=5, pady=5)
+        self.log_area.bind("<Key>", self.prevent_typing) 
 
-        # --- TAB 2: ADAPT SCRAPER ---
-        ttk.Label(self.tab_adapt, text="Adapt scraper for a new website").pack(pady=10)
-        ttk.Label(self.tab_adapt, text="Target URL:").pack()
-        ttk.Entry(self.tab_adapt, textvariable=self.new_url_var, width=50).pack(pady=5)
-        ttk.Button(self.tab_adapt, text="Fetch Context & Create Instructions", command=self.run_adapt_tool).pack(pady=10)
-        self.adapt_status = ttk.Label(self.tab_adapt, text="...", foreground="gray")
+        ttk.Button(log_label_frame, text="Copy All Logs", command=self.copy_all_logs).pack(pady=2)
+
+        # --- TAB 2: ADAPTER ---
+        lbl = ttk.Label(self.tab_adapt, text="Use AI to write custom scripts for new websites.", font=("Arial", 10, "bold"))
+        lbl.pack(pady=10)
+        
+        adapt_frame = ttk.Frame(self.tab_adapt)
+        adapt_frame.pack(pady=5)
+        
+        ttk.Label(adapt_frame, text="Target URL:").grid(row=0, column=0, padx=5, sticky="e")
+        ttk.Entry(adapt_frame, textvariable=self.adapt_url_var, width=50).grid(row=0, column=1, padx=5)
+        
+        ttk.Label(adapt_frame, text="Generate For:").grid(row=1, column=0, padx=5, sticky="e")
+        ttk.Combobox(adapt_frame, textvariable=self.adapt_type_var, values=["Chapter Scraper", "Metadata Scraper"], state="readonly").grid(row=1, column=1, padx=5, sticky="w")
+        
+        ttk.Button(self.tab_adapt, text="Ask Gemini to Write Script", command=self.run_adapt_tool).pack(pady=15)
+        self.adapt_status = ttk.Label(self.tab_adapt, text="Ready", foreground="gray")
         self.adapt_status.pack()
 
     # --- LOGIC ---
+    def prevent_typing(self, event):
+        if (event.state & 4) and event.keysym.lower() in ['c', 'a']: return None
+        if event.keysym in ["Up", "Down", "Left", "Right", "Home", "End", "Prior", "Next"]: return None
+        return "break"
+
     def log(self, msg):
-        self.log_area.configure(state='normal')
+        print(msg)
         self.log_area.insert(tk.END, msg + "\n")
         self.log_area.see(tk.END)
-        self.log_area.configure(state='disabled')
+
+    def copy_all_logs(self):
+        content = self.log_area.get("1.0", tk.END)
+        self.root.clipboard_clear()
+        self.root.clipboard_append(content)
+        messagebox.showinfo("Copied", "Logs copied to clipboard.")
 
     def refresh_project_list(self):
         projects = [d for d in os.listdir(NOVELS_ROOT_DIR) if os.path.isdir(os.path.join(NOVELS_ROOT_DIR, d))]
@@ -118,12 +180,11 @@ class PipelineGUI:
             self.current_project.set(projects[0])
 
     def create_new_project(self):
-        name = simpledialog.askstring("New Project", "Enter Novel Name (No special chars):")
+        name = simpledialog.askstring("New Project", "Enter Novel Name:")
         if name:
             safe_name = "".join([c for c in name if c.isalnum() or c in (' ', '_')]).strip().replace(" ", "_")
             path = os.path.join(NOVELS_ROOT_DIR, safe_name)
             if not os.path.exists(path):
-                # Create standard folders
                 os.makedirs(os.path.join(path, "01_Raw_Text"))
                 os.makedirs(os.path.join(path, "02_Translated"))
                 os.makedirs(os.path.join(path, "03_Audio_WAV"))
@@ -132,10 +193,10 @@ class PipelineGUI:
                 self.refresh_project_list()
                 self.current_project.set(safe_name)
             else:
-                messagebox.showerror("Error", "Project already exists.")
+                messagebox.showerror("Error", "Project exists.")
 
     def on_project_change(self, event):
-        self.log(f"Selected Project: {self.current_project.get()}")
+        self.log(f"Selected: {self.current_project.get()}")
 
     def open_project_folder(self):
         proj = self.current_project.get()
@@ -144,76 +205,71 @@ class PipelineGUI:
         os.startfile(path) if os.name == 'nt' else subprocess.call(['xdg-open', path])
 
     def get_env_for_project(self):
-        """Sets environment variables so child scripts know where to read/write."""
         proj = self.current_project.get()
         base = os.path.abspath(os.path.join(NOVELS_ROOT_DIR, proj))
         
-        # Define paths
         dir_raw = os.path.join(base, "01_Raw_Text")
         dir_trans = os.path.join(base, "02_Translated")
         dir_wav = os.path.join(base, "03_Audio_WAV")
         dir_opus = os.path.join(base, "04_Audio_Opus")
         
-        # Decide Input for TTS: Translated if exists/checked, else Raw
-        tts_input = dir_trans if self.pipeline_vars["translate"].get() else dir_raw
+        # --- NEW LOGIC: Explicit Source Selection ---
+        if self.input_source_var.get() == "Translated":
+            tts_input = dir_trans
+            self.log(f"[Config] Using TRANSLATED text as source.")
+        else:
+            tts_input = dir_raw
+            self.log(f"[Config] Using RAW text as source.")
 
         env = os.environ.copy()
-        
-        # -- MAP VARIABLES FOR YOUR SCRIPTS --
-        # Scraper Output
         env["PROJECT_RAW_TEXT_DIR"] = dir_raw
-        
-        # Translator Input/Output
         env["PROJECT_TRANS_INPUT_DIR"] = dir_raw
         env["PROJECT_TRANS_OUTPUT_DIR"] = dir_trans
-        
-        # TTS Input/Output
         env["PROJECT_INPUT_TEXT_DIR"] = tts_input
         env["PROJECT_AUDIO_WAV_DIR"] = dir_wav
-        
-        # Converter Input/Output
         env["WAV_AUDIO_DIR"] = dir_wav
         env["OPUS_OUTPUT_DIR"] = dir_opus
-        
-        # EPUB Config
         env["EPUB_INPUT_DIR"] = tts_input
         env["EPUB_OUTPUT_FILE"] = os.path.join(base, f"{proj}.epub")
         env["EPUB_TITLE"] = proj.replace("_", " ")
-        
         return env
 
-    def run_script(self, script_key):
-        # 1. Determine which script to run
-        script_path = SCRIPTS.get(script_key)
-        
-        # SPECIAL HANDLING: Logic for Scraper
-        # If we are running the Scraper, check if the current project has a custom one.
-        if script_key == "Scraper":
-            proj = self.current_project.get()
-            if proj:
-                # Look inside /Novels/ProjectName/custom_scraper.py
-                custom_scraper_path = os.path.join(NOVELS_ROOT_DIR, proj, "custom_scraper.py")
-                if os.path.exists(custom_scraper_path):
-                    script_path = custom_scraper_path
-                    self.log(f"--- DETECTED CUSTOM SCRAPER: {script_path} ---")
-                else:
-                    self.log(f"--- Using Default Scraper (No custom script found) ---")
+    def stop_process(self):
+        if self.current_process and self.current_process.poll() is None:
+            self.stop_requested = True
+            self.log("\n!!! STOPPING PROCESS... !!!")
+            try:
+                self.current_process.terminate()
+            except: pass
 
-        # Handle Translation Engine selection
+    def run_script(self, script_key):
+        if self.stop_requested: return False
+        
+        script_path = SCRIPTS.get(script_key)
+        proj = self.current_project.get()
+
+        if script_key == "Scraper" and proj:
+            custom_path = os.path.join(NOVELS_ROOT_DIR, proj, "custom_scraper.py")
+            if os.path.exists(custom_path):
+                script_path = custom_path
+                self.log(f"--- Using Custom Chapter Scraper ---")
+
+        if script_key == "Metadata" and proj:
+             # This is usually run via separate thread, but handling just in case
+             pass
+
         if script_key.startswith("Translate"):
             script_path = SCRIPTS.get(self.trans_engine.get())
 
-        # 2. Validation
         if not script_path or not os.path.exists(script_path):
-            self.log(f"ERROR: Script not found: {script_path}")
+            self.log(f"Error: {script_path} not found.")
             return False
 
-        self.log(f"--- Launching {os.path.basename(script_path)} ---")
+        self.log(f"--- Running {os.path.basename(script_path)} ---")
         env = self.get_env_for_project()
 
-        # 3. Execution
         try:
-            process = subprocess.Popen(
+            self.current_process = subprocess.Popen(
                 [sys.executable, script_path],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
@@ -222,31 +278,36 @@ class PipelineGUI:
                 bufsize=1,
                 universal_newlines=True
             )
-            for line in process.stdout:
+            for line in self.current_process.stdout:
+                if self.stop_requested: 
+                    self.current_process.terminate()
+                    break
                 self.log(line.strip())
-            process.wait()
             
-            if process.returncode == 0:
-                self.log(f"--- {script_key} Completed Successfully ---")
-                return True
-            else:
-                self.log(f"--- {script_key} Failed (Code {process.returncode}) ---")
+            self.current_process.wait()
+            if self.stop_requested: 
+                self.log("--- STOPPED ---")
                 return False
+            return self.current_process.returncode == 0
         except Exception as e:
-            self.log(f"Execution Error: {e}")
+            self.log(f"Error: {e}")
             return False
+        finally:
+            self.current_process = None
 
     def start_pipeline_thread(self):
         if not self.current_project.get():
-            messagebox.showwarning("Warning", "Select a project first.")
+            messagebox.showwarning("Warning", "Select a project.")
             return
+        self.stop_requested = False
         self.btn_run.config(state="disabled")
+        self.btn_stop.config(state="normal")
         threading.Thread(target=self.run_pipeline).start()
 
     def run_pipeline(self):
         try:
             if self.pipeline_vars["scraper"].get():
-                if not self.run_script("Scraper"): raise Exception("Scraper Failed")
+                if not self.run_script("Scraper"): raise Exception("Scraping Failed")
             
             if self.pipeline_vars["translate"].get():
                 if not self.run_script("Translate"): raise Exception("Translation Failed")
@@ -258,52 +319,79 @@ class PipelineGUI:
                 if not self.run_script("TTS Generator"): raise Exception("TTS Failed")
 
             if self.pipeline_vars["convert"].get():
-                if not self.run_script("Audio Converter"): raise Exception("Converter Failed")
+                if not self.run_script("Audio Converter"): raise Exception("Conversion Failed")
 
             if self.pipeline_vars["tag"].get():
                 if not self.run_script("Tag Audio"): raise Exception("Tagging Failed")
 
-            self.log("=== DONE ===")
+            self.log("=== COMPLETED ===")
         except Exception as e:
-            self.log(f"=== PIPELINE STOPPED: {e} ===")
+            self.log(f"=== PIPELINE ENDED: {e} ===")
         finally:
             self.btn_run.config(state="normal")
+            self.btn_stop.config(state="disabled")
 
-    def run_adapt_tool(self):
+    # --- METADATA & ADAPTER LOGIC ---
+    def run_metadata_fetch(self):
         proj = self.current_project.get()
-        url = self.new_url_var.get()
+        url = self.index_url.get().strip()
         if not proj or not url:
-            messagebox.showerror("Error", "Select a project and enter a URL.")
+            messagebox.showwarning("Info", "Select Project and enter Index URL.")
             return
         
-        # Check for API Key first
-        if not os.environ.get("GEMINI_API_KEY"):
-            messagebox.showerror("Error", "GEMINI_API_KEY not found in environment variables.")
-            return
-
-        self.adapt_status.config(text=f"Asking {GEMINI_MODEL_NAME} to write code... this may take 30s...", foreground="blue")
+        self.log(f"--- Fetching Metadata ---")
         
         def _worker():
             try:
-                import scraper_context_fetcher
+                proj_dir = os.path.join(NOVELS_ROOT_DIR, proj)
+                cmd = [sys.executable, SCRIPTS["Metadata"], url, proj_dir]
+                
+                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                for line in proc.stdout:
+                    self.log(line.strip())
+                proc.wait()
+                
+                if proc.returncode == 0:
+                    self.log("Metadata Fetch Complete.")
+                else:
+                    self.log("Metadata Fetch Failed.")
+            except Exception as e:
+                self.log(f"Meta Error: {e}")
+
+        threading.Thread(target=_worker).start()
+
+    def run_adapt_tool(self):
+        proj = self.current_project.get()
+        url = self.adapt_url_var.get().strip()
+        mode = self.adapt_type_var.get()
+        
+        if not proj or not url:
+            messagebox.showerror("Error", "Select project and URL.")
+            return
+        if not os.environ.get("GEMINI_API_KEY"):
+            messagebox.showerror("Error", "GEMINI_API_KEY missing.")
+            return
+
+        self.adapt_status.config(text=f"Generating {mode}... wait...", foreground="blue")
+        
+        def _worker():
+            try:
                 proj_dir = os.path.join(NOVELS_ROOT_DIR, proj)
                 
-                # Call the new function that does everything
-                scraper_context_fetcher.fetch_and_generate_scraper(url, proj_dir)
-                
-                # Check if file was created
-                expected_file = os.path.join(proj_dir, "custom_scraper.py")
-                if os.path.exists(expected_file):
-                    self.root.after(0, lambda: self.adapt_status.config(text="Success! 'custom_scraper.py' created.", foreground="green"))
-                    self.root.after(0, lambda: messagebox.showinfo("Done", f"New scraper created at:\n{expected_file}\n\nThe GUI will now use this scraper for this project."))
-                    
-                    # Update global scripts map to use this new local file for this project
-                    # Note: This simple GUI logic assumes standard scraper_2.py unless you override it. 
-                    # For a true dynamic switch, you might manually rename 'custom_scraper.py' to 'scraper_2.py' 
-                    # inside that folder if you want to replace the default entirely for that project.
+                if mode == "Chapter Scraper":
+                    import scraper_context_fetcher
+                    scraper_context_fetcher.fetch_and_generate_scraper(url, proj_dir)
+                    target = "custom_scraper.py"
                 else:
-                    self.root.after(0, lambda: self.adapt_status.config(text="Failed to generate file.", foreground="red"))
-                    
+                    import metadata_fetcher
+                    metadata_fetcher.fetch_and_generate_metadata_scraper(url, proj_dir)
+                    target = "custom_metadata_scraper.py"
+                
+                if os.path.exists(os.path.join(proj_dir, target)):
+                    self.root.after(0, lambda: self.adapt_status.config(text=f"Success! {target} created.", foreground="green"))
+                    self.root.after(0, lambda: messagebox.showinfo("Done", f"Created {target}"))
+                else:
+                    self.root.after(0, lambda: self.adapt_status.config(text="Generation failed.", foreground="red"))
             except Exception as e:
                 self.root.after(0, lambda: self.adapt_status.config(text=f"Error: {e}", foreground="red"))
 
