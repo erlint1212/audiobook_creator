@@ -22,7 +22,8 @@ SCRIPTS = {
     "Metadata": "metadata_fetcher.py",
     "Translate (Gemini)": "gemini_transelate_4.py",
     "Translate (Grok)": "grok_transelate.py",
-    "TTS Generator": "alltalk_tts_generator_chunky_17.py",
+    # We dynamically set TTS based on engine choice now
+    "TTS Generator": "alltalk_tts_generator_chunky_17.py", 
     "Audio Converter": "convert_audio_to_opus_3.py",
     "Tag Audio": "tag_audiobook_files_opus_3.py",
     "EPUB Creator": "txt_to_epub.py",
@@ -32,21 +33,29 @@ class PipelineGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Audiobook Pipe System")
-        self.root.geometry("900x900")
+        self.root.geometry("900x950")
         
         if not os.path.exists(NOVELS_ROOT_DIR):
             os.makedirs(NOVELS_ROOT_DIR)
 
         self.current_project = tk.StringVar()
-        self.index_url = tk.StringVar() # For Metadata
+        self.index_url = tk.StringVar() 
         
         # Source Selection
         self.input_source_var = tk.StringVar(value="Raw") 
+
+        # TTS Engine Switcher
+        self.tts_engine_var = tk.StringVar(value="AllTalk")
 
         # AllTalk Config Vars
         self.alltalk_path_var = tk.StringVar()
         self.selected_voice_var = tk.StringVar()
         self.selected_rvc_var = tk.StringVar()
+
+        # Qwen+RVC Config Vars
+        self.qwen_pth_var = tk.StringVar()
+        self.qwen_index_var = tk.StringVar()
+        self.qwen_pitch_var = tk.IntVar(value=-2)
 
         self.pipeline_vars = {
             "scraper": tk.BooleanVar(value=True),
@@ -65,13 +74,10 @@ class PipelineGUI:
         self.current_process = None
         self.stop_requested = False
 
-        # Load Config
         self.load_config()
-
         self.create_ui()
         self.refresh_project_list()
 
-        # Initial Scan
         if self.alltalk_path_var.get():
             self.scan_alltalk_content()
 
@@ -88,8 +94,7 @@ class PipelineGUI:
         ttk.Button(top_frame, text="New", command=self.create_new_project, width=5).pack(side="left", padx=2)
         ttk.Button(top_frame, text="Folder", command=self.open_project_folder, width=6).pack(side="left", padx=2)
         
-        # Metadata URL Input
-        ttk.Label(top_frame, text=" |  Index URL:").pack(side="left", padx=5)
+        ttk.Label(top_frame, text=" | Index URL:").pack(side="left", padx=5)
         ttk.Entry(top_frame, textvariable=self.index_url, width=30).pack(side="left", padx=5)
         ttk.Button(top_frame, text="Get Meta", command=self.run_metadata_fetch).pack(side="left", padx=2)
 
@@ -103,40 +108,65 @@ class PipelineGUI:
 
         # --- TAB 1: PIPELINE ---
         
-        # 1. AllTalk Integration Section (New)
-        at_frame = ttk.LabelFrame(self.tab_run, text="External AllTalk TTS Setup")
-        at_frame.pack(fill="x", padx=10, pady=5)
+        # 1. TTS Engine Setup
+        tts_frame = ttk.LabelFrame(self.tab_run, text="TTS Generation Setup")
+        tts_frame.pack(fill="x", padx=10, pady=5)
 
-        # Path Selection
-        path_frame = ttk.Frame(at_frame)
-        path_frame.pack(fill="x", padx=5, pady=5)
-        
-        ttk.Label(path_frame, text="AllTalk Root Dir:").pack(side="left")
-        ttk.Entry(path_frame, textvariable=self.alltalk_path_var).pack(side="left", padx=5, fill="x", expand=True)
-        ttk.Button(path_frame, text="Browse", command=self.browse_alltalk).pack(side="left")
-        ttk.Button(path_frame, text="Scan Voices", command=self.scan_alltalk_content).pack(side="left", padx=5)
+        # Engine Selector
+        eng_sel_frame = ttk.Frame(tts_frame)
+        eng_sel_frame.pack(fill="x", padx=5, pady=5)
+        ttk.Label(eng_sel_frame, text="Select Engine:").pack(side="left", padx=5)
+        ttk.Radiobutton(eng_sel_frame, text="AllTalk (External API)", variable=self.tts_engine_var, value="AllTalk", command=self.toggle_tts_ui).pack(side="left", padx=10)
+        ttk.Radiobutton(eng_sel_frame, text="Qwen + RVC (Local GPU)", variable=self.tts_engine_var, value="Qwen", command=self.toggle_tts_ui).pack(side="left", padx=10)
 
-        # Dropdowns
-        opts_frame = ttk.Frame(at_frame)
-        opts_frame.pack(fill="x", padx=5, pady=5)
+        # 1A. AllTalk Controls (Frame)
+        self.alltalk_frame = ttk.Frame(tts_frame)
+        self.alltalk_frame.pack(fill="x", padx=5, pady=5)
 
-        ttk.Label(opts_frame, text="XTTS Voice:").pack(side="left")
-        self.voice_combo = ttk.Combobox(opts_frame, textvariable=self.selected_voice_var, state="readonly", width=30)
+        at_path_frame = ttk.Frame(self.alltalk_frame)
+        at_path_frame.pack(fill="x", pady=2)
+        ttk.Label(at_path_frame, text="AllTalk Root Dir:").pack(side="left", padx=5)
+        ttk.Entry(at_path_frame, textvariable=self.alltalk_path_var).pack(side="left", padx=5, fill="x", expand=True)
+        ttk.Button(at_path_frame, text="Browse", command=self.browse_alltalk).pack(side="left")
+        ttk.Button(at_path_frame, text="Scan Voices", command=self.scan_alltalk_content).pack(side="left", padx=5)
+
+        at_opts_frame = ttk.Frame(self.alltalk_frame)
+        at_opts_frame.pack(fill="x", pady=2)
+        ttk.Label(at_opts_frame, text="XTTS Voice:").pack(side="left", padx=5)
+        self.voice_combo = ttk.Combobox(at_opts_frame, textvariable=self.selected_voice_var, state="readonly", width=25)
         self.voice_combo.pack(side="left", padx=5)
-
-        ttk.Label(opts_frame, text="RVC Model:").pack(side="left", padx=(15, 0))
-        self.rvc_combo = ttk.Combobox(opts_frame, textvariable=self.selected_rvc_var, state="readonly", width=35)
+        ttk.Label(at_opts_frame, text="RVC Model:").pack(side="left", padx=(15, 5))
+        self.rvc_combo = ttk.Combobox(at_opts_frame, textvariable=self.selected_rvc_var, state="readonly", width=30)
         self.rvc_combo.pack(side="left", padx=5)
+
+        # 1B. Qwen Controls (Frame)
+        self.qwen_frame = ttk.Frame(tts_frame)
+        
+        q_pth_frame = ttk.Frame(self.qwen_frame)
+        q_pth_frame.pack(fill="x", pady=2)
+        ttk.Label(q_pth_frame, text="RVC .pth File:").pack(side="left", padx=5)
+        ttk.Entry(q_pth_frame, textvariable=self.qwen_pth_var).pack(side="left", padx=5, fill="x", expand=True)
+        ttk.Button(q_pth_frame, text="Browse", command=lambda: self.browse_qwen_file("pth")).pack(side="left", padx=5)
+
+        q_idx_frame = ttk.Frame(self.qwen_frame)
+        q_idx_frame.pack(fill="x", pady=2)
+        ttk.Label(q_idx_frame, text="RVC .index File:").pack(side="left", padx=5)
+        ttk.Entry(q_idx_frame, textvariable=self.qwen_index_var).pack(side="left", padx=5, fill="x", expand=True)
+        ttk.Button(q_idx_frame, text="Browse", command=lambda: self.browse_qwen_file("index")).pack(side="left", padx=5)
+
+        q_pitch_frame = ttk.Frame(self.qwen_frame)
+        q_pitch_frame.pack(fill="x", pady=2)
+        ttk.Label(q_pitch_frame, text="Pitch Shift (-12 to 12):").pack(side="left", padx=5)
+        ttk.Spinbox(q_pitch_frame, from_=-24, to=24, textvariable=self.qwen_pitch_var, width=5).pack(side="left", padx=5)
+
+        # Initialize View
+        self.toggle_tts_ui()
 
         # 2. Source Selection Frame
         source_frame = ttk.LabelFrame(self.tab_run, text="Source Content for TTS & EPUB")
         source_frame.pack(fill="x", padx=10, pady=5)
-        
-        rb1 = ttk.Radiobutton(source_frame, text="Original Scraped Text (01_Raw_Text)", variable=self.input_source_var, value="Raw")
-        rb1.pack(side="left", padx=20, pady=5)
-        
-        rb2 = ttk.Radiobutton(source_frame, text="Translated Text (02_Translated)", variable=self.input_source_var, value="Translated")
-        rb2.pack(side="left", padx=20, pady=5)
+        ttk.Radiobutton(source_frame, text="Original Scraped Text (01_Raw_Text)", variable=self.input_source_var, value="Raw").pack(side="left", padx=20, pady=5)
+        ttk.Radiobutton(source_frame, text="Translated Text (02_Translated)", variable=self.input_source_var, value="Translated").pack(side="left", padx=20, pady=5)
 
         # 3. Steps Selection
         chk_frame = ttk.LabelFrame(self.tab_run, text="Select Steps")
@@ -173,29 +203,40 @@ class PipelineGUI:
         # 5. Logs
         log_label_frame = ttk.LabelFrame(self.tab_run, text="Process Logs")
         log_label_frame.pack(fill="both", expand=True, padx=10, pady=5)
-        
         self.log_area = scrolledtext.ScrolledText(log_label_frame, height=15, state='normal', font=("Consolas", 9))
         self.log_area.pack(fill="both", expand=True, padx=5, pady=5)
         self.log_area.bind("<Key>", self.prevent_typing) 
-
         ttk.Button(log_label_frame, text="Copy All Logs", command=self.copy_all_logs).pack(pady=2)
 
         # --- TAB 2: ADAPTER ---
         lbl = ttk.Label(self.tab_adapt, text="Use AI to write custom scripts for new websites.", font=("Arial", 10, "bold"))
         lbl.pack(pady=10)
-        
         adapt_frame = ttk.Frame(self.tab_adapt)
         adapt_frame.pack(pady=5)
-        
         ttk.Label(adapt_frame, text="Target URL:").grid(row=0, column=0, padx=5, sticky="e")
         ttk.Entry(adapt_frame, textvariable=self.adapt_url_var, width=50).grid(row=0, column=1, padx=5)
-        
         ttk.Label(adapt_frame, text="Generate For:").grid(row=1, column=0, padx=5, sticky="e")
         ttk.Combobox(adapt_frame, textvariable=self.adapt_type_var, values=["Chapter Scraper", "Metadata Scraper"], state="readonly").grid(row=1, column=1, padx=5, sticky="w")
-        
         ttk.Button(self.tab_adapt, text="Ask Gemini to Write Script", command=self.run_adapt_tool).pack(pady=15)
         self.adapt_status = ttk.Label(self.tab_adapt, text="Ready", foreground="gray")
         self.adapt_status.pack()
+
+    def toggle_tts_ui(self):
+        """Switches the UI visibility based on the selected TTS Engine."""
+        if self.tts_engine_var.get() == "AllTalk":
+            self.qwen_frame.pack_forget()
+            self.alltalk_frame.pack(fill="x", padx=5, pady=5)
+        else:
+            self.alltalk_frame.pack_forget()
+            self.qwen_frame.pack(fill="x", padx=5, pady=5)
+
+    def browse_qwen_file(self, file_type):
+        """File browser for Qwen RVC models."""
+        ext = "*.pth" if file_type == "pth" else "*.index"
+        f = filedialog.askopenfilename(title=f"Select RVC {file_type} file", filetypes=[(f"RVC {file_type.upper()}", ext)])
+        if f:
+            if file_type == "pth": self.qwen_pth_var.set(f)
+            else: self.qwen_index_var.set(f)
 
     # --- ALLTALK LOGIC ---
     def load_config(self):
@@ -204,13 +245,21 @@ class PipelineGUI:
                 with open(CONFIG_FILE, "r") as f:
                     data = json.load(f)
                     self.alltalk_path_var.set(data.get("alltalk_path", ""))
+                    self.qwen_pth_var.set(data.get("qwen_pth", ""))
+                    self.qwen_index_var.set(data.get("qwen_index", ""))
+                    self.qwen_pitch_var.set(data.get("qwen_pitch", -2))
         except Exception as e:
             print(f"Config Error: {e}")
 
     def save_config(self):
         try:
             with open(CONFIG_FILE, "w") as f:
-                json.dump({"alltalk_path": self.alltalk_path_var.get()}, f)
+                json.dump({
+                    "alltalk_path": self.alltalk_path_var.get(),
+                    "qwen_pth": self.qwen_pth_var.get(),
+                    "qwen_index": self.qwen_index_var.get(),
+                    "qwen_pitch": self.qwen_pitch_var.get(),
+                }, f)
         except Exception as e:
             print(f"Config Save Error: {e}")
 
@@ -223,24 +272,18 @@ class PipelineGUI:
 
     def scan_alltalk_content(self):
         base = self.alltalk_path_var.get()
-        if not base or not os.path.exists(base):
-            return
+        if not base or not os.path.exists(base): return
 
-        # 1. Scan Voices (look in /voices)
         voices_dir = os.path.join(base, "voices")
         if os.path.exists(voices_dir):
             wavs = glob.glob(os.path.join(voices_dir, "*.wav"))
-            # Just store the filename!
             voice_names = [os.path.basename(w) for w in wavs]
             self.voice_combo['values'] = voice_names
-            if voice_names: 
-                self.voice_combo.current(0)
-            else:
-                self.voice_combo.set("No .wav files found")
+            if voice_names: self.voice_combo.current(0)
+            else: self.voice_combo.set("No .wav files found")
         else:
             self.voice_combo.set("Voices dir not found")
 
-        # 2. Scan RVC Models (Look for .pth files inside subdirectories)
         rvc_search_roots = [
             os.path.join(base, "models", "rvc_voices"), 
             os.path.join(base, "rvc_models"),
@@ -248,35 +291,21 @@ class PipelineGUI:
         ]
         
         rvc_models_found = ["None"]
-        
-        valid_root = None
-        for p in rvc_search_roots:
-            if os.path.exists(p):
-                valid_root = p
-                break
+        valid_root = next((p for p in rvc_search_roots if os.path.exists(p)), None)
         
         if valid_root:
             try:
                 subdirs = [d for d in os.listdir(valid_root) if os.path.isdir(os.path.join(valid_root, d))]
-                
                 for subdir in subdirs:
                     subdir_path = os.path.join(valid_root, subdir)
                     pth_files = glob.glob(os.path.join(subdir_path, "*.pth"))
-                    
                     for pth in pth_files:
-                        filename = os.path.basename(pth)
-                        # We construct the relative path "folder_name/file_name.pth"
-                        rel_path = os.path.join(subdir, filename)
-                        rvc_models_found.append(rel_path)
-                        
+                        rvc_models_found.append(os.path.join(subdir, os.path.basename(pth)))
             except Exception as e:
                 print(f"Error scanning RVC folders: {e}")
         
         self.rvc_combo['values'] = rvc_models_found
-        if len(rvc_models_found) > 1:
-             self.rvc_combo.current(1) 
-        else:
-             self.rvc_combo.current(0)
+        self.rvc_combo.current(1 if len(rvc_models_found) > 1 else 0)
 
     # --- GENERAL LOGIC ---
     def prevent_typing(self, event):
@@ -335,12 +364,7 @@ class PipelineGUI:
         dir_wav = os.path.join(base, "03_Audio_WAV")
         dir_opus = os.path.join(base, "04_Audio_Opus")
         
-        if self.input_source_var.get() == "Translated":
-            tts_input = dir_trans
-            self.log(f"[Config] Using TRANSLATED text as source.")
-        else:
-            tts_input = dir_raw
-            self.log(f"[Config] Using RAW text as source.")
+        tts_input = dir_trans if self.input_source_var.get() == "Translated" else dir_raw
 
         env = os.environ.copy()
         env["PROJECT_RAW_TEXT_DIR"] = dir_raw
@@ -359,24 +383,30 @@ class PipelineGUI:
         if self.current_process and self.current_process.poll() is None:
             self.stop_requested = True
             self.log("\n!!! STOPPING PROCESS... !!!")
-            try:
-                self.current_process.terminate()
+            try: self.current_process.terminate()
             except: pass
 
     def run_script(self, script_key):
         if self.stop_requested: return False
         
+        # --- DYNAMIC SCRIPT PATH ---
         script_path = SCRIPTS.get(script_key)
-        proj = self.current_project.get()
 
-        if script_key == "Scraper" and proj:
-            custom_path = os.path.join(NOVELS_ROOT_DIR, proj, "custom_scraper.py")
+        # 1. Custom Scraper Override
+        if script_key == "Scraper" and self.current_project.get():
+            custom_path = os.path.join(NOVELS_ROOT_DIR, self.current_project.get(), "custom_scraper.py")
             if os.path.exists(custom_path):
                 script_path = custom_path
                 self.log(f"--- Using Custom Chapter Scraper ---")
 
+        # 2. Dynamic Translation Script
         if script_key.startswith("Translate"):
             script_path = SCRIPTS.get(self.trans_engine.get())
+
+        # 3. Dynamic TTS Script
+        if script_key == "TTS Generator":
+            if self.tts_engine_var.get() == "Qwen":
+                script_path = "qwen_tts_generator.py" # Set to local generator
 
         if not script_path or not os.path.exists(script_path):
             self.log(f"Error: {script_path} not found.")
@@ -384,35 +414,39 @@ class PipelineGUI:
 
         self.log(f"--- Running {os.path.basename(script_path)} ---")
         env = self.get_env_for_project()
-
         cmd = [sys.executable, script_path]
 
         # --- Inject Arguments for TTS Generator ---
         if script_key == "TTS Generator":
-            # [FIX] Force basename here to prevent path leakage
-            full_voice_val = self.selected_voice_var.get()
-            voice_filename = os.path.basename(full_voice_val) 
-            rvc = self.selected_rvc_var.get()
-            
-            if not voice_filename or "No" in voice_filename:
-                self.log("Error: Invalid voice selection.")
-                return False
-            
-            cmd.extend(["--voice_filename", voice_filename])
-            
-            if rvc and rvc != "None":
-                cmd.extend(["--rvc_model", rvc])
-        # ------------------------------------------
+            # A. AllTalk Arguments
+            if self.tts_engine_var.get() == "AllTalk":
+                full_voice_val = self.selected_voice_var.get()
+                voice_filename = os.path.basename(full_voice_val) 
+                rvc = self.selected_rvc_var.get()
+                
+                if not voice_filename or "No" in voice_filename:
+                    self.log("Error: Invalid voice selection.")
+                    return False
+                
+                cmd.extend(["--voice_filename", voice_filename])
+                if rvc and rvc != "None": cmd.extend(["--rvc_model", rvc])
+
+            # B. Qwen+RVC Arguments
+            else:
+                pth = self.qwen_pth_var.get()
+                idx = self.qwen_index_var.get()
+                pitch = str(self.qwen_pitch_var.get())
+
+                if not os.path.exists(pth) or not os.path.exists(idx):
+                    self.log("Error: Qwen RVC model paths are invalid.")
+                    return False
+
+                cmd.extend(["--rvc_model_path", pth, "--rvc_index_path", idx, "--pitch", pitch])
+                self.save_config() # Save paths for next time
 
         try:
             self.current_process = subprocess.Popen(
-                cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                env=env,
-                text=True,
-                bufsize=1,
-                universal_newlines=True
+                cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env, text=True, bufsize=1, universal_newlines=True
             )
             for line in self.current_process.stdout:
                 if self.stop_requested: 
@@ -444,19 +478,14 @@ class PipelineGUI:
         try:
             if self.pipeline_vars["scraper"].get():
                 if not self.run_script("Scraper"): raise Exception("Scraping Failed")
-            
             if self.pipeline_vars["translate"].get():
                 if not self.run_script("Translate"): raise Exception("Translation Failed")
-
             if self.pipeline_vars["epub"].get():
                 if not self.run_script("EPUB Creator"): raise Exception("EPUB Failed")
-
             if self.pipeline_vars["tts"].get():
                 if not self.run_script("TTS Generator"): raise Exception("TTS Failed")
-
             if self.pipeline_vars["convert"].get():
                 if not self.run_script("Audio Converter"): raise Exception("Conversion Failed")
-
             if self.pipeline_vars["tag"].get():
                 if not self.run_script("Tag Audio"): raise Exception("Tagging Failed")
 
@@ -471,28 +500,17 @@ class PipelineGUI:
     def run_metadata_fetch(self):
         proj = self.current_project.get()
         url = self.index_url.get().strip()
-        if not proj or not url:
-            messagebox.showwarning("Info", "Select Project and enter Index URL.")
-            return
-        
+        if not proj or not url: return messagebox.showwarning("Info", "Select Project and enter Index URL.")
         self.log(f"--- Fetching Metadata ---")
         
         def _worker():
             try:
                 proj_dir = os.path.join(NOVELS_ROOT_DIR, proj)
-                cmd = [sys.executable, SCRIPTS["Metadata"], url, proj_dir]
-                
-                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-                for line in proc.stdout:
-                    self.log(line.strip())
+                proc = subprocess.Popen([sys.executable, SCRIPTS["Metadata"], url, proj_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                for line in proc.stdout: self.log(line.strip())
                 proc.wait()
-                
-                if proc.returncode == 0:
-                    self.log("Metadata Fetch Complete.")
-                else:
-                    self.log("Metadata Fetch Failed.")
-            except Exception as e:
-                self.log(f"Meta Error: {e}")
+                if proc.returncode == 0: self.log("Metadata Fetch Complete.")
+            except Exception as e: self.log(f"Meta Error: {e}")
 
         threading.Thread(target=_worker).start()
 
@@ -501,19 +519,14 @@ class PipelineGUI:
         url = self.adapt_url_var.get().strip()
         mode = self.adapt_type_var.get()
         
-        if not proj or not url:
-            messagebox.showerror("Error", "Select project and URL.")
-            return
-        if not os.environ.get("GEMINI_API_KEY"):
-            messagebox.showerror("Error", "GEMINI_API_KEY missing.")
-            return
+        if not proj or not url: return messagebox.showerror("Error", "Select project and URL.")
+        if not os.environ.get("GEMINI_API_KEY"): return messagebox.showerror("Error", "GEMINI_API_KEY missing.")
 
         self.adapt_status.config(text=f"Generating {mode}... wait...", foreground="blue")
         
         def _worker():
             try:
                 proj_dir = os.path.join(NOVELS_ROOT_DIR, proj)
-                
                 if mode == "Chapter Scraper":
                     import scraper_context_fetcher
                     scraper_context_fetcher.fetch_and_generate_scraper(url, proj_dir)
@@ -525,7 +538,6 @@ class PipelineGUI:
                 
                 if os.path.exists(os.path.join(proj_dir, target)):
                     self.root.after(0, lambda: self.adapt_status.config(text=f"Success! {target} created.", foreground="green"))
-                    self.root.after(0, lambda: messagebox.showinfo("Done", f"Created {target}"))
                 else:
                     self.root.after(0, lambda: self.adapt_status.config(text="Generation failed.", foreground="red"))
             except Exception as e:
@@ -537,4 +549,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = PipelineGUI(root)
     root.mainloop()
-

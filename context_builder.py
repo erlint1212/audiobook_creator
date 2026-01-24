@@ -11,7 +11,7 @@ def generate_project_context(output_file="project_context.txt", ignore_dirs=None
     
     # Default directories to ignore (keeps the tree clean)
     if ignore_dirs is None:
-        ignore_dirs = {'.git', '__pycache__', 'node_modules', 'venv', 'env', '.idea', '.vscode', 'build', 'dist'}
+        ignore_dirs = {'.git', '__pycache__', 'node_modules', 'venv', 'env', '.idea', '.vscode', 'build', 'dist', '.venv'}
 
     # 1. Generate the File Tree Structure
     # We still list all files in the tree so the AI sees the full structure

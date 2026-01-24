@@ -2,3 +2,4 @@ Novels/
 __pycache__/
 tts/
 *.json
+.venv
