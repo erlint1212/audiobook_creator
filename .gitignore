@@ -3,3 +3,4 @@ __pycache__/
 tts/
 *.json
 .venv
+backup

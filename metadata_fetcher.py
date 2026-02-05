@@ -32,6 +32,26 @@ def download_cover(img_url, save_dir):
     except Exception as e:
         print(f"    [Error] Cover download failed: {e}")
 
+# --- HELPER: Code Sanitizer (The Fix) ---
+def sanitize_generated_code(code):
+    """
+    Post-processes AI code to remove blocking input calls that freeze the GUI.
+    """
+    lines = code.split('\n')
+    cleaned_lines = []
+    
+    for line in lines:
+        # Check for blocking input calls
+        if "sys.stdin" in line or "input(" in line:
+            print(f"    [Auto-Fix] Removed blocking line: {line.strip()}")
+            # We replace it with a pass or comment so indentation doesn't break
+            cleaned_lines.append(f"    # [Auto-Removed Blocking Input]: {line.strip()}")
+            cleaned_lines.append("    pass") 
+        else:
+            cleaned_lines.append(line)
+            
+    return "\n".join(cleaned_lines)
+
 # --- 1. DEFAULT EXTRACTION LOGIC ---
 def default_metadata_extraction(html, url):
     """
@@ -72,7 +92,6 @@ def default_metadata_extraction(html, url):
         if og_desc: data["description"] = og_desc.get("content", "")
 
     # Author
-    # Fixed the specific error you saw previously (argument conflict)
     author_meta = soup.find("meta", attrs={"name": "author"})
     if author_meta:
         data["author"] = author_meta.get("content", "")
@@ -116,6 +135,7 @@ def fetch_and_generate_metadata_scraper(index_url, project_dir):
 
     genai.configure(api_key=api_key)
     
+    # --- UPDATED PROMPT: Explicitly forbid stdin ---
     prompt = f"""
     You are an expert Python web scraping developer.
     
@@ -132,7 +152,9 @@ def fetch_and_generate_metadata_scraper(index_url, project_dir):
        - Save the data to `metadata.json` in `os.getenv('SAVE_DIR')`.
        - Download the cover image to `cover.jpg` in `os.getenv('SAVE_DIR')`.
     4. Handle `data-src` or `loading="lazy"` if present for images.
-    5. Use `requests` to download the image.
+    5. **NETWORK REQUESTS**: The script MUST fetch the URL itself using `requests`. 
+       - Use `os.getenv('TARGET_URL')` to get the URL.
+       - **DO NOT** use `sys.stdin` or `input()`. This script runs in a background pipe and will hang if it waits for input.
     
     Output ONLY the valid Python code.
     """
@@ -148,6 +170,10 @@ def fetch_and_generate_metadata_scraper(index_url, project_dir):
         elif "```" in code:
             code = code.split("```")[1]
         
+        # --- POST-PROCESSING: SANITIZE CODE ---
+        code = sanitize_generated_code(code)
+        # --------------------------------------
+
         output_path = os.path.join(project_dir, "custom_metadata_scraper.py")
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(code)
@@ -212,15 +238,26 @@ def run_custom_script(script_path, url, save_dir):
         env["TARGET_URL"] = url
         env["SAVE_DIR"] = save_dir
         
-        result = subprocess.run(
-            [sys.executable, script_path], 
+        # Run with Unbuffered output ("-u") and capture stdout in real-time
+        process = subprocess.Popen(
+            [sys.executable, "-u", script_path], 
             env=env, 
-            capture_output=True, 
-            text=True
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+            universal_newlines=True
         )
-        print(result.stdout)
-        if result.returncode != 0:
-            print(f"    [Script Error] {result.stderr}")
+        
+        # Stream logs to the GUI
+        for line in process.stdout:
+            print(line, end='')
+
+        process.wait()
+
+        if process.returncode != 0:
+            print(f"    [Script Error] Return Code: {process.returncode}")
+
     except Exception as e:
         print(f"    [Exec Error] {e}")
 

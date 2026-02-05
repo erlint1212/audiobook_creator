@@ -21,6 +21,499 @@ Project Directory Structure:
     .gitignore
     shell.nix
     pipe_system_gui.py
+    Novels/
+        Villainous_Saintess_CH/
+            Villainous_Saintess_CH.epub
+            custom_scraper.py
+            custom_metadata_scraper.py
+            03_Audio_WAV/
+            02_Translated/
+            04_Audio_Opus/
+            01_Raw_Text/
+                ch_0188.txt
+                ch_0102.txt
+                ch_0263.txt
+                ch_0109.txt
+                ch_0338.txt
+                ch_0307.txt
+                ch_0390.txt
+                ch_0419.txt
+                ch_0213.txt
+                ch_0372.txt
+                ch_0028.txt
+                ch_0376.txt
+                ch_0302.txt
+                ch_0437.txt
+                ch_0399.txt
+                ch_0270.txt
+                ch_0415.txt
+                ch_0092.txt
+                ch_0218.txt
+                ch_0336.txt
+                ch_0077.txt
+                ch_0435.txt
+                ch_0203.txt
+                ch_0278.txt
+                ch_0125.txt
+                ch_0088.txt
+                ch_0421.txt
+                ch_0144.txt
+                ch_0311.txt
+                ch_0329.txt
+                ch_0281.txt
+                ch_0224.txt
+                ch_0347.txt
+                ch_0062.txt
+                ch_0185.txt
+                ch_0153.txt
+                ch_0382.txt
+                ch_0058.txt
+                ch_0358.txt
+                ch_0271.txt
+                ch_0233.txt
+                ch_0134.txt
+                ch_0416.txt
+                ch_0166.txt
+                ch_0130.txt
+                ch_0198.txt
+                ch_0146.txt
+                ch_0315.txt
+                ch_0067.txt
+                ch_0049.txt
+                ch_0442.txt
+                ch_0202.txt
+                ch_0216.txt
+                ch_0199.txt
+                ch_0074.txt
+                ch_0145.txt
+                ch_0397.txt
+                ch_0009.txt
+                ch_0097.txt
+                ch_0138.txt
+                ch_0321.txt
+                ch_0434.txt
+                ch_0187.txt
+                ch_0320.txt
+                ch_0094.txt
+                ch_0032.txt
+                ch_0400.txt
+                ch_0423.txt
+                ch_0388.txt
+                ch_0300.txt
+                ch_0050.txt
+                ch_0183.txt
+                ch_0012.txt
+                ch_0072.txt
+                ch_0194.txt
+                ch_0055.txt
+                ch_0064.txt
+                ch_0337.txt
+                ch_0022.txt
+                ch_0422.txt
+                ch_0175.txt
+                ch_0078.txt
+                ch_0370.txt
+                ch_0086.txt
+                ch_0242.txt
+                ch_0318.txt
+                ch_0308.txt
+                ch_0356.txt
+                ch_0286.txt
+                ch_0170.txt
+                ch_0046.txt
+                ch_0284.txt
+                ch_0027.txt
+                ch_0014.txt
+                ch_0217.txt
+                ch_0245.txt
+                ch_0007.txt
+                ch_0192.txt
+                ch_0033.txt
+                ch_0450.txt
+                ch_0380.txt
+                ch_0069.txt
+                ch_0111.txt
+                ch_0177.txt
+                ch_0127.txt
+                ch_0179.txt
+                ch_0349.txt
+                ch_0060.txt
+                ch_0114.txt
+                ch_0374.txt
+                ch_0384.txt
+                ch_0369.txt
+                ch_0451.txt
+                ch_0276.txt
+                ch_0165.txt
+                ch_0123.txt
+                ch_0080.txt
+                ch_0159.txt
+                ch_0248.txt
+                ch_0117.txt
+                ch_0246.txt
+                ch_0025.txt
+                ch_0352.txt
+                ch_0409.txt
+                ch_0381.txt
+                ch_0149.txt
+                ch_0013.txt
+                ch_0104.txt
+                ch_0256.txt
+                ch_0351.txt
+                ch_0065.txt
+                ch_0444.txt
+                ch_0335.txt
+                ch_0083.txt
+                ch_0096.txt
+                ch_0440.txt
+                ch_0375.txt
+                ch_0122.txt
+                ch_0231.txt
+                ch_0379.txt
+                ch_0082.txt
+                ch_0310.txt
+                ch_0424.txt
+                ch_0317.txt
+                ch_0290.txt
+                ch_0100.txt
+                ch_0366.txt
+                ch_0195.txt
+                ch_0006.txt
+                ch_0035.txt
+                ch_0340.txt
+                ch_0257.txt
+                ch_0076.txt
+                ch_0045.txt
+                ch_0108.txt
+                ch_0237.txt
+                ch_0143.txt
+                ch_0362.txt
+                ch_0408.txt
+                ch_0222.txt
+                ch_0363.txt
+                ch_0164.txt
+                ch_0365.txt
+                ch_0432.txt
+                ch_0085.txt
+                ch_0439.txt
+                ch_0184.txt
+                ch_0057.txt
+                ch_0091.txt
+                ch_0011.txt
+                ch_0093.txt
+                ch_0323.txt
+                ch_0402.txt
+                ch_0272.txt
+                ch_0131.txt
+                ch_0228.txt
+                ch_0394.txt
+                ch_0251.txt
+                ch_0038.txt
+                ch_0292.txt
+                ch_0066.txt
+                ch_0158.txt
+                ch_0291.txt
+                ch_0396.txt
+                ch_0034.txt
+                ch_0040.txt
+                ch_0070.txt
+                ch_0448.txt
+                ch_0152.txt
+                ch_0334.txt
+                ch_0226.txt
+                ch_0353.txt
+                ch_0106.txt
+                ch_0293.txt
+                ch_0156.txt
+                ch_0135.txt
+                ch_0265.txt
+                ch_0411.txt
+                ch_0113.txt
+                ch_0355.txt
+                ch_0254.txt
+                ch_0260.txt
+                ch_0436.txt
+                ch_0221.txt
+                ch_0294.txt
+                ch_0043.txt
+                ch_0031.txt
+                ch_0044.txt
+                ch_0345.txt
+                ch_0295.txt
+                ch_0017.txt
+                ch_0155.txt
+                ch_0208.txt
+                ch_0413.txt
+                ch_0333.txt
+                ch_0377.txt
+                ch_0023.txt
+                ch_0418.txt
+                ch_0259.txt
+                ch_0367.txt
+                ch_0330.txt
+                ch_0133.txt
+                ch_0391.txt
+                ch_0232.txt
+                ch_0262.txt
+                ch_0142.txt
+                ch_0387.txt
+                ch_0326.txt
+                ch_0360.txt
+                ch_0018.txt
+                ch_0024.txt
+                ch_0364.txt
+                ch_0116.txt
+                ch_0301.txt
+                ch_0393.txt
+                ch_0039.txt
+                ch_0430.txt
+                chapters.json
+                ch_0238.txt
+                ch_0389.txt
+                ch_0305.txt
+                ch_0426.txt
+                ch_0041.txt
+                ch_0341.txt
+                ch_0414.txt
+                ch_0005.txt
+                ch_0137.txt
+                ch_0207.txt
+                ch_0289.txt
+                ch_0386.txt
+                ch_0176.txt
+                ch_0008.txt
+                ch_0051.txt
+                ch_0283.txt
+                ch_0053.txt
+                ch_0417.txt
+                ch_0157.txt
+                ch_0350.txt
+                ch_0147.txt
+                ch_0403.txt
+                ch_0297.txt
+                ch_0209.txt
+                ch_0174.txt
+                ch_0359.txt
+                ch_0427.txt
+                ch_0327.txt
+                ch_0250.txt
+                ch_0047.txt
+                ch_0075.txt
+                ch_0150.txt
+                ch_0378.txt
+                ch_0003.txt
+                ch_0148.txt
+                ch_0319.txt
+                ch_0211.txt
+                ch_0252.txt
+                ch_0324.txt
+                ch_0081.txt
+                ch_0244.txt
+                ch_0087.txt
+                ch_0056.txt
+                ch_0099.txt
+                ch_0105.txt
+                ch_0303.txt
+                ch_0314.txt
+                ch_0306.txt
+                ch_0090.txt
+                ch_0312.txt
+                ch_0296.txt
+                ch_0101.txt
+                ch_0412.txt
+                ch_0181.txt
+                ch_0190.txt
+                ch_0189.txt
+                ch_0298.txt
+                ch_0325.txt
+                ch_0227.txt
+                ch_0225.txt
+                ch_0371.txt
+                ch_0071.txt
+                ch_0441.txt
+                ch_0343.txt
+                ch_0182.txt
+                ch_0405.txt
+                ch_0241.txt
+                ch_0406.txt
+                ch_0401.txt
+                ch_0383.txt
+                ch_0112.txt
+                ch_0410.txt
+                ch_0373.txt
+                ch_0186.txt
+                ch_0063.txt
+                ch_0395.txt
+                ch_0220.txt
+                ch_0229.txt
+                ch_0197.txt
+                ch_0161.txt
+                ch_0234.txt
+                ch_0274.txt
+                ch_0167.txt
+                ch_0277.txt
+                ch_0253.txt
+                ch_0240.txt
+                ch_0361.txt
+                ch_0173.txt
+                ch_0059.txt
+                ch_0201.txt
+                ch_0042.txt
+                ch_0180.txt
+                ch_0264.txt
+                ch_0339.txt
+                ch_0282.txt
+                ch_0118.txt
+                ch_0255.txt
+                ch_0119.txt
+                ch_0404.txt
+                ch_0247.txt
+                ch_0136.txt
+                ch_0392.txt
+                ch_0030.txt
+                ch_0344.txt
+                ch_0036.txt
+                ch_0172.txt
+                ch_0420.txt
+                ch_0357.txt
+                ch_0249.txt
+                ch_0098.txt
+                ch_0160.txt
+                ch_0447.txt
+                ch_0428.txt
+                ch_0052.txt
+                ch_0128.txt
+                ch_0269.txt
+                ch_0171.txt
+                ch_0001.txt
+                ch_0120.txt
+                ch_0103.txt
+                ch_0433.txt
+                ch_0212.txt
+                ch_0073.txt
+                ch_0261.txt
+                ch_0425.txt
+                ch_0048.txt
+                ch_0020.txt
+                ch_0019.txt
+                ch_0139.txt
+                ch_0084.txt
+                ch_0348.txt
+                ch_0449.txt
+                ch_0275.txt
+                ch_0154.txt
+                ch_0438.txt
+                ch_0204.txt
+                ch_0316.txt
+                ch_0398.txt
+                ch_0215.txt
+                ch_0236.txt
+                ch_0151.txt
+                ch_0206.txt
+                ch_0368.txt
+                ch_0021.txt
+                ch_0309.txt
+                ch_0037.txt
+                ch_0163.txt
+                ch_0322.txt
+                ch_0015.txt
+                ch_0313.txt
+                ch_0429.txt
+                ch_0026.txt
+                ch_0443.txt
+                ch_0385.txt
+                ch_0267.txt
+                ch_0029.txt
+                ch_0214.txt
+                ch_0124.txt
+                ch_0140.txt
+                ch_0089.txt
+                ch_0243.txt
+                ch_0445.txt
+                ch_0268.txt
+                ch_0196.txt
+                ch_0068.txt
+                ch_0287.txt
+                ch_0141.txt
+                ch_0054.txt
+                ch_0129.txt
+                ch_0107.txt
+                ch_0095.txt
+                ch_0010.txt
+                ch_0169.txt
+                ch_0304.txt
+                ch_0354.txt
+                ch_0235.txt
+                ch_0280.txt
+                ch_0132.txt
+                ch_0328.txt
+                ch_0285.txt
+                ch_0446.txt
+                ch_0342.txt
+                ch_0431.txt
+                ch_0162.txt
+                ch_0273.txt
+                ch_0205.txt
+                ch_0346.txt
+                ch_0288.txt
+                ch_0079.txt
+                ch_0258.txt
+                ch_0223.txt
+                ch_0061.txt
+                ch_0332.txt
+                ch_0115.txt
+                ch_0210.txt
+                ch_0279.txt
+                ch_0193.txt
+                ch_0230.txt
+                ch_0200.txt
+                ch_0178.txt
+                ch_0126.txt
+                ch_0299.txt
+                ch_0239.txt
+                ch_0331.txt
+                ch_0121.txt
+                ch_0004.txt
+                ch_0002.txt
+                ch_0016.txt
+                ch_0110.txt
+                ch_0266.txt
+                ch_0407.txt
+                ch_0219.txt
+                ch_0191.txt
+                ch_0168.txt
+            Scraper_Context/
+                index_structure.html
+                site_structure.html
+        youngfox/
+            03_Audio_WAV/
+            02_Translated/
+            04_Audio_Opus/
+            01_Raw_Text/
+        god_slaughtering_star/
+            custom_scraper.py
+            03_Audio_WAV/
+            02_Translated/
+            04_Audio_Opus/
+            01_Raw_Text/
+                ch_0009.txt
+                ch_0012.txt
+                ch_0007.txt
+                ch_0013.txt
+                ch_0006.txt
+                ch_0011.txt
+                chapters.json
+                ch_0005.txt
+                ch_0008.txt
+                ch_0003.txt
+                ch_0001.txt
+                ch_0010.txt
+                ch_0004.txt
+                ch_0002.txt
+            Scraper_Context/
+                site_structure.html
+    backup/
+        scraper_context_fetcher.py
 
 
 File Contents:
@@ -32,11 +525,15 @@ import requests
 import sys
 import re
 from urllib.parse import urlparse
+
+# --- FIX 1: Safer Import Handling ---
 try:
     import google.generativeai as genai
     from constants import GEMINI_MODEL_NAME
+    GENAI_AVAILABLE = True
 except ImportError:
     GEMINI_MODEL_NAME = "gemini-3-flash-preview"
+    GENAI_AVAILABLE = False
 
 def extract_code_block(response_text):
     pattern = r"```python\s*(.*?)\s*```"
@@ -45,6 +542,10 @@ def extract_code_block(response_text):
     return response_text
 
 def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="scraper_2.py"):
+    # Guard check for API availability
+    if not GENAI_AVAILABLE:
+        raise Exception("Google Generative AI package is not installed. Please run: pip install google-generativeai")
+
     context_dir = os.path.join(project_root_dir, "Scraper_Context")
     if not os.path.exists(context_dir): os.makedirs(context_dir)
 
@@ -59,8 +560,7 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         with open(os.path.join(context_dir, "site_structure.html"), "w", encoding="utf-8") as f:
             f.write(html_content)
     except Exception as e:
-        print(f"Error fetching URL: {e}")
-        return
+        raise Exception(f"Error fetching URL: {e}")
 
     print(f"--- 2. Reading Reference Scraper ---")
     reference_code = ""
@@ -68,18 +568,15 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         with open(reference_scraper, "r", encoding="utf-8") as f:
             reference_code = f.read()
     else:
-        print(f"Error: Reference scraper '{reference_scraper}' not found.")
-        return
+        raise Exception(f"Reference scraper '{reference_scraper}' not found.")
 
     print(f"--- 3. Sending to Gemini ({GEMINI_MODEL_NAME}) ---")
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("Error: GEMINI_API_KEY environment variable not set.")
-        return
+        raise Exception("GEMINI_API_KEY environment variable not set.")
 
     genai.configure(api_key=api_key)
     
-    # Construct the Prompt
     prompt = f"""
     You are an expert Python web scraping developer.
     
@@ -115,7 +612,8 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
 
     try:
         model = genai.GenerativeModel(GEMINI_MODEL_NAME)
-        response = model.generate_content(prompt)
+        # --- FIX 2: Added 120-second timeout to prevent infinite hanging ---
+        response = model.generate_content(prompt, request_options={"timeout": 120})
         
         generated_code = extract_code_block(response.text)
         
@@ -127,11 +625,15 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         print(f"New scraper saved to: {output_scraper_path}")
         
     except Exception as e:
-        print(f"Gemini API Error: {e}")
+        # Re-raise the exception so the GUI background thread catches it
+        raise Exception(f"Gemini API Error: {e}")
 
 if __name__ == "__main__":
     if len(sys.argv) > 2:
-        fetch_and_generate_scraper(sys.argv[1], sys.argv[2])
+        try:
+            fetch_and_generate_scraper(sys.argv[1], sys.argv[2])
+        except Exception as e:
+            print(f"Fatal Error: {e}")
     else:
         print("Usage: python scraper_context_fetcher.py <url> <project_dir>")
 
@@ -149,15 +651,15 @@ import argparse
 import torch
 import soundfile as sf
 
-# --- 1. WINDOWS UNICODE FIX ---
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding='utf-8')
 
 import nltk
 from nltk.tokenize import sent_tokenize
 
-# --- Import Qwen3-TTS ---
+# --- Import AI Models ---
 from qwen_tts import Qwen3TTSModel
+from rvc_python.infer import RVCInference
 
 # --- NLTK Setup ---
 NLTK_SETUP_SUCCESSFUL = False
@@ -165,299 +667,131 @@ try:
     nltk.sent_tokenize("This is a test.")
     NLTK_SETUP_SUCCESSFUL = True
 except LookupError:
-    print("Attempting to download NLTK 'punkt' resource...")
-    try:
-        nltk.download('punkt', quiet=False)
-        nltk.sent_tokenize("This is a test.")
-        print("NLTK 'punkt' is now available.")
-        NLTK_SETUP_SUCCESSFUL = True
-    except Exception as download_e:
-        print(f"An error occurred during 'punkt' download: {download_e}")
-if not NLTK_SETUP_SUCCESSFUL:
-    print("\nNLTK 'punkt' setup failed. Please resolve this issue manually and re-run.")
-    exit(1)
+    nltk.download('punkt', quiet=False)
+    NLTK_SETUP_SUCCESSFUL = True
 
-# --- Pydub Setup ---
-try:
-    from pydub import AudioSegment
-    from pydub.exceptions import CouldntDecodeError
-    PYDUB_AVAILABLE = True
-except ImportError:
-    print("Warning: pydub library not found. Audio concatenation will not work.")
-    PYDUB_AVAILABLE = False
+from pydub import AudioSegment
 
 # --- Configuration ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 TEXT_FILES_DIR = os.getenv("PROJECT_INPUT_TEXT_DIR", os.path.join(BASE_DIR, "BlleatTL_Novels")) 
-AUDIO_OUTPUT_DIR = os.getenv("PROJECT_AUDIO_WAV_DIR", os.path.join(BASE_DIR, "generated_audio_MistakenFairy"))
+AUDIO_OUTPUT_DIR = os.getenv("PROJECT_AUDIO_WAV_DIR", os.path.join(BASE_DIR, "generated_audio_HalfLight"))
 PROJECT_ROOT_DIR = os.path.dirname(os.path.abspath(AUDIO_OUTPUT_DIR))
 
 TEMP_CHUNK_DIR = os.path.join(PROJECT_ROOT_DIR, "temp_audio_chunks")
-LOG_FILE = os.path.join(PROJECT_ROOT_DIR, "failed_chunks.log")
-
-CHAPTER_START = 0
-CHAPTER_STOP = 0
 
 FALLBACK_TOKEN_LIMIT = 170 
 AVG_CHARS_PER_TOKEN = 1.9
 FALLBACK_CHAR_LIMIT = FALLBACK_TOKEN_LIMIT * AVG_CHARS_PER_TOKEN
 
-QWEN_SPEAKER_WAV = None
-QWEN_REF_TEXT = None  # Qwen needs the transcript of the reference audio
 OUTPUT_FORMAT = "wav"
 
-# Global Model Variable
+# Global Models
 qwen_model = None
-voice_clone_prompt = None # Cached voice prompt
+rvc_model = None
 
-def _estimate_tokens(text, avg_chars_per_token=AVG_CHARS_PER_TOKEN):
-    if not text: return 0
-    return math.ceil(len(text) / max(1.0, avg_chars_per_token))
-
-def normalize_text(text):
-    replacements = {
-        '“': '"',  '”': '"',  '‘': "'",  '’': "'",
-        '…': '...', '—': '-',   '–': '-',
-    }
-    for old, new in replacements.items():
-        text = text.replace(old, new)
-    return text
-
-def _split_by_force_chars(text_content, char_limit):
-    if len(text_content) <= char_limit:
-        return [text_content]
-    chunks = []
-    current_chunk_start = 0
-    while current_chunk_start < len(text_content):
-        end_index = min(current_chunk_start + int(char_limit), len(text_content))
-        if end_index < len(text_content):
-            space_index = text_content.rfind(' ', current_chunk_start, end_index)
-            if space_index != -1 and space_index > current_chunk_start:
-                end_index = space_index
-        chunk = text_content[current_chunk_start:end_index].strip()
-        if chunk:
-            chunks.append(chunk)
-        current_chunk_start = end_index + 1 
-        while current_chunk_start < len(text_content) and text_content[current_chunk_start] == ' ':
-            current_chunk_start += 1
-    return chunks
-
-def _split_by_sentence_groups(text_content, token_limit, avg_chars_token_est):
-    final_tts_chunks = []
-    char_limit = token_limit * avg_chars_token_est
-    try:
-        sentences = sent_tokenize(text_content)
-    except Exception as e:
-        print(f"      [!] NLTK sent_tokenize failed: {e}. Falling back to Lvl 3.")
-        return _split_by_force_chars(text_content, char_limit)
-
-    if not sentences: return []
-    current_chunk_sentences_list = []
-    current_chunk_tokens = 0
-    
-    for sentence_text in sentences:
-        sentence_text = sentence_text.strip()
-        if not sentence_text: continue
-        estimated_sentence_tokens = _estimate_tokens(sentence_text, avg_chars_token_est)
-
-        if estimated_sentence_tokens > token_limit:
-            if current_chunk_sentences_list:
-                final_tts_chunks.append(" ".join(current_chunk_sentences_list))
-                current_chunk_sentences_list = []
-                current_chunk_tokens = 0
-            final_tts_chunks.extend(_split_by_force_chars(sentence_text, char_limit))
-        elif current_chunk_tokens + estimated_sentence_tokens <= token_limit:
-            current_chunk_sentences_list.append(sentence_text)
-            current_chunk_tokens += estimated_sentence_tokens
-        else:
-            if current_chunk_sentences_list:
-                final_tts_chunks.append(" ".join(current_chunk_sentences_list))
-            current_chunk_sentences_list = [sentence_text]
-            current_chunk_tokens = estimated_sentence_tokens
-
-    if current_chunk_sentences_list:
-        final_tts_chunks.append(" ".join(current_chunk_sentences_list))
-    return [chunk for chunk in final_tts_chunks if chunk and chunk.strip()]
-
-def _split_by_line_groups(text_content, token_limit, avg_chars_token_est):
-    final_tts_chunks = []
-    if not text_content or not text_content.strip():
-        return final_tts_chunks
-
-    lines = [line.strip() for line in text_content.split('\n') if line.strip()]
-    if not lines: return []
-
-    current_chunk_lines_list = []
-    current_chunk_tokens = 0
-    
-    for line_text in lines:
-        estimated_line_tokens = _estimate_tokens(line_text, avg_chars_token_est)
-        if estimated_line_tokens > token_limit:
-            if current_chunk_lines_list:
-                final_tts_chunks.append("\n".join(current_chunk_lines_list))
-                current_chunk_lines_list = []
-                current_chunk_tokens = 0
-            final_tts_chunks.extend(_split_by_sentence_groups(line_text, token_limit, avg_chars_token_est))
-        elif current_chunk_tokens + estimated_line_tokens <= token_limit:
-            current_chunk_lines_list.append(line_text)
-            current_chunk_tokens += estimated_line_tokens
-        else:
-            if current_chunk_lines_list:
-                final_tts_chunks.append("\n".join(current_chunk_lines_list))
-            current_chunk_lines_list = [line_text]
-            current_chunk_tokens = estimated_line_tokens
-
-    if current_chunk_lines_list:
-        final_tts_chunks.append("\n".join(current_chunk_lines_list))
-    return [chunk for chunk in final_tts_chunks if chunk and chunk.strip()]
+# Tone instruction for "Half Light"
+ACTING_PROMPT = "Speak in a very aggressive, threatening, and visceral tone. A raspy, angry whisper-shout."
 
 def concatenate_audio_chunks(chunk_filepaths, final_output_path):
-    if not PYDUB_AVAILABLE: return False
     if not chunk_filepaths: return False
     print(f"  Concatenating {len(chunk_filepaths)} chunks...")
     combined = AudioSegment.empty()
     for filepath in sorted(chunk_filepaths): 
-        try:
-            combined += AudioSegment.from_wav(filepath) 
-        except CouldntDecodeError:
-            print(f"      Error: Corrupt chunk {filepath}. Skipping.")
+        combined += AudioSegment.from_wav(filepath) 
     
     if len(combined) > 0:
         combined.export(final_output_path, format=OUTPUT_FORMAT) 
-        print(f"  Saved to: {final_output_path}")
         return True
     return False
 
+# ... [KEEP YOUR EXISTING SPLIT FUNCTIONS HERE: _estimate_tokens, _split_by_force_chars, _split_by_sentence_groups, _split_by_line_groups] ...
+# (I am omitting them here for brevity, but keep the exact same chunking functions from your previous script)
+
 def process_chapter_file(text_filepath, final_audio_output_path):
     print(f"\n--- Processing: {os.path.basename(text_filepath)} ---")
-    base_filename_no_ext = os.path.splitext(os.path.basename(text_filepath))[0]
-    sanitized_base = re.sub(r'[^\w_.-]', '_', base_filename_no_ext)
+    base_name = os.path.splitext(os.path.basename(text_filepath))[0]
+    sanitized_base = re.sub(r'[^\w_.-]', '_', base_name)
     
     chapter_temp_dir = os.path.join(TEMP_CHUNK_DIR, sanitized_base) 
     os.makedirs(chapter_temp_dir, exist_ok=True)
 
-    try:
-        with open(text_filepath, 'r', encoding='utf-8') as f:
-            full_text_content = f.read()
-        full_text_content = normalize_text(full_text_content)
-        if not full_text_content.strip():
-            print(f"  Skipping empty file.")
-            return True
-    except Exception as e:
-        print(f"  Error reading file: {e}")
-        return False
+    with open(text_filepath, 'r', encoding='utf-8') as f:
+        full_text_content = f.read()
 
     initial_text_chunks = _split_by_line_groups(full_text_content, FALLBACK_TOKEN_LIMIT, AVG_CHARS_PER_TOKEN)
-    if not initial_text_chunks:
-        print(f"  Warning: No text chunks generated.")
-        return False
-
-    pending_jobs = []
-    for i, text_content in enumerate(initial_text_chunks):
-        pending_jobs.append({
-            "text": text_content,
-            "output_suffix": f"l_{i+1:03d}", 
-            "fallback_level": 1
-        })
 
     generated_audio_files = [] 
-    any_chunk_failed_or_skipped = False 
-    job_idx = 0
     
-    while job_idx < len(pending_jobs):
-        current_job = pending_jobs[job_idx]
-        text_to_process = current_job["text"]
-        output_suffix = current_job["output_suffix"]
-        fallback_level = current_job.get("fallback_level", 1)
-        
+    for i, text_to_process in enumerate(initial_text_chunks):
+        output_suffix = f"l_{i+1:03d}"
         chunk_output_basename = f"{sanitized_base}_{output_suffix}"
         local_chunk_filepath = os.path.join(chapter_temp_dir, f"{chunk_output_basename}.{OUTPUT_FORMAT}")
 
-        # Skip if already generated
-        if os.path.exists(local_chunk_filepath) and os.path.getsize(local_chunk_filepath) > 100:
+        if os.path.exists(local_chunk_filepath):
             generated_audio_files.append(local_chunk_filepath)
-            job_idx += 1
             continue
 
         try:
-            # --- QWEN LOCAL INFERENCE ---
-            print(f"      Generating chunk {output_suffix}...")
-            wavs, sr = qwen_model.generate_voice_clone(
+            print(f"      [1/2] Qwen Acting for chunk {output_suffix}...")
+            # 1. Generate acting with Qwen
+            wavs, sr = qwen_model.generate_custom_voice(
                 text=text_to_process,
                 language="English",
-                voice_clone_prompt=voice_clone_prompt,
+                speaker="Ryan", # Base male voice, fits well for shifting into Half Light
+                instruct=ACTING_PROMPT,
             )
             
-            # Save the raw numpy array to WAV
+            # Save Qwen audio
             sf.write(local_chunk_filepath, wavs[0], sr)
-            
-            if os.path.exists(local_chunk_filepath):
-                generated_audio_files.append(local_chunk_filepath)
-            
-            job_idx += 1 
+
+            print(f"      [2/2] Applying Half Light RVC Skin...")
+            # 2. Apply RVC to the generated audio, overwriting the file
+            rvc_model.infer_file(
+                local_chunk_filepath, 
+                local_chunk_filepath, # Save over the original
+            )
+
+            generated_audio_files.append(local_chunk_filepath)
 
         except Exception as e:
-            print(f"      [!!] Error during Qwen generation: {e}")
-            
-            new_sub_jobs = []
-            if fallback_level == 1:
-                print(f"      -> Falling back to Lvl 2 (Sentence Split)")
-                chunks = _split_by_sentence_groups(text_to_process, FALLBACK_TOKEN_LIMIT, AVG_CHARS_PER_TOKEN)
-                for i, c in enumerate(chunks):
-                    new_sub_jobs.append({"text": c, "output_suffix": f"{output_suffix}_s_{i+1:02d}", "fallback_level": 2})
-            elif fallback_level == 2:
-                print(f"      -> Falling back to Lvl 3 (Force Split)")
-                chunks = _split_by_force_chars(text_to_process, FALLBACK_CHAR_LIMIT)
-                for i, c in enumerate(chunks):
-                    new_sub_jobs.append({"text": c, "output_suffix": f"{output_suffix}_f_{i+1:02d}", "fallback_level": 3})
+            print(f"      [!!] Error: {e}")
 
-            if new_sub_jobs:
-                pending_jobs = pending_jobs[:job_idx] + new_sub_jobs + pending_jobs[job_idx+1:]
-                continue 
-            else:
-                print(f"      [Fail] Could not recover. Skipping chunk.")
-                any_chunk_failed_or_skipped = True
-                with open(LOG_FILE, "a", encoding="utf-8") as log_f:
-                    log_f.write(f"FAILED: {output_suffix}\nText: {text_to_process}\n\n")
-                job_idx += 1
-
-    if not generated_audio_files: return False
-    
     if concatenate_audio_chunks(generated_audio_files, final_audio_output_path):
-        if not any_chunk_failed_or_skipped:
-            try: shutil.rmtree(chapter_temp_dir)
-            except: pass
+        shutil.rmtree(chapter_temp_dir)
         return True
     return False
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Qwen3-TTS Chapter Generator")
-    parser.add_argument("--voice_wav", type=str, required=True, help="Path to your reference WAV file")
-    parser.add_argument("--ref_text", type=str, required=True, help="The exact spoken text in the reference WAV")
+    parser = argparse.ArgumentParser(description="Qwen3-TTS + RVC Generator")
+    parser.add_argument("--rvc_model_path", type=str, required=True, help="Path to your .pth file")
+    parser.add_argument("--rvc_index_path", type=str, required=True, help="Path to your .index file")
+    parser.add_argument("--pitch", type=int, default=-2, help="Pitch shift (try -12 for deep voices)")
     args = parser.parse_args()
 
-    QWEN_SPEAKER_WAV = args.voice_wav
-    QWEN_REF_TEXT = args.ref_text
-
-    if not os.path.exists(QWEN_SPEAKER_WAV):
-        print(f"Error: WAV file not found at {QWEN_SPEAKER_WAV}")
-        sys.exit(1)
-
-    # --- INITIALIZE QWEN MODEL ONCE ---
-    print("Loading Qwen3-TTS Model into GPU memory...")
+    # --- 1. INITIALIZE QWEN ---
+    print("Loading Qwen3-TTS CustomVoice Model...")
     qwen_model = Qwen3TTSModel.from_pretrained(
-        "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+        "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice", # Using CustomVoice for acting control
         device_map="cuda:0",
         dtype=torch.bfloat16,
         attn_implementation="flash_attention_2",
     )
 
-    print("Analyzing reference audio to create voice profile...")
-    # Cache the prompt so we don't have to re-analyze the WAV for every single chunk
-    voice_clone_prompt = qwen_model.create_voice_clone_prompt(
-        ref_audio=QWEN_SPEAKER_WAV,
-        ref_text=QWEN_REF_TEXT,
+    # --- 2. INITIALIZE RVC ---
+    print("Loading Half Light RVC Model...")
+    rvc_model = RVCInference(device="cuda:0")
+    rvc_model.load_model(args.rvc_model_path)
+    rvc_model.set_params(
+        f0method="rmvpe", # Best pitch extraction method
+        f0up_key=args.pitch, 
+        index_file=args.rvc_index_path,
+        index_rate=0.75, # How strongly to enforce the voice print
+        filter_radius=3,
+        resample_sr=0,
+        rms_mix_rate=0.25,
+        protect=0.33
     )
 
     # --- SETUP DIRECTORIES ---
@@ -465,33 +799,14 @@ if __name__ == "__main__":
     if not os.path.exists(AUDIO_OUTPUT_DIR): os.makedirs(AUDIO_OUTPUT_DIR)
     
     text_files = sorted(glob.glob(os.path.join(TEXT_FILES_DIR, "*.txt")))
-    if not text_files:
-        print(f"No .txt files found in {TEXT_FILES_DIR}"); exit(1)
-
     print(f"Found {len(text_files)} chapters.")
     
-    chapters_succeeded = 0
-    chapters_failed = 0
-
-    try: 
-        for idx, text_file_path in enumerate(text_files):
-            if CHAPTER_STOP > 0 and (idx + 1) > CHAPTER_STOP: break
-            base_name = os.path.splitext(os.path.basename(text_file_path))[0]
-            clean_name = re.sub(r'[^\w_.-]', '_', base_name)
-            out_path = os.path.join(AUDIO_OUTPUT_DIR, f"{clean_name}.{OUTPUT_FORMAT}")
-
-            if os.path.exists(out_path) and os.path.getsize(out_path) > 1024:
-                print(f"Skipping {clean_name} (Exists)")
-                chapters_succeeded += 1
-                continue
-            
-            if process_chapter_file(text_file_path, out_path):
-                chapters_succeeded += 1
-            else:
-                chapters_failed += 1
-            
-    except KeyboardInterrupt: 
-        print("\n[STOPPED] User interrupted.")
+    for text_file_path in text_files:
+        base_name = os.path.splitext(os.path.basename(text_file_path))[0]
+        out_path = os.path.join(AUDIO_OUTPUT_DIR, f"{base_name}.{OUTPUT_FORMAT}")
+        
+        if not os.path.exists(out_path):
+            process_chapter_file(text_file_path, out_path)
 
 --- END OF FILE: ./qwen_tts_generator.py ---
 
@@ -541,36 +856,22 @@ def extract_and_clean_chapter_data(content_el, ch_num):
     # --- LOGIC: TITLE EXTRACTION & DEDUPLICATION ---
     story_title = f"Chapter {ch_num}"
     
-    # Check if the first paragraph is actually the title
     lines = cleaned_body.split('\n')
-    # Filter out empty lines from the start
     while lines and not lines[0].strip():
         lines.pop(0)
         
     if lines:
         first_line = lines[0].strip()
-        # Heuristic: If first line contains "Chapter" and the number, OR is very short < 100 chars, treat as title
+        # Heuristic: If first line contains "Chapter" OR is very short < 100 chars, treat as title
         if (f"Chapter {ch_num}" in first_line) or (len(first_line) < 100):
             story_title = first_line
-            # CRITICAL: Remove this line from body so it doesn't duplicate in the .txt file
+            # CRITICAL: Remove this line from body so it doesn't duplicate
             cleaned_body = "\n".join(lines[1:]).strip()
             
     final_header = f"Chapter {ch_num} - {story_title}"
     return final_header, cleaned_body
 
-def parse_chapter_number(url, raw_title):
-    # Try from Title first
-    match = re.search(r'(?:ch|chapter|c)\.?\s*(\d+)', raw_title, re.IGNORECASE)
-    if match: return int(match.group(1))
-    
-    # Try from URL slug
-    match_url = re.search(r'-(\d+)/?$', url)
-    if match_url: return int(match_url.group(1))
-        
-    return 0
-
 def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
-    # Use Env Var if available (from GUI)
     save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
 
     if not os.path.exists(save_directory):
@@ -582,8 +883,9 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
     }
 
-    # --- LOAD HISTORY ---
+    # --- LOAD HISTORY & SET COUNTER ---
     url_history_map = {}
+    history_data = []
     if os.path.exists(json_path):
         try:
             with open(json_path, 'r', encoding='utf-8') as f:
@@ -592,6 +894,8 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                     url_history_map[entry['url']] = entry.get('next_url')
         except: pass
 
+    # THE FIX: Always start counting from 1 (or continue from history length)
+    ch_counter = len(history_data) + 1 
     current_url = start_url
 
     try:
@@ -608,10 +912,7 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
 
             soup = BeautifulSoup(response.content, 'html.parser')
             
-            # --- GENERIC FALLBACK SELECTORS ---
-            # The AI Generator will replace these with specific ones, 
-            # but the logic structure below remains.
-            title_el = soup.find('h1')
+            # Extract basic info
             content_el = soup.select_one('.entry-content') or soup.find('article')
             
             # Find Next Link
@@ -625,16 +926,14 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                 print("Content not found.")
                 break
 
-            raw_title = title_el.get_text(strip=True) if title_el else "Unknown"
-            ch_num = parse_chapter_number(current_url, raw_title)
-            filename = f"ch_{ch_num:04d}.txt"
+            # Use internal counter for naming
+            filename = f"ch_{ch_counter:04d}.txt"
             filepath = os.path.join(save_directory, filename)
 
             if os.path.exists(filepath):
                 print(f"   -> Exists: {filename}")
             else:
-                full_header, cleaned_body = extract_and_clean_chapter_data(content_el, ch_num)
-                # STRICT FORMAT: Header, blank line, Body
+                full_header, cleaned_body = extract_and_clean_chapter_data(content_el, ch_counter)
                 with open(filepath, 'w', encoding='utf-8') as f:
                     f.write(f"{full_header}\n\n{cleaned_body}")
                 print(f"   -> Saved: {full_header}")
@@ -643,13 +942,11 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
             
             # Save History
             history_entry = {"url": current_url, "next_url": next_url, "file": filename}
-            data = []
-            if os.path.exists(json_path):
-                with open(json_path, 'r') as f: data = json.load(f)
-            
-            if not any(d['url'] == current_url for d in data):
-                data.append(history_entry)
-                with open(json_path, 'w') as f: json.dump(data, f, indent=4)
+            history_data.append(history_entry)
+            with open(json_path, 'w') as f: json.dump(history_data, f, indent=4)
+
+            # Increment the counter
+            ch_counter += 1
 
             if not next_url: break
             current_url = next_url
@@ -659,7 +956,6 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
         print(f"Critical Error: {e}")
 
 if __name__ == '__main__':
-    # Default behavior if run directly
     pass
 
 --- END OF FILE: ./scraper_2.py ---
@@ -2594,7 +2890,8 @@ SCRIPTS = {
     "Metadata": "metadata_fetcher.py",
     "Translate (Gemini)": "gemini_transelate_4.py",
     "Translate (Grok)": "grok_transelate.py",
-    "TTS Generator": "alltalk_tts_generator_chunky_17.py",
+    # We dynamically set TTS based on engine choice now
+    "TTS Generator": "alltalk_tts_generator_chunky_17.py", 
     "Audio Converter": "convert_audio_to_opus_3.py",
     "Tag Audio": "tag_audiobook_files_opus_3.py",
     "EPUB Creator": "txt_to_epub.py",
@@ -2604,21 +2901,29 @@ class PipelineGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Audiobook Pipe System")
-        self.root.geometry("900x900")
+        self.root.geometry("900x950")
         
         if not os.path.exists(NOVELS_ROOT_DIR):
             os.makedirs(NOVELS_ROOT_DIR)
 
         self.current_project = tk.StringVar()
-        self.index_url = tk.StringVar() # For Metadata
+        self.index_url = tk.StringVar() 
         
         # Source Selection
         self.input_source_var = tk.StringVar(value="Raw") 
+
+        # TTS Engine Switcher
+        self.tts_engine_var = tk.StringVar(value="AllTalk")
 
         # AllTalk Config Vars
         self.alltalk_path_var = tk.StringVar()
         self.selected_voice_var = tk.StringVar()
         self.selected_rvc_var = tk.StringVar()
+
+        # Qwen+RVC Config Vars
+        self.qwen_pth_var = tk.StringVar()
+        self.qwen_index_var = tk.StringVar()
+        self.qwen_pitch_var = tk.IntVar(value=-2)
 
         self.pipeline_vars = {
             "scraper": tk.BooleanVar(value=True),
@@ -2637,13 +2942,10 @@ class PipelineGUI:
         self.current_process = None
         self.stop_requested = False
 
-        # Load Config
         self.load_config()
-
         self.create_ui()
         self.refresh_project_list()
 
-        # Initial Scan
         if self.alltalk_path_var.get():
             self.scan_alltalk_content()
 
@@ -2660,8 +2962,7 @@ class PipelineGUI:
         ttk.Button(top_frame, text="New", command=self.create_new_project, width=5).pack(side="left", padx=2)
         ttk.Button(top_frame, text="Folder", command=self.open_project_folder, width=6).pack(side="left", padx=2)
         
-        # Metadata URL Input
-        ttk.Label(top_frame, text=" |  Index URL:").pack(side="left", padx=5)
+        ttk.Label(top_frame, text=" | Index URL:").pack(side="left", padx=5)
         ttk.Entry(top_frame, textvariable=self.index_url, width=30).pack(side="left", padx=5)
         ttk.Button(top_frame, text="Get Meta", command=self.run_metadata_fetch).pack(side="left", padx=2)
 
@@ -2675,40 +2976,65 @@ class PipelineGUI:
 
         # --- TAB 1: PIPELINE ---
         
-        # 1. AllTalk Integration Section (New)
-        at_frame = ttk.LabelFrame(self.tab_run, text="External AllTalk TTS Setup")
-        at_frame.pack(fill="x", padx=10, pady=5)
+        # 1. TTS Engine Setup
+        tts_frame = ttk.LabelFrame(self.tab_run, text="TTS Generation Setup")
+        tts_frame.pack(fill="x", padx=10, pady=5)
 
-        # Path Selection
-        path_frame = ttk.Frame(at_frame)
-        path_frame.pack(fill="x", padx=5, pady=5)
-        
-        ttk.Label(path_frame, text="AllTalk Root Dir:").pack(side="left")
-        ttk.Entry(path_frame, textvariable=self.alltalk_path_var).pack(side="left", padx=5, fill="x", expand=True)
-        ttk.Button(path_frame, text="Browse", command=self.browse_alltalk).pack(side="left")
-        ttk.Button(path_frame, text="Scan Voices", command=self.scan_alltalk_content).pack(side="left", padx=5)
+        # Engine Selector
+        eng_sel_frame = ttk.Frame(tts_frame)
+        eng_sel_frame.pack(fill="x", padx=5, pady=5)
+        ttk.Label(eng_sel_frame, text="Select Engine:").pack(side="left", padx=5)
+        ttk.Radiobutton(eng_sel_frame, text="AllTalk (External API)", variable=self.tts_engine_var, value="AllTalk", command=self.toggle_tts_ui).pack(side="left", padx=10)
+        ttk.Radiobutton(eng_sel_frame, text="Qwen + RVC (Local GPU)", variable=self.tts_engine_var, value="Qwen", command=self.toggle_tts_ui).pack(side="left", padx=10)
 
-        # Dropdowns
-        opts_frame = ttk.Frame(at_frame)
-        opts_frame.pack(fill="x", padx=5, pady=5)
+        # 1A. AllTalk Controls (Frame)
+        self.alltalk_frame = ttk.Frame(tts_frame)
+        self.alltalk_frame.pack(fill="x", padx=5, pady=5)
 
-        ttk.Label(opts_frame, text="XTTS Voice:").pack(side="left")
-        self.voice_combo = ttk.Combobox(opts_frame, textvariable=self.selected_voice_var, state="readonly", width=30)
+        at_path_frame = ttk.Frame(self.alltalk_frame)
+        at_path_frame.pack(fill="x", pady=2)
+        ttk.Label(at_path_frame, text="AllTalk Root Dir:").pack(side="left", padx=5)
+        ttk.Entry(at_path_frame, textvariable=self.alltalk_path_var).pack(side="left", padx=5, fill="x", expand=True)
+        ttk.Button(at_path_frame, text="Browse", command=self.browse_alltalk).pack(side="left")
+        ttk.Button(at_path_frame, text="Scan Voices", command=self.scan_alltalk_content).pack(side="left", padx=5)
+
+        at_opts_frame = ttk.Frame(self.alltalk_frame)
+        at_opts_frame.pack(fill="x", pady=2)
+        ttk.Label(at_opts_frame, text="XTTS Voice:").pack(side="left", padx=5)
+        self.voice_combo = ttk.Combobox(at_opts_frame, textvariable=self.selected_voice_var, state="readonly", width=25)
         self.voice_combo.pack(side="left", padx=5)
-
-        ttk.Label(opts_frame, text="RVC Model:").pack(side="left", padx=(15, 0))
-        self.rvc_combo = ttk.Combobox(opts_frame, textvariable=self.selected_rvc_var, state="readonly", width=35)
+        ttk.Label(at_opts_frame, text="RVC Model:").pack(side="left", padx=(15, 5))
+        self.rvc_combo = ttk.Combobox(at_opts_frame, textvariable=self.selected_rvc_var, state="readonly", width=30)
         self.rvc_combo.pack(side="left", padx=5)
+
+        # 1B. Qwen Controls (Frame)
+        self.qwen_frame = ttk.Frame(tts_frame)
+        
+        q_pth_frame = ttk.Frame(self.qwen_frame)
+        q_pth_frame.pack(fill="x", pady=2)
+        ttk.Label(q_pth_frame, text="RVC .pth File:").pack(side="left", padx=5)
+        ttk.Entry(q_pth_frame, textvariable=self.qwen_pth_var).pack(side="left", padx=5, fill="x", expand=True)
+        ttk.Button(q_pth_frame, text="Browse", command=lambda: self.browse_qwen_file("pth")).pack(side="left", padx=5)
+
+        q_idx_frame = ttk.Frame(self.qwen_frame)
+        q_idx_frame.pack(fill="x", pady=2)
+        ttk.Label(q_idx_frame, text="RVC .index File:").pack(side="left", padx=5)
+        ttk.Entry(q_idx_frame, textvariable=self.qwen_index_var).pack(side="left", padx=5, fill="x", expand=True)
+        ttk.Button(q_idx_frame, text="Browse", command=lambda: self.browse_qwen_file("index")).pack(side="left", padx=5)
+
+        q_pitch_frame = ttk.Frame(self.qwen_frame)
+        q_pitch_frame.pack(fill="x", pady=2)
+        ttk.Label(q_pitch_frame, text="Pitch Shift (-12 to 12):").pack(side="left", padx=5)
+        ttk.Spinbox(q_pitch_frame, from_=-24, to=24, textvariable=self.qwen_pitch_var, width=5).pack(side="left", padx=5)
+
+        # Initialize View
+        self.toggle_tts_ui()
 
         # 2. Source Selection Frame
         source_frame = ttk.LabelFrame(self.tab_run, text="Source Content for TTS & EPUB")
         source_frame.pack(fill="x", padx=10, pady=5)
-        
-        rb1 = ttk.Radiobutton(source_frame, text="Original Scraped Text (01_Raw_Text)", variable=self.input_source_var, value="Raw")
-        rb1.pack(side="left", padx=20, pady=5)
-        
-        rb2 = ttk.Radiobutton(source_frame, text="Translated Text (02_Translated)", variable=self.input_source_var, value="Translated")
-        rb2.pack(side="left", padx=20, pady=5)
+        ttk.Radiobutton(source_frame, text="Original Scraped Text (01_Raw_Text)", variable=self.input_source_var, value="Raw").pack(side="left", padx=20, pady=5)
+        ttk.Radiobutton(source_frame, text="Translated Text (02_Translated)", variable=self.input_source_var, value="Translated").pack(side="left", padx=20, pady=5)
 
         # 3. Steps Selection
         chk_frame = ttk.LabelFrame(self.tab_run, text="Select Steps")
@@ -2745,29 +3071,40 @@ class PipelineGUI:
         # 5. Logs
         log_label_frame = ttk.LabelFrame(self.tab_run, text="Process Logs")
         log_label_frame.pack(fill="both", expand=True, padx=10, pady=5)
-        
         self.log_area = scrolledtext.ScrolledText(log_label_frame, height=15, state='normal', font=("Consolas", 9))
         self.log_area.pack(fill="both", expand=True, padx=5, pady=5)
         self.log_area.bind("<Key>", self.prevent_typing) 
-
         ttk.Button(log_label_frame, text="Copy All Logs", command=self.copy_all_logs).pack(pady=2)
 
         # --- TAB 2: ADAPTER ---
         lbl = ttk.Label(self.tab_adapt, text="Use AI to write custom scripts for new websites.", font=("Arial", 10, "bold"))
         lbl.pack(pady=10)
-        
         adapt_frame = ttk.Frame(self.tab_adapt)
         adapt_frame.pack(pady=5)
-        
         ttk.Label(adapt_frame, text="Target URL:").grid(row=0, column=0, padx=5, sticky="e")
         ttk.Entry(adapt_frame, textvariable=self.adapt_url_var, width=50).grid(row=0, column=1, padx=5)
-        
         ttk.Label(adapt_frame, text="Generate For:").grid(row=1, column=0, padx=5, sticky="e")
         ttk.Combobox(adapt_frame, textvariable=self.adapt_type_var, values=["Chapter Scraper", "Metadata Scraper"], state="readonly").grid(row=1, column=1, padx=5, sticky="w")
-        
         ttk.Button(self.tab_adapt, text="Ask Gemini to Write Script", command=self.run_adapt_tool).pack(pady=15)
         self.adapt_status = ttk.Label(self.tab_adapt, text="Ready", foreground="gray")
         self.adapt_status.pack()
+
+    def toggle_tts_ui(self):
+        """Switches the UI visibility based on the selected TTS Engine."""
+        if self.tts_engine_var.get() == "AllTalk":
+            self.qwen_frame.pack_forget()
+            self.alltalk_frame.pack(fill="x", padx=5, pady=5)
+        else:
+            self.alltalk_frame.pack_forget()
+            self.qwen_frame.pack(fill="x", padx=5, pady=5)
+
+    def browse_qwen_file(self, file_type):
+        """File browser for Qwen RVC models."""
+        ext = "*.pth" if file_type == "pth" else "*.index"
+        f = filedialog.askopenfilename(title=f"Select RVC {file_type} file", filetypes=[(f"RVC {file_type.upper()}", ext)])
+        if f:
+            if file_type == "pth": self.qwen_pth_var.set(f)
+            else: self.qwen_index_var.set(f)
 
     # --- ALLTALK LOGIC ---
     def load_config(self):
@@ -2776,13 +3113,21 @@ class PipelineGUI:
                 with open(CONFIG_FILE, "r") as f:
                     data = json.load(f)
                     self.alltalk_path_var.set(data.get("alltalk_path", ""))
+                    self.qwen_pth_var.set(data.get("qwen_pth", ""))
+                    self.qwen_index_var.set(data.get("qwen_index", ""))
+                    self.qwen_pitch_var.set(data.get("qwen_pitch", -2))
         except Exception as e:
             print(f"Config Error: {e}")
 
     def save_config(self):
         try:
             with open(CONFIG_FILE, "w") as f:
-                json.dump({"alltalk_path": self.alltalk_path_var.get()}, f)
+                json.dump({
+                    "alltalk_path": self.alltalk_path_var.get(),
+                    "qwen_pth": self.qwen_pth_var.get(),
+                    "qwen_index": self.qwen_index_var.get(),
+                    "qwen_pitch": self.qwen_pitch_var.get(),
+                }, f)
         except Exception as e:
             print(f"Config Save Error: {e}")
 
@@ -2795,24 +3140,18 @@ class PipelineGUI:
 
     def scan_alltalk_content(self):
         base = self.alltalk_path_var.get()
-        if not base or not os.path.exists(base):
-            return
+        if not base or not os.path.exists(base): return
 
-        # 1. Scan Voices (look in /voices)
         voices_dir = os.path.join(base, "voices")
         if os.path.exists(voices_dir):
             wavs = glob.glob(os.path.join(voices_dir, "*.wav"))
-            # Just store the filename!
             voice_names = [os.path.basename(w) for w in wavs]
             self.voice_combo['values'] = voice_names
-            if voice_names: 
-                self.voice_combo.current(0)
-            else:
-                self.voice_combo.set("No .wav files found")
+            if voice_names: self.voice_combo.current(0)
+            else: self.voice_combo.set("No .wav files found")
         else:
             self.voice_combo.set("Voices dir not found")
 
-        # 2. Scan RVC Models (Look for .pth files inside subdirectories)
         rvc_search_roots = [
             os.path.join(base, "models", "rvc_voices"), 
             os.path.join(base, "rvc_models"),
@@ -2820,35 +3159,21 @@ class PipelineGUI:
         ]
         
         rvc_models_found = ["None"]
-        
-        valid_root = None
-        for p in rvc_search_roots:
-            if os.path.exists(p):
-                valid_root = p
-                break
+        valid_root = next((p for p in rvc_search_roots if os.path.exists(p)), None)
         
         if valid_root:
             try:
                 subdirs = [d for d in os.listdir(valid_root) if os.path.isdir(os.path.join(valid_root, d))]
-                
                 for subdir in subdirs:
                     subdir_path = os.path.join(valid_root, subdir)
                     pth_files = glob.glob(os.path.join(subdir_path, "*.pth"))
-                    
                     for pth in pth_files:
-                        filename = os.path.basename(pth)
-                        # We construct the relative path "folder_name/file_name.pth"
-                        rel_path = os.path.join(subdir, filename)
-                        rvc_models_found.append(rel_path)
-                        
+                        rvc_models_found.append(os.path.join(subdir, os.path.basename(pth)))
             except Exception as e:
                 print(f"Error scanning RVC folders: {e}")
         
         self.rvc_combo['values'] = rvc_models_found
-        if len(rvc_models_found) > 1:
-             self.rvc_combo.current(1) 
-        else:
-             self.rvc_combo.current(0)
+        self.rvc_combo.current(1 if len(rvc_models_found) > 1 else 0)
 
     # --- GENERAL LOGIC ---
     def prevent_typing(self, event):
@@ -2907,12 +3232,7 @@ class PipelineGUI:
         dir_wav = os.path.join(base, "03_Audio_WAV")
         dir_opus = os.path.join(base, "04_Audio_Opus")
         
-        if self.input_source_var.get() == "Translated":
-            tts_input = dir_trans
-            self.log(f"[Config] Using TRANSLATED text as source.")
-        else:
-            tts_input = dir_raw
-            self.log(f"[Config] Using RAW text as source.")
+        tts_input = dir_trans if self.input_source_var.get() == "Translated" else dir_raw
 
         env = os.environ.copy()
         env["PROJECT_RAW_TEXT_DIR"] = dir_raw
@@ -2931,24 +3251,30 @@ class PipelineGUI:
         if self.current_process and self.current_process.poll() is None:
             self.stop_requested = True
             self.log("\n!!! STOPPING PROCESS... !!!")
-            try:
-                self.current_process.terminate()
+            try: self.current_process.terminate()
             except: pass
 
     def run_script(self, script_key):
         if self.stop_requested: return False
         
+        # --- DYNAMIC SCRIPT PATH ---
         script_path = SCRIPTS.get(script_key)
-        proj = self.current_project.get()
 
-        if script_key == "Scraper" and proj:
-            custom_path = os.path.join(NOVELS_ROOT_DIR, proj, "custom_scraper.py")
+        # 1. Custom Scraper Override
+        if script_key == "Scraper" and self.current_project.get():
+            custom_path = os.path.join(NOVELS_ROOT_DIR, self.current_project.get(), "custom_scraper.py")
             if os.path.exists(custom_path):
                 script_path = custom_path
                 self.log(f"--- Using Custom Chapter Scraper ---")
 
+        # 2. Dynamic Translation Script
         if script_key.startswith("Translate"):
             script_path = SCRIPTS.get(self.trans_engine.get())
+
+        # 3. Dynamic TTS Script
+        if script_key == "TTS Generator":
+            if self.tts_engine_var.get() == "Qwen":
+                script_path = "qwen_tts_generator.py" # Set to local generator
 
         if not script_path or not os.path.exists(script_path):
             self.log(f"Error: {script_path} not found.")
@@ -2956,35 +3282,39 @@ class PipelineGUI:
 
         self.log(f"--- Running {os.path.basename(script_path)} ---")
         env = self.get_env_for_project()
-
         cmd = [sys.executable, script_path]
 
         # --- Inject Arguments for TTS Generator ---
         if script_key == "TTS Generator":
-            # [FIX] Force basename here to prevent path leakage
-            full_voice_val = self.selected_voice_var.get()
-            voice_filename = os.path.basename(full_voice_val) 
-            rvc = self.selected_rvc_var.get()
-            
-            if not voice_filename or "No" in voice_filename:
-                self.log("Error: Invalid voice selection.")
-                return False
-            
-            cmd.extend(["--voice_filename", voice_filename])
-            
-            if rvc and rvc != "None":
-                cmd.extend(["--rvc_model", rvc])
-        # ------------------------------------------
+            # A. AllTalk Arguments
+            if self.tts_engine_var.get() == "AllTalk":
+                full_voice_val = self.selected_voice_var.get()
+                voice_filename = os.path.basename(full_voice_val) 
+                rvc = self.selected_rvc_var.get()
+                
+                if not voice_filename or "No" in voice_filename:
+                    self.log("Error: Invalid voice selection.")
+                    return False
+                
+                cmd.extend(["--voice_filename", voice_filename])
+                if rvc and rvc != "None": cmd.extend(["--rvc_model", rvc])
+
+            # B. Qwen+RVC Arguments
+            else:
+                pth = self.qwen_pth_var.get()
+                idx = self.qwen_index_var.get()
+                pitch = str(self.qwen_pitch_var.get())
+
+                if not os.path.exists(pth) or not os.path.exists(idx):
+                    self.log("Error: Qwen RVC model paths are invalid.")
+                    return False
+
+                cmd.extend(["--rvc_model_path", pth, "--rvc_index_path", idx, "--pitch", pitch])
+                self.save_config() # Save paths for next time
 
         try:
             self.current_process = subprocess.Popen(
-                cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                env=env,
-                text=True,
-                bufsize=1,
-                universal_newlines=True
+                cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env, text=True, bufsize=1, universal_newlines=True
             )
             for line in self.current_process.stdout:
                 if self.stop_requested: 
@@ -3016,19 +3346,14 @@ class PipelineGUI:
         try:
             if self.pipeline_vars["scraper"].get():
                 if not self.run_script("Scraper"): raise Exception("Scraping Failed")
-            
             if self.pipeline_vars["translate"].get():
                 if not self.run_script("Translate"): raise Exception("Translation Failed")
-
             if self.pipeline_vars["epub"].get():
                 if not self.run_script("EPUB Creator"): raise Exception("EPUB Failed")
-
             if self.pipeline_vars["tts"].get():
                 if not self.run_script("TTS Generator"): raise Exception("TTS Failed")
-
             if self.pipeline_vars["convert"].get():
                 if not self.run_script("Audio Converter"): raise Exception("Conversion Failed")
-
             if self.pipeline_vars["tag"].get():
                 if not self.run_script("Tag Audio"): raise Exception("Tagging Failed")
 
@@ -3043,28 +3368,17 @@ class PipelineGUI:
     def run_metadata_fetch(self):
         proj = self.current_project.get()
         url = self.index_url.get().strip()
-        if not proj or not url:
-            messagebox.showwarning("Info", "Select Project and enter Index URL.")
-            return
-        
+        if not proj or not url: return messagebox.showwarning("Info", "Select Project and enter Index URL.")
         self.log(f"--- Fetching Metadata ---")
         
         def _worker():
             try:
                 proj_dir = os.path.join(NOVELS_ROOT_DIR, proj)
-                cmd = [sys.executable, SCRIPTS["Metadata"], url, proj_dir]
-                
-                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-                for line in proc.stdout:
-                    self.log(line.strip())
+                proc = subprocess.Popen([sys.executable, SCRIPTS["Metadata"], url, proj_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                for line in proc.stdout: self.log(line.strip())
                 proc.wait()
-                
-                if proc.returncode == 0:
-                    self.log("Metadata Fetch Complete.")
-                else:
-                    self.log("Metadata Fetch Failed.")
-            except Exception as e:
-                self.log(f"Meta Error: {e}")
+                if proc.returncode == 0: self.log("Metadata Fetch Complete.")
+            except Exception as e: self.log(f"Meta Error: {e}")
 
         threading.Thread(target=_worker).start()
 
@@ -3073,19 +3387,14 @@ class PipelineGUI:
         url = self.adapt_url_var.get().strip()
         mode = self.adapt_type_var.get()
         
-        if not proj or not url:
-            messagebox.showerror("Error", "Select project and URL.")
-            return
-        if not os.environ.get("GEMINI_API_KEY"):
-            messagebox.showerror("Error", "GEMINI_API_KEY missing.")
-            return
+        if not proj or not url: return messagebox.showerror("Error", "Select project and URL.")
+        if not os.environ.get("GEMINI_API_KEY"): return messagebox.showerror("Error", "GEMINI_API_KEY missing.")
 
         self.adapt_status.config(text=f"Generating {mode}... wait...", foreground="blue")
         
         def _worker():
             try:
                 proj_dir = os.path.join(NOVELS_ROOT_DIR, proj)
-                
                 if mode == "Chapter Scraper":
                     import scraper_context_fetcher
                     scraper_context_fetcher.fetch_and_generate_scraper(url, proj_dir)
@@ -3097,11 +3406,13 @@ class PipelineGUI:
                 
                 if os.path.exists(os.path.join(proj_dir, target)):
                     self.root.after(0, lambda: self.adapt_status.config(text=f"Success! {target} created.", foreground="green"))
-                    self.root.after(0, lambda: messagebox.showinfo("Done", f"Created {target}"))
                 else:
                     self.root.after(0, lambda: self.adapt_status.config(text="Generation failed.", foreground="red"))
             except Exception as e:
-                self.root.after(0, lambda: self.adapt_status.config(text=f"Error: {e}", foreground="red"))
+                # FIX: Capture the exception string immediately. 
+                # 'e' is deleted from the local scope when the except block exits.
+                error_msg = str(e)
+                self.root.after(0, lambda: self.adapt_status.config(text=f"Error: {error_msg}", foreground="red"))
 
         threading.Thread(target=_worker).start()
 
@@ -3110,5 +3421,597 @@ if __name__ == "__main__":
     app = PipelineGUI(root)
     root.mainloop()
 
-
 --- END OF FILE: ./pipe_system_gui.py ---
+
+--- START OF FILE: ./Novels/Villainous_Saintess_CH/custom_scraper.py ---
+import os
+import re
+import json
+import time
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+# --- CONFIGURATION ---
+DELAY_BETWEEN_REQUESTS = 0  # Seconds to avoid rate limiting
+DEFAULT_SAVE_DIR = "Xiaoxiaoshuo_Novels"
+# ---------------------
+
+def get_with_retries(session, url, headers, retries=3):
+    """Fetches URL with a retry mechanism and forced encoding for GBK sites."""
+    for i in range(retries):
+        try:
+            response = session.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            # The target site uses GBK encoding as per the meta tag
+            if response.encoding.lower() == 'iso-8859-1':
+                response.encoding = 'gbk'
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"   [!] Error fetching {url}: {e}. Retrying ({i+1}/{retries})...")
+            time.sleep(2 * (i + 1))
+    return None
+
+def extract_and_clean_chapter_data(soup, ch_num):
+    """
+    Extracts the title and body, removes redundant header lines from body,
+    and cleans up HTML junk.
+    """
+    # 1. Extract Title
+    title_el = soup.select_one('.bookname h1')
+    raw_title = title_el.get_text(strip=True) if title_el else f"Chapter {ch_num}"
+
+    # 2. Extract Content
+    content_el = soup.select_one('#content')
+    if not content_el:
+        return f"Chapter {ch_num} - {raw_title}", "[Content Missing]"
+
+    # Clean up scripts, styles, and specific site ads/links
+    for junk in content_el.find_all(['script', 'style', 'div']):
+        junk.decompose()
+
+    # Get text with double spacing for readability
+    cleaned_body = content_el.get_text(separator='\n\n', strip=True)
+    
+    # 3. Deduplication Logic
+    # The site often repeats the title or author info at the very start of #content
+    lines = cleaned_body.split('\n')
+    # Filter out empty lines at the start
+    lines = [l.strip() for l in lines if l.strip()]
+    
+    if lines:
+        first_line = lines[0]
+        # If the first line is exactly the title or contains the title string
+        if raw_title in first_line or len(first_line) < 60:
+            # Check for author/date line usually follows title in this site's #content
+            # Pattern: "作者：... 更新时间：..."
+            if len(lines) > 1 and ("作者：" in lines[1] or "更新时间" in lines[1]):
+                cleaned_body = "\n\n".join(lines[2:]).strip()
+            else:
+                cleaned_body = "\n\n".join(lines[1:]).strip()
+
+    final_header = f"Chapter {ch_num} - {raw_title}"
+    return final_header, cleaned_body
+
+def scrape_novel(start_url):
+    save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", DEFAULT_SAVE_DIR)
+
+    if not os.path.exists(save_directory):
+        os.makedirs(save_directory)
+
+    json_path = os.path.join(save_directory, "chapters.json")
+    session = requests.Session()
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    }
+
+    # --- LOAD HISTORY ---
+    url_history_map = {}
+    history_data = []
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                history_data = json.load(f)
+                for entry in history_data:
+                    url_history_map[entry['url']] = entry.get('next_url')
+        except Exception as e:
+            print(f"Error loading history: {e}")
+
+    ch_counter = len(history_data) + 1 
+    current_url = start_url
+
+    try:
+        while current_url:
+            # Check if we already processed this URL in a previous run
+            if current_url in url_history_map and url_history_map[current_url]:
+                next_link = url_history_map[current_url]
+                print(f"Skipping (history): {current_url}")
+                current_url = next_link
+                continue
+
+            print(f"Processing: {current_url}")
+            response = get_with_retries(session, current_url, headers)
+            if not response:
+                print("Failed to retrieve content after retries. Stopping.")
+                break
+
+            soup = BeautifulSoup(response.content, 'html.parser', from_encoding='gbk')
+            
+            # 1. Scrape Content
+            full_header, cleaned_body = extract_and_clean_chapter_data(soup, ch_counter)
+            
+            # 2. Find Next Link
+            # The site uses "下一章" (Next Chapter) text inside the .bottem1 or .bottem2 divs
+            next_url = None
+            # Method 1: Search by text (下一章 is GBK for Next Chapter)
+            anchors = soup.find_all('a', href=True)
+            for a in anchors:
+                if "下一章" in a.get_text():
+                    potential_url = a['href']
+                    # Ensure it's not a javascript link or the index page
+                    if potential_url and not potential_url.startswith('javascript'):
+                        next_url = urljoin(current_url, potential_url)
+                        # Avoid looping back to index (index usually ends in /)
+                        if next_url.strip('/') == current_url.rsplit('/', 1)[0].strip('/'):
+                            next_url = None
+                        break
+
+            # 3. Save File
+            filename = f"ch_{ch_counter:04d}.txt"
+            filepath = os.path.join(save_directory, filename)
+
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(f"{full_header}\n\n{cleaned_body}")
+            print(f"   -> Saved: {full_header}")
+
+            # 4. Update History
+            history_entry = {"url": current_url, "next_url": next_url, "file": filename}
+            history_data.append(history_entry)
+            with open(json_path, 'w', encoding='utf-8') as f: 
+                json.dump(history_data, f, indent=4)
+
+            # 5. Move to Next
+            if not next_url or next_url == current_url:
+                print("No more chapters found.")
+                break
+
+            current_url = next_url
+            ch_counter += 1
+            time.sleep(DELAY_BETWEEN_REQUESTS)
+
+    except Exception as e:
+        print(f"Critical Error during scraping: {e}")
+        import traceback
+        traceback.print_exc()
+
+if __name__ == '__main__':
+    # Use the starting URL provided in your HTML reference
+    TARGET_START_URL = "https://www.xiaoxiaoshuo8.com/0_8/3952.html"
+    scrape_novel(TARGET_START_URL)
+
+--- END OF FILE: ./Novels/Villainous_Saintess_CH/custom_scraper.py ---
+
+--- START OF FILE: ./Novels/Villainous_Saintess_CH/custom_metadata_scraper.py ---
+
+import os
+import json
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+def scrape_novel_metadata():
+    # 1. Setup paths and constants
+    save_dir = os.getenv('SAVE_DIR', '.')
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+        
+    metadata_path = os.path.join(save_dir, 'metadata.json')
+    cover_path = os.path.join(save_dir, 'cover.jpg')
+    base_url = "https://www.xiaoxiaoshuo8.com"
+
+    # The HTML provided is encoded in GBK but displayed as Latin-1/Mojibake in the prompt.
+    # We define the raw content here (representing the provided HTML).
+    raw_html = r"""<!doctype html>
+<head>
+<title>¶ñÒÛÉÙÒ¯ÔõÃ´¿ÉÄÜ»áÊÇÊ¥Å®£¿×îÐÂÕÂ½ÚÁÐ±í_¶ñÒÛÉÙÒ¯ÔõÃ´¿ÉÄÜ»áÊÇÊ¥Å®£¿×îÐÂÕÂ½ÚÄ¿Â¼_Ç§°×ÓðµÄÐ¡ËµÕ¾</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+... (HTML Content Provided) ...
+"""
+
+    # 2. Fix Encoding
+    # In a real scenario, you'd use response.content.decode('gbk')
+    # Since we are given a string that looks like mojibake, we treat it as latin-1 and decode to gbk.
+    try:
+        # This handles the specific corrupted encoding provided in the prompt
+        processed_html = raw_html.encode('latin-1').decode('gbk', errors='ignore')
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        processed_html = raw_html
+
+    soup = BeautifulSoup(processed_html, 'html.parser')
+
+    # 3. Extraction Logic
+    # Title
+    title_tag = soup.find('div', id='info')
+    title = title_tag.find('h1').get_text(strip=True) if title_tag else "Unknown Title"
+
+    # Author
+    author = ""
+    if title_tag:
+        author_tag = title_tag.find('p')
+        if author_tag:
+            author_text = author_tag.get_text(strip=True)
+            if "：" in author_text:
+                author = author_text.split("：")[-1].strip()
+            elif ":" in author_text:
+                author = author_text.split(":")[-1].strip()
+
+    # Description
+    intro_tag = soup.find('div', id='intro')
+    description = intro_tag.get_text('\n', strip=True) if intro_tag else ""
+
+    # Cover Image URL
+    # Note: The provided HTML uses a script to load the image. 
+    # Usually, these sites have a meta tag or an <img> tag inside #fmimg.
+    cover_url = ""
+    fmimg_div = soup.find('div', id='fmimg')
+    if fmimg_div:
+        img_tag = fmimg_div.find('img')
+        if img_tag:
+            cover_url = img_tag.get('data-src') or img_tag.get('src') or ""
+    
+    # Fallback: Many "Biquge" templates follow this pattern if img is missing from static HTML
+    if not cover_url:
+        # Extract bookid from script: var bookid = "8";
+        import re
+        script_text = soup.find(string=re.compile("var bookid"))
+        if script_text:
+            match = re.search(r'var bookid = "(\d+)"', script_text)
+            if match:
+                book_id = match.group(1)
+                # Template: /files/article/image/{subfolder}/{id}/{id}s.jpg
+                cover_url = f"/files/article/image/0/{book_id}/{book_id}s.jpg"
+
+    full_cover_url = urljoin(base_url, cover_url)
+
+    # 4. Prepare Metadata
+    metadata = {
+        "title": title,
+        "author": author,
+        "description": description,
+        "cover_image_url": full_cover_url
+    }
+
+    # 5. Save metadata.json
+    with open(metadata_path, 'w', encoding='utf-8') as f:
+        json.dump(metadata, f, ensure_ascii=False, indent=4)
+
+    # 6. Download Cover Image
+    if full_cover_url and full_cover_url.startswith('http'):
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                'Referer': base_url
+            }
+            img_res = requests.get(full_cover_url, headers=headers, timeout=10)
+            if img_res.status_code == 200:
+                with open(cover_path, 'wb') as f:
+                    f.write(img_res.content)
+        except Exception as e:
+            print(f"Failed to download image: {e}")
+
+if __name__ == "__main__":
+    scrape_novel_metadata()
+
+--- END OF FILE: ./Novels/Villainous_Saintess_CH/custom_metadata_scraper.py ---
+
+--- START OF FILE: ./Novels/god_slaughtering_star/custom_scraper.py ---
+import os
+import re
+import json
+import time
+import requests
+from bs4 import BeautifulSoup
+
+# --- CONFIGURATION ---
+DELAY_BETWEEN_REQUESTS = 1.5  # Seconds to avoid rate limiting
+# ---------------------
+
+def get_with_retries(session, url, headers, retries=3):
+    for i in range(retries):
+        try:
+            response = session.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"   [!] Error fetching {url}: {e}. Retrying ({i+1}/{retries})...")
+            time.sleep(2 * (i + 1))
+    return None
+
+def extract_and_clean_chapter_data(soup, ch_num):
+    """
+    Targets the main content area, removes scripts, styles, and unwanted 
+    interactive elements like navigation buttons or social shares.
+    """
+    # Specific selectors for Kat Reading Cafe / Lightnovel theme
+    content_el = soup.select_one('.entry-content') or soup.select_one('.epcontent') or soup.find('article')
+    
+    if not content_el:
+        return f"Chapter {ch_num}", "Content not found."
+
+    # 1. Remove script, style, and known junk classes
+    # 'naveps' and 'navimedia' are the previous/next buttons usually found inside content
+    for junk in content_el.find_all(['script', 'style', 'div', 'section', 'button', 'noscript'], 
+                                   class_=['paragraph-tools', 'social-share', 'sharedaddy', 
+                                          'navigation', 'naveps', 'navimedia', 'ephead', 'entry-title']):
+        junk.decompose()
+        
+    # 2. Get text content
+    cleaned_body = content_el.get_text(separator='\n\n', strip=True)
+    
+    # 3. Handle specific watermarks/junk text often found at start/end
+    junk_patterns = [
+        r"Read latest chapters at.*",
+        r"Previous.*Next",
+        r"Next Chapter.*",
+        r"Previous Chapter.*"
+    ]
+    for pattern in junk_patterns:
+        cleaned_body = re.sub(pattern, "", cleaned_body, flags=re.IGNORECASE)
+
+    # --- LOGIC: TITLE EXTRACTION & DEDUPLICATION ---
+    # Try to get title from H1 first
+    title_el = soup.find('h1')
+    raw_title = title_el.get_text(strip=True) if title_el else f"Chapter {ch_num}"
+    
+    # Split body into lines to check for duplication
+    lines = [line.strip() for line in cleaned_body.split('\n') if line.strip()]
+        
+    if lines:
+        first_line = lines[0]
+        # Deduplication: If first line of body is basically the title, remove it
+        # Examples: "Chapter 1", "Chapter 1 - The Beginning", or matches H1
+        if (f"Chapter {ch_num}" in first_line) or (len(first_line) < 100 and raw_title in first_line) or (first_line == raw_title):
+            cleaned_body = "\n\n".join(lines[1:]).strip()
+            
+    final_header = f"Chapter {ch_num} - {raw_title}"
+    return final_header, cleaned_body
+
+def parse_chapter_number(url, raw_title):
+    # Priority 1: Search in Title (e.g., "Chapter 1")
+    match = re.search(r'(?:ch|chapter|c)\.?\s*(\d+)', raw_title, re.IGNORECASE)
+    if match: return int(match.group(1))
+    
+    # Priority 2: Search in URL slug (e.g., "...chapter-1/")
+    match_url = re.search(r'chapter-(\d+)', url, re.IGNORECASE)
+    if match_url: return int(match_url.group(1))
+        
+    return 0
+
+def find_next_url(soup):
+    """
+    Finds the 'Next' chapter link using priority logic.
+    """
+    # Priority 1: rel="next"
+    next_link = soup.find('a', rel='next')
+    if next_link and next_link.get('href'):
+        return next_link['href']
+    
+    # Priority 2: Text based search in navigation containers
+    nav_containers = soup.select('.naveps, .navimedia, .nvs, .pager')
+    for container in nav_containers:
+        links = container.find_all('a', href=True)
+        for a in links:
+            if 'next' in a.get_text(strip=True).lower():
+                return a['href']
+                
+    # Fallback: Any link with "Next" text that isn't a comment link
+    for a in soup.find_all('a', href=True):
+        text = a.get_text(strip=True).lower()
+        if text == 'next' or text == 'next chapter' or text == 'next >':
+            # Basic sanity check: avoid homepage or index links
+            if 'chapter' in a['href'] or 'god-slaughtering-star' in a['href']:
+                return a['href']
+                
+    return None
+
+def scrape_and_save_chapters(start_url, save_directory="Scraped_Novel"):
+    # Use Env Var if available
+    save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
+
+    if not os.path.exists(save_directory):
+        os.makedirs(save_directory)
+
+    json_path = os.path.join(save_directory, "chapters.json")
+    session = requests.Session()
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    }
+
+    # --- LOAD HISTORY ---
+    url_history_map = {}
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                history_data = json.load(f)
+                for entry in history_data:
+                    url_history_map[entry['url']] = entry.get('next_url')
+        except: pass
+
+    current_url = start_url
+
+    try:
+        while current_url:
+            # Prevent endless loops/history skipping
+            if current_url in url_history_map and url_history_map[current_url]:
+                next_link = url_history_map[current_url]
+                print(f"Skipping (history): {current_url}")
+                current_url = next_link
+                continue
+
+            print(f"Processing: {current_url}")
+            response = get_with_retries(session, current_url, headers)
+            if not response: break
+
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            # Extract basic info
+            title_el = soup.find('h1')
+            raw_title = title_el.get_text(strip=True) if title_el else "Unknown"
+            ch_num = parse_chapter_number(current_url, raw_title)
+            
+            # File logic
+            filename = f"ch_{ch_num:04d}.txt"
+            filepath = os.path.join(save_directory, filename)
+
+            if os.path.exists(filepath):
+                print(f"   -> Already exists locally: {filename}")
+            else:
+                full_header, cleaned_body = extract_and_clean_chapter_data(soup, ch_num)
+                # STRICT FORMAT: Header, blank line, Body
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(f"{full_header}\n\n{cleaned_body}")
+                print(f"   -> Saved: {full_header}")
+
+            # Find Next URL
+            next_url = find_next_url(soup)
+            
+            # Update History JSON
+            history_entry = {"url": current_url, "next_url": next_url, "file": filename}
+            data = []
+            if os.path.exists(json_path):
+                try:
+                    with open(json_path, 'r', encoding='utf-8') as f: data = json.load(f)
+                except: data = []
+            
+            if not any(d['url'] == current_url for d in data):
+                data.append(history_entry)
+                with open(json_path, 'w', encoding='utf-8') as f: 
+                    json.dump(data, f, indent=4)
+
+            if not next_url or next_url == current_url:
+                print("No more chapters found.")
+                break
+                
+            current_url = next_url
+            time.sleep(DELAY_BETWEEN_REQUESTS)
+
+    except Exception as e:
+        print(f"Critical Error during scraping: {e}")
+
+if __name__ == '__main__':
+    # Initial URL for 'God Slaughtering Star' Chapter 1
+    START_URL = "https://katreadingcafe.com/god-slaughtering-star-chapter-1-i-became-the-wife-of-the-chieftain/"
+    scrape_and_save_chapters(START_URL, "God_Slaughtering_Star_Text")
+--- END OF FILE: ./Novels/god_slaughtering_star/custom_scraper.py ---
+
+--- START OF FILE: ./backup/scraper_context_fetcher.py ---
+import os
+import requests
+import sys
+import re
+from urllib.parse import urlparse
+try:
+    import google.generativeai as genai
+    from constants import GEMINI_MODEL_NAME
+except ImportError:
+    GEMINI_MODEL_NAME = "gemini-3-flash-preview"
+
+def extract_code_block(response_text):
+    pattern = r"```python\s*(.*?)\s*```"
+    match = re.search(pattern, response_text, re.DOTALL)
+    if match: return match.group(1)
+    return response_text
+
+def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="scraper_2.py"):
+    context_dir = os.path.join(project_root_dir, "Scraper_Context")
+    if not os.path.exists(context_dir): os.makedirs(context_dir)
+
+    print(f"--- 1. Fetching HTML for: {target_url} ---")
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    
+    html_content = ""
+    try:
+        response = requests.get(target_url, headers=headers, timeout=15)
+        response.raise_for_status()
+        html_content = response.text
+        with open(os.path.join(context_dir, "site_structure.html"), "w", encoding="utf-8") as f:
+            f.write(html_content)
+    except Exception as e:
+        print(f"Error fetching URL: {e}")
+        return
+
+    print(f"--- 2. Reading Reference Scraper ---")
+    reference_code = ""
+    if os.path.exists(reference_scraper):
+        with open(reference_scraper, "r", encoding="utf-8") as f:
+            reference_code = f.read()
+    else:
+        print(f"Error: Reference scraper '{reference_scraper}' not found.")
+        return
+
+    print(f"--- 3. Sending to Gemini ({GEMINI_MODEL_NAME}) ---")
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("Error: GEMINI_API_KEY environment variable not set.")
+        return
+
+    genai.configure(api_key=api_key)
+    
+    # Construct the Prompt
+    prompt = f"""
+    You are an expert Python web scraping developer.
+    
+    I need you to write a NEW Python script to scrape a specific web novel.
+    
+    --- REFERENCE SCRAPER (scraper_2.py) ---
+    The following code is a working example. Reuse the file saving, os.getenv logic, and loop structure.
+    
+    {reference_code}
+    
+    --- TARGET WEBSITE HTML ---
+    Here is the HTML source code of the first chapter. 
+    Use BeautifulSoup to parse this structure. 
+    
+    {html_content[:55000]}
+    
+    --- CRITICAL INSTRUCTIONS ---
+    1. **CLEAN CONTENT:** The text saved to the .txt file MUST ONLY contain the Chapter Header and the Story Body.
+       - **Remove** "Previous/Next" text, "Read at..." watermarks, and social media buttons from the body.
+    
+    2. **DEDUPLICATION:** - Check if the first line of the body content matches the Chapter Title.
+       - **If it matches, remove it** from the body content to avoid duplication in the output file.
+    
+    3. **STRICT FORMAT:** `f.write(f"{{full_header}}\\n\\n{{cleaned_body}}")`
+    
+    4. **NEXT CHAPTER LOGIC (Crucial):**
+       - **Priority 1:** Look for `<a href="..." rel="next">`. This is the most reliable method.
+       - **Priority 2:** Look for an `<a>` tag inside a "nav" or "pager" div that contains the text "Next".
+       - Ensure the loop breaks cleanly if no next link is found.
+
+    5. Output ONLY the complete, runnable Python code.
+    """
+
+    try:
+        model = genai.GenerativeModel(GEMINI_MODEL_NAME)
+        response = model.generate_content(prompt)
+        
+        generated_code = extract_code_block(response.text)
+        
+        output_scraper_path = os.path.join(project_root_dir, "custom_scraper.py")
+        with open(output_scraper_path, "w", encoding="utf-8") as f:
+            f.write(generated_code)
+            
+        print(f"--- SUCCESS! ---")
+        print(f"New scraper saved to: {output_scraper_path}")
+        
+    except Exception as e:
+        print(f"Gemini API Error: {e}")
+
+if __name__ == "__main__":
+    if len(sys.argv) > 2:
+        fetch_and_generate_scraper(sys.argv[1], sys.argv[2])
+    else:
+        print("Usage: python scraper_context_fetcher.py <url> <project_dir>")
+
+--- END OF FILE: ./backup/scraper_context_fetcher.py ---

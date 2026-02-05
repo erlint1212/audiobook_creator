@@ -43,36 +43,22 @@ def extract_and_clean_chapter_data(content_el, ch_num):
     # --- LOGIC: TITLE EXTRACTION & DEDUPLICATION ---
     story_title = f"Chapter {ch_num}"
     
-    # Check if the first paragraph is actually the title
     lines = cleaned_body.split('\n')
-    # Filter out empty lines from the start
     while lines and not lines[0].strip():
         lines.pop(0)
         
     if lines:
         first_line = lines[0].strip()
-        # Heuristic: If first line contains "Chapter" and the number, OR is very short < 100 chars, treat as title
+        # Heuristic: If first line contains "Chapter" OR is very short < 100 chars, treat as title
         if (f"Chapter {ch_num}" in first_line) or (len(first_line) < 100):
             story_title = first_line
-            # CRITICAL: Remove this line from body so it doesn't duplicate in the .txt file
+            # CRITICAL: Remove this line from body so it doesn't duplicate
             cleaned_body = "\n".join(lines[1:]).strip()
             
     final_header = f"Chapter {ch_num} - {story_title}"
     return final_header, cleaned_body
 
-def parse_chapter_number(url, raw_title):
-    # Try from Title first
-    match = re.search(r'(?:ch|chapter|c)\.?\s*(\d+)', raw_title, re.IGNORECASE)
-    if match: return int(match.group(1))
-    
-    # Try from URL slug
-    match_url = re.search(r'-(\d+)/?$', url)
-    if match_url: return int(match_url.group(1))
-        
-    return 0
-
 def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
-    # Use Env Var if available (from GUI)
     save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
 
     if not os.path.exists(save_directory):
@@ -84,8 +70,9 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
     }
 
-    # --- LOAD HISTORY ---
+    # --- LOAD HISTORY & SET COUNTER ---
     url_history_map = {}
+    history_data = []
     if os.path.exists(json_path):
         try:
             with open(json_path, 'r', encoding='utf-8') as f:
@@ -94,6 +81,8 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                     url_history_map[entry['url']] = entry.get('next_url')
         except: pass
 
+    # THE FIX: Always start counting from 1 (or continue from history length)
+    ch_counter = len(history_data) + 1 
     current_url = start_url
 
     try:
@@ -110,10 +99,7 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
 
             soup = BeautifulSoup(response.content, 'html.parser')
             
-            # --- GENERIC FALLBACK SELECTORS ---
-            # The AI Generator will replace these with specific ones, 
-            # but the logic structure below remains.
-            title_el = soup.find('h1')
+            # Extract basic info
             content_el = soup.select_one('.entry-content') or soup.find('article')
             
             # Find Next Link
@@ -127,16 +113,14 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                 print("Content not found.")
                 break
 
-            raw_title = title_el.get_text(strip=True) if title_el else "Unknown"
-            ch_num = parse_chapter_number(current_url, raw_title)
-            filename = f"ch_{ch_num:04d}.txt"
+            # Use internal counter for naming
+            filename = f"ch_{ch_counter:04d}.txt"
             filepath = os.path.join(save_directory, filename)
 
             if os.path.exists(filepath):
                 print(f"   -> Exists: {filename}")
             else:
-                full_header, cleaned_body = extract_and_clean_chapter_data(content_el, ch_num)
-                # STRICT FORMAT: Header, blank line, Body
+                full_header, cleaned_body = extract_and_clean_chapter_data(content_el, ch_counter)
                 with open(filepath, 'w', encoding='utf-8') as f:
                     f.write(f"{full_header}\n\n{cleaned_body}")
                 print(f"   -> Saved: {full_header}")
@@ -145,13 +129,11 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
             
             # Save History
             history_entry = {"url": current_url, "next_url": next_url, "file": filename}
-            data = []
-            if os.path.exists(json_path):
-                with open(json_path, 'r') as f: data = json.load(f)
-            
-            if not any(d['url'] == current_url for d in data):
-                data.append(history_entry)
-                with open(json_path, 'w') as f: json.dump(data, f, indent=4)
+            history_data.append(history_entry)
+            with open(json_path, 'w') as f: json.dump(history_data, f, indent=4)
+
+            # Increment the counter
+            ch_counter += 1
 
             if not next_url: break
             current_url = next_url
@@ -161,5 +143,4 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
         print(f"Critical Error: {e}")
 
 if __name__ == '__main__':
-    # Default behavior if run directly
     pass

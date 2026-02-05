@@ -1,25 +1,26 @@
-# shell.nix for Web Scraper & GUI Env on NixOS 25.05
+# shell.nix for Web Scraper & GUI Env on NixOS
 let
   pkgs = import <nixpkgs> { config.allowUnfree = true; };
   ccLib = pkgs.stdenv.cc.cc;
   
-  # Use Python Full which has Tkinter built directly into the base interpreter
-  pythonEnv = pkgs.python311Full;
+  # Create a Python environment that ALREADY has tkinter
+  pythonEnv = pkgs.python311.withPackages (ps: [ ps.tkinter ]);
+  
 in pkgs.mkShell {
   packages = [
     pythonEnv
     pkgs.uv
     pkgs.gcc
-    pkgs.ffmpeg         # Needed for ffmpeg-python / whisper
-    pkgs.zlib           # Data compression
-    pkgs.bzip2          # Data compression
-    pkgs.xz             # Data compression
-    pkgs.sqlite         # SQLite database
-    pkgs.openssl        # SSL certificates for requests
-    pkgs.libffi         # CFFI dependency
-    pkgs.tcl            # Backend for Tkinter
-    pkgs.tk             # Backend for Tkinter
-    pkgs.cudaPackages.cudatoolkit # CUDA toolkit
+    pkgs.ffmpeg
+    pkgs.zlib
+    pkgs.bzip2
+    pkgs.xz
+    pkgs.sqlite
+    pkgs.openssl
+    pkgs.libffi
+    pkgs.tcl
+    pkgs.tk
+    pkgs.cudaPackages.cudatoolkit
     ccLib
   ];
 
@@ -27,32 +28,33 @@ in pkgs.mkShell {
   UV_PYTHON_DOWNLOADS = "never";
 
   shellHook = ''
-    # Expose system libraries so Python packages can find them
+    # 1. LINK SYSTEM LIBRARIES (Crucial for _tkinter.so to find libtk/libtcl)
     export LD_LIBRARY_PATH=${ccLib.lib}/lib:${pkgs.zlib}/lib:${pkgs.bzip2}/lib:${pkgs.xz}/lib:${pkgs.sqlite.out}/lib:${pkgs.openssl.out}/lib:${pkgs.libffi}/lib:${pkgs.tcl}/lib:${pkgs.tk}/lib:${pkgs.cudaPackages.cudatoolkit}/lib${":$LD_LIBRARY_PATH"}
 
-    # Set up TCL/TK environment variables for Tkinter
+    # 2. SET TK/TCL ENVIRONMENT VARIABLES
     export TCL_LIBRARY="${pkgs.tcl}/lib/tcl8.6"
     export TK_LIBRARY="${pkgs.tk}/lib/tk8.6"
 
+    # 3. SETUP VIRTUAL ENV
     if [ ! -d ".venv" ]; then
-        echo "Creating Python 3.11 virtual environment (.venv) using Nix Python Full..."
-        # FORCE uv to use the exact Python binary provided by Nix
-        uv venv --python ${pythonEnv}/bin/python
+        echo "Creating Python virtual environment..."
+        # CRITICAL FIX: --system-site-packages lets the venv see the Nix-installed 'tkinter'
+        uv venv --python ${pythonEnv}/bin/python --system-site-packages
+        
         source .venv/bin/activate
         
-        echo "1/2 Installing CUDA-enabled PyTorch 2.5..."
+        echo "Installing PyTorch..."
         uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
-
-        echo "2/2 Installing web scraping requirements..."
-        uv pip install -r requirements.txt
+        
+        if [ -f requirements.txt ]; then
+            echo "Installing requirements..."
+            uv pip install -r requirements.txt
+        fi
     else
         source .venv/bin/activate
     fi
 
-    # Customize the terminal prompt
     export PS1="\n\[\033[1;32m\][web_scraper_env:\w]\$\[\033[0m\] "
-    
-    echo "Welcome to the Web Scraper Environment!"
-    echo "Python version: $(python --version)"
+    echo "Environment Ready. Python: $(python --version)"
   '';
 }

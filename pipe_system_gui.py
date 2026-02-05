@@ -314,9 +314,20 @@ class PipelineGUI:
         return "break"
 
     def log(self, msg):
+        #print(msg)
+        #self.log_area.insert(tk.END, msg + "\n")
+        #self.log_area.see(tk.END)
+        # Schedule the update on the main thread (Thread-Safe)
+        self.root.after(0, lambda: self._log_internal(msg))
+
+    def _log_internal(self, msg):
         print(msg)
-        self.log_area.insert(tk.END, msg + "\n")
-        self.log_area.see(tk.END)
+        # Check if the widget still exists before writing
+        try:
+            self.log_area.insert(tk.END, msg + "\n")
+            self.log_area.see(tk.END)
+        except Exception:
+            pass # Window was likely closed
 
     def copy_all_logs(self):
         content = self.log_area.get("1.0", tk.END)
@@ -414,7 +425,7 @@ class PipelineGUI:
 
         self.log(f"--- Running {os.path.basename(script_path)} ---")
         env = self.get_env_for_project()
-        cmd = [sys.executable, script_path]
+        cmd = [sys.executable, "-u", script_path] # Add "-u" to force unbuffered output so logs appear instantly
 
         # --- Inject Arguments for TTS Generator ---
         if script_key == "TTS Generator":
@@ -506,7 +517,14 @@ class PipelineGUI:
         def _worker():
             try:
                 proj_dir = os.path.join(NOVELS_ROOT_DIR, proj)
-                proc = subprocess.Popen([sys.executable, SCRIPTS["Metadata"], url, proj_dir], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                proc = subprocess.Popen(
+                        [sys.executable, "-u", SCRIPTS["Metadata"], url, proj_dir],
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.STDOUT, 
+                        text=True,
+                        bufsize=1,
+                        universal_newlines = True
+                        )
                 for line in proc.stdout: self.log(line.strip())
                 proc.wait()
                 if proc.returncode == 0: self.log("Metadata Fetch Complete.")
@@ -541,7 +559,10 @@ class PipelineGUI:
                 else:
                     self.root.after(0, lambda: self.adapt_status.config(text="Generation failed.", foreground="red"))
             except Exception as e:
-                self.root.after(0, lambda: self.adapt_status.config(text=f"Error: {e}", foreground="red"))
+                # FIX: Capture the exception string immediately. 
+                # 'e' is deleted from the local scope when the except block exits.
+                error_msg = str(e)
+                self.root.after(0, lambda: self.adapt_status.config(text=f"Error: {error_msg}", foreground="red"))
 
         threading.Thread(target=_worker).start()
 

@@ -3,11 +3,15 @@ import requests
 import sys
 import re
 from urllib.parse import urlparse
+
+# --- FIX 1: Safer Import Handling ---
 try:
     import google.generativeai as genai
     from constants import GEMINI_MODEL_NAME
+    GENAI_AVAILABLE = True
 except ImportError:
     GEMINI_MODEL_NAME = "gemini-3-flash-preview"
+    GENAI_AVAILABLE = False
 
 def extract_code_block(response_text):
     pattern = r"```python\s*(.*?)\s*```"
@@ -16,6 +20,10 @@ def extract_code_block(response_text):
     return response_text
 
 def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="scraper_2.py"):
+    # Guard check for API availability
+    if not GENAI_AVAILABLE:
+        raise Exception("Google Generative AI package is not installed. Please run: pip install google-generativeai")
+
     context_dir = os.path.join(project_root_dir, "Scraper_Context")
     if not os.path.exists(context_dir): os.makedirs(context_dir)
 
@@ -30,8 +38,7 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         with open(os.path.join(context_dir, "site_structure.html"), "w", encoding="utf-8") as f:
             f.write(html_content)
     except Exception as e:
-        print(f"Error fetching URL: {e}")
-        return
+        raise Exception(f"Error fetching URL: {e}")
 
     print(f"--- 2. Reading Reference Scraper ---")
     reference_code = ""
@@ -39,18 +46,15 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         with open(reference_scraper, "r", encoding="utf-8") as f:
             reference_code = f.read()
     else:
-        print(f"Error: Reference scraper '{reference_scraper}' not found.")
-        return
+        raise Exception(f"Reference scraper '{reference_scraper}' not found.")
 
     print(f"--- 3. Sending to Gemini ({GEMINI_MODEL_NAME}) ---")
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("Error: GEMINI_API_KEY environment variable not set.")
-        return
+        raise Exception("GEMINI_API_KEY environment variable not set.")
 
     genai.configure(api_key=api_key)
     
-    # Construct the Prompt
     prompt = f"""
     You are an expert Python web scraping developer.
     
@@ -86,7 +90,8 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
 
     try:
         model = genai.GenerativeModel(GEMINI_MODEL_NAME)
-        response = model.generate_content(prompt)
+        # --- FIX 2: Added 120-second timeout to prevent infinite hanging ---
+        response = model.generate_content(prompt, request_options={"timeout": 120})
         
         generated_code = extract_code_block(response.text)
         
@@ -98,10 +103,14 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         print(f"New scraper saved to: {output_scraper_path}")
         
     except Exception as e:
-        print(f"Gemini API Error: {e}")
+        # Re-raise the exception so the GUI background thread catches it
+        raise Exception(f"Gemini API Error: {e}")
 
 if __name__ == "__main__":
     if len(sys.argv) > 2:
-        fetch_and_generate_scraper(sys.argv[1], sys.argv[2])
+        try:
+            fetch_and_generate_scraper(sys.argv[1], sys.argv[2])
+        except Exception as e:
+            print(f"Fatal Error: {e}")
     else:
         print("Usage: python scraper_context_fetcher.py <url> <project_dir>")
