@@ -1,72 +1,86 @@
-import os
-import sys
 import json
-import requests
+import os
 import re
 import shutil
 import subprocess
-from bs4 import BeautifulSoup
+import sys
 from urllib.parse import urljoin
+
+import requests
+from bs4 import BeautifulSoup
 
 # Try to import constants, fallback if missing
 try:
     import google.generativeai as genai
+
     from constants import GEMINI_MODEL_NAME
 except ImportError:
     GEMINI_MODEL_NAME = "gemini-3-flash-preview"
 
+
 # --- HELPER: Image Downloader ---
 def download_cover(img_url, save_dir):
-    if not img_url: return
+    if not img_url:
+        return
     try:
-        clean_url = img_url.split('?')[0] # Remove WP resize params
+        clean_url = img_url.split("?")[0]  # Remove WP resize params
         save_path = os.path.join(save_dir, "cover.jpg")
-        
-        headers = {'User-Agent': 'Mozilla/5.0'}
+
+        headers = {"User-Agent": "Mozilla/5.0"}
         r = requests.get(img_url, headers=headers, stream=True, timeout=10)
         if r.status_code == 200:
-            with open(save_path, 'wb') as f:
+            with open(save_path, "wb") as f:
                 r.raw.decode_content = True
                 shutil.copyfileobj(r.raw, f)
             print(f"    [Cover] Saved to: {save_path}")
     except Exception as e:
         print(f"    [Error] Cover download failed: {e}")
 
+
 # --- HELPER: Code Sanitizer (The Fix) ---
 def sanitize_generated_code(code):
     """
     Post-processes AI code to remove blocking input calls that freeze the GUI.
     """
-    lines = code.split('\n')
+    lines = code.split("\n")
     cleaned_lines = []
-    
+
     for line in lines:
         # Check for blocking input calls
         if "sys.stdin" in line or "input(" in line:
             print(f"    [Auto-Fix] Removed blocking line: {line.strip()}")
             # We replace it with a pass or comment so indentation doesn't break
             cleaned_lines.append(f"    # [Auto-Removed Blocking Input]: {line.strip()}")
-            cleaned_lines.append("    pass") 
+            cleaned_lines.append("    pass")
         else:
             cleaned_lines.append(line)
-            
+
     return "\n".join(cleaned_lines)
+
 
 # --- 1. DEFAULT EXTRACTION LOGIC ---
 def default_metadata_extraction(html, url):
     """
     Standard scraper trying OpenGraph and common HTML tags.
     """
-    soup = BeautifulSoup(html, 'html.parser')
-    data = {"title": "Unknown Title", "author": "Unknown Author", "description": "", "cover_url": ""}
+    soup = BeautifulSoup(html, "html.parser")
+    data = {
+        "title": "Unknown Title",
+        "author": "Unknown Author",
+        "description": "",
+        "cover_url": "",
+    }
 
     # Title
     og_title = soup.find("meta", property="og:title")
-    if og_title: 
-        data["title"] = og_title.get("content", "").replace("– Dobytranslations", "").strip()
+    if og_title:
+        data["title"] = (
+            og_title.get("content", "").replace("– Dobytranslations", "").strip()
+        )
     else:
         h1 = soup.select_one("h1.entry-title")
-        if h1: data["title"] = h1.get_text(strip=True)
+        if h1:
+            data["title"] = h1.get_text(strip=True)
 
     # Cover
     # Doby specific
@@ -75,21 +89,25 @@ def default_metadata_extraction(html, url):
         data["cover_url"] = thumb.get("src", "") or thumb.get("data-src", "")
     else:
         og_image = soup.find("meta", property="og:image")
-        if og_image: data["cover_url"] = og_image.get("content", "")
+        if og_image:
+            data["cover_url"] = og_image.get("content", "")
 
     # Description
     # Doby specific
-    desc_div = soup.select_one(".sersys.entry-content") 
-    if not desc_div: desc_div = soup.select_one(".entry-content[itemprop='description']")
-    
+    desc_div = soup.select_one(".sersys.entry-content")
+    if not desc_div:
+        desc_div = soup.select_one(".entry-content[itemprop='description']")
+
     if desc_div:
         # Cleanup Doby junk (New Free unlock...)
-        for junk in desc_div.find_all(['h4', 'strong']):
-            if "unlock" in junk.get_text().lower(): junk.decompose()
+        for junk in desc_div.find_all(["h4", "strong"]):
+            if "unlock" in junk.get_text().lower():
+                junk.decompose()
         data["description"] = desc_div.get_text(separator="\n", strip=True)
     else:
         og_desc = soup.find("meta", property="og:description")
-        if og_desc: data["description"] = og_desc.get("content", "")
+        if og_desc:
+            data["description"] = og_desc.get("content", "")
 
     # Author
     author_meta = soup.find("meta", attrs={"name": "author"})
@@ -99,12 +117,18 @@ def default_metadata_extraction(html, url):
         for label in soup.find_all(string=re.compile(r"Author", re.I)):
             parent = label.parent
             if parent:
-                text = parent.get_text(strip=True).replace("Author", "").replace(":", "").strip()
+                text = (
+                    parent.get_text(strip=True)
+                    .replace("Author", "")
+                    .replace(":", "")
+                    .strip()
+                )
                 if 1 < len(text) < 50:
                     data["author"] = text
                     break
-    
+
     return data
+
 
 # --- 2. AI GENERATOR LOGIC ---
 def fetch_and_generate_metadata_scraper(index_url, project_dir):
@@ -112,29 +136,32 @@ def fetch_and_generate_metadata_scraper(index_url, project_dir):
     Fetches HTML -> Sends to Gemini -> Writes custom_metadata_scraper.py
     """
     context_dir = os.path.join(project_dir, "Scraper_Context")
-    if not os.path.exists(context_dir): os.makedirs(context_dir)
+    if not os.path.exists(context_dir):
+        os.makedirs(context_dir)
 
     print(f"    [AI] Fetching HTML source to analyze...")
     try:
-        headers = {'User-Agent': 'Mozilla/5.0'}
+        headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(index_url, headers=headers, timeout=15)
         html_content = response.text
         # Save for reference
-        with open(os.path.join(context_dir, "index_structure.html"), "w", encoding="utf-8") as f:
+        with open(
+            os.path.join(context_dir, "index_structure.html"), "w", encoding="utf-8"
+        ) as f:
             f.write(html_content)
     except Exception as e:
         print(f"    [AI] Error fetching URL: {e}")
         return False
 
     print(f"    [AI] Asking Gemini ({GEMINI_MODEL_NAME}) to write a custom scraper...")
-    
+
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         print("    [Error] GEMINI_API_KEY not set.")
         return False
 
     genai.configure(api_key=api_key)
-    
+
     # --- UPDATED PROMPT: Explicitly forbid stdin ---
     prompt = f"""
     You are an expert Python web scraping developer.
@@ -162,14 +189,14 @@ def fetch_and_generate_metadata_scraper(index_url, project_dir):
     try:
         model = genai.GenerativeModel(GEMINI_MODEL_NAME)
         response = model.generate_content(prompt)
-        
+
         # Extract code block
         code = response.text
         if "```python" in code:
             code = code.split("```python")[1].split("```")[0]
         elif "```" in code:
             code = code.split("```")[1]
-        
+
         # --- POST-PROCESSING: SANITIZE CODE ---
         code = sanitize_generated_code(code)
         # --------------------------------------
@@ -177,18 +204,19 @@ def fetch_and_generate_metadata_scraper(index_url, project_dir):
         output_path = os.path.join(project_dir, "custom_metadata_scraper.py")
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(code)
-            
+
         print(f"    [AI] Success! Generated: {output_path}")
         return True
-        
+
     except Exception as e:
         print(f"    [AI] Gemini API Error: {e}")
         return False
 
+
 # --- 3. MAIN CONTROLLER ---
 def run_metadata_fetch(index_url, project_dir):
     print(f"--- Fetching Metadata for: {os.path.basename(project_dir)} ---")
-    
+
     # A. Check for EXISTING custom script first
     custom_script = os.path.join(project_dir, "custom_metadata_scraper.py")
     if os.path.exists(custom_script):
@@ -199,14 +227,14 @@ def run_metadata_fetch(index_url, project_dir):
     # B. Try Default Method
     try:
         print("    [1] Trying Default Extraction...")
-        headers = {'User-Agent': 'Mozilla/5.0'}
+        headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(index_url, headers=headers, timeout=15)
         response.raise_for_status()
-        
+
         data = default_metadata_extraction(response.text, index_url)
-        
+
         # Validate critical data
-        if not data['title'] or data['title'] == "Unknown Title":
+        if not data["title"] or data["title"] == "Unknown Title":
             raise Exception("Default extractor failed to find a valid title.")
 
         # Save success
@@ -214,7 +242,7 @@ def run_metadata_fetch(index_url, project_dir):
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
         print(f"    [Meta] Success! Title: {data['title']}")
-        
+
         if data["cover_url"]:
             download_cover(data["cover_url"], project_dir)
 
@@ -222,14 +250,15 @@ def run_metadata_fetch(index_url, project_dir):
         # C. FAILOVER: Trigger AI
         print(f"    [!] Default Method Failed: {e}")
         print(f"    [2] FAILOVER: Initializing AI Auto-Correction...")
-        
+
         success = fetch_and_generate_metadata_scraper(index_url, project_dir)
-        
+
         if success and os.path.exists(custom_script):
             print(f"    [3] Executing newly generated AI script...")
             run_custom_script(custom_script, index_url, project_dir)
         else:
             print("    [Error] AI Adaptation failed.")
+
 
 def run_custom_script(script_path, url, save_dir):
     """Executes the custom script in a subprocess"""
@@ -237,21 +266,21 @@ def run_custom_script(script_path, url, save_dir):
         env = os.environ.copy()
         env["TARGET_URL"] = url
         env["SAVE_DIR"] = save_dir
-        
+
         # Run with Unbuffered output ("-u") and capture stdout in real-time
         process = subprocess.Popen(
-            [sys.executable, "-u", script_path], 
-            env=env, 
-            stdout=subprocess.PIPE, 
+            [sys.executable, "-u", script_path],
+            env=env,
+            stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
             bufsize=1,
-            universal_newlines=True
+            universal_newlines=True,
         )
-        
+
         # Stream logs to the GUI
         for line in process.stdout:
-            print(line, end='')
+            print(line, end="")
 
         process.wait()
 
@@ -260,6 +289,7 @@ def run_custom_script(script_path, url, save_dir):
 
     except Exception as e:
         print(f"    [Exec Error] {e}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 3:

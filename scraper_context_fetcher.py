@@ -1,41 +1,54 @@
 import os
-import requests
-import sys
 import re
+import sys
 from urllib.parse import urlparse
+
+import requests
 
 # --- FIX 1: Safer Import Handling ---
 try:
     import google.generativeai as genai
+
     from constants import GEMINI_MODEL_NAME
+
     GENAI_AVAILABLE = True
 except ImportError:
     GEMINI_MODEL_NAME = "gemini-3-flash-preview"
     GENAI_AVAILABLE = False
 
+
 def extract_code_block(response_text):
     pattern = r"```python\s*(.*?)\s*```"
     match = re.search(pattern, response_text, re.DOTALL)
-    if match: return match.group(1)
+    if match:
+        return match.group(1)
     return response_text
 
-def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="scraper_2.py"):
+
+def fetch_and_generate_scraper(
+    target_url, project_root_dir, reference_scraper="scraper_2.py"
+):
     # Guard check for API availability
     if not GENAI_AVAILABLE:
-        raise Exception("Google Generative AI package is not installed. Please run: pip install google-generativeai")
+        raise Exception(
+            "Google Generative AI package is not installed. Please run: pip install google-generativeai"
+        )
 
     context_dir = os.path.join(project_root_dir, "Scraper_Context")
-    if not os.path.exists(context_dir): os.makedirs(context_dir)
+    if not os.path.exists(context_dir):
+        os.makedirs(context_dir)
 
     print(f"--- 1. Fetching HTML for: {target_url} ---")
-    headers = {'User-Agent': 'Mozilla/5.0'}
-    
+    headers = {"User-Agent": "Mozilla/5.0"}
+
     html_content = ""
     try:
         response = requests.get(target_url, headers=headers, timeout=15)
         response.raise_for_status()
         html_content = response.text
-        with open(os.path.join(context_dir, "site_structure.html"), "w", encoding="utf-8") as f:
+        with open(
+            os.path.join(context_dir, "site_structure.html"), "w", encoding="utf-8"
+        ) as f:
             f.write(html_content)
     except Exception as e:
         raise Exception(f"Error fetching URL: {e}")
@@ -54,7 +67,7 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         raise Exception("GEMINI_API_KEY environment variable not set.")
 
     genai.configure(api_key=api_key)
-    
+
     prompt = f"""
     You are an expert Python web scraping developer.
     
@@ -92,19 +105,20 @@ def fetch_and_generate_scraper(target_url, project_root_dir, reference_scraper="
         model = genai.GenerativeModel(GEMINI_MODEL_NAME)
         # --- FIX 2: Added 120-second timeout to prevent infinite hanging ---
         response = model.generate_content(prompt, request_options={"timeout": 120})
-        
+
         generated_code = extract_code_block(response.text)
-        
+
         output_scraper_path = os.path.join(project_root_dir, "custom_scraper.py")
         with open(output_scraper_path, "w", encoding="utf-8") as f:
             f.write(generated_code)
-            
+
         print(f"--- SUCCESS! ---")
         print(f"New scraper saved to: {output_scraper_path}")
-        
+
     except Exception as e:
         # Re-raise the exception so the GUI background thread catches it
         raise Exception(f"Gemini API Error: {e}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 2:
