@@ -4,3 +4,4 @@ tts/
 *.json
 .venv
 backup
+project_context.txt

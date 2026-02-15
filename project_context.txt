@@ -25,6 +25,7 @@ Project Directory Structure:
     shell.nix
     pipe_system_gui.py
     Novels/
+        icon.svg
         Villainous_Saintess_CH/
             Villainous_Saintess_CH.epub
             custom_scraper.py
@@ -32,6 +33,8 @@ Project Directory Structure:
             03_Audio_WAV/
             02_Translated/
             04_Audio_Opus/
+            temp_audio_chunks/
+                ch_0001/
             01_Raw_Text/
                 ch_0188.txt
                 ch_0102.txt
@@ -491,11 +494,135 @@ Project Directory Structure:
         youngfox/
             custom_scraper.py
             metadata.json
+            youngfox.epub
             cover.jpg
             custom_metadata_scraper.py
             03_Audio_WAV/
+                ch_0097.wav
+                ch_0076.wav
+                ch_0086.wav
+                ch_0034.wav
+                ch_0094.wav
+                ch_0037.wav
+                ch_0072.wav
+                ch_0026.wav
+                ch_0048.wav
+                ch_0024.wav
+                ch_0012.wav
+                ch_0064.wav
+                ch_0049.wav
+                ch_0083.wav
+                ch_0003.wav
+                ch_0052.wav
+                ch_0088.wav
+                ch_0069.wav
+                ch_0023.wav
+                ch_0039.wav
+                ch_0105.wav
+                ch_0073.wav
+                ch_0008.wav
+                ch_0061.wav
+                ch_0018.wav
+                ch_0079.wav
+                ch_0017.wav
+                ch_0035.wav
+                ch_0032.wav
+                ch_0029.wav
+                ch_0100.wav
+                ch_0047.wav
+                ch_0058.wav
+                ch_0045.wav
+                ch_0041.wav
+                ch_0014.wav
+                ch_0095.wav
+                ch_0028.wav
+                ch_0065.wav
+                ch_0092.wav
+                ch_0043.wav
+                ch_0056.wav
+                ch_0059.wav
+                ch_0027.wav
+                ch_0099.wav
+                ch_0101.wav
+                ch_0093.wav
+                ch_0070.wav
+                ch_0074.wav
+                ch_0013.wav
+                ch_0016.wav
+                ch_0055.wav
+                ch_0025.wav
+                ch_0050.wav
+                ch_0042.wav
+                ch_0104.wav
+                ch_0087.wav
+                ch_0075.wav
+                ch_0067.wav
+                ch_0005.wav
+                ch_0009.wav
+                ch_0021.wav
+                ch_0002.wav
+                ch_0098.wav
+                ch_0022.wav
+                ch_0103.wav
+                ch_0106.wav
+                ch_0077.wav
+                ch_0001.wav
+                ch_0051.wav
+                ch_0053.wav
+                ch_0081.wav
+                ch_0031.wav
+                ch_0066.wav
+                ch_0040.wav
+                ch_0046.wav
+                ch_0057.wav
+                ch_0090.wav
+                ch_0082.wav
+                ch_0006.wav
+                ch_0004.wav
+                ch_0044.wav
+                ch_0030.wav
+                ch_0036.wav
+                ch_0084.wav
+                ch_0054.wav
+                ch_0033.wav
+                ch_0068.wav
+                ch_0010.wav
+                ch_0071.wav
+                ch_0063.wav
+                ch_0019.wav
+                ch_0102.wav
+                ch_0007.wav
+                ch_0015.wav
+                ch_0085.wav
+                ch_0020.wav
+                ch_0062.wav
+                ch_0060.wav
+                ch_0091.wav
+                ch_0038.wav
+                ch_0078.wav
+                ch_0011.wav
+                ch_0080.wav
+                ch_0089.wav
+                ch_0096.wav
             02_Translated/
             04_Audio_Opus/
+            temp_audio_chunks/
+                ch_0107/
+                    ch_0107_l_006.wav
+                    ch_0107_l_008.wav
+                    ch_0107_l_002.wav
+                    ch_0107_l_009.wav
+                    ch_0107_l_015.wav
+                    ch_0107_l_004.wav
+                    ch_0107_l_003.wav
+                    ch_0107_l_014.wav
+                    ch_0107_l_001.wav
+                    ch_0107_l_010.wav
+                    ch_0107_l_007.wav
+                    ch_0107_l_011.wav
+                    ch_0107_l_012.wav
+                    ch_0107_l_005.wav
+                    ch_0107_l_013.wav
             01_Raw_Text/
                 ch_0188.txt
                 ch_0102.txt
@@ -676,6 +803,7 @@ Project Directory Structure:
                 ch_0047.txt
                 ch_0075.txt
                 ch_0150.txt
+                clean_chapters.py
                 ch_0003.txt
                 ch_0148.txt
                 ch_0211.txt
@@ -812,11 +940,410 @@ Project Directory Structure:
                 ch_0219.txt
                 ch_0191.txt
                 ch_0168.txt
+                backup/
+                    ch_0188.txt
+                    ch_0102.txt
+                    ch_0263.txt
+                    ch_0109.txt
+                    ch_0307.txt
+                    ch_0213.txt
+                    ch_0028.txt
+                    ch_0302.txt
+                    ch_0270.txt
+                    ch_0092.txt
+                    ch_0218.txt
+                    ch_0077.txt
+                    ch_0203.txt
+                    ch_0278.txt
+                    ch_0125.txt
+                    ch_0088.txt
+                    ch_0144.txt
+                    ch_0311.txt
+                    ch_0281.txt
+                    ch_0224.txt
+                    ch_0062.txt
+                    ch_0185.txt
+                    ch_0153.txt
+                    ch_0058.txt
+                    ch_0271.txt
+                    ch_0233.txt
+                    ch_0134.txt
+                    ch_0166.txt
+                    ch_0130.txt
+                    ch_0198.txt
+                    ch_0146.txt
+                    ch_0067.txt
+                    ch_0049.txt
+                    ch_0202.txt
+                    ch_0216.txt
+                    ch_0199.txt
+                    ch_0074.txt
+                    ch_0145.txt
+                    ch_0009.txt
+                    ch_0097.txt
+                    ch_0138.txt
+                    ch_0187.txt
+                    ch_0094.txt
+                    ch_0032.txt
+                    ch_0300.txt
+                    ch_0050.txt
+                    ch_0183.txt
+                    ch_0012.txt
+                    ch_0072.txt
+                    ch_0194.txt
+                    ch_0055.txt
+                    ch_0064.txt
+                    ch_0022.txt
+                    ch_0175.txt
+                    ch_0078.txt
+                    ch_0086.txt
+                    ch_0242.txt
+                    ch_0308.txt
+                    ch_0286.txt
+                    ch_0170.txt
+                    ch_0046.txt
+                    ch_0284.txt
+                    ch_0027.txt
+                    ch_0014.txt
+                    ch_0217.txt
+                    ch_0245.txt
+                    ch_0007.txt
+                    ch_0192.txt
+                    ch_0033.txt
+                    ch_0069.txt
+                    ch_0111.txt
+                    ch_0177.txt
+                    ch_0127.txt
+                    ch_0179.txt
+                    ch_0060.txt
+                    ch_0114.txt
+                    ch_0276.txt
+                    ch_0165.txt
+                    ch_0123.txt
+                    ch_0080.txt
+                    ch_0159.txt
+                    ch_0248.txt
+                    ch_0117.txt
+                    ch_0246.txt
+                    ch_0025.txt
+                    ch_0149.txt
+                    ch_0013.txt
+                    ch_0104.txt
+                    ch_0256.txt
+                    ch_0065.txt
+                    ch_0083.txt
+                    ch_0096.txt
+                    ch_0122.txt
+                    ch_0231.txt
+                    ch_0082.txt
+                    ch_0310.txt
+                    ch_0290.txt
+                    ch_0100.txt
+                    ch_0195.txt
+                    ch_0006.txt
+                    ch_0035.txt
+                    ch_0257.txt
+                    ch_0076.txt
+                    ch_0045.txt
+                    ch_0108.txt
+                    ch_0237.txt
+                    ch_0143.txt
+                    ch_0222.txt
+                    ch_0164.txt
+                    ch_0085.txt
+                    ch_0184.txt
+                    ch_0057.txt
+                    ch_0091.txt
+                    ch_0011.txt
+                    ch_0093.txt
+                    ch_0272.txt
+                    ch_0131.txt
+                    ch_0228.txt
+                    ch_0251.txt
+                    ch_0038.txt
+                    ch_0292.txt
+                    ch_0066.txt
+                    ch_0158.txt
+                    ch_0291.txt
+                    ch_0034.txt
+                    ch_0040.txt
+                    ch_0070.txt
+                    ch_0152.txt
+                    ch_0226.txt
+                    ch_0106.txt
+                    ch_0293.txt
+                    ch_0156.txt
+                    ch_0135.txt
+                    ch_0265.txt
+                    ch_0113.txt
+                    ch_0254.txt
+                    ch_0260.txt
+                    ch_0221.txt
+                    ch_0294.txt
+                    ch_0043.txt
+                    ch_0031.txt
+                    ch_0044.txt
+                    ch_0295.txt
+                    ch_0017.txt
+                    ch_0155.txt
+                    ch_0208.txt
+                    ch_0023.txt
+                    ch_0259.txt
+                    ch_0133.txt
+                    ch_0232.txt
+                    ch_0262.txt
+                    ch_0142.txt
+                    ch_0018.txt
+                    ch_0024.txt
+                    ch_0116.txt
+                    ch_0301.txt
+                    ch_0039.txt
+                    ch_0238.txt
+                    ch_0305.txt
+                    ch_0041.txt
+                    ch_0005.txt
+                    ch_0137.txt
+                    ch_0207.txt
+                    ch_0289.txt
+                    ch_0176.txt
+                    ch_0008.txt
+                    ch_0051.txt
+                    ch_0283.txt
+                    ch_0053.txt
+                    ch_0157.txt
+                    ch_0147.txt
+                    ch_0297.txt
+                    ch_0209.txt
+                    ch_0174.txt
+                    ch_0250.txt
+                    ch_0047.txt
+                    ch_0075.txt
+                    ch_0150.txt
+                    ch_0003.txt
+                    ch_0148.txt
+                    ch_0211.txt
+                    ch_0252.txt
+                    ch_0081.txt
+                    ch_0244.txt
+                    ch_0087.txt
+                    ch_0056.txt
+                    ch_0099.txt
+                    ch_0105.txt
+                    ch_0303.txt
+                    ch_0314.txt
+                    ch_0306.txt
+                    ch_0090.txt
+                    ch_0312.txt
+                    ch_0296.txt
+                    ch_0101.txt
+                    ch_0181.txt
+                    ch_0190.txt
+                    ch_0189.txt
+                    ch_0298.txt
+                    ch_0227.txt
+                    ch_0225.txt
+                    ch_0071.txt
+                    ch_0182.txt
+                    ch_0241.txt
+                    ch_0112.txt
+                    ch_0186.txt
+                    ch_0063.txt
+                    ch_0220.txt
+                    ch_0229.txt
+                    ch_0197.txt
+                    ch_0161.txt
+                    ch_0234.txt
+                    ch_0274.txt
+                    ch_0167.txt
+                    ch_0277.txt
+                    ch_0253.txt
+                    ch_0240.txt
+                    ch_0173.txt
+                    ch_0059.txt
+                    ch_0201.txt
+                    ch_0042.txt
+                    ch_0180.txt
+                    ch_0264.txt
+                    ch_0282.txt
+                    ch_0118.txt
+                    ch_0255.txt
+                    ch_0119.txt
+                    ch_0247.txt
+                    ch_0136.txt
+                    ch_0030.txt
+                    ch_0036.txt
+                    ch_0172.txt
+                    ch_0249.txt
+                    ch_0098.txt
+                    ch_0160.txt
+                    ch_0052.txt
+                    ch_0128.txt
+                    ch_0269.txt
+                    ch_0171.txt
+                    ch_0001.txt
+                    ch_0120.txt
+                    ch_0103.txt
+                    ch_0212.txt
+                    ch_0073.txt
+                    ch_0261.txt
+                    ch_0048.txt
+                    ch_0020.txt
+                    ch_0019.txt
+                    ch_0139.txt
+                    ch_0084.txt
+                    ch_0275.txt
+                    ch_0154.txt
+                    ch_0204.txt
+                    ch_0215.txt
+                    ch_0236.txt
+                    ch_0151.txt
+                    ch_0206.txt
+                    ch_0021.txt
+                    ch_0309.txt
+                    ch_0037.txt
+                    ch_0163.txt
+                    ch_0015.txt
+                    ch_0313.txt
+                    ch_0026.txt
+                    ch_0267.txt
+                    ch_0029.txt
+                    ch_0214.txt
+                    ch_0124.txt
+                    ch_0140.txt
+                    ch_0089.txt
+                    ch_0243.txt
+                    ch_0268.txt
+                    ch_0196.txt
+                    ch_0068.txt
+                    ch_0287.txt
+                    ch_0141.txt
+                    ch_0054.txt
+                    ch_0129.txt
+                    ch_0107.txt
+                    ch_0095.txt
+                    ch_0010.txt
+                    ch_0169.txt
+                    ch_0304.txt
+                    ch_0235.txt
+                    ch_0280.txt
+                    ch_0132.txt
+                    ch_0285.txt
+                    ch_0162.txt
+                    ch_0273.txt
+                    ch_0205.txt
+                    ch_0288.txt
+                    ch_0079.txt
+                    ch_0258.txt
+                    ch_0223.txt
+                    ch_0061.txt
+                    ch_0115.txt
+                    ch_0210.txt
+                    ch_0279.txt
+                    ch_0193.txt
+                    ch_0230.txt
+                    ch_0200.txt
+                    ch_0178.txt
+                    ch_0126.txt
+                    ch_0299.txt
+                    ch_0239.txt
+                    ch_0121.txt
+                    ch_0004.txt
+                    ch_0002.txt
+                    ch_0016.txt
+                    ch_0110.txt
+                    ch_0266.txt
+                    ch_0219.txt
+                    ch_0191.txt
+                    ch_0168.txt
         IAmThisMurimsCrazyBitch/
+            ch_001.opus
+            metadata_opus.json
+            failed_chunks.log
             custom_scraper.py
+            metadata.json
+            extract_opus_metadata.py
+            cover_old.jpg
+            cover.jpg
             03_Audio_WAV/
+                ch_0965.wav
+                ch_0966.wav
+                ch_0973.wav
+                ch_0994.wav
+                ch_0984.wav
+                ch_0982.wav
+                ch_0962.wav
+                ch_0993.wav
+                ch_0978.wav
+                ch_0974.wav
+                ch_0963.wav
+                ch_0983.wav
+                ch_0990.wav
+                ch_0979.wav
+                ch_0976.wav
+                ch_0977.wav
+                ch_0972.wav
+                ch_0980.wav
+                ch_0998.wav
+                ch_0987.wav
+                ch_0997.wav
+                ch_0981.wav
+                ch_0975.wav
+                ch_0985.wav
+                ch_0969.wav
+                ch_0992.wav
+                ch_0988.wav
+                ch_0961.wav
+                ch_0991.wav
+                ch_0968.wav
+                ch_0970.wav
+                ch_0986.wav
+                ch_0964.wav
+                ch_0989.wav
+                ch_0967.wav
+                ch_0996.wav
+                ch_0995.wav
+                ch_0971.wav
             02_Translated/
             04_Audio_Opus/
+                ch_0968.opus
+                ch_0969.opus
+                ch_0985.opus
+                ch_0970.opus
+                ch_0984.opus
+                ch_0982.opus
+                ch_0974.opus
+                ch_0996.opus
+                ch_0991.opus
+                ch_0983.opus
+                ch_0992.opus
+                ch_0973.opus
+                ch_0994.opus
+                ch_0981.opus
+                ch_0967.opus
+                ch_0961.opus
+                ch_0977.opus
+                ch_0965.opus
+                ch_0987.opus
+                ch_0962.opus
+                ch_0972.opus
+                ch_0963.opus
+                ch_0997.opus
+                ch_0995.opus
+                ch_0986.opus
+                ch_0971.opus
+                ch_0989.opus
+                ch_0964.opus
+                ch_0990.opus
+                ch_0975.opus
+                ch_0998.opus
+                ch_0988.opus
+                ch_0979.opus
+                ch_0978.opus
+                ch_0966.opus
+                ch_0976.opus
+                ch_0993.opus
+                ch_0980.opus
+            temp_audio_chunks/
             01_Raw_Text/
                 ch_0995.txt
                 ch_0973.txt
@@ -1460,7 +1987,6 @@ if not AUDIO_DIR:
     TEXT_DIR = "BlleatTL_Novels"
 
 # 2. Determine Project Root (One level up from text/audio dirs)
-# Structure: /Novels/Title/01_Raw_Text  -> Root is /Novels/Title
 if TEXT_DIR and os.path.exists(TEXT_DIR):
     PROJECT_ROOT = os.path.dirname(os.path.abspath(TEXT_DIR))
 else:
@@ -1469,30 +1995,39 @@ else:
 METADATA_JSON = os.path.join(PROJECT_ROOT, "metadata.json")
 COVER_ART_PATH = os.path.join(PROJECT_ROOT, "cover.jpg")
 
-# 3. Default Metadata (Overwritten if metadata.json exists)
+# 3. Default Metadata
 ALBUM_META = {
     "title": "Unknown Series",
     "author": "Unknown Author",
-    "year": "2026",
+    "year": "2025",
     "genre": "Audiobook",
+    "composer": "AI TTS",  # Default for 'Composer' field
 }
 
+
 # --- Helper Functions ---
-
-
 def load_global_metadata():
-    """Loads the Series Title and Author from the project's metadata.json"""
+    """Loads the Series Title, Author, and other fields from metadata.json"""
     if os.path.exists(METADATA_JSON):
         try:
             with open(METADATA_JSON, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                if data.get("title"):
-                    ALBUM_META["title"] = data["title"]
-                if data.get("author"):
-                    ALBUM_META["author"] = data["author"]
-            print(
-                f"Loaded Global Metadata: {ALBUM_META['title']} by {ALBUM_META['author']}"
-            )
+
+            # Standard Fields
+            if data.get("title"):
+                ALBUM_META["title"] = data["title"]
+            if data.get("author"):
+                ALBUM_META["author"] = data["author"]
+
+            # Optional Overrides
+            if data.get("year"):
+                ALBUM_META["year"] = str(data["year"])
+            if data.get("genre"):
+                ALBUM_META["genre"] = data["genre"]
+            if data.get("composer"):
+                ALBUM_META["composer"] = data["composer"]
+
+            print(f"Loaded Metadata: {ALBUM_META['title']} by {ALBUM_META['author']}")
         except Exception as e:
             print(f"Warning: Could not read metadata.json: {e}")
     else:
@@ -1500,17 +2035,14 @@ def load_global_metadata():
 
 
 def get_chapter_title_from_text(track_num):
-    """
-    Reads the specific text file for this track number.
-    The first line is assumed to be the Chapter Title (header).
-    """
+    """Reads the first line of the corresponding text file to use as the Title."""
     if not TEXT_DIR or not os.path.exists(TEXT_DIR):
         return None
 
     # Try formatted name first (ch_0001.txt)
     txt_path = os.path.join(TEXT_DIR, f"ch_{track_num:04d}.txt")
 
-    # Fallback to loose matching if exact file doesn't exist
+    # Fallback to loose matching
     if not os.path.exists(txt_path):
         candidates = glob.glob(os.path.join(TEXT_DIR, f"*_{track_num:04d}.txt"))
         if candidates:
@@ -1529,30 +2061,42 @@ def get_chapter_title_from_text(track_num):
 
 
 def get_track_number(filename):
-    # Extracts '1' from 'ch_0001.opus' or 'Mistaken_Fairy_l_001.opus'
-    # Looks for the last sequence of digits
+    """Extracts the track number from the filename."""
     matches = re.findall(r"(\d+)", filename)
     if matches:
-        return int(
-            matches[-1]
-        )  # Return the last number found (usually the chapter index)
+        return int(matches[-1])
     return None
 
 
-def tag_audio_file(audio_path, track_num, chapter_title):
+def tag_audio_file(audio_path, track_num, chapter_title, total_tracks):
     try:
         audio = OggOpus(audio_path)
 
-        # 1. Standard Tags
+        # --- 1. Standard Tags ---
         audio.tags["TITLE"] = [chapter_title]
-        audio.tags["ALBUM"] = [ALBUM_META["title"]]
         audio.tags["ARTIST"] = [ALBUM_META["author"]]
-        audio.tags["ALBUMARTIST"] = ["AI Narrator"]  # Or use Author again
-        audio.tags["GENRE"] = [ALBUM_META["genre"]]
+        audio.tags["ALBUM"] = [ALBUM_META["title"]]
         audio.tags["DATE"] = [ALBUM_META["year"]]
-        audio.tags["TRACKNUMBER"] = [str(track_num)]
+        audio.tags["GENRE"] = [ALBUM_META["genre"]]
 
-        # 2. Embed Cover Art (Opus uses METADATA_BLOCK_PICTURE)
+        # --- 2. Enhanced Audiobooks Tags ---
+        # Album Artist should usually be the Author for Audiobooks
+        audio.tags["ALBUMARTIST"] = [ALBUM_META["author"]]
+
+        # Track / Disc info
+        audio.tags["TRACKNUMBER"] = [str(track_num)]
+        audio.tags["TRACKTOTAL"] = [str(total_tracks)]
+        audio.tags["DISCNUMBER"] = ["1"]
+        audio.tags["DISCTOTAL"] = ["1"]
+
+        # Grouping & Series (Good for players that support series)
+        audio.tags["GROUPING"] = [ALBUM_META["title"]]
+        audio.tags["SERIES"] = [ALBUM_META["title"]]
+
+        # Composer -> Often used for the Narrator/Voice Model
+        audio.tags["COMPOSER"] = [ALBUM_META["composer"]]
+
+        # --- 3. Embed Cover Art ---
         if os.path.exists(COVER_ART_PATH):
             mime = mimetypes.guess_type(COVER_ART_PATH)[0] or "image/jpeg"
 
@@ -1579,7 +2123,7 @@ def tag_audio_file(audio_path, track_num, chapter_title):
 # --- Main Execution ---
 if __name__ == "__main__":
     if not MUTAGEN_AVAILABLE:
-        print("Mutagen is required. Install via: pip install mutagen")
+        print("Mutagen is required. Please install it: pip install mutagen")
         sys.exit(1)
 
     print(f"--- Audio Tagging ---")
@@ -1594,12 +2138,13 @@ if __name__ == "__main__":
 
     # Process Opus files
     audio_files = sorted(glob.glob(os.path.join(AUDIO_DIR, "*.opus")))
+    total_tracks = len(audio_files)
 
     if not audio_files:
         print(f"No .opus files found in {AUDIO_DIR}")
         sys.exit(0)
 
-    print(f"Found {len(audio_files)} files to tag.")
+    print(f"Found {total_tracks} files to tag.")
 
     success_count = 0
     for path in audio_files:
@@ -1616,8 +2161,8 @@ if __name__ == "__main__":
             title = f"Chapter {track_num}"  # Fallback
 
         # 2. Apply Tags
-        if tag_audio_file(path, track_num, title):
-            print(f"   Tagged: [{track_num}] {title}")
+        if tag_audio_file(path, track_num, title, total_tracks):
+            print(f"   Tagged: [{track_num}/{total_tracks}] {title}")
             success_count += 1
 
     print(f"\nDone. Successfully tagged {success_count} files.")
@@ -2687,16 +3232,18 @@ try:
     nltk.sent_tokenize("This is a test.")
     NLTK_SETUP_SUCCESSFUL = True
 except LookupError:
-    print("Attempting to download NLTK 'punkt' resource...")
+    print("NLTK tokenizer missing. Attempting to download resources...")
     try:
         nltk.download("punkt", quiet=False)
+        nltk.download("punkt_tab", quiet=False)
         nltk.sent_tokenize("This is a test.")
-        print("NLTK 'punkt' is now available.")
+        print("NLTK resources available.")
         NLTK_SETUP_SUCCESSFUL = True
     except Exception as download_e:
-        print(f"An error occurred during 'punkt' download: {download_e}")
+        print(f"NLTK Error: {download_e}")
+
 if not NLTK_SETUP_SUCCESSFUL:
-    print("\nNLTK 'punkt' setup failed. Please resolve this issue manually and re-run.")
+    print("\nNLTK setup failed. Run: python -m nltk.downloader punkt_tab")
     exit(1)
 
 # --- Pydub Setup ---
@@ -2718,26 +3265,29 @@ TEXT_FILES_DIR = os.getenv(
     "PROJECT_INPUT_TEXT_DIR", os.path.join(BASE_DIR, "BlleatTL_Novels")
 )
 AUDIO_OUTPUT_DIR = os.getenv(
-    "PROJECT_AUDIO_WAV_DIR", os.path.join(BASE_DIR, "generated_audio_MistakenFairy")
+    "PROJECT_AUDIO_WAV_DIR", os.path.join(BASE_DIR, "generated_audio")
 )
 PROJECT_ROOT_DIR = os.path.dirname(os.path.abspath(AUDIO_OUTPUT_DIR))
 
 TEMP_CHUNK_DIR = os.path.join(PROJECT_ROOT_DIR, "temp_audio_chunks")
 LOG_FILE = os.path.join(PROJECT_ROOT_DIR, "failed_chunks.log")
 
-CHAPTER_START = 0
-CHAPTER_STOP = 0
+# --- PAUSE SETTINGS ---
+CHUNK_PAUSE_MS = (
+    450  # milliseconds of silence between chunks (Adjust this if too long/short)
+)
 
+CHAPTER_STOP = 0
 FALLBACK_TOKEN_LIMIT = 170
 AVG_CHARS_PER_TOKEN = 1.9
 FALLBACK_CHAR_LIMIT = FALLBACK_TOKEN_LIMIT * AVG_CHARS_PER_TOKEN
-MIN_BYTES_PER_CHAR = 1500
 
+# Global Settings (Will be set by args)
 XTTS_SPEAKER_WAV = None
 XTTS_LANGUAGE = "en"
 RVC_ENABLE = False
 RVC_MODEL_NAME_FOR_API = None
-RVC_PITCH = -2
+RVC_PITCH = 0
 SPEED = 1.0
 OUTPUT_FORMAT = "wav"
 
@@ -2749,6 +3299,7 @@ def _estimate_tokens(text, avg_chars_per_token=AVG_CHARS_PER_TOKEN):
 
 
 def normalize_text(text):
+    # Ensure standard quotes
     replacements = {
         "“": '"',
         "”": '"',
@@ -2760,6 +3311,10 @@ def normalize_text(text):
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
+
+    # Force space after periods to prevent "sentence.sentence" rushing
+    text = text.replace(".", ". ")
+    text = re.sub(r"\s+", " ", text)  # Clean up double spaces
     return text
 
 
@@ -2778,11 +3333,6 @@ def _split_by_force_chars(text_content, char_limit):
         if chunk:
             chunks.append(chunk)
         current_chunk_start = end_index + 1
-        while (
-            current_chunk_start < len(text_content)
-            and text_content[current_chunk_start] == " "
-        ):
-            current_chunk_start += 1
     return chunks
 
 
@@ -2792,7 +3342,7 @@ def _split_by_sentence_groups(text_content, token_limit, avg_chars_token_est):
     try:
         sentences = sent_tokenize(text_content)
     except Exception as e:
-        print(f"      [!] NLTK sent_tokenize failed: {e}. Falling back to Lvl 3.")
+        print(f"      [!] NLTK error: {e}. Fallback Lvl 3.")
         return _split_by_force_chars(text_content, char_limit)
 
     if not sentences:
@@ -2811,9 +3361,6 @@ def _split_by_sentence_groups(text_content, token_limit, avg_chars_token_est):
                 final_tts_chunks.append(" ".join(current_chunk_sentences_list))
                 current_chunk_sentences_list = []
                 current_chunk_tokens = 0
-            print(
-                f"      [Lvl 2] Sentence too long ({len(sentence_text)} chars). Passing to Lvl 3."
-            )
             final_tts_chunks.extend(_split_by_force_chars(sentence_text, char_limit))
         elif current_chunk_tokens + estimated_sentence_tokens <= token_limit:
             current_chunk_sentences_list.append(sentence_text)
@@ -2833,7 +3380,6 @@ def _split_by_line_groups(text_content, token_limit, avg_chars_token_est):
     final_tts_chunks = []
     if not text_content or not text_content.strip():
         return final_tts_chunks
-
     lines = [line.strip() for line in text_content.split("\n") if line.strip()]
     if not lines:
         return []
@@ -2848,9 +3394,6 @@ def _split_by_line_groups(text_content, token_limit, avg_chars_token_est):
                 final_tts_chunks.append("\n".join(current_chunk_lines_list))
                 current_chunk_lines_list = []
                 current_chunk_tokens = 0
-            print(
-                f"      [Lvl 1] Line too long ({len(line_text)} chars). Passing to Lvl 2."
-            )
             final_tts_chunks.extend(
                 _split_by_sentence_groups(line_text, token_limit, avg_chars_token_est)
             )
@@ -2871,35 +3414,37 @@ def _split_by_line_groups(text_content, token_limit, avg_chars_token_est):
 def download_audio_chunk(server_base_url, relative_audio_url, local_temp_path):
     try:
         full_url = server_base_url.rstrip("/") + "/" + relative_audio_url.lstrip("/")
-        # print(f"      Downloading: {full_url}")
         response = requests.get(full_url, stream=True, timeout=300)
         response.raise_for_status()
         with open(local_temp_path, "wb") as f:
             shutil.copyfileobj(response.raw, f)
         if os.path.exists(local_temp_path) and os.path.getsize(local_temp_path) > 100:
             return True
-        else:
-            print(f"      Error: Downloaded file invalid.")
-            if os.path.exists(local_temp_path):
-                os.remove(local_temp_path)
-            return False
-    except KeyboardInterrupt:
-        raise
+        return False
     except Exception as e:
         print(f"      Error downloading: {e}")
         return False
 
 
+# --- IMPROVED CONCATENATION WITH SILENCE ---
 def concatenate_audio_chunks(chunk_filepaths, final_output_path):
-    if not PYDUB_AVAILABLE:
-        return False
-    if not chunk_filepaths:
+    if not PYDUB_AVAILABLE or not chunk_filepaths:
         return False
     print(f"  Concatenating {len(chunk_filepaths)} chunks...")
+
     combined = AudioSegment.empty()
-    for filepath in sorted(chunk_filepaths):
+    # Create a silence segment
+    silence = AudioSegment.silent(duration=CHUNK_PAUSE_MS)
+
+    for i, filepath in enumerate(sorted(chunk_filepaths)):
         try:
-            combined += AudioSegment.from_wav(filepath)
+            segment = AudioSegment.from_wav(filepath)
+            combined += segment
+
+            # Add silence after every chunk except the very last one
+            if i < len(chunk_filepaths) - 1:
+                combined += silence
+
         except CouldntDecodeError:
             print(f"      Error: Corrupt chunk {filepath}. Skipping.")
 
@@ -2918,16 +3463,13 @@ def process_chapter_file(text_filepath, final_audio_output_path):
     print(f"\n--- Processing: {os.path.basename(text_filepath)} ---")
     base_filename_no_ext = os.path.splitext(os.path.basename(text_filepath))[0]
     sanitized_base = re.sub(r"[^\w_.-]", "_", base_filename_no_ext)
-
     chapter_temp_dir = os.path.join(TEMP_CHUNK_DIR, sanitized_base)
     os.makedirs(chapter_temp_dir, exist_ok=True)
 
     try:
         with open(text_filepath, "r", encoding="utf-8") as f:
-            full_text_content = f.read()
-        full_text_content = normalize_text(full_text_content)
+            full_text_content = normalize_text(f.read())  # Added normalization
         if not full_text_content.strip():
-            print(f"  Skipping empty file.")
             return True
     except Exception as e:
         print(f"  Error reading file: {e}")
@@ -2936,18 +3478,13 @@ def process_chapter_file(text_filepath, final_audio_output_path):
     initial_text_chunks = _split_by_line_groups(
         full_text_content, FALLBACK_TOKEN_LIMIT, AVG_CHARS_PER_TOKEN
     )
-    if not initial_text_chunks:
-        print(f"  Warning: No text chunks generated.")
-        return False
-
-    pending_jobs = []
-    for i, text_content in enumerate(initial_text_chunks):
-        pending_jobs.append(
-            {"text": text_content, "output_suffix": f"l_{i+1:03d}", "fallback_level": 1}
-        )
+    pending_jobs = [
+        {"text": t, "output_suffix": f"l_{i+1:03d}", "fallback_level": 1}
+        for i, t in enumerate(initial_text_chunks)
+    ]
 
     generated_audio_files = []
-    any_chunk_failed_or_skipped = False
+    any_chunk_failed = False
     job_idx = 0
 
     while job_idx < len(pending_jobs):
@@ -2956,51 +3493,41 @@ def process_chapter_file(text_filepath, final_audio_output_path):
         output_suffix = current_job["output_suffix"]
         fallback_level = current_job.get("fallback_level", 1)
 
-        chunk_output_basename = f"{sanitized_base}_{output_suffix}"
-        local_chunk_filepath = os.path.join(
-            chapter_temp_dir, f"{chunk_output_basename}.{OUTPUT_FORMAT}"
+        chunk_basename = f"{sanitized_base}_{output_suffix}"
+        local_filepath = os.path.join(
+            chapter_temp_dir, f"{chunk_basename}.{OUTPUT_FORMAT}"
         )
 
-        if (
-            os.path.exists(local_chunk_filepath)
-            and os.path.getsize(local_chunk_filepath) > 100
-        ):
-            generated_audio_files.append(local_chunk_filepath)
+        if os.path.exists(local_filepath) and os.path.getsize(local_filepath) > 100:
+            generated_audio_files.append(local_filepath)
             job_idx += 1
             continue
 
-        # --- PREPARE PAYLOAD ---
         payload = {
             "text_input": text_to_process,
-            "character_voice_gen": XTTS_SPEAKER_WAV,  # Confirmed filename only
+            "character_voice_gen": XTTS_SPEAKER_WAV,
             "language": XTTS_LANGUAGE,
-            "output_file_name": chunk_output_basename,
+            "output_file_name": chunk_basename,
             "rvccharacter_voice_gen": RVC_MODEL_NAME_FOR_API if RVC_ENABLE else "",
             "rvccharacter_pitch": RVC_PITCH,
             "speed": SPEED,
         }
 
         try:
-            # --- DEBUG: UNCOMMENT TO SEE EXACTLY WHAT IS SENT ---
-            # print(f"DEBUG: Sending Payload: {json.dumps(payload, indent=2)}")
-
             response = requests.post(ALLTALK_API_URL, data=payload, timeout=720)
             response.raise_for_status()
             response_data = response.json()
 
             if response_data.get("output_file_url"):
                 if download_audio_chunk(
-                    ALLTALK_BASE_URL,
-                    response_data["output_file_url"],
-                    local_chunk_filepath,
+                    ALLTALK_BASE_URL, response_data["output_file_url"], local_filepath
                 ):
-                    generated_audio_files.append(local_chunk_filepath)
+                    generated_audio_files.append(local_filepath)
                 else:
                     raise Exception("Download failed.")
             else:
-                # Print the payload if we get an API error to debug
-                print(f"[!] API Error. Payload Sent: {json.dumps(payload)}")
-                raise Exception(f"API Error Response: {response_data.get('error')}")
+                print(f"[!] API Error. Payload: {json.dumps(payload)}")
+                raise Exception(f"API Error: {response_data.get('error')}")
 
             job_idx += 1
             time.sleep(0.1)
@@ -3009,9 +3536,10 @@ def process_chapter_file(text_filepath, final_audio_output_path):
             print(f"      [!!] Error: {e}")
             time.sleep(2)
 
+            # Fallback Logic
             new_sub_jobs = []
             if fallback_level == 1:
-                print(f"      -> Falling back to Lvl 2 (Sentence Split)")
+                print(f"      -> Fallback Lvl 2 (Sentence Split)")
                 chunks = _split_by_sentence_groups(
                     text_to_process, FALLBACK_TOKEN_LIMIT, AVG_CHARS_PER_TOKEN
                 )
@@ -3024,7 +3552,7 @@ def process_chapter_file(text_filepath, final_audio_output_path):
                         }
                     )
             elif fallback_level == 2:
-                print(f"      -> Falling back to Lvl 3 (Force Split)")
+                print(f"      -> Fallback Lvl 3 (Force Split)")
                 chunks = _split_by_force_chars(text_to_process, FALLBACK_CHAR_LIMIT)
                 for i, c in enumerate(chunks):
                     new_sub_jobs.append(
@@ -3041,8 +3569,8 @@ def process_chapter_file(text_filepath, final_audio_output_path):
                 )
                 continue
             else:
-                print(f"      [Fail] Could not recover. Skipping chunk.")
-                any_chunk_failed_or_skipped = True
+                print(f"      [Fail] Skipping chunk.")
+                any_chunk_failed = True
                 with open(LOG_FILE, "a", encoding="utf-8") as log_f:
                     log_f.write(f"FAILED: {output_suffix}\nText: {text_to_process}\n\n")
                 job_idx += 1
@@ -3051,7 +3579,7 @@ def process_chapter_file(text_filepath, final_audio_output_path):
         return False
 
     if concatenate_audio_chunks(generated_audio_files, final_audio_output_path):
-        if not any_chunk_failed_or_skipped:
+        if not any_chunk_failed:
             try:
                 shutil.rmtree(chapter_temp_dir)
             except:
@@ -3061,41 +3589,27 @@ def process_chapter_file(text_filepath, final_audio_output_path):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="AllTalk TTS Generator")
+    parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--voice_filename",
-        type=str,
-        required=True,
-        help="Filename of the XTTS reference WAV",
+        "--voice_filename", type=str, required=True, help="XTTS WAV filename"
     )
+    parser.add_argument("--rvc_model", type=str, default=None, help="RVC Model Name")
     parser.add_argument(
-        "--rvc_model", type=str, default=None, help="Name/Path of the RVC model"
+        "--pitch", type=int, default=0, help="RVC Pitch Shift (Semitones)"
     )
+
     args = parser.parse_args()
 
-    # --- CRITICAL FIX: SANITIZE INPUT ---
-    if args.voice_filename:
-        # Take the raw input and strip EVERYTHING except the filename
-        raw_input = args.voice_filename
-        XTTS_SPEAKER_WAV = os.path.basename(raw_input)
-
-        print(f"--------------------------------------------------")
-        print(f"DEBUG CONFIG CHECK:")
-        print(f"Raw Input: '{raw_input}'")
-        print(f"Sanitized: '{XTTS_SPEAKER_WAV}'")
-        print(f"--------------------------------------------------")
-
-    else:
-        print("Error: --voice_filename is required.")
-        sys.exit(1)
+    XTTS_SPEAKER_WAV = os.path.basename(args.voice_filename)
 
     if args.rvc_model and args.rvc_model.lower() != "none" and args.rvc_model != "":
         RVC_ENABLE = True
         RVC_MODEL_NAME_FOR_API = args.rvc_model
-        print(f"[Config] RVC Enabled: {RVC_MODEL_NAME_FOR_API}")
+        RVC_PITCH = args.pitch
+        print(f"[Config] RVC Enabled: {RVC_MODEL_NAME_FOR_API} | Pitch: {RVC_PITCH}")
     else:
         RVC_ENABLE = False
-        RVC_MODEL_NAME_FOR_API = ""
+        print("[Config] RVC Disabled")
 
     if not os.path.exists(TEMP_CHUNK_DIR):
         os.makedirs(TEMP_CHUNK_DIR)
@@ -3108,30 +3622,19 @@ if __name__ == "__main__":
         exit(1)
 
     print(f"Found {len(text_files)} files.")
+    succeeded = 0
+    for idx, text_file_path in enumerate(text_files):
+        base_name = os.path.splitext(os.path.basename(text_file_path))[0]
+        clean_name = re.sub(r"[^\w_.-]", "_", base_name)
+        out_path = os.path.join(AUDIO_OUTPUT_DIR, f"{clean_name}.{OUTPUT_FORMAT}")
 
-    chapters_succeeded = 0
-    chapters_failed = 0
+        if os.path.exists(out_path) and os.path.getsize(out_path) > 1024:
+            print(f"Skipping {clean_name} (Exists)")
+            succeeded += 1
+            continue
 
-    try:
-        for idx, text_file_path in enumerate(text_files):
-            if CHAPTER_STOP > 0 and (idx + 1) > CHAPTER_STOP:
-                break
-            base_name = os.path.splitext(os.path.basename(text_file_path))[0]
-            clean_name = re.sub(r"[^\w_.-]", "_", base_name)
-            out_path = os.path.join(AUDIO_OUTPUT_DIR, f"{clean_name}.{OUTPUT_FORMAT}")
-
-            if os.path.exists(out_path) and os.path.getsize(out_path) > 1024:
-                print(f"Skipping {clean_name} (Exists)")
-                chapters_succeeded += 1
-                continue
-
-            if process_chapter_file(text_file_path, out_path):
-                chapters_succeeded += 1
-            else:
-                chapters_failed += 1
-
-    except KeyboardInterrupt:
-        print("\n[STOPPED] User interrupted.")
+        if process_chapter_file(text_file_path, out_path):
+            succeeded += 1
 
 --- END OF FILE: ./alltalk_tts_generator_chunky_17.py ---
 
@@ -3711,6 +4214,7 @@ from tkinter import filedialog, messagebox, scrolledtext, simpledialog, ttk
 # --- CONFIGURATION ---
 NOVELS_ROOT_DIR = "Novels"
 CONFIG_FILE = "alltalk_path_config.json"
+MAX_LOG_LINES = 5000
 
 try:
     from constants import GEMINI_MODEL_NAME
@@ -3722,7 +4226,6 @@ SCRIPTS = {
     "Metadata": "metadata_fetcher.py",
     "Translate (Gemini)": "gemini_transelate_4.py",
     "Translate (Grok)": "grok_transelate.py",
-    # We dynamically set TTS based on engine choice now
     "TTS Generator": "alltalk_tts_generator_chunky_17.py",
     "Audio Converter": "convert_audio_to_opus_3.py",
     "Tag Audio": "tag_audiobook_files_opus_3.py",
@@ -3741,17 +4244,14 @@ class PipelineGUI:
 
         self.current_project = tk.StringVar()
         self.index_url = tk.StringVar()
-
-        # Source Selection
         self.input_source_var = tk.StringVar(value="Raw")
-
-        # TTS Engine Switcher
         self.tts_engine_var = tk.StringVar(value="AllTalk")
 
         # AllTalk Config Vars
         self.alltalk_path_var = tk.StringVar()
         self.selected_voice_var = tk.StringVar()
         self.selected_rvc_var = tk.StringVar()
+        self.alltalk_pitch_var = tk.IntVar(value=0)  # NEW: AllTalk Pitch
 
         # Qwen+RVC Config Vars
         self.qwen_pth_var = tk.StringVar()
@@ -3768,7 +4268,6 @@ class PipelineGUI:
         }
         self.trans_engine = tk.StringVar(value="Translate (Gemini)")
 
-        # Adapt Vars
         self.adapt_url_var = tk.StringVar()
         self.adapt_type_var = tk.StringVar(value="Chapter Scraper")
 
@@ -3818,8 +4317,6 @@ class PipelineGUI:
         tabs.pack(expand=True, fill="both", padx=10, pady=5)
 
         # --- TAB 1: PIPELINE ---
-
-        # 1. TTS Engine Setup
         tts_frame = ttk.LabelFrame(self.tab_run, text="TTS Generation Setup")
         tts_frame.pack(fill="x", padx=10, pady=5)
 
@@ -3842,10 +4339,8 @@ class PipelineGUI:
             command=self.toggle_tts_ui,
         ).pack(side="left", padx=10)
 
-        # 1A. AllTalk Controls (Frame)
+        # 1A. AllTalk Controls
         self.alltalk_frame = ttk.Frame(tts_frame)
-        self.alltalk_frame.pack(fill="x", padx=5, pady=5)
-
         at_path_frame = ttk.Frame(self.alltalk_frame)
         at_path_frame.pack(fill="x", pady=2)
         ttk.Label(at_path_frame, text="AllTalk Root Dir:").pack(side="left", padx=5)
@@ -3878,9 +4373,18 @@ class PipelineGUI:
         )
         self.rvc_combo.pack(side="left", padx=5)
 
-        # 1B. Qwen Controls (Frame)
-        self.qwen_frame = ttk.Frame(tts_frame)
+        # NEW: AllTalk Pitch Control
+        ttk.Label(at_opts_frame, text="Pitch:").pack(side="left", padx=(10, 2))
+        ttk.Spinbox(
+            at_opts_frame,
+            from_=-24,
+            to=24,
+            textvariable=self.alltalk_pitch_var,
+            width=4,
+        ).pack(side="left")
 
+        # 1B. Qwen Controls
+        self.qwen_frame = ttk.Frame(tts_frame)
         q_pth_frame = ttk.Frame(self.qwen_frame)
         q_pth_frame.pack(fill="x", pady=2)
         ttk.Label(q_pth_frame, text="RVC .pth File:").pack(side="left", padx=5)
@@ -3910,10 +4414,9 @@ class PipelineGUI:
             q_pitch_frame, from_=-24, to=24, textvariable=self.qwen_pitch_var, width=5
         ).pack(side="left", padx=5)
 
-        # Initialize View
         self.toggle_tts_ui()
 
-        # 2. Source Selection Frame
+        # 2. Source Selection
         source_frame = ttk.LabelFrame(
             self.tab_run, text="Source Content for TTS & EPUB"
         )
@@ -3934,7 +4437,6 @@ class PipelineGUI:
         # 3. Steps Selection
         chk_frame = ttk.LabelFrame(self.tab_run, text="Select Steps")
         chk_frame.pack(fill="x", padx=10, pady=5)
-
         steps = [
             ("1. Scrape Chapters", "scraper"),
             ("2. Translate (Optional)", "translate"),
@@ -3943,7 +4445,6 @@ class PipelineGUI:
             ("5. Convert to Opus", "convert"),
             ("6. Tag Audio", "tag"),
         ]
-
         for i, (text, key) in enumerate(steps):
             row = i // 2
             col = i % 2
@@ -3965,7 +4466,7 @@ class PipelineGUI:
                     chk_frame, text=text, variable=self.pipeline_vars[key]
                 ).grid(row=row, column=col, sticky="w", padx=10, pady=2)
 
-        # 4. Control Buttons
+        # 4. Controls
         btn_frame = ttk.Frame(self.tab_run)
         btn_frame.pack(pady=10, fill="x", padx=50)
         self.btn_run = ttk.Button(
@@ -4025,7 +4526,6 @@ class PipelineGUI:
         self.adapt_status.pack()
 
     def toggle_tts_ui(self):
-        """Switches the UI visibility based on the selected TTS Engine."""
         if self.tts_engine_var.get() == "AllTalk":
             self.qwen_frame.pack_forget()
             self.alltalk_frame.pack(fill="x", padx=5, pady=5)
@@ -4034,7 +4534,6 @@ class PipelineGUI:
             self.qwen_frame.pack(fill="x", padx=5, pady=5)
 
     def browse_qwen_file(self, file_type):
-        """File browser for Qwen RVC models."""
         ext = "*.pth" if file_type == "pth" else "*.index"
         f = filedialog.askopenfilename(
             title=f"Select RVC {file_type} file",
@@ -4046,13 +4545,15 @@ class PipelineGUI:
             else:
                 self.qwen_index_var.set(f)
 
-    # --- ALLTALK LOGIC ---
     def load_config(self):
         try:
             if os.path.exists(CONFIG_FILE):
                 with open(CONFIG_FILE, "r") as f:
                     data = json.load(f)
                     self.alltalk_path_var.set(data.get("alltalk_path", ""))
+                    self.alltalk_pitch_var.set(
+                        data.get("alltalk_pitch", 0)
+                    )  # Load Pitch
                     self.qwen_pth_var.set(data.get("qwen_pth", ""))
                     self.qwen_index_var.set(data.get("qwen_index", ""))
                     self.qwen_pitch_var.set(data.get("qwen_pitch", -2))
@@ -4065,6 +4566,7 @@ class PipelineGUI:
                 json.dump(
                     {
                         "alltalk_path": self.alltalk_path_var.get(),
+                        "alltalk_pitch": self.alltalk_pitch_var.get(),  # Save Pitch
                         "qwen_pth": self.qwen_pth_var.get(),
                         "qwen_index": self.qwen_index_var.get(),
                         "qwen_pitch": self.qwen_pitch_var.get(),
@@ -4103,10 +4605,8 @@ class PipelineGUI:
             os.path.join(base, "rvc_models"),
             os.path.join(base, "models", "rvc"),
         ]
-
         rvc_models_found = ["None"]
         valid_root = next((p for p in rvc_search_roots if os.path.exists(p)), None)
-
         if valid_root:
             try:
                 subdirs = [
@@ -4122,12 +4622,10 @@ class PipelineGUI:
                             os.path.join(subdir, os.path.basename(pth))
                         )
             except Exception as e:
-                print(f"Error scanning RVC folders: {e}")
-
+                print(f"Error scanning RVC: {e}")
         self.rvc_combo["values"] = rvc_models_found
         self.rvc_combo.current(1 if len(rvc_models_found) > 1 else 0)
 
-    # --- GENERAL LOGIC ---
     def prevent_typing(self, event):
         if (event.state & 4) and event.keysym.lower() in ["c", "a"]:
             return None
@@ -4145,26 +4643,24 @@ class PipelineGUI:
         return "break"
 
     def log(self, msg):
-        # print(msg)
-        # self.log_area.insert(tk.END, msg + "\n")
-        # self.log_area.see(tk.END)
-        # Schedule the update on the main thread (Thread-Safe)
         self.root.after(0, lambda: self._log_internal(msg))
 
     def _log_internal(self, msg):
         print(msg)
-        # Check if the widget still exists before writing
         try:
+            line_count = int(self.log_area.index("end-1c").split(".")[0])
+            if line_count > MAX_LOG_LINES:
+                self.log_area.delete("1.0", "501.0")
+                self.log_area.insert(tk.END, "\n[Logs truncated...]\n")
             self.log_area.insert(tk.END, msg + "\n")
             self.log_area.see(tk.END)
-        except Exception:
-            pass  # Window was likely closed
+        except:
+            pass
 
     def copy_all_logs(self):
-        content = self.log_area.get("1.0", tk.END)
         self.root.clipboard_clear()
-        self.root.clipboard_append(content)
-        messagebox.showinfo("Copied", "Logs copied to clipboard.")
+        self.root.clipboard_append(self.log_area.get("1.0", tk.END))
+        messagebox.showinfo("Copied", "Logs copied.")
 
     def refresh_project_list(self):
         projects = [
@@ -4186,10 +4682,13 @@ class PipelineGUI:
             )
             path = os.path.join(NOVELS_ROOT_DIR, safe_name)
             if not os.path.exists(path):
-                os.makedirs(os.path.join(path, "01_Raw_Text"))
-                os.makedirs(os.path.join(path, "02_Translated"))
-                os.makedirs(os.path.join(path, "03_Audio_WAV"))
-                os.makedirs(os.path.join(path, "04_Audio_Opus"))
+                for sub in [
+                    "01_Raw_Text",
+                    "02_Translated",
+                    "03_Audio_WAV",
+                    "04_Audio_Opus",
+                ]:
+                    os.makedirs(os.path.join(path, sub))
                 self.log(f"Created project: {safe_name}")
                 self.refresh_project_list()
                 self.current_project.set(safe_name)
@@ -4201,25 +4700,27 @@ class PipelineGUI:
 
     def open_project_folder(self):
         proj = self.current_project.get()
-        if not proj:
-            return
-        path = os.path.abspath(os.path.join(NOVELS_ROOT_DIR, proj))
-        os.startfile(path) if os.name == "nt" else subprocess.call(["xdg-open", path])
+        if proj:
+            path = os.path.abspath(os.path.join(NOVELS_ROOT_DIR, proj))
+            (
+                os.startfile(path)
+                if os.name == "nt"
+                else subprocess.call(["xdg-open", path])
+            )
 
     def get_env_for_project(self):
         proj = self.current_project.get()
         base = os.path.abspath(os.path.join(NOVELS_ROOT_DIR, proj))
-
         dir_raw = os.path.join(base, "01_Raw_Text")
         dir_trans = os.path.join(base, "02_Translated")
         dir_wav = os.path.join(base, "03_Audio_WAV")
         dir_opus = os.path.join(base, "04_Audio_Opus")
-
         tts_input = (
             dir_trans if self.input_source_var.get() == "Translated" else dir_raw
         )
 
         env = os.environ.copy()
+        env["PYTHONUNBUFFERED"] = "1"
         env["PROJECT_RAW_TEXT_DIR"] = dir_raw
         env["PROJECT_TRANS_INPUT_DIR"] = dir_raw
         env["PROJECT_TRANS_OUTPUT_DIR"] = dir_trans
@@ -4244,11 +4745,8 @@ class PipelineGUI:
     def run_script(self, script_key):
         if self.stop_requested:
             return False
-
-        # --- DYNAMIC SCRIPT PATH ---
         script_path = SCRIPTS.get(script_key)
 
-        # 1. Custom Scraper Override
         if script_key == "Scraper" and self.current_project.get():
             custom_path = os.path.join(
                 NOVELS_ROOT_DIR, self.current_project.get(), "custom_scraper.py"
@@ -4257,14 +4755,10 @@ class PipelineGUI:
                 script_path = custom_path
                 self.log(f"--- Using Custom Chapter Scraper ---")
 
-        # 2. Dynamic Translation Script
         if script_key.startswith("Translate"):
             script_path = SCRIPTS.get(self.trans_engine.get())
-
-        # 3. Dynamic TTS Script
-        if script_key == "TTS Generator":
-            if self.tts_engine_var.get() == "Qwen":
-                script_path = "qwen_tts_generator.py"  # Set to local generator
+        if script_key == "TTS Generator" and self.tts_engine_var.get() == "Qwen":
+            script_path = "qwen_tts_generator.py"
 
         if not script_path or not os.path.exists(script_path):
             self.log(f"Error: {script_path} not found.")
@@ -4272,42 +4766,36 @@ class PipelineGUI:
 
         self.log(f"--- Running {os.path.basename(script_path)} ---")
         env = self.get_env_for_project()
-        cmd = [
-            sys.executable,
-            "-u",
-            script_path,
-        ]  # Add "-u" to force unbuffered output so logs appear instantly
+        cmd = [sys.executable, "-u", script_path]
 
-        # --- Inject Arguments for TTS Generator ---
         if script_key == "TTS Generator":
-            # A. AllTalk Arguments
             if self.tts_engine_var.get() == "AllTalk":
-                full_voice_val = self.selected_voice_var.get()
-                voice_filename = os.path.basename(full_voice_val)
+                voice = os.path.basename(self.selected_voice_var.get())
                 rvc = self.selected_rvc_var.get()
+                pitch = self.alltalk_pitch_var.get()  # Get Pitch
 
-                if not voice_filename or "No" in voice_filename:
+                if not voice or "No" in voice:
                     self.log("Error: Invalid voice selection.")
                     return False
 
-                cmd.extend(["--voice_filename", voice_filename])
+                cmd.extend(["--voice_filename", voice])
                 if rvc and rvc != "None":
-                    cmd.extend(["--rvc_model", rvc])
+                    cmd.extend(
+                        ["--rvc_model", rvc, "--pitch", str(pitch)]
+                    )  # Pass Pitch
+                self.save_config()  # Save AllTalk config too
 
-            # B. Qwen+RVC Arguments
             else:
                 pth = self.qwen_pth_var.get()
                 idx = self.qwen_index_var.get()
                 pitch = str(self.qwen_pitch_var.get())
-
                 if not os.path.exists(pth) or not os.path.exists(idx):
-                    self.log("Error: Qwen RVC model paths are invalid.")
+                    self.log("Error: Qwen RVC paths invalid.")
                     return False
-
                 cmd.extend(
                     ["--rvc_model_path", pth, "--rvc_index_path", idx, "--pitch", pitch]
                 )
-                self.save_config()  # Save paths for next time
+                self.save_config()
 
         try:
             self.current_process = subprocess.Popen(
@@ -4324,7 +4812,6 @@ class PipelineGUI:
                     self.current_process.terminate()
                     break
                 self.log(line.strip())
-
             self.current_process.wait()
             if self.stop_requested:
                 self.log("--- STOPPED ---")
@@ -4365,7 +4852,6 @@ class PipelineGUI:
             if self.pipeline_vars["tag"].get():
                 if not self.run_script("Tag Audio"):
                     raise Exception("Tagging Failed")
-
             self.log("=== COMPLETED ===")
         except Exception as e:
             self.log(f"=== PIPELINE ENDED: {e} ===")
@@ -4373,12 +4859,11 @@ class PipelineGUI:
             self.btn_run.config(state="normal")
             self.btn_stop.config(state="disabled")
 
-    # --- METADATA & ADAPTER LOGIC ---
     def run_metadata_fetch(self):
         proj = self.current_project.get()
         url = self.index_url.get().strip()
         if not proj or not url:
-            return messagebox.showwarning("Info", "Select Project and enter Index URL.")
+            return messagebox.showwarning("Info", "Select Project + URL.")
         self.log(f"--- Fetching Metadata ---")
 
         def _worker():
@@ -4406,12 +4891,10 @@ class PipelineGUI:
         proj = self.current_project.get()
         url = self.adapt_url_var.get().strip()
         mode = self.adapt_type_var.get()
-
         if not proj or not url:
-            return messagebox.showerror("Error", "Select project and URL.")
+            return messagebox.showerror("Error", "Select project + URL.")
         if not os.environ.get("GEMINI_API_KEY"):
             return messagebox.showerror("Error", "GEMINI_API_KEY missing.")
-
         self.adapt_status.config(
             text=f"Generating {mode}... wait...", foreground="blue"
         )
@@ -4429,7 +4912,6 @@ class PipelineGUI:
 
                     metadata_fetcher.fetch_and_generate_metadata_scraper(url, proj_dir)
                     target = "custom_metadata_scraper.py"
-
                 if os.path.exists(os.path.join(proj_dir, target)):
                     self.root.after(
                         0,
@@ -4445,13 +4927,11 @@ class PipelineGUI:
                         ),
                     )
             except Exception as e:
-                # FIX: Capture the exception string immediately.
-                # 'e' is deleted from the local scope when the except block exits.
-                error_msg = str(e)
+                err = str(e)
                 self.root.after(
                     0,
                     lambda: self.adapt_status.config(
-                        text=f"Error: {error_msg}", foreground="red"
+                        text=f"Error: {err}", foreground="red"
                     ),
                 )
 
@@ -5057,6 +5537,76 @@ if __name__ == "__main__":
 
 --- END OF FILE: ./Novels/youngfox/custom_metadata_scraper.py ---
 
+--- START OF FILE: ./Novels/youngfox/01_Raw_Text/clean_chapters.py ---
+import os
+import re
+
+def clean_files():
+    # Get the current working directory
+    current_directory = os.getcwd()
+    
+    # List all files in the directory
+    files = os.listdir(current_directory)
+    
+    # Regex to capture the last "Chapter..." segment and the title
+    # Logic: 
+    # 1. .* matches everything up to the last "Chapter" (greedy match)
+    # 2. (Chapter \d+) captures "Chapter [Number]"
+    # 3. \s*[–-]\s* matches the separator (en-dash or hyphen) with optional spaces
+    # 4. (.*) captures the rest of the title
+    title_pattern = re.compile(r'.*(Chapter \d+)\s*[–-]\s*(.*)', re.IGNORECASE)
+
+    count = 0
+
+    for filename in files:
+        if filename.endswith(".txt"):
+            file_path = os.path.join(current_directory, filename)
+            
+            try:
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    lines = file.readlines()
+                
+                # modification_needed tracks if we should write back to the file
+                modification_needed = False
+
+                # --- Task 1: Reformat Title (Line 1) ---
+                if len(lines) > 0:
+                    original_title = lines[0].strip()
+                    match = title_pattern.search(original_title)
+                    
+                    if match:
+                        # Construct new title: "Chapter X: Title Name"
+                        new_title = f"{match.group(1)}: {match.group(2)}\n"
+                        if new_title != lines[0]:
+                            lines[0] = new_title
+                            modification_needed = True
+
+                # --- Task 2: Delete the 3rd Line ---
+                # Python lists are 0-indexed, so the 3rd line is index 2
+                if len(lines) >= 3:
+                    # We delete the specific index
+                    del lines[2]
+                    modification_needed = True
+                
+                # --- Write changes if needed ---
+                if modification_needed:
+                    with open(file_path, 'w', encoding='utf-8') as file:
+                        file.writelines(lines)
+                    print(f"Processed: {filename}")
+                    count += 1
+                else:
+                    print(f"Skipped (No changes needed): {filename}")
+
+            except Exception as e:
+                print(f"Error processing {filename}: {e}")
+
+    print(f"\nDone! Processed {count} files.")
+
+if __name__ == "__main__":
+    clean_files()
+
+--- END OF FILE: ./Novels/youngfox/01_Raw_Text/clean_chapters.py ---
+
 --- START OF FILE: ./Novels/IAmThisMurimsCrazyBitch/custom_scraper.py ---
 import json
 import os
@@ -5255,6 +5805,155 @@ if __name__ == "__main__":
     scrape_and_save_chapters(START_URL, start_chapter_num=961)
 
 --- END OF FILE: ./Novels/IAmThisMurimsCrazyBitch/custom_scraper.py ---
+
+--- START OF FILE: ./Novels/IAmThisMurimsCrazyBitch/extract_opus_metadata.py ---
+import argparse
+import base64
+import json
+import os
+import sys
+
+# --- Windows Unicode Fix ---
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+
+# --- Dependency Check ---
+try:
+    from mutagen.flac import Picture
+    from mutagen.oggopus import OggOpus
+except ImportError:
+    print("Error: 'mutagen' library not found. Please run: pip install mutagen")
+    sys.exit(1)
+
+
+def extract_tags_from_file(filepath, extract_cover=False):
+    """
+    Reads OggOpus tags and returns a dictionary.
+    Optionally saves the embedded cover art to a file.
+    """
+    if not os.path.exists(filepath):
+        print(f"Error: File not found: {filepath}")
+        return None
+
+    try:
+        audio = OggOpus(filepath)
+        metadata = {}
+
+        # 1. Extract Standard Text Tags
+        # Mutagen returns lists for values (e.g. {'TITLE': ['My Title']})
+        for key, values in audio.tags.items():
+            if key == "METADATA_BLOCK_PICTURE":
+                continue  # Handle binary data separately
+
+            # Clean up: if list has 1 item, unwrap it; otherwise keep list
+            if len(values) == 1:
+                metadata[key] = values[0]
+            else:
+                metadata[key] = values
+
+        # 2. Handle Cover Art (METADATA_BLOCK_PICTURE)
+        if "METADATA_BLOCK_PICTURE" in audio.tags:
+            metadata["has_cover_art"] = True
+
+            if extract_cover:
+                # Decode the block
+                for b64_data in audio.tags["METADATA_BLOCK_PICTURE"]:
+                    try:
+                        data = base64.b64decode(b64_data)
+                        pic = Picture(data)
+
+                        # Determine extension
+                        ext = ".jpg"
+                        if pic.mime == "image/png":
+                            ext = ".png"
+
+                        # Save Image
+                        base_name = os.path.splitext(os.path.basename(filepath))[0]
+                        img_filename = f"{base_name}_cover{ext}"
+                        img_path = os.path.join(os.path.dirname(filepath), img_filename)
+
+                        with open(img_path, "wb") as f:
+                            f.write(pic.data)
+
+                        metadata["cover_art_extracted_to"] = img_filename
+                    except Exception as e:
+                        print(f"Warning: Failed to extract cover from {filepath}: {e}")
+        else:
+            metadata["has_cover_art"] = False
+
+        # 3. Add technical specs
+        # FIXED: Removed 'sample_rate' which caused the crash.
+        # Opus is almost always 48000Hz, but mutagen doesn't expose it directly on .info
+        metadata["length_seconds"] = audio.info.length
+        metadata["channels"] = audio.info.channels
+
+        return metadata
+
+    except Exception as e:
+        print(f"Error processing {filepath}: {e}")
+        return None
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Extract Metadata from Opus files to JSON"
+    )
+    parser.add_argument(
+        "input_path", help="Path to an .opus file OR a directory of .opus files"
+    )
+    parser.add_argument(
+        "--output", "-o", default="metadata_opus.json", help="Output JSON filename"
+    )
+    parser.add_argument(
+        "--extract-cover",
+        action="store_true",
+        help="Extract embedded cover art to image files",
+    )
+
+    args = parser.parse_args()
+
+    results = {}
+
+    # Check if input is file or directory
+    if os.path.isfile(args.input_path):
+        print(f"Processing single file: {args.input_path}")
+        meta = extract_tags_from_file(args.input_path, args.extract_cover)
+        if meta:
+            results[os.path.basename(args.input_path)] = meta
+
+    elif os.path.isdir(args.input_path):
+        print(f"Processing directory: {args.input_path}")
+        files = [f for f in os.listdir(args.input_path) if f.lower().endswith(".opus")]
+        files.sort()
+
+        if not files:
+            print("No .opus files found in directory.")
+            return
+
+        for f in files:
+            full_path = os.path.join(args.input_path, f)
+            meta = extract_tags_from_file(full_path, args.extract_cover)
+            if meta:
+                results[f] = meta
+                print(f"  Extracted: {f}")
+
+    else:
+        print("Invalid input path.")
+        return
+
+    # Save to JSON
+    if results:
+        with open(args.output, "w", encoding="utf-8") as f:
+            json.dump(results, f, indent=4, ensure_ascii=False)
+        print(f"\nSuccess! Metadata saved to: {os.path.abspath(args.output)}")
+    else:
+        print("\nNo metadata extracted.")
+
+
+if __name__ == "__main__":
+    main()
+
+--- END OF FILE: ./Novels/IAmThisMurimsCrazyBitch/extract_opus_metadata.py ---
 
 --- START OF FILE: ./Novels/IAmThisMurimsCrazyBitch/01_Raw_Text/clean_chapters.py ---
 import os
