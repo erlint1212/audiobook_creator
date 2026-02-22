@@ -181,8 +181,19 @@ if __name__ == "__main__":
     text_files = sorted(glob.glob(os.path.join(TEXT_FILES_DIR, "*.txt")))
     print(f"Found {len(text_files)} chapters.")
 
+    start_chapter = int(os.getenv("TTS_START_CHAPTER", 1))
+
     for text_file_path in text_files:
         base_name = os.path.splitext(os.path.basename(text_file_path))[0]
+        match = re.search(r"(\d+)", base_name)
+        if match:
+            ch_num = int(match.group(1))
+            if ch_num < start_chapter:
+                print(
+                    f"Skipping {base_name} (Before requested start chapter: {start_chapter})"
+                )
+                continue
+
         out_path = os.path.join(AUDIO_OUTPUT_DIR, f"{base_name}.{OUTPUT_FORMAT}")
 
         if not os.path.exists(out_path):
