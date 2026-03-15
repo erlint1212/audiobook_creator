@@ -23,13 +23,72 @@ def get_with_retries(session, url, headers, retries=3):
     return None
 
 
-def extract_and_clean_chapter_data(content_el, ch_num):
+def parse_chapter_title(raw_title):
+    """
+    Parses a raw page title like:
+      "Volume 1, Chapter 0 – Prologue: A Clumsy Transmigration"
+    into:
+      "Chapter 0 - Prologue: A Clumsy Transmigration"
+    Falls back to the cleaned string if parsing fails.
+    """
+    # Strip zero-width characters
+    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title)
+
+    # Strip optional "Volume X, " prefix
+    stripped = re.sub(r"(?i)^volume\s+\d+\s*,\s*", "", raw_title).strip()
+
+    # Try to match "Chapter <num> – <subtitle>"
+    m = re.match(r"(?i)^chapter\s+(\d+)\s*[–—\-:]\s*(.+)$", stripped)
+    if m:
+        return f"Chapter {m.group(1)} - {m.group(2).strip()}"
+
+    # If only "Chapter <num>" with no subtitle
+    m2 = re.match(r"(?i)^chapter\s+(\d+)\s*$", stripped)
+    if m2:
+        return f"Chapter {m2.group(1)}"
+
+    # Fallback
+    return stripped
+
+
+def clean_body_text(text):
+    """
+    Strips zero-width characters, watermarks, and trailing credit lines
+    from chapter body text.
+    """
+    # Strip zero-width characters
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+
+    # Remove common watermarks
+    text = re.sub(r"(?i)read\s+(at|on)\s+\w+\.com", "", text)
+    text = re.sub(r"(?i)translated by.*?\n", "", text)
+
+    # Remove short trailing credit/watermark lines
+    lines = text.rstrip().split("\n")
+    while lines:
+        last = lines[-1].strip()
+        if not last or (len(last) < 40 and not any(c in last for c in ".?!,;:")):
+            lines.pop()
+        else:
+            break
+
+    return "\n".join(lines).strip()
+
+
+def extract_and_clean_chapter_data(content_el, soup, ch_num):
     """
     Targets the main content area, removes scripts, styles, and unwanted
     interactive elements like glossaries or ads.
+    Uses the page's own title instead of the internal counter for the header.
     """
     if not content_el:
         return f"Chapter {ch_num}", ""
+
+    # Extract the page title for use in the header
+    page_title_el = soup.select_one("h1.entry-title")
+    extracted_title = (
+        page_title_el.get_text(strip=True) if page_title_el else f"Chapter {ch_num}"
+    )
 
     # 1. Remove script, style, and known junk classes
     for junk in content_el.find_all(
@@ -51,22 +110,27 @@ def extract_and_clean_chapter_data(content_el, ch_num):
     # 3. Get text content
     cleaned_body = content_el.get_text(separator="\n\n", strip=True)
 
-    # --- LOGIC: TITLE EXTRACTION & DEDUPLICATION ---
-    story_title = f"Chapter {ch_num}"
-
+    # --- TITLE DEDUPLICATION ---
     lines = cleaned_body.split("\n")
     while lines and not lines[0].strip():
         lines.pop(0)
 
     if lines:
         first_line = lines[0].strip()
-        # Heuristic: If first line contains "Chapter" OR is very short < 100 chars, treat as title
-        if (f"Chapter {ch_num}" in first_line) or (len(first_line) < 100):
-            story_title = first_line
-            # CRITICAL: Remove this line from body so it doesn't duplicate
+        if (
+            (extracted_title.lower() in first_line.lower())
+            or (first_line.lower() in extracted_title.lower())
+            or (len(first_line) < 100 and "chapter" in first_line.lower())
+        ):
+            extracted_title = first_line
             cleaned_body = "\n".join(lines[1:]).strip()
 
-    final_header = f"Chapter {ch_num} - {story_title}"
+    # Clean body text (watermarks, credits, zero-width chars)
+    cleaned_body = clean_body_text(cleaned_body)
+
+    # Parse the title (strip "Volume X,", extract real chapter number)
+    final_header = parse_chapter_title(extracted_title)
+
     return final_header, cleaned_body
 
 
@@ -94,7 +158,6 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
         except:
             pass
 
-    # THE FIX: Always start counting from 1 (or continue from history length)
     ch_counter = len(history_data) + 1
     current_url = start_url
 
@@ -127,7 +190,7 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                 print("Content not found.")
                 break
 
-            # Use internal counter for naming
+            # Use internal counter for FILENAME only
             filename = f"ch_{ch_counter:04d}.txt"
             filepath = os.path.join(save_directory, filename)
 
@@ -135,7 +198,7 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                 print(f"   -> Exists: {filename}")
             else:
                 full_header, cleaned_body = extract_and_clean_chapter_data(
-                    content_el, ch_counter
+                    content_el, soup, ch_counter
                 )
                 with open(filepath, "w", encoding="utf-8") as f:
                     f.write(f"{full_header}\n\n{cleaned_body}")
@@ -149,7 +212,6 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
             with open(json_path, "w") as f:
                 json.dump(history_data, f, indent=4)
 
-            # Increment the counter
             ch_counter += 1
 
             if not next_url:

@@ -75,6 +75,8 @@ def fetch_and_generate_scraper(
     
     --- REFERENCE SCRAPER (scraper_2.py) ---
     The following code is a working example. Reuse the file saving, os.getenv logic, and loop structure.
+    Pay special attention to the `parse_chapter_title` and `clean_body_text` helper functions — 
+    you MUST include equivalent logic in your output.
     
     {reference_code}
     
@@ -98,7 +100,21 @@ def fetch_and_generate_scraper(
        - **Priority 2:** Look for an `<a>` tag inside a "nav" or "pager" div that contains the text "Next".
        - Ensure the loop breaks cleanly if no next link is found.
 
-    5. Output ONLY the complete, runnable Python code.
+    5. **TITLE PARSING (Crucial — do NOT use the internal file counter as the chapter number):**
+       - Extract the chapter title from the page's `<h1>` or `entry-title` element.
+       - Strip any "Volume X, " prefix from the title using regex.
+       - Parse the REAL chapter number from the title text (e.g. "Chapter 0", "Chapter 137").
+       - The internal counter (ch_counter) is ONLY for the output filename (ch_0001.txt, ch_0002.txt, etc.).
+       - The header written into the file must use the real chapter number from the page title.
+       - Include a `parse_chapter_title(raw_title)` function that handles this.
+
+    6. **BODY CLEANUP (Crucial):**
+       - Strip Unicode zero-width characters (\\u200b, \\u200c, \\u200d, \\ufeff) from both title and body
+         BEFORE applying any regex or text matching. Sites embed these as anti-scraping watermarks.
+       - Remove short trailing lines (under 40 chars, no sentence punctuation) that are translator
+         credits or handles (e.g. "RedZTL", "TL: xyz"). Include a `clean_body_text(text)` function.
+
+    7. Output ONLY the complete, runnable Python code.
     """
 
     try:
