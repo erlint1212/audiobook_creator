@@ -124,7 +124,10 @@ def _split_by_force_chars(text_content, char_limit):
         chunk = text_content[current_chunk_start:end_index].strip()
         if chunk:
             chunks.append(chunk)
-        current_chunk_start = end_index + 1
+        if end_index < len(text_content) and text_content[end_index] == " ":
+            current_chunk_start = end_index + 1  # skip the space
+        else:
+            current_chunk_start = end_index  # don't skip non-space chars
     return chunks
 
 

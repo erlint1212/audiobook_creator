@@ -1773,22 +1773,6 @@ Project Directory Structure:
             airheadgirl.epub
             cover.jpg
             03_Audio_WAV/
-                ch_0012.wav
-                ch_0003.wav
-                ch_0008.wav
-                ch_0014.wav
-                ch_0013.wav
-                ch_0016.wav
-                ch_0005.wav
-                ch_0009.wav
-                ch_0002.wav
-                ch_0001.wav
-                ch_0006.wav
-                ch_0004.wav
-                ch_0010.wav
-                ch_0007.wav
-                ch_0015.wav
-                ch_0011.wav
             02_Translated/
             04_Audio_Opus/
                 ch_0014.opus
@@ -1839,67 +1823,6 @@ Project Directory Structure:
             cover_old.jpg
             cover.jpg
             03_Audio_WAV/
-                ch_1013.wav
-                ch_0965.wav
-                ch_0966.wav
-                ch_0973.wav
-                ch_0994.wav
-                ch_0984.wav
-                ch_0999.wav
-                ch_0982.wav
-                ch_1019.wav
-                ch_0962.wav
-                ch_0993.wav
-                ch_0978.wav
-                ch_0974.wav
-                ch_0963.wav
-                ch_0983.wav
-                ch_0990.wav
-                ch_1021.wav
-                ch_0979.wav
-                ch_1002.wav
-                ch_0976.wav
-                ch_0977.wav
-                ch_0972.wav
-                ch_0980.wav
-                ch_0998.wav
-                ch_1014.wav
-                ch_0987.wav
-                ch_1008.wav
-                ch_0997.wav
-                ch_0981.wav
-                ch_0975.wav
-                ch_0985.wav
-                ch_0969.wav
-                ch_1017.wav
-                ch_1016.wav
-                ch_1001.wav
-                ch_0992.wav
-                ch_0988.wav
-                ch_0961.wav
-                ch_0991.wav
-                ch_1005.wav
-                ch_0968.wav
-                ch_0970.wav
-                ch_0986.wav
-                ch_1006.wav
-                ch_1012.wav
-                ch_0964.wav
-                ch_1011.wav
-                ch_1003.wav
-                ch_1007.wav
-                ch_0989.wav
-                ch_1018.wav
-                ch_1000.wav
-                ch_0967.wav
-                ch_1015.wav
-                ch_0996.wav
-                ch_1004.wav
-                ch_1009.wav
-                ch_0995.wav
-                ch_1010.wav
-                ch_0971.wav
-                ch_1020.wav
             02_Translated/
             04_Audio_Opus/
                 ch_1017.opus
@@ -2096,268 +2019,6 @@ Project Directory Structure:
             extract_opus_metadata.py
             cover.jpg
             03_Audio_WAV/
-                ch_0656.wav
-                ch_0550.wav
-                ch_0565.wav
-                ch_0633.wav
-                ch_0589.wav
-                ch_0578.wav
-                ch_0523.wav
-                ch_0676.wav
-                ch_0600.wav
-                ch_0698.wav
-                ch_0609.wav
-                ch_0752.wav
-                ch_0640.wav
-                ch_0682.wav
-                ch_0513.wav
-                ch_0680.wav
-                ch_0597.wav
-                ch_0681.wav
-                ch_0648.wav
-                ch_0702.wav
-                ch_0519.wav
-                ch_0728.wav
-                ch_0660.wav
-                ch_0592.wav
-                ch_0742.wav
-                ch_0686.wav
-                ch_0662.wav
-                ch_0629.wav
-                ch_0539.wav
-                ch_0572.wav
-                ch_0696.wav
-                ch_0621.wav
-                ch_0569.wav
-                ch_0689.wav
-                ch_0582.wav
-                ch_0606.wav
-                ch_0620.wav
-                ch_0517.wav
-                ch_0540.wav
-                ch_0622.wav
-                ch_0761.wav
-                ch_0514.wav
-                ch_0584.wav
-                ch_0573.wav
-                ch_0612.wav
-                ch_0751.wav
-                ch_0568.wav
-                ch_0716.wav
-                ch_0619.wav
-                ch_0690.wav
-                ch_0714.wav
-                ch_0720.wav
-                ch_0652.wav
-                ch_0701.wav
-                ch_0537.wav
-                ch_0623.wav
-                ch_0516.wav
-                ch_0750.wav
-                ch_0673.wav
-                ch_0542.wav
-                ch_0587.wav
-                ch_0713.wav
-                ch_0518.wav
-                ch_0760.wav
-                ch_0626.wav
-                ch_0722.wav
-                ch_0645.wav
-                ch_0729.wav
-                ch_0724.wav
-                ch_0610.wav
-                ch_0667.wav
-                ch_0669.wav
-                ch_0571.wav
-                ch_0747.wav
-                ch_0586.wav
-                ch_0699.wav
-                ch_0748.wav
-                ch_0553.wav
-                ch_0736.wav
-                ch_0601.wav
-                ch_0739.wav
-                ch_0595.wav
-                ch_0614.wav
-                ch_0740.wav
-                ch_0510.wav
-                ch_0618.wav
-                ch_0659.wav
-                ch_0541.wav
-                ch_0532.wav
-                ch_0726.wav
-                ch_0591.wav
-                ch_0730.wav
-                ch_0559.wav
-                ch_0691.wav
-                ch_0585.wav
-                ch_0580.wav
-                ch_0746.wav
-                ch_0753.wav
-                ch_0548.wav
-                ch_0631.wav
-                ch_0627.wav
-                ch_0602.wav
-                ch_0551.wav
-                ch_0709.wav
-                ch_0668.wav
-                ch_0596.wav
-                ch_0735.wav
-                ch_0677.wav
-                ch_0679.wav
-                ch_0528.wav
-                ch_0599.wav
-                ch_0520.wav
-                ch_0762.wav
-                ch_0604.wav
-                ch_0524.wav
-                ch_0558.wav
-                ch_0678.wav
-                ch_0687.wav
-                ch_0683.wav
-                ch_0657.wav
-                ch_0684.wav
-                ch_0666.wav
-                ch_0685.wav
-                ch_0533.wav
-                ch_0745.wav
-                ch_0675.wav
-                ch_0693.wav
-                ch_0650.wav
-                ch_0616.wav
-                ch_0581.wav
-                ch_0625.wav
-                ch_0557.wav
-                ch_0733.wav
-                ch_0563.wav
-                ch_0638.wav
-                ch_0704.wav
-                ch_0688.wav
-                ch_0763.wav
-                ch_0719.wav
-                ch_0521.wav
-                ch_0538.wav
-                ch_0575.wav
-                ch_0613.wav
-                ch_0674.wav
-                ch_0756.wav
-                ch_0637.wav
-                ch_0697.wav
-                ch_0755.wav
-                ch_0734.wav
-                ch_0708.wav
-                ch_0672.wav
-                ch_0743.wav
-                ch_0598.wav
-                ch_0632.wav
-                ch_0543.wav
-                ch_0769.wav
-                ch_0641.wav
-                ch_0508.wav
-                ch_0522.wav
-                ch_0511.wav
-                ch_0766.wav
-                ch_0646.wav
-                ch_0608.wav
-                ch_0764.wav
-                ch_0636.wav
-                ch_0552.wav
-                ch_0768.wav
-                ch_0712.wav
-                ch_0647.wav
-                ch_0723.wav
-                ch_0564.wav
-                ch_0588.wav
-                ch_0593.wav
-                ch_0607.wav
-                ch_0535.wav
-                ch_0574.wav
-                ch_0644.wav
-                ch_0531.wav
-                ch_0732.wav
-                ch_0529.wav
-                ch_0737.wav
-                ch_0665.wav
-                ch_0654.wav
-                ch_0635.wav
-                ch_0615.wav
-                ch_0706.wav
-                ch_0583.wav
-                ch_0643.wav
-                ch_0754.wav
-                ch_0566.wav
-                ch_0663.wav
-                ch_0617.wav
-                ch_0655.wav
-                ch_0658.wav
-                ch_0710.wav
-                ch_0651.wav
-                ch_0717.wav
-                ch_0694.wav
-                ch_0670.wav
-                ch_0545.wav
-                ch_0611.wav
-                ch_0692.wav
-                ch_0639.wav
-                ch_0695.wav
-                ch_0757.wav
-                ch_0630.wav
-                ch_0653.wav
-                ch_0512.wav
-                ch_0530.wav
-                ch_0603.wav
-                ch_0642.wav
-                ch_0561.wav
-                ch_0711.wav
-                ch_0759.wav
-                ch_0509.wav
-                ch_0590.wav
-                ch_0749.wav
-                ch_0731.wav
-                ch_0767.wav
-                ch_0628.wav
-                ch_0605.wav
-                ch_0718.wav
-                ch_0579.wav
-                ch_0556.wav
-                ch_0526.wav
-                ch_0527.wav
-                ch_0536.wav
-                ch_0560.wav
-                ch_0515.wav
-                ch_0577.wav
-                ch_0741.wav
-                ch_0525.wav
-                ch_0555.wav
-                ch_0534.wav
-                ch_0649.wav
-                ch_0738.wav
-                ch_0544.wav
-                ch_0546.wav
-                ch_0715.wav
-                ch_0727.wav
-                ch_0562.wav
-                ch_0707.wav
-                ch_0744.wav
-                ch_0671.wav
-                ch_0567.wav
-                ch_0547.wav
-                ch_0758.wav
-                ch_0570.wav
-                ch_0765.wav
-                ch_0703.wav
-                ch_0725.wav
-                ch_0705.wav
-                ch_0554.wav
-                ch_0721.wav
-                ch_0576.wav
-                ch_0634.wav
-                ch_0700.wav
-                ch_0661.wav
-                ch_0664.wav
-                ch_0549.wav
-                ch_0594.wav
-                ch_0624.wav
             02_Translated/
             04_Audio_Opus/
                 ch_0618.opus
@@ -3395,10 +3056,10 @@ Project Directory Structure:
                 ch_0722.txt
                 ch_0191.txt
                 ch_0168.txt
-        foxo/
+        magical_girls_breaking_bad/
             custom_scraper.py
             metadata.json
-            foxo.epub
+            magical_girls_breaking_bad.epub
             cover.jpg
             03_Audio_WAV/
                 ch_0097.wav
@@ -3408,6 +3069,7 @@ Project Directory Structure:
                 ch_0086.wav
                 ch_0231.wav
                 ch_0200.wav
+                ch_0239.wav
                 ch_0034.wav
                 ch_0205.wav
                 ch_0229.wav
@@ -3427,6 +3089,7 @@ Project Directory Structure:
                 ch_0026.wav
                 ch_0111.wav
                 ch_0135.wav
+                ch_0240.wav
                 ch_0132.wav
                 ch_0048.wav
                 ch_0024.wav
@@ -3500,6 +3163,7 @@ Project Directory Structure:
                 ch_0027.wav
                 ch_0099.wav
                 ch_0101.wav
+                ch_0241.wav
                 ch_0158.wav
                 ch_0198.wav
                 ch_0145.wav
@@ -3519,6 +3183,7 @@ Project Directory Structure:
                 ch_0216.wav
                 ch_0227.wav
                 ch_0159.wav
+                ch_0238.wav
                 ch_0215.wav
                 ch_0025.wav
                 ch_0206.wav
@@ -3645,6 +3310,7 @@ Project Directory Structure:
                 ch_0144.opus
                 ch_0139.opus
                 ch_0121.opus
+                ch_0241.opus
                 ch_0181.opus
                 ch_0179.opus
                 ch_0014.opus
@@ -3680,6 +3346,7 @@ Project Directory Structure:
                 ch_0226.opus
                 ch_0012.opus
                 ch_0232.opus
+                ch_0238.opus
                 ch_0034.opus
                 ch_0079.opus
                 ch_0089.opus
@@ -3738,6 +3405,7 @@ Project Directory Structure:
                 ch_0164.opus
                 ch_0185.opus
                 ch_0208.opus
+                ch_0239.opus
                 ch_0019.opus
                 ch_0022.opus
                 ch_0016.opus
@@ -3816,6 +3484,7 @@ Project Directory Structure:
                 ch_0091.opus
                 ch_0011.opus
                 ch_0032.opus
+                ch_0240.opus
                 ch_0227.opus
                 ch_0060.opus
                 ch_0002.opus
@@ -4003,11 +3672,11 @@ Project Directory Structure:
                 ch_0116.txt
                 ch_0039.txt
                 chapters.json
+                ch_0238.txt
                 ch_0041.txt
                 ch_0005.txt
                 ch_0137.txt
                 ch_0207.txt
-                cleaner.py
                 ch_0176.txt
                 ch_0008.txt
                 ch_0051.txt
@@ -4036,6 +3705,7 @@ Project Directory Structure:
                 ch_0225.txt
                 ch_0071.txt
                 ch_0182.txt
+                ch_0241.txt
                 ch_0112.txt
                 ch_0186.txt
                 ch_0063.txt
@@ -4045,6 +3715,7 @@ Project Directory Structure:
                 ch_0161.txt
                 ch_0234.txt
                 ch_0167.txt
+                ch_0240.txt
                 ch_0173.txt
                 ch_0059.txt
                 ch_0201.txt
@@ -4110,6 +3781,503 @@ Project Directory Structure:
                 ch_0200.txt
                 ch_0178.txt
                 ch_0126.txt
+                ch_0239.txt
+                ch_0121.txt
+                ch_0004.txt
+                ch_0002.txt
+                ch_0016.txt
+                ch_0110.txt
+                ch_0219.txt
+                ch_0191.txt
+                ch_0168.txt
+        foxo/
+            custom_scraper.py
+            metadata.json
+            foxo.epub
+            cover.jpg
+            03_Audio_WAV/
+                ch_0239.wav
+                ch_0240.wav
+                ch_0238.wav
+            02_Translated/
+            04_Audio_Opus/
+                ch_0042.opus
+                ch_0218.opus
+                ch_0144.opus
+                ch_0139.opus
+                ch_0121.opus
+                ch_0181.opus
+                ch_0179.opus
+                ch_0014.opus
+                ch_0078.opus
+                ch_0067.opus
+                ch_0183.opus
+                ch_0172.opus
+                ch_0206.opus
+                ch_0024.opus
+                ch_0178.opus
+                ch_0184.opus
+                ch_0097.opus
+                ch_0237.opus
+                ch_0216.opus
+                ch_0174.opus
+                ch_0040.opus
+                ch_0033.opus
+                ch_0053.opus
+                ch_0231.opus
+                ch_0054.opus
+                ch_0182.opus
+                ch_0143.opus
+                ch_0213.opus
+                ch_0031.opus
+                ch_0175.opus
+                ch_0049.opus
+                ch_0209.opus
+                ch_0140.opus
+                ch_0063.opus
+                ch_0075.opus
+                ch_0009.opus
+                ch_0101.opus
+                ch_0226.opus
+                ch_0012.opus
+                ch_0232.opus
+                ch_0238.opus
+                ch_0034.opus
+                ch_0079.opus
+                ch_0089.opus
+                ch_0110.opus
+                ch_0225.opus
+                ch_0069.opus
+                ch_0126.opus
+                ch_0090.opus
+                ch_0025.opus
+                ch_0008.opus
+                ch_0071.opus
+                ch_0162.opus
+                ch_0043.opus
+                ch_0021.opus
+                ch_0204.opus
+                ch_0191.opus
+                ch_0005.opus
+                ch_0190.opus
+                ch_0219.opus
+                ch_0104.opus
+                ch_0220.opus
+                ch_0018.opus
+                ch_0194.opus
+                ch_0230.opus
+                ch_0205.opus
+                ch_0105.opus
+                ch_0080.opus
+                ch_0193.opus
+                ch_0212.opus
+                ch_0030.opus
+                ch_0093.opus
+                ch_0155.opus
+                ch_0094.opus
+                ch_0057.opus
+                ch_0055.opus
+                ch_0159.opus
+                ch_0068.opus
+                ch_0027.opus
+                ch_0173.opus
+                ch_0196.opus
+                ch_0170.opus
+                ch_0020.opus
+                ch_0177.opus
+                ch_0141.opus
+                ch_0117.opus
+                ch_0064.opus
+                ch_0035.opus
+                ch_0066.opus
+                ch_0108.opus
+                ch_0186.opus
+                ch_0106.opus
+                ch_0192.opus
+                ch_0217.opus
+                ch_0202.opus
+                ch_0037.opus
+                ch_0164.opus
+                ch_0185.opus
+                ch_0208.opus
+                ch_0239.opus
+                ch_0019.opus
+                ch_0022.opus
+                ch_0016.opus
+                ch_0109.opus
+                ch_0135.opus
+                ch_0233.opus
+                ch_0197.opus
+                ch_0015.opus
+                ch_0048.opus
+                ch_0198.opus
+                ch_0167.opus
+                ch_0096.opus
+                ch_0112.opus
+                ch_0059.opus
+                ch_0145.opus
+                ch_0131.opus
+                ch_0036.opus
+                ch_0228.opus
+                ch_0136.opus
+                ch_0133.opus
+                ch_0153.opus
+                ch_0180.opus
+                ch_0095.opus
+                ch_0127.opus
+                ch_0061.opus
+                ch_0234.opus
+                ch_0023.opus
+                ch_0187.opus
+                ch_0165.opus
+                ch_0086.opus
+                ch_0176.opus
+                ch_0028.opus
+                ch_0221.opus
+                ch_0188.opus
+                ch_0050.opus
+                ch_0058.opus
+                ch_0029.opus
+                ch_0235.opus
+                ch_0160.opus
+                ch_0107.opus
+                ch_0147.opus
+                ch_0148.opus
+                ch_0166.opus
+                ch_0072.opus
+                ch_0229.opus
+                ch_0085.opus
+                ch_0122.opus
+                ch_0156.opus
+                ch_0103.opus
+                ch_0129.opus
+                ch_0077.opus
+                ch_0130.opus
+                ch_0092.opus
+                ch_0201.opus
+                ch_0046.opus
+                ch_0116.opus
+                ch_0195.opus
+                ch_0003.opus
+                ch_0123.opus
+                ch_0120.opus
+                ch_0013.opus
+                ch_0082.opus
+                ch_0087.opus
+                ch_0161.opus
+                ch_0118.opus
+                ch_0171.opus
+                ch_0154.opus
+                ch_0199.opus
+                ch_0152.opus
+                ch_0146.opus
+                ch_0142.opus
+                ch_0026.opus
+                ch_0045.opus
+                ch_0223.opus
+                ch_0047.opus
+                ch_0091.opus
+                ch_0011.opus
+                ch_0032.opus
+                ch_0240.opus
+                ch_0227.opus
+                ch_0060.opus
+                ch_0002.opus
+                ch_0138.opus
+                ch_0065.opus
+                ch_0051.opus
+                ch_0124.opus
+                ch_0149.opus
+                ch_0039.opus
+                ch_0119.opus
+                ch_0100.opus
+                ch_0203.opus
+                ch_0074.opus
+                ch_0088.opus
+                ch_0113.opus
+                ch_0081.opus
+                ch_0128.opus
+                ch_0001.opus
+                ch_0189.opus
+                ch_0157.opus
+                ch_0052.opus
+                ch_0214.opus
+                ch_0098.opus
+                ch_0102.opus
+                ch_0207.opus
+                ch_0044.opus
+                ch_0158.opus
+                ch_0151.opus
+                ch_0070.opus
+                ch_0137.opus
+                ch_0114.opus
+                ch_0006.opus
+                ch_0004.opus
+                ch_0038.opus
+                ch_0210.opus
+                ch_0224.opus
+                ch_0076.opus
+                ch_0150.opus
+                ch_0115.opus
+                ch_0041.opus
+                ch_0073.opus
+                ch_0222.opus
+                ch_0200.opus
+                ch_0111.opus
+                ch_0056.opus
+                ch_0134.opus
+                ch_0125.opus
+                ch_0084.opus
+                ch_0236.opus
+                ch_0099.opus
+                ch_0083.opus
+                ch_0168.opus
+                ch_0132.opus
+                ch_0163.opus
+                ch_0211.opus
+                ch_0169.opus
+                ch_0215.opus
+                ch_0007.opus
+                ch_0062.opus
+                ch_0010.opus
+                ch_0017.opus
+            temp_audio_chunks/
+                ch_0001/
+            01_Raw_Text/
+                ch_0188.txt
+                ch_0102.txt
+                ch_0109.txt
+                ch_0213.txt
+                ch_0028.txt
+                ch_0092.txt
+                ch_0218.txt
+                ch_0077.txt
+                ch_0203.txt
+                ch_0125.txt
+                ch_0088.txt
+                ch_0144.txt
+                ch_0224.txt
+                ch_0062.txt
+                ch_0185.txt
+                ch_0153.txt
+                ch_0058.txt
+                ch_0233.txt
+                ch_0134.txt
+                ch_0166.txt
+                ch_0130.txt
+                ch_0198.txt
+                ch_0146.txt
+                ch_0067.txt
+                ch_0049.txt
+                ch_0202.txt
+                ch_0216.txt
+                ch_0199.txt
+                ch_0074.txt
+                ch_0145.txt
+                ch_0009.txt
+                ch_0097.txt
+                ch_0138.txt
+                ch_0187.txt
+                ch_0094.txt
+                ch_0032.txt
+                ch_0050.txt
+                ch_0183.txt
+                ch_0012.txt
+                ch_0072.txt
+                ch_0194.txt
+                ch_0055.txt
+                ch_0064.txt
+                ch_0022.txt
+                ch_0175.txt
+                ch_0078.txt
+                ch_0086.txt
+                ch_0170.txt
+                ch_0046.txt
+                ch_0027.txt
+                ch_0014.txt
+                ch_0217.txt
+                ch_0007.txt
+                ch_0192.txt
+                ch_0033.txt
+                ch_0069.txt
+                ch_0111.txt
+                ch_0177.txt
+                ch_0127.txt
+                ch_0179.txt
+                ch_0060.txt
+                ch_0114.txt
+                ch_0165.txt
+                ch_0123.txt
+                ch_0080.txt
+                ch_0159.txt
+                ch_0117.txt
+                ch_0025.txt
+                ch_0149.txt
+                ch_0013.txt
+                ch_0104.txt
+                ch_0065.txt
+                ch_0083.txt
+                ch_0096.txt
+                ch_0122.txt
+                ch_0231.txt
+                ch_0082.txt
+                ch_0100.txt
+                ch_0195.txt
+                ch_0006.txt
+                ch_0035.txt
+                ch_0076.txt
+                ch_0045.txt
+                ch_0108.txt
+                ch_0237.txt
+                ch_0143.txt
+                ch_0222.txt
+                ch_0164.txt
+                ch_0085.txt
+                ch_0184.txt
+                ch_0057.txt
+                ch_0091.txt
+                ch_0011.txt
+                ch_0093.txt
+                ch_0131.txt
+                ch_0228.txt
+                ch_0038.txt
+                ch_0066.txt
+                ch_0158.txt
+                ch_0034.txt
+                ch_0040.txt
+                ch_0070.txt
+                ch_0152.txt
+                ch_0226.txt
+                ch_0106.txt
+                ch_0156.txt
+                ch_0135.txt
+                ch_0113.txt
+                ch_0221.txt
+                ch_0043.txt
+                ch_0031.txt
+                ch_0044.txt
+                ch_0017.txt
+                ch_0155.txt
+                ch_0208.txt
+                ch_0023.txt
+                ch_0133.txt
+                ch_0232.txt
+                ch_0142.txt
+                ch_0018.txt
+                ch_0024.txt
+                ch_0116.txt
+                ch_0039.txt
+                chapters.json
+                ch_0238.txt
+                ch_0041.txt
+                ch_0005.txt
+                ch_0137.txt
+                ch_0207.txt
+                cleaner.py
+                ch_0176.txt
+                ch_0008.txt
+                ch_0051.txt
+                ch_0053.txt
+                ch_0157.txt
+                ch_0147.txt
+                ch_0209.txt
+                ch_0174.txt
+                ch_0047.txt
+                ch_0075.txt
+                ch_0150.txt
+                ch_0003.txt
+                ch_0148.txt
+                ch_0211.txt
+                ch_0081.txt
+                ch_0087.txt
+                ch_0056.txt
+                ch_0099.txt
+                ch_0105.txt
+                ch_0090.txt
+                ch_0101.txt
+                ch_0181.txt
+                ch_0190.txt
+                ch_0189.txt
+                ch_0227.txt
+                ch_0225.txt
+                ch_0071.txt
+                ch_0182.txt
+                ch_0112.txt
+                ch_0186.txt
+                ch_0063.txt
+                ch_0220.txt
+                ch_0229.txt
+                ch_0197.txt
+                ch_0161.txt
+                ch_0234.txt
+                ch_0167.txt
+                ch_0240.txt
+                ch_0173.txt
+                ch_0059.txt
+                ch_0201.txt
+                ch_0042.txt
+                ch_0180.txt
+                ch_0118.txt
+                ch_0119.txt
+                ch_0136.txt
+                ch_0030.txt
+                ch_0036.txt
+                ch_0172.txt
+                ch_0098.txt
+                ch_0160.txt
+                ch_0052.txt
+                ch_0128.txt
+                ch_0171.txt
+                ch_0001.txt
+                ch_0120.txt
+                ch_0103.txt
+                ch_0212.txt
+                ch_0073.txt
+                ch_0048.txt
+                ch_0020.txt
+                ch_0019.txt
+                ch_0139.txt
+                ch_0084.txt
+                ch_0154.txt
+                ch_0204.txt
+                ch_0215.txt
+                ch_0236.txt
+                ch_0151.txt
+                ch_0206.txt
+                ch_0021.txt
+                ch_0037.txt
+                ch_0163.txt
+                ch_0015.txt
+                ch_0026.txt
+                ch_0029.txt
+                ch_0214.txt
+                ch_0124.txt
+                ch_0140.txt
+                ch_0089.txt
+                ch_0196.txt
+                ch_0068.txt
+                ch_0141.txt
+                ch_0054.txt
+                ch_0129.txt
+                ch_0107.txt
+                ch_0095.txt
+                ch_0010.txt
+                ch_0169.txt
+                ch_0235.txt
+                ch_0132.txt
+                ch_0162.txt
+                ch_0205.txt
+                ch_0079.txt
+                ch_0223.txt
+                ch_0061.txt
+                ch_0115.txt
+                ch_0210.txt
+                ch_0193.txt
+                ch_0230.txt
+                ch_0200.txt
+                ch_0178.txt
+                ch_0126.txt
+                ch_0239.txt
                 ch_0121.txt
                 ch_0004.txt
                 ch_0002.txt
@@ -4389,6 +4557,18 @@ Project Directory Structure:
                     ch_0227.txt
                     ch_0229.txt
                     ch_0230.txt
+            Scraper_Context/
+                site_structure.html
+        myheartisthatofanuncle/
+            custom_scraper.py
+            metadata.json
+            cover.jpg
+            03_Audio_WAV/
+            02_Translated/
+            04_Audio_Opus/
+            01_Raw_Text/
+                chapters.json
+                ch_0001.txt
             Scraper_Context/
                 site_structure.html
         BetrayedPrincess/
@@ -5235,305 +5415,6 @@ Project Directory Structure:
             perfectendinginabadaworldguide.epub
             cover.jpg
             03_Audio_WAV/
-                ch_0097.wav
-                ch_0262.wav
-                ch_0290.wav
-                ch_0197.wav
-                ch_0076.wav
-                ch_0208.wav
-                ch_0086.wav
-                ch_0231.wav
-                ch_0200.wav
-                ch_0239.wav
-                ch_0257.wav
-                ch_0034.wav
-                ch_0205.wav
-                ch_0229.wav
-                ch_0148.wav
-                ch_0094.wav
-                ch_0217.wav
-                ch_0037.wav
-                ch_0287.wav
-                ch_0209.wav
-                ch_0112.wav
-                ch_0221.wav
-                ch_0072.wav
-                ch_0193.wav
-                ch_0154.wav
-                ch_0143.wav
-                ch_0125.wav
-                ch_0212.wav
-                ch_0026.wav
-                ch_0111.wav
-                ch_0135.wav
-                ch_0240.wav
-                ch_0132.wav
-                ch_0048.wav
-                ch_0024.wav
-                ch_0012.wav
-                ch_0064.wav
-                ch_0049.wav
-                ch_0083.wav
-                ch_0003.wav
-                ch_0146.wav
-                ch_0052.wav
-                ch_0088.wav
-                ch_0190.wav
-                ch_0120.wav
-                ch_0131.wav
-                ch_0220.wav
-                ch_0256.wav
-                ch_0261.wav
-                ch_0295.wav
-                ch_0069.wav
-                ch_0023.wav
-                ch_0134.wav
-                ch_0039.wav
-                ch_0105.wav
-                ch_0271.wav
-                ch_0119.wav
-                ch_0264.wav
-                ch_0153.wav
-                ch_0073.wav
-                ch_0116.wav
-                ch_0008.wav
-                ch_0061.wav
-                ch_0289.wav
-                ch_0179.wav
-                ch_0018.wav
-                ch_0139.wav
-                ch_0297.wav
-                ch_0079.wav
-                ch_0138.wav
-                ch_0211.wav
-                ch_0017.wav
-                ch_0186.wav
-                ch_0035.wav
-                ch_0032.wav
-                ch_0029.wav
-                ch_0100.wav
-                ch_0260.wav
-                ch_0047.wav
-                ch_0058.wav
-                ch_0170.wav
-                ch_0172.wav
-                ch_0045.wav
-                ch_0150.wav
-                ch_0041.wav
-                ch_0014.wav
-                ch_0136.wav
-                ch_0255.wav
-                ch_0177.wav
-                ch_0236.wav
-                ch_0142.wav
-                ch_0210.wav
-                ch_0291.wav
-                ch_0171.wav
-                ch_0188.wav
-                ch_0274.wav
-                ch_0267.wav
-                ch_0276.wav
-                ch_0258.wav
-                ch_0237.wav
-                ch_0253.wav
-                ch_0110.wav
-                ch_0109.wav
-                ch_0095.wav
-                ch_0296.wav
-                ch_0218.wav
-                ch_0028.wav
-                ch_0187.wav
-                ch_0065.wav
-                ch_0092.wav
-                ch_0254.wav
-                ch_0286.wav
-                ch_0181.wav
-                ch_0043.wav
-                ch_0056.wav
-                ch_0164.wav
-                ch_0191.wav
-                ch_0279.wav
-                ch_0059.wav
-                ch_0189.wav
-                ch_0185.wav
-                ch_0284.wav
-                ch_0027.wav
-                ch_0246.wav
-                ch_0099.wav
-                ch_0101.wav
-                ch_0241.wav
-                ch_0158.wav
-                ch_0198.wav
-                ch_0145.wav
-                ch_0176.wav
-                ch_0160.wav
-                ch_0093.wav
-                ch_0070.wav
-                ch_0074.wav
-                ch_0013.wav
-                ch_0121.wav
-                ch_0016.wav
-                ch_0298.wav
-                ch_0133.wav
-                ch_0249.wav
-                ch_0107.wav
-                ch_0055.wav
-                ch_0167.wav
-                ch_0247.wav
-                ch_0182.wav
-                ch_0216.wav
-                ch_0265.wav
-                ch_0227.wav
-                ch_0251.wav
-                ch_0159.wav
-                ch_0270.wav
-                ch_0238.wav
-                ch_0215.wav
-                ch_0025.wav
-                ch_0206.wav
-                ch_0050.wav
-                ch_0042.wav
-                ch_0175.wav
-                ch_0104.wav
-                ch_0141.wav
-                ch_0166.wav
-                ch_0207.wav
-                ch_0126.wav
-                ch_0161.wav
-                ch_0087.wav
-                ch_0151.wav
-                ch_0165.wav
-                ch_0152.wav
-                ch_0075.wav
-                ch_0067.wav
-                ch_0203.wav
-                ch_0259.wav
-                ch_0266.wav
-                ch_0005.wav
-                ch_0009.wav
-                ch_0021.wav
-                ch_0002.wav
-                ch_0278.wav
-                ch_0269.wav
-                ch_0098.wav
-                ch_0117.wav
-                ch_0022.wav
-                ch_0234.wav
-                ch_0235.wav
-                ch_0273.wav
-                ch_0115.wav
-                ch_0199.wav
-                ch_0103.wav
-                ch_0178.wav
-                ch_0292.wav
-                ch_0106.wav
-                ch_0282.wav
-                ch_0077.wav
-                ch_0127.wav
-                ch_0174.wav
-                ch_0232.wav
-                ch_0001.wav
-                ch_0051.wav
-                ch_0129.wav
-                ch_0192.wav
-                ch_0163.wav
-                ch_0053.wav
-                ch_0225.wav
-                ch_0288.wav
-                ch_0081.wav
-                ch_0228.wav
-                ch_0293.wav
-                ch_0168.wav
-                ch_0213.wav
-                ch_0031.wav
-                ch_0250.wav
-                ch_0224.wav
-                ch_0299.wav
-                ch_0066.wav
-                ch_0285.wav
-                ch_0147.wav
-                ch_0040.wav
-                ch_0252.wav
-                ch_0248.wav
-                ch_0280.wav
-                ch_0124.wav
-                ch_0046.wav
-                ch_0196.wav
-                ch_0057.wav
-                ch_0202.wav
-                ch_0118.wav
-                ch_0090.wav
-                ch_0082.wav
-                ch_0006.wav
-                ch_0268.wav
-                ch_0283.wav
-                ch_0004.wav
-                ch_0044.wav
-                ch_0244.wav
-                ch_0201.wav
-                ch_0223.wav
-                ch_0180.wav
-                ch_0030.wav
-                ch_0272.wav
-                ch_0140.wav
-                ch_0294.wav
-                ch_0242.wav
-                ch_0036.wav
-                ch_0084.wav
-                ch_0144.wav
-                ch_0243.wav
-                ch_0054.wav
-                ch_0114.wav
-                ch_0033.wav
-                ch_0122.wav
-                ch_0068.wav
-                ch_0010.wav
-                ch_0204.wav
-                ch_0071.wav
-                ch_0063.wav
-                ch_0019.wav
-                ch_0108.wav
-                ch_0130.wav
-                ch_0183.wav
-                ch_0184.wav
-                ch_0102.wav
-                ch_0156.wav
-                ch_0113.wav
-                ch_0007.wav
-                ch_0155.wav
-                ch_0123.wav
-                ch_0263.wav
-                ch_0015.wav
-                ch_0173.wav
-                ch_0085.wav
-                ch_0020.wav
-                ch_0226.wav
-                ch_0062.wav
-                ch_0060.wav
-                ch_0157.wav
-                ch_0275.wav
-                ch_0128.wav
-                ch_0281.wav
-                ch_0091.wav
-                ch_0194.wav
-                ch_0038.wav
-                ch_0078.wav
-                ch_0219.wav
-                ch_0195.wav
-                ch_0011.wav
-                ch_0214.wav
-                ch_0080.wav
-                ch_0089.wav
-                ch_0162.wav
-                ch_0096.wav
-                ch_0149.wav
-                ch_0137.wav
-                ch_0233.wav
-                ch_0169.wav
-                ch_0230.wav
-                ch_0277.wav
-                ch_0245.wav
-                ch_0222.wav
             02_Translated/
             04_Audio_Opus/
                 ch_0042.opus
@@ -6167,592 +6048,6 @@ Project Directory Structure:
             metadata.json
             cover.jpg
             03_Audio_WAV/
-                ch_0499.wav
-                ch_0398.wav
-                ch_0097.wav
-                ch_0376.wav
-                ch_0262.wav
-                ch_0435.wav
-                ch_0379.wav
-                ch_0290.wav
-                ch_0656.wav
-                ch_0197.wav
-                ch_0550.wav
-                ch_0502.wav
-                ch_0565.wav
-                ch_0633.wav
-                ch_0492.wav
-                ch_0589.wav
-                ch_0208.wav
-                ch_0086.wav
-                ch_0309.wav
-                ch_0320.wav
-                ch_0578.wav
-                ch_0473.wav
-                ch_0523.wav
-                ch_0418.wav
-                ch_0231.wav
-                ch_0483.wav
-                ch_0600.wav
-                ch_0609.wav
-                ch_0200.wav
-                ch_0239.wav
-                ch_0640.wav
-                ch_0375.wav
-                ch_0513.wav
-                ch_0468.wav
-                ch_0597.wav
-                ch_0257.wav
-                ch_0648.wav
-                ch_0205.wav
-                ch_0229.wav
-                ch_0148.wav
-                ch_0094.wav
-                ch_0437.wav
-                ch_0430.wav
-                ch_0519.wav
-                ch_0660.wav
-                ch_0467.wav
-                ch_0592.wav
-                ch_0217.wav
-                ch_0479.wav
-                ch_0287.wav
-                ch_0364.wav
-                ch_0209.wav
-                ch_0112.wav
-                ch_0315.wav
-                ch_0380.wav
-                ch_0221.wav
-                ch_0317.wav
-                ch_0662.wav
-                ch_0507.wav
-                ch_0193.wav
-                ch_0154.wav
-                ch_0143.wav
-                ch_0629.wav
-                ch_0539.wav
-                ch_0301.wav
-                ch_0125.wav
-                ch_0572.wav
-                ch_0409.wav
-                ch_0330.wav
-                ch_0621.wav
-                ch_0212.wav
-                ch_0569.wav
-                ch_0582.wav
-                ch_0111.wav
-                ch_0606.wav
-                ch_0135.wav
-                ch_0620.wav
-                ch_0517.wav
-                ch_0240.wav
-                ch_0132.wav
-                ch_0540.wav
-                ch_0622.wav
-                ch_0312.wav
-                ch_0083.wav
-                ch_0432.wav
-                ch_0310.wav
-                ch_0302.wav
-                ch_0497.wav
-                ch_0514.wav
-                ch_0486.wav
-                ch_0584.wav
-                ch_0573.wav
-                ch_0459.wav
-                ch_0612.wav
-                ch_0568.wav
-                ch_0391.wav
-                ch_0146.wav
-                ch_0619.wav
-                ch_0323.wav
-                ch_0088.wav
-                ch_0190.wav
-                ch_0120.wav
-                ch_0358.wav
-                ch_0387.wav
-                ch_0318.wav
-                ch_0382.wav
-                ch_0131.wav
-                ch_0220.wav
-                ch_0652.wav
-                ch_0506.wav
-                ch_0256.wav
-                ch_0261.wav
-                ch_0308.wav
-                ch_0537.wav
-                ch_0360.wav
-                ch_0295.wav
-                ch_0623.wav
-                ch_0516.wav
-                ch_0134.wav
-                ch_0542.wav
-                ch_0587.wav
-                ch_0105.wav
-                ch_0271.wav
-                ch_0119.wav
-                ch_0264.wav
-                ch_0401.wav
-                ch_0495.wav
-                ch_0153.wav
-                ch_0116.wav
-                ch_0518.wav
-                ch_0462.wav
-                ch_0626.wav
-                ch_0645.wav
-                ch_0347.wav
-                ch_0610.wav
-                ch_0667.wav
-                ch_0289.wav
-                ch_0311.wav
-                ch_0571.wav
-                ch_0179.wav
-                ch_0139.wav
-                ch_0297.wav
-                ch_0138.wav
-                ch_0211.wav
-                ch_0186.wav
-                ch_0586.wav
-                ch_0100.wav
-                ch_0374.wav
-                ch_0553.wav
-                ch_0260.wav
-                ch_0472.wav
-                ch_0392.wav
-                ch_0601.wav
-                ch_0480.wav
-                ch_0303.wav
-                ch_0170.wav
-                ch_0172.wav
-                ch_0491.wav
-                ch_0150.wav
-                ch_0136.wav
-                ch_0255.wav
-                ch_0595.wav
-                ch_0177.wav
-                ch_0465.wav
-                ch_0504.wav
-                ch_0396.wav
-                ch_0614.wav
-                ch_0510.wav
-                ch_0618.wav
-                ch_0503.wav
-                ch_0659.wav
-                ch_0541.wav
-                ch_0236.wav
-                ch_0389.wav
-                ch_0393.wav
-                ch_0142.wav
-                ch_0532.wav
-                ch_0356.wav
-                ch_0210.wav
-                ch_0367.wav
-                ch_0400.wav
-                ch_0383.wav
-                ch_0291.wav
-                ch_0394.wav
-                ch_0487.wav
-                ch_0591.wav
-                ch_0456.wav
-                ch_0171.wav
-                ch_0559.wav
-                ch_0474.wav
-                ch_0368.wav
-                ch_0188.wav
-                ch_0422.wav
-                ch_0585.wav
-                ch_0580.wav
-                ch_0274.wav
-                ch_0267.wav
-                ch_0276.wav
-                ch_0258.wav
-                ch_0412.wav
-                ch_0405.wav
-                ch_0237.wav
-                ch_0253.wav
-                ch_0110.wav
-                ch_0109.wav
-                ch_0095.wav
-                ch_0296.wav
-                ch_0218.wav
-                ch_0548.wav
-                ch_0187.wav
-                ch_0092.wav
-                ch_0254.wav
-                ch_0631.wav
-                ch_0627.wav
-                ch_0602.wav
-                ch_0286.wav
-                ch_0181.wav
-                ch_0411.wav
-                ch_0488.wav
-                ch_0441.wav
-                ch_0551.wav
-                ch_0596.wav
-                ch_0164.wav
-                ch_0191.wav
-                ch_0279.wav
-                ch_0189.wav
-                ch_0185.wav
-                ch_0528.wav
-                ch_0284.wav
-                ch_0424.wav
-                ch_0305.wav
-                ch_0599.wav
-                ch_0408.wav
-                ch_0520.wav
-                ch_0493.wav
-                ch_0246.wav
-                ch_0481.wav
-                ch_0446.wav
-                ch_0099.wav
-                ch_0101.wav
-                ch_0371.wav
-                ch_0241.wav
-                ch_0158.wav
-                ch_0198.wav
-                ch_0604.wav
-                ch_0524.wav
-                ch_0558.wav
-                ch_0145.wav
-                ch_0176.wav
-                ch_0439.wav
-                ch_0334.wav
-                ch_0160.wav
-                ch_0093.wav
-                ch_0340.wav
-                ch_0657.wav
-                ch_0353.wav
-                ch_0390.wav
-                ch_0666.wav
-                ch_0423.wav
-                ch_0533.wav
-                ch_0455.wav
-                ch_0121.wav
-                ch_0449.wav
-                ch_0461.wav
-                ch_0298.wav
-                ch_0133.wav
-                ch_0450.wav
-                ch_0249.wav
-                ch_0107.wav
-                ch_0650.wav
-                ch_0616.wav
-                ch_0453.wav
-                ch_0581.wav
-                ch_0372.wav
-                ch_0625.wav
-                ch_0557.wav
-                ch_0167.wav
-                ch_0247.wav
-                ch_0182.wav
-                ch_0216.wav
-                ch_0265.wav
-                ch_0227.wav
-                ch_0251.wav
-                ch_0370.wav
-                ch_0159.wav
-                ch_0270.wav
-                ch_0238.wav
-                ch_0343.wav
-                ch_0348.wav
-                ch_0349.wav
-                ch_0215.wav
-                ch_0451.wav
-                ch_0313.wav
-                ch_0563.wav
-                ch_0206.wav
-                ch_0421.wav
-                ch_0471.wav
-                ch_0638.wav
-                ch_0399.wav
-                ch_0521.wav
-                ch_0538.wav
-                ch_0575.wav
-                ch_0175.wav
-                ch_0104.wav
-                ch_0613.wav
-                ch_0141.wav
-                ch_0166.wav
-                ch_0637.wav
-                ch_0427.wav
-                ch_0207.wav
-                ch_0126.wav
-                ch_0161.wav
-                ch_0359.wav
-                ch_0087.wav
-                ch_0151.wav
-                ch_0165.wav
-                ch_0327.wav
-                ch_0152.wav
-                ch_0419.wav
-                ch_0476.wav
-                ch_0203.wav
-                ch_0259.wav
-                ch_0598.wav
-                ch_0266.wav
-                ch_0426.wav
-                ch_0632.wav
-                ch_0543.wav
-                ch_0417.wav
-                ch_0363.wav
-                ch_0414.wav
-                ch_0641.wav
-                ch_0508.wav
-                ch_0452.wav
-                ch_0278.wav
-                ch_0333.wav
-                ch_0470.wav
-                ch_0269.wav
-                ch_0522.wav
-                ch_0332.wav
-                ch_0484.wav
-                ch_0098.wav
-                ch_0377.wav
-                ch_0511.wav
-                ch_0117.wav
-                ch_0463.wav
-                ch_0442.wav
-                ch_0234.wav
-                ch_0384.wav
-                ch_0235.wav
-                ch_0438.wav
-                ch_0273.wav
-                ch_0115.wav
-                ch_0199.wav
-                ch_0103.wav
-                ch_0341.wav
-                ch_0178.wav
-                ch_0403.wav
-                ch_0646.wav
-                ch_0608.wav
-                ch_0292.wav
-                ch_0636.wav
-                ch_0106.wav
-                ch_0552.wav
-                ch_0407.wav
-                ch_0436.wav
-                ch_0454.wav
-                ch_0282.wav
-                ch_0388.wav
-                ch_0647.wav
-                ch_0369.wav
-                ch_0127.wav
-                ch_0564.wav
-                ch_0325.wav
-                ch_0588.wav
-                ch_0593.wav
-                ch_0174.wav
-                ch_0232.wav
-                ch_0326.wav
-                ch_0607.wav
-                ch_0535.wav
-                ch_0574.wav
-                ch_0357.wav
-                ch_0644.wav
-                ch_0531.wav
-                ch_0529.wav
-                ch_0381.wav
-                ch_0425.wav
-                ch_0478.wav
-                ch_0350.wav
-                ch_0477.wav
-                ch_0345.wav
-                ch_0665.wav
-                ch_0324.wav
-                ch_0129.wav
-                ch_0192.wav
-                ch_0402.wav
-                ch_0654.wav
-                ch_0163.wav
-                ch_0635.wav
-                ch_0319.wav
-                ch_0225.wav
-                ch_0615.wav
-                ch_0288.wav
-                ch_0378.wav
-                ch_0475.wav
-                ch_0583.wav
-                ch_0643.wav
-                ch_0228.wav
-                ch_0293.wav
-                ch_0168.wav
-                ch_0501.wav
-                ch_0213.wav
-                ch_0566.wav
-                ch_0429.wav
-                ch_0250.wav
-                ch_0434.wav
-                ch_0663.wav
-                ch_0344.wav
-                ch_0617.wav
-                ch_0224.wav
-                ch_0352.wav
-                ch_0655.wav
-                ch_0299.wav
-                ch_0285.wav
-                ch_0147.wav
-                ch_0505.wav
-                ch_0397.wav
-                ch_0252.wav
-                ch_0248.wav
-                ch_0658.wav
-                ch_0280.wav
-                ch_0124.wav
-                ch_0433.wav
-                ch_0196.wav
-                ch_0202.wav
-                ch_0118.wav
-                ch_0090.wav
-                ch_0082.wav
-                ch_0268.wav
-                ch_0283.wav
-                ch_0464.wav
-                ch_0413.wav
-                ch_0244.wav
-                ch_0404.wav
-                ch_0201.wav
-                ch_0223.wav
-                ch_0304.wav
-                ch_0651.wav
-                ch_0395.wav
-                ch_0180.wav
-                ch_0416.wav
-                ch_0272.wav
-                ch_0140.wav
-                ch_0294.wav
-                ch_0242.wav
-                ch_0490.wav
-                ch_0306.wav
-                ch_0084.wav
-                ch_0545.wav
-                ch_0144.wav
-                ch_0342.wav
-                ch_0243.wav
-                ch_0611.wav
-                ch_0316.wav
-                ch_0335.wav
-                ch_0639.wav
-                ch_0630.wav
-                ch_0307.wav
-                ch_0653.wav
-                ch_0314.wav
-                ch_0366.wav
-                ch_0512.wav
-                ch_0530.wav
-                ch_0114.wav
-                ch_0603.wav
-                ch_0365.wav
-                ch_0642.wav
-                ch_0336.wav
-                ch_0561.wav
-                ch_0346.wav
-                ch_0122.wav
-                ch_0509.wav
-                ch_0590.wav
-                ch_0328.wav
-                ch_0628.wav
-                ch_0605.wav
-                ch_0498.wav
-                ch_0579.wav
-                ch_0556.wav
-                ch_0373.wav
-                ch_0410.wav
-                ch_0496.wav
-                ch_0204.wav
-                ch_0338.wav
-                ch_0526.wav
-                ch_0527.wav
-                ch_0536.wav
-                ch_0494.wav
-                ch_0431.wav
-                ch_0460.wav
-                ch_0108.wav
-                ch_0130.wav
-                ch_0560.wav
-                ch_0183.wav
-                ch_0184.wav
-                ch_0485.wav
-                ch_0102.wav
-                ch_0355.wav
-                ch_0515.wav
-                ch_0577.wav
-                ch_0351.wav
-                ch_0156.wav
-                ch_0113.wav
-                ch_0525.wav
-                ch_0339.wav
-                ch_0354.wav
-                ch_0155.wav
-                ch_0123.wav
-                ch_0555.wav
-                ch_0534.wav
-                ch_0448.wav
-                ch_0428.wav
-                ch_0649.wav
-                ch_0263.wav
-                ch_0544.wav
-                ch_0546.wav
-                ch_0458.wav
-                ch_0562.wav
-                ch_0469.wav
-                ch_0415.wav
-                ch_0385.wav
-                ch_0173.wav
-                ch_0085.wav
-                ch_0226.wav
-                ch_0157.wav
-                ch_0275.wav
-                ch_0128.wav
-                ch_0281.wav
-                ch_0443.wav
-                ch_0567.wav
-                ch_0091.wav
-                ch_0440.wav
-                ch_0547.wav
-                ch_0194.wav
-                ch_0406.wav
-                ch_0362.wav
-                ch_0322.wav
-                ch_0570.wav
-                ch_0219.wav
-                ch_0195.wav
-                ch_0457.wav
-                ch_0337.wav
-                ch_0489.wav
-                ch_0482.wav
-                ch_0214.wav
-                ch_0089.wav
-                ch_0500.wav
-                ch_0466.wav
-                ch_0420.wav
-                ch_0386.wav
-                ch_0447.wav
-                ch_0331.wav
-                ch_0329.wav
-                ch_0162.wav
-                ch_0554.wav
-                ch_0576.wav
-                ch_0096.wav
-                ch_0634.wav
-                ch_0149.wav
-                ch_0137.wav
-                ch_0233.wav
-                ch_0300.wav
-                ch_0361.wav
-                ch_0661.wav
-                ch_0169.wav
-                ch_0444.wav
-                ch_0230.wav
-                ch_0664.wav
-                ch_0549.wav
-                ch_0277.wav
-                ch_0445.wav
-                ch_0594.wav
-                ch_0321.wav
-                ch_0245.wav
-                ch_0222.wav
-                ch_0624.wav
             02_Translated/
             04_Audio_Opus/
                 ch_0323.opus
@@ -8019,124 +7314,6 @@ Project Directory Structure:
             cover.jpg
             VillainessDaughterYandere.epub
             03_Audio_WAV/
-                ch_0097.wav
-                ch_0076.wav
-                ch_0086.wav
-                ch_0034.wav
-                ch_0094.wav
-                ch_0037.wav
-                ch_0112.wav
-                ch_0072.wav
-                ch_0026.wav
-                ch_0111.wav
-                ch_0048.wav
-                ch_0024.wav
-                ch_0012.wav
-                ch_0064.wav
-                ch_0049.wav
-                ch_0083.wav
-                ch_0003.wav
-                ch_0052.wav
-                ch_0088.wav
-                ch_0069.wav
-                ch_0023.wav
-                ch_0039.wav
-                ch_0105.wav
-                ch_0073.wav
-                ch_0116.wav
-                ch_0008.wav
-                ch_0061.wav
-                ch_0018.wav
-                ch_0079.wav
-                ch_0017.wav
-                ch_0035.wav
-                ch_0032.wav
-                ch_0029.wav
-                ch_0100.wav
-                ch_0047.wav
-                ch_0058.wav
-                ch_0045.wav
-                ch_0041.wav
-                ch_0014.wav
-                ch_0110.wav
-                ch_0109.wav
-                ch_0095.wav
-                ch_0028.wav
-                ch_0065.wav
-                ch_0092.wav
-                ch_0043.wav
-                ch_0056.wav
-                ch_0059.wav
-                ch_0027.wav
-                ch_0099.wav
-                ch_0101.wav
-                ch_0093.wav
-                ch_0070.wav
-                ch_0074.wav
-                ch_0013.wav
-                ch_0016.wav
-                ch_0107.wav
-                ch_0055.wav
-                ch_0025.wav
-                ch_0050.wav
-                ch_0042.wav
-                ch_0104.wav
-                ch_0087.wav
-                ch_0075.wav
-                ch_0067.wav
-                ch_0005.wav
-                ch_0009.wav
-                ch_0021.wav
-                ch_0002.wav
-                ch_0098.wav
-                ch_0117.wav
-                ch_0022.wav
-                ch_0115.wav
-                ch_0103.wav
-                ch_0106.wav
-                ch_0077.wav
-                ch_0001.wav
-                ch_0051.wav
-                ch_0053.wav
-                ch_0081.wav
-                ch_0031.wav
-                ch_0066.wav
-                ch_0040.wav
-                ch_0046.wav
-                ch_0057.wav
-                ch_0118.wav
-                ch_0090.wav
-                ch_0082.wav
-                ch_0006.wav
-                ch_0004.wav
-                ch_0044.wav
-                ch_0030.wav
-                ch_0036.wav
-                ch_0084.wav
-                ch_0054.wav
-                ch_0114.wav
-                ch_0033.wav
-                ch_0068.wav
-                ch_0010.wav
-                ch_0071.wav
-                ch_0063.wav
-                ch_0019.wav
-                ch_0108.wav
-                ch_0102.wav
-                ch_0113.wav
-                ch_0007.wav
-                ch_0015.wav
-                ch_0085.wav
-                ch_0020.wav
-                ch_0062.wav
-                ch_0060.wav
-                ch_0091.wav
-                ch_0038.wav
-                ch_0078.wav
-                ch_0011.wav
-                ch_0080.wav
-                ch_0089.wav
-                ch_0096.wav
             02_Translated/
             04_Audio_Opus/
                 ch_0042.opus
@@ -8382,6 +7559,7 @@ Project Directory Structure:
                 site_structure.html
     backup/
         scraper_context_fetcher.py
+    tests/
 
 
 File Contents:
@@ -8465,6 +7643,8 @@ def fetch_and_generate_scraper(
     
     --- REFERENCE SCRAPER (scraper_2.py) ---
     The following code is a working example. Reuse the file saving, os.getenv logic, and loop structure.
+    Pay special attention to the `parse_chapter_title` and `clean_body_text` helper functions — 
+    you MUST include equivalent logic in your output.
     
     {reference_code}
     
@@ -8488,7 +7668,21 @@ def fetch_and_generate_scraper(
        - **Priority 2:** Look for an `<a>` tag inside a "nav" or "pager" div that contains the text "Next".
        - Ensure the loop breaks cleanly if no next link is found.
 
-    5. Output ONLY the complete, runnable Python code.
+    5. **TITLE PARSING (Crucial — do NOT use the internal file counter as the chapter number):**
+       - Extract the chapter title from the page's `<h1>` or `entry-title` element.
+       - Strip any "Volume X, " prefix from the title using regex.
+       - Parse the REAL chapter number from the title text (e.g. "Chapter 0", "Chapter 137").
+       - The internal counter (ch_counter) is ONLY for the output filename (ch_0001.txt, ch_0002.txt, etc.).
+       - The header written into the file must use the real chapter number from the page title.
+       - Include a `parse_chapter_title(raw_title)` function that handles this.
+
+    6. **BODY CLEANUP (Crucial):**
+       - Strip Unicode zero-width characters (\\u200b, \\u200c, \\u200d, \\ufeff) from both title and body
+         BEFORE applying any regex or text matching. Sites embed these as anti-scraping watermarks.
+       - Remove short trailing lines (under 40 chars, no sentence punctuation) that are translator
+         credits or handles (e.g. "RedZTL", "TL: xyz"). Include a `clean_body_text(text)` function.
+
+    7. Output ONLY the complete, runnable Python code.
     """
 
     try:
@@ -8751,13 +7945,72 @@ def get_with_retries(session, url, headers, retries=3):
     return None
 
 
-def extract_and_clean_chapter_data(content_el, ch_num):
+def parse_chapter_title(raw_title):
+    """
+    Parses a raw page title like:
+      "Volume 1, Chapter 0 – Prologue: A Clumsy Transmigration"
+    into:
+      "Chapter 0 - Prologue: A Clumsy Transmigration"
+    Falls back to the cleaned string if parsing fails.
+    """
+    # Strip zero-width characters
+    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title)
+
+    # Strip optional "Volume X, " prefix
+    stripped = re.sub(r"(?i)^volume\s+\d+\s*,\s*", "", raw_title).strip()
+
+    # Try to match "Chapter <num> – <subtitle>"
+    m = re.match(r"(?i)^chapter\s+(\d+)\s*[–—\-:]\s*(.+)$", stripped)
+    if m:
+        return f"Chapter {m.group(1)} - {m.group(2).strip()}"
+
+    # If only "Chapter <num>" with no subtitle
+    m2 = re.match(r"(?i)^chapter\s+(\d+)\s*$", stripped)
+    if m2:
+        return f"Chapter {m2.group(1)}"
+
+    # Fallback
+    return stripped
+
+
+def clean_body_text(text):
+    """
+    Strips zero-width characters, watermarks, and trailing credit lines
+    from chapter body text.
+    """
+    # Strip zero-width characters
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+
+    # Remove common watermarks
+    text = re.sub(r"(?i)read\s+(at|on)\s+\w+\.com", "", text)
+    text = re.sub(r"(?i)translated by.*?\n", "", text)
+
+    # Remove short trailing credit/watermark lines
+    lines = text.rstrip().split("\n")
+    while lines:
+        last = lines[-1].strip()
+        if not last or (len(last) < 40 and not any(c in last for c in ".?!,;:")):
+            lines.pop()
+        else:
+            break
+
+    return "\n".join(lines).strip()
+
+
+def extract_and_clean_chapter_data(content_el, soup, ch_num):
     """
     Targets the main content area, removes scripts, styles, and unwanted
     interactive elements like glossaries or ads.
+    Uses the page's own title instead of the internal counter for the header.
     """
     if not content_el:
         return f"Chapter {ch_num}", ""
+
+    # Extract the page title for use in the header
+    page_title_el = soup.select_one("h1.entry-title")
+    extracted_title = (
+        page_title_el.get_text(strip=True) if page_title_el else f"Chapter {ch_num}"
+    )
 
     # 1. Remove script, style, and known junk classes
     for junk in content_el.find_all(
@@ -8779,22 +8032,27 @@ def extract_and_clean_chapter_data(content_el, ch_num):
     # 3. Get text content
     cleaned_body = content_el.get_text(separator="\n\n", strip=True)
 
-    # --- LOGIC: TITLE EXTRACTION & DEDUPLICATION ---
-    story_title = f"Chapter {ch_num}"
-
+    # --- TITLE DEDUPLICATION ---
     lines = cleaned_body.split("\n")
     while lines and not lines[0].strip():
         lines.pop(0)
 
     if lines:
         first_line = lines[0].strip()
-        # Heuristic: If first line contains "Chapter" OR is very short < 100 chars, treat as title
-        if (f"Chapter {ch_num}" in first_line) or (len(first_line) < 100):
-            story_title = first_line
-            # CRITICAL: Remove this line from body so it doesn't duplicate
+        if (
+            (extracted_title.lower() in first_line.lower())
+            or (first_line.lower() in extracted_title.lower())
+            or (len(first_line) < 100 and "chapter" in first_line.lower())
+        ):
+            extracted_title = first_line
             cleaned_body = "\n".join(lines[1:]).strip()
 
-    final_header = f"Chapter {ch_num} - {story_title}"
+    # Clean body text (watermarks, credits, zero-width chars)
+    cleaned_body = clean_body_text(cleaned_body)
+
+    # Parse the title (strip "Volume X,", extract real chapter number)
+    final_header = parse_chapter_title(extracted_title)
+
     return final_header, cleaned_body
 
 
@@ -8822,7 +8080,6 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
         except:
             pass
 
-    # THE FIX: Always start counting from 1 (or continue from history length)
     ch_counter = len(history_data) + 1
     current_url = start_url
 
@@ -8855,7 +8112,7 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                 print("Content not found.")
                 break
 
-            # Use internal counter for naming
+            # Use internal counter for FILENAME only
             filename = f"ch_{ch_counter:04d}.txt"
             filepath = os.path.join(save_directory, filename)
 
@@ -8863,7 +8120,7 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
                 print(f"   -> Exists: {filename}")
             else:
                 full_header, cleaned_body = extract_and_clean_chapter_data(
-                    content_el, ch_counter
+                    content_el, soup, ch_counter
                 )
                 with open(filepath, "w", encoding="utf-8") as f:
                     f.write(f"{full_header}\n\n{cleaned_body}")
@@ -8877,7 +8134,6 @@ def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
             with open(json_path, "w") as f:
                 json.dump(history_data, f, indent=4)
 
-            # Increment the counter
             ch_counter += 1
 
             if not next_url:
@@ -13663,6 +12919,248 @@ if __name__ == "__main__":
 
 --- END OF FILE: ./Novels/SilverDragon/extract_opus_metadata.py ---
 
+--- START OF FILE: ./Novels/magical_girls_breaking_bad/custom_scraper.py ---
+import json
+import os
+import re
+import time
+
+import requests
+from bs4 import BeautifulSoup
+
+# --- CONFIGURATION ---
+DELAY_BETWEEN_REQUESTS = 1.5  # Kat Reading Cafe may have rate limits
+START_URL = "https://katreadingcafe.com/magical-girls-volume-1-chapter-1-the-ashes-of-magic-part-i/"
+# ---------------------
+
+
+def get_with_retries(session, url, headers, retries=3):
+    for i in range(retries):
+        try:
+            response = session.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"   [!] Error fetching {url}: {e}. Retrying ({i+1}/{retries})...")
+            time.sleep(2 * (i + 1))
+    return None
+
+
+def parse_chapter_title(raw_title):
+    """
+    Parses a raw page title like:
+      "Volume 1, Chapter 0 – Prologue: A Clumsy Transmigration"
+    into:
+      chapter_num = "0"
+      subtitle    = "Prologue: A Clumsy Transmigration"
+    Returns a formatted string like "Chapter 0 - Prologue: A Clumsy Transmigration".
+    Falls back to the raw title if parsing fails.
+    """
+    # Strip optional "Volume X, " prefix (with comma and optional space)
+    stripped = re.sub(r"(?i)^volume\s+\d+\s*,\s*", "", raw_title).strip()
+
+    # Try to match "Chapter <num> – <subtitle>" or "Chapter <num> - <subtitle>"
+    m = re.match(r"(?i)^chapter\s+(\d+)\s*[–—\-:]\s*(.+)$", stripped)
+    if m:
+        ch_num = m.group(1)
+        subtitle = m.group(2).strip()
+        return f"Chapter {ch_num} - {subtitle}"
+
+    # If only "Chapter <num>" with no subtitle
+    m2 = re.match(r"(?i)^chapter\s+(\d+)\s*$", stripped)
+    if m2:
+        return f"Chapter {m2.group(1)}"
+
+    # Fallback: return cleaned-up version
+    return stripped
+
+
+def extract_and_clean_chapter_data(soup, ch_num):
+    """
+    Extracts content from .entry-content, cleans up navigation links,
+    social buttons, and deduplicates the title.
+    """
+    # Target the main content container
+    content_el = soup.select_one(".entry-content") or soup.find("article")
+
+    # Extract Title from the page header if possible, otherwise use h1
+    page_title_el = soup.select_one("h1.entry-title")
+    extracted_title = page_title_el.get_text(strip=True) if page_title_el else f"Chapter {ch_num}"
+
+    if not content_el:
+        return f"Chapter {ch_num}", "Content not found."
+
+    # 1. Remove script, style, and known WordPress/Theme junk
+    for junk in content_el.find_all(
+        ["script", "style", "div", "section", "button", "noscript"],
+        class_=[
+            "paragraph-tools",
+            "chapter__actions",
+            "social-share",
+            "sharedaddy",
+            "navigation",
+            "nav-links",
+            "wpcnt",
+            "jp-relatedposts",
+        ],
+    ):
+        junk.decompose()
+
+    # 2. Specifically remove navigation paragraphs often found at top/bottom (Next/Previous Chapter)
+    for p in content_el.find_all("p"):
+        p_text = p.get_text().lower()
+        if "previous chapter" in p_text or "next chapter" in p_text or "table of contents" in p_text:
+            p.decompose()
+
+    # 3. Get text content
+    cleaned_body = content_el.get_text(separator="\n\n", strip=True)
+
+    # --- LOGIC: TITLE EXTRACTION & DEDUPLICATION ---
+    lines = cleaned_body.split("\n")
+    while lines and not lines[0].strip():
+        lines.pop(0)
+
+    if lines:
+        first_line = lines[0].strip()
+        # If the body starts with the title or a similar string, remove it
+        # We compare against the extracted_title or common "Chapter X" patterns
+        if (extracted_title.lower() in first_line.lower()) or \
+           (first_line.lower() in extracted_title.lower()) or \
+           (len(first_line) < 100 and "chapter" in first_line.lower()):
+            # Use the cleaner version for our header, but remove from body
+            extracted_title = first_line
+            cleaned_body = "\n".join(lines[1:]).strip()
+
+    # Strip zero-width characters before applying watermark regexes
+    cleaned_body = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", cleaned_body)
+
+    # Clean up "Read at/on Kat Reading Cafe" watermarks
+    cleaned_body = re.sub(r"(?i)read\s+(at|on)\s+katreadingcafe(\.com)?", "", cleaned_body)
+    cleaned_body = re.sub(r"(?i)translated by.*?\n", "", cleaned_body)
+
+    # Remove short trailing credit/watermark lines (e.g. "RedZTL", translator handles)
+    body_lines = cleaned_body.rstrip().split("\n")
+    while body_lines:
+        last = body_lines[-1].strip()
+        # Remove if it's a short non-content line (credit tag, empty, or single-word handle)
+        if not last or (len(last) < 40 and not any(c in last for c in ".?!,;:")):
+            body_lines.pop()
+        else:
+            break
+    cleaned_body = "\n".join(body_lines)
+
+    # Also strip zero-width chars from the title before parsing
+    clean_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", extracted_title)
+    final_header = parse_chapter_title(clean_title)
+
+    return final_header, cleaned_body.strip()
+
+
+def find_next_url(soup, current_url):
+    """
+    Logic to find the next chapter URL based on rel="next" or text matching.
+    """
+    # Priority 1: rel="next" attribute
+    next_link = soup.find("a", rel="next")
+    if next_link and next_link.get("href"):
+        return next_link["href"]
+
+    # Priority 2: Text matching "Next" in <a> tags
+    for a in soup.find_all("a", href=True):
+        text = a.get_text(strip=True).lower()
+        # Look for "Next" but avoid "Next Post" or irrelevant links
+        if text == "next" or text == "next chapter" or "next >" in text or "»" in text:
+            # Avoid self-referencing links
+            if a["href"].rstrip('/') != current_url.rstrip('/'):
+                return a["href"]
+
+    return None
+
+
+def scrape_and_save_chapters(start_url, save_directory="KatReadingCafe_Novels"):
+    save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
+
+    if not os.path.exists(save_directory):
+        os.makedirs(save_directory)
+
+    json_path = os.path.join(save_directory, "chapters.json")
+    session = requests.Session()
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    }
+
+    # --- LOAD HISTORY ---
+    url_history_map = {}
+    history_data = []
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                history_data = json.load(f)
+                for entry in history_data:
+                    url_history_map[entry["url"]] = entry.get("next_url")
+        except:
+            pass
+
+    ch_counter = len(history_data) + 1
+    current_url = start_url
+
+    try:
+        while current_url:
+            # Check if we already processed this URL
+            if current_url in url_history_map and url_history_map[current_url]:
+                next_link = url_history_map[current_url]
+                print(f"Skipping (history): {current_url}")
+                current_url = next_link
+                continue
+
+            print(f"Processing: {current_url}")
+            response = get_with_retries(session, current_url, headers)
+            if not response:
+                print("Failed to retrieve page. Stopping.")
+                break
+
+            soup = BeautifulSoup(response.content, "html.parser")
+
+            # Find Next Link before cleaning
+            next_url = find_next_url(soup, current_url)
+
+            # Generate Filename
+            filename = f"ch_{ch_counter:04d}.txt"
+            filepath = os.path.join(save_directory, filename)
+
+            if os.path.exists(filepath):
+                print(f"   -> File exists: {filename}")
+            else:
+                full_header, cleaned_body = extract_and_clean_chapter_data(soup, ch_counter)
+
+                with open(filepath, "w", encoding="utf-8") as f:
+                    f.write(f"{full_header}\n\n{cleaned_body}")
+                print(f"   -> Saved: {full_header}")
+
+            # Save Progress
+            history_entry = {"url": current_url, "next_url": next_url, "file": filename}
+            history_data.append(history_entry)
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(history_data, f, indent=4)
+
+            # Increment and Move to next
+            ch_counter += 1
+            if not next_url:
+                print("No next chapter link found. Finished.")
+                break
+
+            current_url = next_url
+            time.sleep(DELAY_BETWEEN_REQUESTS)
+
+    except Exception as e:
+        print(f"Critical Error: {e}")
+
+
+if __name__ == "__main__":
+    scrape_and_save_chapters(START_URL)
+
+--- END OF FILE: ./Novels/magical_girls_breaking_bad/custom_scraper.py ---
+
 --- START OF FILE: ./Novels/foxo/custom_scraper.py ---
 import json
 import os
@@ -13935,6 +13433,235 @@ if __name__ == "__main__":
     clean_chapter_files()
 
 --- END OF FILE: ./Novels/foxo/01_Raw_Text/cleaner.py ---
+
+--- START OF FILE: ./Novels/myheartisthatofanuncle/custom_scraper.py ---
+import json
+import os
+import re
+import time
+import requests
+from bs4 import BeautifulSoup
+
+# --- CONFIGURATION ---
+DELAY_BETWEEN_REQUESTS = 1.5  # Seconds
+# ---------------------
+
+def get_with_retries(session, url, headers, retries=3):
+    for i in range(retries):
+        try:
+            response = session.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"   [!] Error fetching {url}: {e}. Retrying ({i+1}/{retries})...")
+            time.sleep(2 * (i + 1))
+    return None
+
+def parse_chapter_title(raw_title):
+    """
+    Parses raw titles like "C1— My Heart is That of an Uncle."
+    into "Chapter 1 - My Heart is That of an Uncle."
+    """
+    # Strip zero-width characters and excessive whitespace
+    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title).strip()
+    
+    # Handle WordPress format "C1— Title" or "Chapter 1: Title"
+    # Matches "C" or "Chapter" followed by digits
+    m = re.match(r"(?i)^(?:C|Chapter)\s*(\d+)\s*[—\-:.]\s*(.+)$", raw_title)
+    if m:
+        return f"Chapter {m.group(1)} - {m.group(2).strip()}"
+
+    # Fallback if it only contains the chapter number
+    m2 = re.match(r"(?i)^(?:C|Chapter)\s*(\d+)\s*$", raw_title)
+    if m2:
+        return f"Chapter {m2.group(1)}"
+
+    return raw_title
+
+def clean_body_text(text):
+    """
+    Strips zero-width characters, site watermarks, and trailing junk.
+    """
+    # Strip zero-width characters
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+
+    # Remove common watermarks/credit lines
+    text = re.sub(r"(?i)read\s+(at|on)\s+magichousetl\.com", "", text)
+    text = re.sub(r"(?i)translated\s+by.*?\n", "", text)
+    text = re.sub(r"(?i)check\s+out\s+our\s+patreon.*?\n", "", text)
+
+    # Remove short trailing credit/watermark lines or navigation artifacts
+    lines = text.rstrip().split("\n")
+    while lines:
+        last = lines[-1].strip()
+        # If the line is very short or looks like a navigation button label
+        if not last or (len(last) < 40 and not any(c in last for c in ".?!,;:")):
+            lines.pop()
+        else:
+            break
+
+    return "\n".join(lines).strip()
+
+def extract_and_clean_chapter_data(soup, ch_num):
+    """
+    Targets the main content area and extracts cleaned title and body.
+    """
+    # Target Title
+    title_el = soup.select_one("h1.wp-block-post-title") or soup.select_one(".entry-title")
+    extracted_title = title_el.get_text(strip=True) if title_el else f"Chapter {ch_num}"
+
+    # Target Content (WordPress Block Editor or Classic)
+    content_el = soup.select_one(".wp-block-post-content") or soup.select_one(".entry-content")
+
+    if not content_el:
+        return f"Chapter {ch_num}", ""
+
+    # 1. Decompose UI elements, social buttons, and navigation blocks
+    # WordPress usually wraps navigation in wp-block-buttons or sharedaddy
+    for junk in content_el.find_all(
+        ["script", "style", "div", "section", "button", "nav"],
+        class_=[
+            "wp-block-buttons", 
+            "sharedaddy", 
+            "jp-post-flair", 
+            "paragraph-tools",
+            "social-share",
+            "wpcnt",
+            "entry-meta"
+        ],
+    ):
+        junk.decompose()
+
+    # 2. Extract Text
+    cleaned_body = content_el.get_text(separator="\n\n", strip=True)
+
+    # --- TITLE DEDUPLICATION ---
+    lines = cleaned_body.split("\n")
+    while lines and not lines[0].strip():
+        lines.pop(0)
+
+    if lines:
+        first_line = lines[0].strip()
+        # If the first line of text is basically the title, remove it
+        if (
+            (extracted_title.lower() in first_line.lower())
+            or (first_line.lower() in extracted_title.lower())
+            or (len(first_line) < 100 and (re.search(r"(?i)^chapter\s+\d+", first_line) or re.search(r"(?i)^c\d+", first_line)))
+        ):
+            cleaned_body = "\n".join(lines[1:]).strip()
+
+    # Clean body text (watermarks, credits)
+    cleaned_body = clean_body_text(cleaned_body)
+
+    # Format Header
+    final_header = parse_chapter_title(extracted_title)
+
+    return final_header, cleaned_body
+
+def find_next_url(soup):
+    """
+    Finds the next chapter link using rel="next" or text-based search.
+    """
+    # Priority 1: rel="next"
+    next_link = soup.find("a", rel="next")
+    if next_link and next_link.get("href"):
+        return next_link["href"]
+
+    # Priority 2: <a> containing "Next" inside a button or nav div
+    for a in soup.find_all("a", href=True):
+        text = a.get_text().lower()
+        if "next" in text and "previous" not in text:
+            # Ensure it's not a generic sidebar link by checking parent classes
+            parent = a.find_parent("div", class_=["wp-block-button", "nav-links", "navigation"])
+            if parent:
+                return a["href"]
+                
+    return None
+
+def scrape_and_save_chapters(start_url, save_directory="MagicHouseTL_Novels"):
+    save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
+
+    if not os.path.exists(save_directory):
+        os.makedirs(save_directory)
+
+    json_path = os.path.join(save_directory, "chapters.json")
+    session = requests.Session()
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    }
+
+    # --- LOAD HISTORY ---
+    url_history_map = {}
+    history_data = []
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                history_data = json.load(f)
+                for entry in history_data:
+                    url_history_map[entry["url"]] = entry.get("next_url")
+        except:
+            pass
+
+    ch_counter = len(history_data) + 1
+    current_url = start_url
+
+    try:
+        while current_url:
+            # Resume/Skip logic
+            if current_url in url_history_map and url_history_map[current_url]:
+                next_link = url_history_map[current_url]
+                print(f"Skipping (history): {current_url}")
+                current_url = next_link
+                continue
+
+            print(f"Processing: {current_url}")
+            response = get_with_retries(session, current_url, headers)
+            if not response:
+                break
+
+            soup = BeautifulSoup(response.content, "html.parser")
+
+            # Extract data
+            full_header, cleaned_body = extract_and_clean_chapter_data(soup, ch_counter)
+
+            # Generate Filename
+            filename = f"ch_{ch_counter:04d}.txt"
+            filepath = os.path.join(save_directory, filename)
+
+            # Save File
+            if not os.path.exists(filepath):
+                with open(filepath, "w", encoding="utf-8") as f:
+                    # STRICT FORMAT: Header \n\n Body
+                    f.write(f"{full_header}\n\n{cleaned_body}")
+                print(f"   -> Saved: {full_header}")
+            else:
+                print(f"   -> Already exists: {filename}")
+
+            # Find Next URL
+            next_url = find_next_url(soup)
+
+            # Update History
+            history_entry = {"url": current_url, "next_url": next_url, "file": filename}
+            history_data.append(history_entry)
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(history_data, f, indent=4)
+
+            if not next_url:
+                print("No next chapter link found. Finishing...")
+                break
+
+            current_url = next_url
+            ch_counter += 1
+            time.sleep(DELAY_BETWEEN_REQUESTS)
+
+    except Exception as e:
+        print(f"Critical Error: {e}")
+
+if __name__ == "__main__":
+    # Example URL based on the provided HTML
+    FIRST_CHAPTER_URL = "https://magichousetldotcom.wordpress.com/2024/06/03/c1-my-heart-is-that-of-an-uncle/"
+    scrape_and_save_chapters(FIRST_CHAPTER_URL)
+--- END OF FILE: ./Novels/myheartisthatofanuncle/custom_scraper.py ---
 
 --- START OF FILE: ./Novels/BetrayedPrincess/custom_scraper.py ---
 import json
