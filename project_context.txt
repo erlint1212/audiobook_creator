@@ -15,21 +15,842 @@ Project Directory Structure:
     environment.yml
     metadata_fetcher.py
     alltalk_path_config.json
-    shell_old_working.nix
     alltalk_tts_generator_chunky_17.py
     constants.py
-    test_env.py
-    test.log
     convert_audio_to_opus_3.py
     icon.png
     txt_to_epub.py
-    fetch_metadata.py
     context_builder.py
     .gitignore
     shell.nix
     pipe_system_gui.py
     Novels/
         icon.svg
+        The_Blood_Princess_And_The_Knight/
+            The_Blood_Princess_And_The_Knight.epub
+            failed_chunks.log
+            custom_scraper.py
+            metadata.json
+            cover.jpg
+            03_Audio_WAV/
+                ch_0097.wav
+                ch_0197.wav
+                ch_0076.wav
+                ch_0208.wav
+                ch_0086.wav
+                ch_0231.wav
+                ch_0200.wav
+                ch_0239.wav
+                ch_0034.wav
+                ch_0205.wav
+                ch_0229.wav
+                ch_0148.wav
+                ch_0094.wav
+                ch_0217.wav
+                ch_0037.wav
+                ch_0209.wav
+                ch_0112.wav
+                ch_0221.wav
+                ch_0072.wav
+                ch_0193.wav
+                ch_0154.wav
+                ch_0143.wav
+                ch_0125.wav
+                ch_0212.wav
+                ch_0026.wav
+                ch_0111.wav
+                ch_0135.wav
+                ch_0240.wav
+                ch_0132.wav
+                ch_0048.wav
+                ch_0024.wav
+                ch_0012.wav
+                ch_0064.wav
+                ch_0049.wav
+                ch_0083.wav
+                ch_0003.wav
+                ch_0146.wav
+                ch_0052.wav
+                ch_0088.wav
+                ch_0190.wav
+                ch_0120.wav
+                ch_0131.wav
+                ch_0220.wav
+                ch_0069.wav
+                ch_0023.wav
+                ch_0134.wav
+                ch_0039.wav
+                ch_0105.wav
+                ch_0119.wav
+                ch_0153.wav
+                ch_0073.wav
+                ch_0116.wav
+                ch_0008.wav
+                ch_0061.wav
+                ch_0179.wav
+                ch_0018.wav
+                ch_0139.wav
+                ch_0079.wav
+                ch_0138.wav
+                ch_0211.wav
+                ch_0017.wav
+                ch_0186.wav
+                ch_0035.wav
+                ch_0032.wav
+                ch_0029.wav
+                ch_0100.wav
+                ch_0047.wav
+                ch_0058.wav
+                ch_0170.wav
+                ch_0172.wav
+                ch_0045.wav
+                ch_0150.wav
+                ch_0041.wav
+                ch_0014.wav
+                ch_0136.wav
+                ch_0177.wav
+                ch_0236.wav
+                ch_0142.wav
+                ch_0210.wav
+                ch_0171.wav
+                ch_0188.wav
+                ch_0237.wav
+                ch_0110.wav
+                ch_0109.wav
+                ch_0095.wav
+                ch_0218.wav
+                ch_0028.wav
+                ch_0187.wav
+                ch_0065.wav
+                ch_0092.wav
+                ch_0181.wav
+                ch_0043.wav
+                ch_0056.wav
+                ch_0164.wav
+                ch_0191.wav
+                ch_0059.wav
+                ch_0189.wav
+                ch_0185.wav
+                ch_0027.wav
+                ch_0246.wav
+                ch_0099.wav
+                ch_0101.wav
+                ch_0241.wav
+                ch_0158.wav
+                ch_0198.wav
+                ch_0145.wav
+                ch_0176.wav
+                ch_0160.wav
+                ch_0093.wav
+                ch_0070.wav
+                ch_0074.wav
+                ch_0013.wav
+                ch_0121.wav
+                ch_0016.wav
+                ch_0133.wav
+                ch_0107.wav
+                ch_0055.wav
+                ch_0167.wav
+                ch_0247.wav
+                ch_0182.wav
+                ch_0216.wav
+                ch_0227.wav
+                ch_0159.wav
+                ch_0238.wav
+                ch_0215.wav
+                ch_0025.wav
+                ch_0206.wav
+                ch_0050.wav
+                ch_0042.wav
+                ch_0175.wav
+                ch_0104.wav
+                ch_0141.wav
+                ch_0166.wav
+                ch_0207.wav
+                ch_0126.wav
+                ch_0161.wav
+                ch_0087.wav
+                ch_0151.wav
+                ch_0165.wav
+                ch_0152.wav
+                ch_0075.wav
+                ch_0067.wav
+                ch_0203.wav
+                ch_0005.wav
+                ch_0009.wav
+                ch_0021.wav
+                ch_0002.wav
+                ch_0098.wav
+                ch_0117.wav
+                ch_0022.wav
+                ch_0234.wav
+                ch_0235.wav
+                ch_0115.wav
+                ch_0199.wav
+                ch_0103.wav
+                ch_0178.wav
+                ch_0106.wav
+                ch_0077.wav
+                ch_0127.wav
+                ch_0174.wav
+                ch_0232.wav
+                ch_0001.wav
+                ch_0051.wav
+                ch_0129.wav
+                ch_0192.wav
+                ch_0163.wav
+                ch_0053.wav
+                ch_0225.wav
+                ch_0081.wav
+                ch_0228.wav
+                ch_0168.wav
+                ch_0213.wav
+                ch_0031.wav
+                ch_0224.wav
+                ch_0066.wav
+                ch_0147.wav
+                ch_0040.wav
+                ch_0248.wav
+                ch_0124.wav
+                ch_0046.wav
+                ch_0196.wav
+                ch_0057.wav
+                ch_0202.wav
+                ch_0118.wav
+                ch_0090.wav
+                ch_0082.wav
+                ch_0006.wav
+                ch_0004.wav
+                ch_0044.wav
+                ch_0244.wav
+                ch_0201.wav
+                ch_0223.wav
+                ch_0180.wav
+                ch_0030.wav
+                ch_0140.wav
+                ch_0242.wav
+                ch_0036.wav
+                ch_0084.wav
+                ch_0144.wav
+                ch_0243.wav
+                ch_0054.wav
+                ch_0114.wav
+                ch_0033.wav
+                ch_0122.wav
+                ch_0068.wav
+                ch_0010.wav
+                ch_0204.wav
+                ch_0071.wav
+                ch_0063.wav
+                ch_0019.wav
+                ch_0108.wav
+                ch_0130.wav
+                ch_0183.wav
+                ch_0184.wav
+                ch_0102.wav
+                ch_0156.wav
+                ch_0113.wav
+                ch_0007.wav
+                ch_0155.wav
+                ch_0123.wav
+                ch_0015.wav
+                ch_0173.wav
+                ch_0085.wav
+                ch_0020.wav
+                ch_0226.wav
+                ch_0062.wav
+                ch_0060.wav
+                ch_0157.wav
+                ch_0128.wav
+                ch_0091.wav
+                ch_0194.wav
+                ch_0038.wav
+                ch_0078.wav
+                ch_0219.wav
+                ch_0195.wav
+                ch_0011.wav
+                ch_0214.wav
+                ch_0080.wav
+                ch_0089.wav
+                ch_0162.wav
+                ch_0096.wav
+                ch_0149.wav
+                ch_0137.wav
+                ch_0233.wav
+                ch_0169.wav
+                ch_0230.wav
+                ch_0245.wav
+                ch_0222.wav
+            02_Translated/
+            04_Audio_Opus/
+                ch_0042.opus
+                ch_0144.opus
+                ch_0139.opus
+                ch_0121.opus
+                ch_0181.opus
+                ch_0179.opus
+                ch_0014.opus
+                ch_0078.opus
+                ch_0067.opus
+                ch_0183.opus
+                ch_0172.opus
+                ch_0206.opus
+                ch_0024.opus
+                ch_0178.opus
+                ch_0184.opus
+                ch_0097.opus
+                ch_0174.opus
+                ch_0040.opus
+                ch_0033.opus
+                ch_0053.opus
+                ch_0054.opus
+                ch_0182.opus
+                ch_0143.opus
+                ch_0213.opus
+                ch_0031.opus
+                ch_0175.opus
+                ch_0049.opus
+                ch_0209.opus
+                ch_0140.opus
+                ch_0063.opus
+                ch_0075.opus
+                ch_0009.opus
+                ch_0101.opus
+                ch_0012.opus
+                ch_0034.opus
+                ch_0079.opus
+                ch_0089.opus
+                ch_0110.opus
+                ch_0069.opus
+                ch_0126.opus
+                ch_0090.opus
+                ch_0025.opus
+                ch_0008.opus
+                ch_0071.opus
+                ch_0162.opus
+                ch_0043.opus
+                ch_0021.opus
+                ch_0204.opus
+                ch_0191.opus
+                ch_0005.opus
+                ch_0190.opus
+                ch_0104.opus
+                ch_0018.opus
+                ch_0194.opus
+                ch_0205.opus
+                ch_0105.opus
+                ch_0080.opus
+                ch_0193.opus
+                ch_0212.opus
+                ch_0030.opus
+                ch_0093.opus
+                ch_0155.opus
+                ch_0094.opus
+                ch_0057.opus
+                ch_0055.opus
+                ch_0159.opus
+                ch_0068.opus
+                ch_0027.opus
+                ch_0173.opus
+                ch_0196.opus
+                ch_0170.opus
+                ch_0020.opus
+                ch_0177.opus
+                ch_0141.opus
+                ch_0117.opus
+                ch_0064.opus
+                ch_0035.opus
+                ch_0066.opus
+                ch_0108.opus
+                ch_0186.opus
+                ch_0106.opus
+                ch_0192.opus
+                ch_0202.opus
+                ch_0037.opus
+                ch_0164.opus
+                ch_0185.opus
+                ch_0208.opus
+                ch_0019.opus
+                ch_0022.opus
+                ch_0016.opus
+                ch_0109.opus
+                ch_0135.opus
+                ch_0197.opus
+                ch_0015.opus
+                ch_0048.opus
+                ch_0198.opus
+                ch_0167.opus
+                ch_0096.opus
+                ch_0112.opus
+                ch_0059.opus
+                ch_0145.opus
+                ch_0131.opus
+                ch_0036.opus
+                ch_0136.opus
+                ch_0133.opus
+                ch_0153.opus
+                ch_0180.opus
+                ch_0095.opus
+                ch_0127.opus
+                ch_0061.opus
+                ch_0023.opus
+                ch_0187.opus
+                ch_0165.opus
+                ch_0086.opus
+                ch_0176.opus
+                ch_0028.opus
+                ch_0188.opus
+                ch_0050.opus
+                ch_0058.opus
+                ch_0029.opus
+                ch_0160.opus
+                ch_0107.opus
+                ch_0147.opus
+                ch_0148.opus
+                ch_0166.opus
+                ch_0072.opus
+                ch_0085.opus
+                ch_0122.opus
+                ch_0156.opus
+                ch_0103.opus
+                ch_0129.opus
+                ch_0077.opus
+                ch_0130.opus
+                ch_0092.opus
+                ch_0201.opus
+                ch_0046.opus
+                ch_0116.opus
+                ch_0195.opus
+                ch_0003.opus
+                ch_0123.opus
+                ch_0120.opus
+                ch_0013.opus
+                ch_0082.opus
+                ch_0087.opus
+                ch_0161.opus
+                ch_0118.opus
+                ch_0171.opus
+                ch_0154.opus
+                ch_0199.opus
+                ch_0152.opus
+                ch_0146.opus
+                ch_0142.opus
+                ch_0026.opus
+                ch_0045.opus
+                ch_0047.opus
+                ch_0091.opus
+                ch_0011.opus
+                ch_0032.opus
+                ch_0060.opus
+                ch_0002.opus
+                ch_0138.opus
+                ch_0065.opus
+                ch_0051.opus
+                ch_0124.opus
+                ch_0149.opus
+                ch_0039.opus
+                ch_0119.opus
+                ch_0100.opus
+                ch_0203.opus
+                ch_0074.opus
+                ch_0088.opus
+                ch_0113.opus
+                ch_0081.opus
+                ch_0128.opus
+                ch_0001.opus
+                ch_0189.opus
+                ch_0157.opus
+                ch_0052.opus
+                ch_0214.opus
+                ch_0098.opus
+                ch_0102.opus
+                ch_0207.opus
+                ch_0044.opus
+                ch_0158.opus
+                ch_0151.opus
+                ch_0070.opus
+                ch_0137.opus
+                ch_0114.opus
+                ch_0006.opus
+                ch_0004.opus
+                ch_0038.opus
+                ch_0210.opus
+                ch_0076.opus
+                ch_0150.opus
+                ch_0115.opus
+                ch_0041.opus
+                ch_0073.opus
+                ch_0200.opus
+                ch_0111.opus
+                ch_0056.opus
+                ch_0134.opus
+                ch_0125.opus
+                ch_0084.opus
+                ch_0099.opus
+                ch_0083.opus
+                ch_0168.opus
+                ch_0132.opus
+                ch_0163.opus
+                ch_0211.opus
+                ch_0169.opus
+                ch_0007.opus
+                ch_0062.opus
+                ch_0010.opus
+                ch_0017.opus
+            temp_audio_chunks/
+                ch_0029/
+                    ch_0029_l_002.wav
+                    ch_0029_l_028.wav
+                    ch_0029_l_004.wav
+                    ch_0029_l_013.wav
+                    ch_0029_l_010.wav
+                    ch_0029_l_026.wav
+                    ch_0029_l_006.wav
+                    ch_0029_l_030.wav
+                    ch_0029_l_024.wav
+                    ch_0029_l_019.wav
+                    ch_0029_l_017.wav
+                    ch_0029_l_008.wav
+                    ch_0029_l_031.wav
+                    ch_0029_l_012.wav
+                    ch_0029_l_029.wav
+                    ch_0029_l_016.wav
+                    ch_0029_l_007.wav
+                    ch_0029_l_009.wav
+                    ch_0029_l_023.wav
+                    ch_0029_l_011.wav
+                    ch_0029_l_018.wav
+                    ch_0029_l_014.wav
+                    ch_0029_l_005.wav
+                    ch_0029_l_027.wav
+                    ch_0029_l_015.wav
+                    ch_0029_l_003.wav
+                    ch_0029_l_001.wav
+                    ch_0029_l_025.wav
+                    ch_0029_l_032.wav
+                    ch_0029_l_022.wav
+                    ch_0029_l_020.wav
+                    ch_0029_l_021.wav
+                ch_0249/
+                    ch_0249_l_023.wav
+                    ch_0249_l_020.wav
+                    ch_0249_l_040.wav
+                    ch_0249_l_008.wav
+                    ch_0249_l_024.wav
+                    ch_0249_l_032.wav
+                    ch_0249_l_002.wav
+                    ch_0249_l_028.wav
+                    ch_0249_l_041.wav
+                    ch_0249_l_045.wav
+                    ch_0249_l_018.wav
+                    ch_0249_l_013.wav
+                    ch_0249_l_029.wav
+                    ch_0249_l_025.wav
+                    ch_0249_l_012.wav
+                    ch_0249_l_047.wav
+                    ch_0249_l_042.wav
+                    ch_0249_l_021.wav
+                    ch_0249_l_001.wav
+                    ch_0249_l_027.wav
+                    ch_0249_l_006.wav
+                    ch_0249_l_017.wav
+                    ch_0249_l_046.wav
+                    ch_0249_l_037.wav
+                    ch_0249_l_015.wav
+                    ch_0249_l_026.wav
+                    ch_0249_l_004.wav
+                    ch_0249_l_019.wav
+                    ch_0249_l_038.wav
+                    ch_0249_l_009.wav
+                    ch_0249_l_014.wav
+                    ch_0249_l_031.wav
+                    ch_0249_l_044.wav
+                    ch_0249_l_010.wav
+                    ch_0249_l_039.wav
+                    ch_0249_l_036.wav
+                    ch_0249_l_030.wav
+                    ch_0249_l_043.wav
+                    ch_0249_l_016.wav
+                    ch_0249_l_007.wav
+                    ch_0249_l_005.wav
+                    ch_0249_l_022.wav
+                    ch_0249_l_033.wav
+                    ch_0249_l_003.wav
+                    ch_0249_l_035.wav
+                    ch_0249_l_011.wav
+                    ch_0249_l_034.wav
+            01_Raw_Text/
+                ch_0188.txt
+                ch_0102.txt
+                ch_0263.txt
+                ch_0109.txt
+                ch_0213.txt
+                ch_0028.txt
+                ch_0092.txt
+                ch_0218.txt
+                ch_0077.txt
+                ch_0203.txt
+                ch_0125.txt
+                ch_0088.txt
+                ch_0144.txt
+                ch_0224.txt
+                ch_0062.txt
+                ch_0185.txt
+                ch_0153.txt
+                ch_0058.txt
+                ch_0233.txt
+                ch_0134.txt
+                ch_0166.txt
+                ch_0130.txt
+                ch_0198.txt
+                ch_0146.txt
+                ch_0067.txt
+                ch_0049.txt
+                ch_0202.txt
+                ch_0216.txt
+                ch_0199.txt
+                ch_0074.txt
+                ch_0145.txt
+                ch_0009.txt
+                ch_0097.txt
+                ch_0138.txt
+                ch_0187.txt
+                ch_0094.txt
+                ch_0032.txt
+                ch_0050.txt
+                ch_0183.txt
+                ch_0012.txt
+                ch_0072.txt
+                ch_0194.txt
+                ch_0055.txt
+                ch_0064.txt
+                ch_0022.txt
+                ch_0175.txt
+                ch_0078.txt
+                ch_0086.txt
+                ch_0242.txt
+                ch_0170.txt
+                ch_0046.txt
+                ch_0027.txt
+                ch_0014.txt
+                ch_0217.txt
+                ch_0245.txt
+                ch_0007.txt
+                ch_0192.txt
+                ch_0033.txt
+                ch_0069.txt
+                ch_0111.txt
+                ch_0177.txt
+                ch_0127.txt
+                ch_0179.txt
+                ch_0060.txt
+                ch_0114.txt
+                ch_0165.txt
+                ch_0123.txt
+                ch_0080.txt
+                ch_0159.txt
+                ch_0248.txt
+                ch_0117.txt
+                ch_0246.txt
+                ch_0025.txt
+                ch_0149.txt
+                ch_0013.txt
+                ch_0104.txt
+                ch_0256.txt
+                ch_0065.txt
+                ch_0083.txt
+                ch_0096.txt
+                ch_0122.txt
+                ch_0231.txt
+                ch_0082.txt
+                ch_0100.txt
+                ch_0195.txt
+                ch_0006.txt
+                ch_0035.txt
+                ch_0257.txt
+                ch_0076.txt
+                ch_0045.txt
+                ch_0108.txt
+                ch_0237.txt
+                ch_0143.txt
+                ch_0222.txt
+                ch_0164.txt
+                ch_0085.txt
+                ch_0184.txt
+                ch_0057.txt
+                ch_0091.txt
+                ch_0011.txt
+                ch_0093.txt
+                ch_0131.txt
+                ch_0228.txt
+                ch_0251.txt
+                ch_0038.txt
+                ch_0066.txt
+                ch_0158.txt
+                ch_0034.txt
+                ch_0040.txt
+                ch_0070.txt
+                ch_0152.txt
+                ch_0226.txt
+                ch_0106.txt
+                ch_0156.txt
+                ch_0135.txt
+                ch_0265.txt
+                ch_0113.txt
+                ch_0254.txt
+                ch_0260.txt
+                ch_0221.txt
+                ch_0043.txt
+                ch_0031.txt
+                ch_0044.txt
+                ch_0017.txt
+                ch_0155.txt
+                ch_0208.txt
+                ch_0023.txt
+                ch_0259.txt
+                ch_0133.txt
+                ch_0232.txt
+                ch_0262.txt
+                ch_0142.txt
+                ch_0018.txt
+                ch_0024.txt
+                ch_0116.txt
+                ch_0039.txt
+                chapters.json
+                ch_0238.txt
+                ch_0041.txt
+                ch_0005.txt
+                ch_0137.txt
+                ch_0207.txt
+                ch_0176.txt
+                ch_0008.txt
+                ch_0051.txt
+                ch_0053.txt
+                ch_0157.txt
+                ch_0147.txt
+                ch_0209.txt
+                ch_0174.txt
+                ch_0250.txt
+                ch_0047.txt
+                ch_0075.txt
+                ch_0150.txt
+                ch_0003.txt
+                ch_0148.txt
+                ch_0211.txt
+                ch_0252.txt
+                ch_0081.txt
+                ch_0244.txt
+                ch_0087.txt
+                ch_0056.txt
+                ch_0099.txt
+                ch_0105.txt
+                ch_0090.txt
+                ch_0101.txt
+                ch_0181.txt
+                ch_0190.txt
+                ch_0189.txt
+                ch_0227.txt
+                ch_0225.txt
+                ch_0071.txt
+                ch_0182.txt
+                ch_0241.txt
+                ch_0112.txt
+                ch_0186.txt
+                ch_0063.txt
+                ch_0220.txt
+                ch_0229.txt
+                ch_0197.txt
+                ch_0161.txt
+                ch_0234.txt
+                ch_0167.txt
+                ch_0253.txt
+                ch_0240.txt
+                ch_0173.txt
+                ch_0059.txt
+                ch_0201.txt
+                ch_0042.txt
+                ch_0180.txt
+                ch_0264.txt
+                ch_0118.txt
+                ch_0255.txt
+                ch_0119.txt
+                ch_0247.txt
+                ch_0136.txt
+                ch_0030.txt
+                ch_0036.txt
+                ch_0172.txt
+                ch_0249.txt
+                ch_0098.txt
+                ch_0160.txt
+                ch_0052.txt
+                ch_0128.txt
+                ch_0171.txt
+                ch_0001.txt
+                ch_0120.txt
+                ch_0103.txt
+                ch_0212.txt
+                ch_0073.txt
+                ch_0261.txt
+                ch_0048.txt
+                ch_0020.txt
+                ch_0019.txt
+                ch_0139.txt
+                ch_0084.txt
+                ch_0154.txt
+                ch_0204.txt
+                ch_0215.txt
+                ch_0236.txt
+                ch_0151.txt
+                ch_0206.txt
+                ch_0021.txt
+                ch_0037.txt
+                ch_0163.txt
+                ch_0015.txt
+                ch_0026.txt
+                ch_0267.txt
+                ch_0029.txt
+                ch_0214.txt
+                ch_0124.txt
+                ch_0140.txt
+                ch_0089.txt
+                ch_0243.txt
+                ch_0268.txt
+                ch_0196.txt
+                ch_0068.txt
+                ch_0141.txt
+                ch_0054.txt
+                ch_0129.txt
+                ch_0107.txt
+                ch_0095.txt
+                ch_0010.txt
+                ch_0169.txt
+                ch_0235.txt
+                ch_0132.txt
+                ch_0162.txt
+                ch_0205.txt
+                ch_0079.txt
+                ch_0258.txt
+                ch_0223.txt
+                ch_0061.txt
+                ch_0115.txt
+                ch_0210.txt
+                ch_0193.txt
+                ch_0230.txt
+                ch_0200.txt
+                ch_0178.txt
+                ch_0126.txt
+                ch_0239.txt
+                ch_0121.txt
+                ch_0004.txt
+                ch_0002.txt
+                ch_0016.txt
+                ch_0110.txt
+                ch_0266.txt
+                ch_0219.txt
+                ch_0191.txt
+                ch_0168.txt
+            Scraper_Context/
+                site_structure.html
         Villainous_Saintess_CH/
             Villainous_Saintess_CH.epub
             custom_scraper.py
@@ -47,11 +868,14 @@ Project Directory Structure:
                 ch_0263.txt
                 ch_0109.txt
                 ch_0338.txt
+                ch_0458.txt
                 ch_0307.txt
+                ch_0482.txt
                 ch_0390.txt
                 ch_0419.txt
                 ch_0213.txt
                 ch_0372.txt
+                ch_0457.txt
                 ch_0028.txt
                 ch_0376.txt
                 ch_0302.txt
@@ -59,10 +883,14 @@ Project Directory Structure:
                 ch_0399.txt
                 ch_0270.txt
                 ch_0415.txt
+                ch_0475.txt
+                ch_0474.txt
                 ch_0092.txt
+                ch_0514.txt
                 ch_0218.txt
                 ch_0336.txt
                 ch_0077.txt
+                ch_0460.txt
                 ch_0435.txt
                 ch_0203.txt
                 ch_0278.txt
@@ -76,6 +904,7 @@ Project Directory Structure:
                 ch_0224.txt
                 ch_0347.txt
                 ch_0062.txt
+                ch_0505.txt
                 ch_0185.txt
                 ch_0153.txt
                 ch_0382.txt
@@ -85,10 +914,12 @@ Project Directory Structure:
                 ch_0233.txt
                 ch_0134.txt
                 ch_0416.txt
+                ch_0503.txt
                 ch_0166.txt
                 ch_0130.txt
                 ch_0198.txt
                 ch_0146.txt
+                ch_0510.txt
                 ch_0315.txt
                 ch_0067.txt
                 ch_0049.txt
@@ -104,12 +935,15 @@ Project Directory Structure:
                 ch_0138.txt
                 ch_0321.txt
                 ch_0434.txt
+                ch_0481.txt
                 ch_0187.txt
                 ch_0320.txt
                 ch_0094.txt
                 ch_0032.txt
                 ch_0400.txt
                 ch_0423.txt
+                ch_0479.txt
+                ch_0488.txt
                 ch_0388.txt
                 ch_0300.txt
                 ch_0050.txt
@@ -135,6 +969,8 @@ Project Directory Structure:
                 ch_0046.txt
                 ch_0284.txt
                 ch_0027.txt
+                ch_0480.txt
+                ch_0471.txt
                 ch_0014.txt
                 ch_0217.txt
                 ch_0245.txt
@@ -142,6 +978,7 @@ Project Directory Structure:
                 ch_0192.txt
                 ch_0033.txt
                 ch_0450.txt
+                ch_0453.txt
                 ch_0380.txt
                 ch_0069.txt
                 ch_0111.txt
@@ -156,6 +993,7 @@ Project Directory Structure:
                 ch_0369.txt
                 ch_0451.txt
                 ch_0276.txt
+                ch_0507.txt
                 ch_0165.txt
                 ch_0123.txt
                 ch_0080.txt
@@ -164,6 +1002,8 @@ Project Directory Structure:
                 ch_0117.txt
                 ch_0246.txt
                 ch_0025.txt
+                ch_0495.txt
+                ch_0466.txt
                 ch_0352.txt
                 ch_0409.txt
                 ch_0381.txt
@@ -183,6 +1023,7 @@ Project Directory Structure:
                 ch_0231.txt
                 ch_0379.txt
                 ch_0082.txt
+                ch_0500.txt
                 ch_0310.txt
                 ch_0424.txt
                 ch_0317.txt
@@ -190,11 +1031,13 @@ Project Directory Structure:
                 ch_0100.txt
                 ch_0366.txt
                 ch_0195.txt
+                ch_0477.txt
                 ch_0006.txt
                 ch_0035.txt
                 ch_0340.txt
                 ch_0257.txt
                 ch_0076.txt
+                ch_0501.txt
                 ch_0045.txt
                 ch_0108.txt
                 ch_0237.txt
@@ -208,10 +1051,12 @@ Project Directory Structure:
                 ch_0432.txt
                 ch_0085.txt
                 ch_0439.txt
+                ch_0511.txt
                 ch_0184.txt
                 ch_0057.txt
                 ch_0091.txt
                 ch_0011.txt
+                ch_0456.txt
                 ch_0093.txt
                 ch_0323.txt
                 ch_0402.txt
@@ -231,6 +1076,7 @@ Project Directory Structure:
                 ch_0070.txt
                 ch_0448.txt
                 ch_0152.txt
+                ch_0484.txt
                 ch_0334.txt
                 ch_0226.txt
                 ch_0353.txt
@@ -238,6 +1084,7 @@ Project Directory Structure:
                 ch_0293.txt
                 ch_0156.txt
                 ch_0135.txt
+                ch_0462.txt
                 ch_0265.txt
                 ch_0411.txt
                 ch_0113.txt
@@ -248,10 +1095,12 @@ Project Directory Structure:
                 ch_0221.txt
                 ch_0294.txt
                 ch_0043.txt
+                ch_0461.txt
                 ch_0031.txt
                 ch_0044.txt
                 ch_0345.txt
                 ch_0295.txt
+                ch_0483.txt
                 ch_0017.txt
                 ch_0155.txt
                 ch_0208.txt
@@ -262,6 +1111,8 @@ Project Directory Structure:
                 ch_0418.txt
                 ch_0259.txt
                 ch_0367.txt
+                ch_0478.txt
+                ch_0517.txt
                 ch_0330.txt
                 ch_0133.txt
                 ch_0391.txt
@@ -291,13 +1142,17 @@ Project Directory Structure:
                 ch_0137.txt
                 ch_0207.txt
                 ch_0289.txt
+                ch_0496.txt
+                ch_0492.txt
                 ch_0386.txt
                 ch_0176.txt
                 ch_0008.txt
+                ch_0509.txt
                 ch_0051.txt
                 ch_0283.txt
                 ch_0053.txt
                 ch_0417.txt
+                ch_0502.txt
                 ch_0157.txt
                 ch_0350.txt
                 ch_0147.txt
@@ -312,18 +1167,22 @@ Project Directory Structure:
                 ch_0047.txt
                 ch_0075.txt
                 ch_0150.txt
+                ch_0470.txt
+                ch_0512.txt
                 ch_0378.txt
                 ch_0003.txt
                 ch_0148.txt
                 ch_0319.txt
                 ch_0211.txt
                 ch_0252.txt
+                ch_0515.txt
                 ch_0324.txt
                 ch_0081.txt
                 ch_0244.txt
                 ch_0087.txt
                 ch_0056.txt
                 ch_0099.txt
+                ch_0455.txt
                 ch_0105.txt
                 ch_0303.txt
                 ch_0314.txt
@@ -335,6 +1194,7 @@ Project Directory Structure:
                 ch_0412.txt
                 ch_0181.txt
                 ch_0190.txt
+                ch_0491.txt
                 ch_0189.txt
                 ch_0298.txt
                 ch_0325.txt
@@ -345,9 +1205,12 @@ Project Directory Structure:
                 ch_0441.txt
                 ch_0343.txt
                 ch_0182.txt
+                ch_0467.txt
                 ch_0405.txt
                 ch_0241.txt
+                ch_0463.txt
                 ch_0406.txt
+                ch_0494.txt
                 ch_0401.txt
                 ch_0383.txt
                 ch_0112.txt
@@ -370,10 +1233,13 @@ Project Directory Structure:
                 ch_0173.txt
                 ch_0059.txt
                 ch_0201.txt
+                ch_0487.txt
                 ch_0042.txt
+                ch_0513.txt
                 ch_0180.txt
                 ch_0264.txt
                 ch_0339.txt
+                ch_0508.txt
                 ch_0282.txt
                 ch_0118.txt
                 ch_0255.txt
@@ -394,21 +1260,29 @@ Project Directory Structure:
                 ch_0447.txt
                 ch_0428.txt
                 ch_0052.txt
+                ch_0464.txt
                 ch_0128.txt
                 ch_0269.txt
                 ch_0171.txt
                 ch_0001.txt
                 ch_0120.txt
                 ch_0103.txt
+                ch_0485.txt
                 ch_0433.txt
                 ch_0212.txt
                 ch_0073.txt
+                ch_0454.txt
                 ch_0261.txt
+                ch_0473.txt
+                ch_0516.txt
                 ch_0425.txt
                 ch_0048.txt
                 ch_0020.txt
                 ch_0019.txt
                 ch_0139.txt
+                ch_0452.txt
+                ch_0493.txt
+                ch_0499.txt
                 ch_0084.txt
                 ch_0348.txt
                 ch_0449.txt
@@ -417,6 +1291,7 @@ Project Directory Structure:
                 ch_0438.txt
                 ch_0204.txt
                 ch_0316.txt
+                ch_0468.txt
                 ch_0398.txt
                 ch_0215.txt
                 ch_0236.txt
@@ -426,8 +1301,10 @@ Project Directory Structure:
                 ch_0021.txt
                 ch_0309.txt
                 ch_0037.txt
+                ch_0459.txt
                 ch_0163.txt
                 ch_0322.txt
+                ch_0465.txt
                 ch_0015.txt
                 ch_0313.txt
                 ch_0429.txt
@@ -437,6 +1314,7 @@ Project Directory Structure:
                 ch_0267.txt
                 ch_0029.txt
                 ch_0214.txt
+                ch_0506.txt
                 ch_0124.txt
                 ch_0140.txt
                 ch_0089.txt
@@ -447,9 +1325,13 @@ Project Directory Structure:
                 ch_0068.txt
                 ch_0287.txt
                 ch_0141.txt
+                ch_0498.txt
+                ch_0490.txt
                 ch_0054.txt
                 ch_0129.txt
                 ch_0107.txt
+                ch_0476.txt
+                ch_0489.txt
                 ch_0095.txt
                 ch_0010.txt
                 ch_0169.txt
@@ -462,6 +1344,7 @@ Project Directory Structure:
                 ch_0285.txt
                 ch_0446.txt
                 ch_0342.txt
+                ch_0472.txt
                 ch_0431.txt
                 ch_0162.txt
                 ch_0273.txt
@@ -471,6 +1354,8 @@ Project Directory Structure:
                 ch_0079.txt
                 ch_0258.txt
                 ch_0223.txt
+                ch_0504.txt
+                ch_0486.txt
                 ch_0061.txt
                 ch_0332.txt
                 ch_0115.txt
@@ -485,9 +1370,11 @@ Project Directory Structure:
                 ch_0239.txt
                 ch_0331.txt
                 ch_0121.txt
+                ch_0469.txt
                 ch_0004.txt
                 ch_0002.txt
                 ch_0016.txt
+                ch_0497.txt
                 ch_0110.txt
                 ch_0266.txt
                 ch_0407.txt
@@ -4562,13 +5449,1226 @@ Project Directory Structure:
         myheartisthatofanuncle/
             custom_scraper.py
             metadata.json
+            myheartisthatofanuncle.epub
             cover.jpg
             03_Audio_WAV/
+                ch_0398.wav
+                ch_0097.wav
+                ch_0376.wav
+                ch_0262.wav
+                ch_0379.wav
+                ch_0290.wav
+                ch_0197.wav
+                ch_0076.wav
+                ch_0208.wav
+                ch_0086.wav
+                ch_0309.wav
+                ch_0320.wav
+                ch_0231.wav
+                ch_0200.wav
+                ch_0239.wav
+                ch_0375.wav
+                ch_0257.wav
+                ch_0034.wav
+                ch_0205.wav
+                ch_0229.wav
+                ch_0148.wav
+                ch_0094.wav
+                ch_0217.wav
+                ch_0037.wav
+                ch_0287.wav
+                ch_0364.wav
+                ch_0209.wav
+                ch_0112.wav
+                ch_0315.wav
+                ch_0380.wav
+                ch_0221.wav
+                ch_0317.wav
+                ch_0072.wav
+                ch_0193.wav
+                ch_0154.wav
+                ch_0143.wav
+                ch_0301.wav
+                ch_0125.wav
+                ch_0330.wav
+                ch_0212.wav
+                ch_0026.wav
+                ch_0111.wav
+                ch_0135.wav
+                ch_0240.wav
+                ch_0132.wav
+                ch_0048.wav
+                ch_0024.wav
+                ch_0012.wav
+                ch_0064.wav
+                ch_0312.wav
+                ch_0049.wav
+                ch_0083.wav
+                ch_0003.wav
+                ch_0310.wav
+                ch_0302.wav
+                ch_0391.wav
+                ch_0146.wav
+                ch_0052.wav
+                ch_0323.wav
+                ch_0088.wav
+                ch_0190.wav
+                ch_0120.wav
+                ch_0358.wav
+                ch_0387.wav
+                ch_0318.wav
+                ch_0382.wav
+                ch_0131.wav
+                ch_0220.wav
+                ch_0256.wav
+                ch_0261.wav
+                ch_0308.wav
+                ch_0360.wav
+                ch_0295.wav
+                ch_0069.wav
+                ch_0023.wav
+                ch_0134.wav
+                ch_0039.wav
+                ch_0105.wav
+                ch_0271.wav
+                ch_0119.wav
+                ch_0264.wav
+                ch_0401.wav
+                ch_0153.wav
+                ch_0073.wav
+                ch_0116.wav
+                ch_0008.wav
+                ch_0347.wav
+                ch_0061.wav
+                ch_0289.wav
+                ch_0311.wav
+                ch_0179.wav
+                ch_0018.wav
+                ch_0139.wav
+                ch_0297.wav
+                ch_0079.wav
+                ch_0138.wav
+                ch_0211.wav
+                ch_0017.wav
+                ch_0186.wav
+                ch_0035.wav
+                ch_0032.wav
+                ch_0029.wav
+                ch_0100.wav
+                ch_0374.wav
+                ch_0260.wav
+                ch_0392.wav
+                ch_0047.wav
+                ch_0058.wav
+                ch_0303.wav
+                ch_0170.wav
+                ch_0172.wav
+                ch_0045.wav
+                ch_0150.wav
+                ch_0041.wav
+                ch_0014.wav
+                ch_0136.wav
+                ch_0255.wav
+                ch_0177.wav
+                ch_0396.wav
+                ch_0236.wav
+                ch_0389.wav
+                ch_0393.wav
+                ch_0142.wav
+                ch_0356.wav
+                ch_0210.wav
+                ch_0367.wav
+                ch_0400.wav
+                ch_0383.wav
+                ch_0291.wav
+                ch_0394.wav
+                ch_0171.wav
+                ch_0368.wav
+                ch_0188.wav
+                ch_0274.wav
+                ch_0267.wav
+                ch_0276.wav
+                ch_0258.wav
+                ch_0237.wav
+                ch_0253.wav
+                ch_0110.wav
+                ch_0109.wav
+                ch_0095.wav
+                ch_0296.wav
+                ch_0218.wav
+                ch_0028.wav
+                ch_0187.wav
+                ch_0065.wav
+                ch_0092.wav
+                ch_0254.wav
+                ch_0286.wav
+                ch_0181.wav
+                ch_0043.wav
+                ch_0056.wav
+                ch_0164.wav
+                ch_0191.wav
+                ch_0279.wav
+                ch_0059.wav
+                ch_0189.wav
+                ch_0185.wav
+                ch_0284.wav
+                ch_0027.wav
+                ch_0305.wav
+                ch_0246.wav
+                ch_0099.wav
+                ch_0101.wav
+                ch_0371.wav
+                ch_0241.wav
+                ch_0158.wav
+                ch_0198.wav
+                ch_0145.wav
+                ch_0176.wav
+                ch_0334.wav
+                ch_0160.wav
+                ch_0093.wav
+                ch_0340.wav
+                ch_0070.wav
+                ch_0353.wav
+                ch_0074.wav
+                ch_0390.wav
+                ch_0013.wav
+                ch_0121.wav
+                ch_0016.wav
+                ch_0298.wav
+                ch_0133.wav
+                ch_0249.wav
+                ch_0107.wav
+                ch_0055.wav
+                ch_0372.wav
+                ch_0167.wav
+                ch_0247.wav
+                ch_0182.wav
+                ch_0216.wav
+                ch_0265.wav
+                ch_0227.wav
+                ch_0251.wav
+                ch_0370.wav
+                ch_0159.wav
+                ch_0270.wav
+                ch_0238.wav
+                ch_0343.wav
+                ch_0348.wav
+                ch_0349.wav
+                ch_0215.wav
+                ch_0313.wav
+                ch_0025.wav
+                ch_0206.wav
+                ch_0050.wav
+                ch_0399.wav
+                ch_0042.wav
+                ch_0175.wav
+                ch_0104.wav
+                ch_0141.wav
+                ch_0166.wav
+                ch_0207.wav
+                ch_0126.wav
+                ch_0161.wav
+                ch_0359.wav
+                ch_0087.wav
+                ch_0151.wav
+                ch_0165.wav
+                ch_0327.wav
+                ch_0152.wav
+                ch_0075.wav
+                ch_0067.wav
+                ch_0203.wav
+                ch_0259.wav
+                ch_0266.wav
+                ch_0005.wav
+                ch_0009.wav
+                ch_0021.wav
+                ch_0363.wav
+                ch_0002.wav
+                ch_0278.wav
+                ch_0333.wav
+                ch_0269.wav
+                ch_0332.wav
+                ch_0098.wav
+                ch_0377.wav
+                ch_0117.wav
+                ch_0022.wav
+                ch_0234.wav
+                ch_0384.wav
+                ch_0235.wav
+                ch_0273.wav
+                ch_0115.wav
+                ch_0199.wav
+                ch_0103.wav
+                ch_0341.wav
+                ch_0178.wav
+                ch_0403.wav
+                ch_0292.wav
+                ch_0106.wav
+                ch_0282.wav
+                ch_0077.wav
+                ch_0388.wav
+                ch_0369.wav
+                ch_0127.wav
+                ch_0325.wav
+                ch_0174.wav
+                ch_0232.wav
+                ch_0326.wav
+                ch_0001.wav
+                ch_0357.wav
+                ch_0051.wav
+                ch_0381.wav
+                ch_0350.wav
+                ch_0345.wav
+                ch_0324.wav
+                ch_0129.wav
+                ch_0192.wav
+                ch_0402.wav
+                ch_0163.wav
+                ch_0319.wav
+                ch_0053.wav
+                ch_0225.wav
+                ch_0288.wav
+                ch_0378.wav
+                ch_0081.wav
+                ch_0228.wav
+                ch_0293.wav
+                ch_0168.wav
+                ch_0213.wav
+                ch_0031.wav
+                ch_0250.wav
+                ch_0344.wav
+                ch_0224.wav
+                ch_0352.wav
+                ch_0299.wav
+                ch_0066.wav
+                ch_0285.wav
+                ch_0147.wav
+                ch_0397.wav
+                ch_0040.wav
+                ch_0252.wav
+                ch_0248.wav
+                ch_0280.wav
+                ch_0124.wav
+                ch_0046.wav
+                ch_0196.wav
+                ch_0057.wav
+                ch_0202.wav
+                ch_0118.wav
+                ch_0090.wav
+                ch_0082.wav
+                ch_0006.wav
+                ch_0268.wav
+                ch_0283.wav
+                ch_0004.wav
+                ch_0044.wav
+                ch_0244.wav
+                ch_0404.wav
+                ch_0201.wav
+                ch_0223.wav
+                ch_0304.wav
+                ch_0395.wav
+                ch_0180.wav
+                ch_0030.wav
+                ch_0272.wav
+                ch_0140.wav
+                ch_0294.wav
+                ch_0242.wav
+                ch_0036.wav
+                ch_0306.wav
+                ch_0084.wav
+                ch_0144.wav
+                ch_0342.wav
+                ch_0243.wav
+                ch_0054.wav
+                ch_0316.wav
+                ch_0335.wav
+                ch_0307.wav
+                ch_0314.wav
+                ch_0366.wav
+                ch_0114.wav
+                ch_0365.wav
+                ch_0336.wav
+                ch_0033.wav
+                ch_0346.wav
+                ch_0122.wav
+                ch_0328.wav
+                ch_0068.wav
+                ch_0010.wav
+                ch_0373.wav
+                ch_0204.wav
+                ch_0338.wav
+                ch_0071.wav
+                ch_0063.wav
+                ch_0019.wav
+                ch_0108.wav
+                ch_0130.wav
+                ch_0183.wav
+                ch_0184.wav
+                ch_0102.wav
+                ch_0355.wav
+                ch_0351.wav
+                ch_0156.wav
+                ch_0113.wav
+                ch_0007.wav
+                ch_0339.wav
+                ch_0354.wav
+                ch_0155.wav
+                ch_0123.wav
+                ch_0263.wav
+                ch_0015.wav
+                ch_0385.wav
+                ch_0173.wav
+                ch_0085.wav
+                ch_0020.wav
+                ch_0226.wav
+                ch_0062.wav
+                ch_0060.wav
+                ch_0157.wav
+                ch_0275.wav
+                ch_0128.wav
+                ch_0281.wav
+                ch_0091.wav
+                ch_0194.wav
+                ch_0362.wav
+                ch_0038.wav
+                ch_0322.wav
+                ch_0078.wav
+                ch_0219.wav
+                ch_0195.wav
+                ch_0011.wav
+                ch_0337.wav
+                ch_0214.wav
+                ch_0080.wav
+                ch_0089.wav
+                ch_0386.wav
+                ch_0331.wav
+                ch_0329.wav
+                ch_0162.wav
+                ch_0096.wav
+                ch_0149.wav
+                ch_0137.wav
+                ch_0233.wav
+                ch_0300.wav
+                ch_0361.wav
+                ch_0169.wav
+                ch_0230.wav
+                ch_0277.wav
+                ch_0321.wav
+                ch_0245.wav
+                ch_0222.wav
             02_Translated/
             04_Audio_Opus/
+                ch_0042.opus
+                ch_0323.opus
+                ch_0218.opus
+                ch_0144.opus
+                ch_0139.opus
+                ch_0121.opus
+                ch_0241.opus
+                ch_0181.opus
+                ch_0179.opus
+                ch_0317.opus
+                ch_0247.opus
+                ch_0330.opus
+                ch_0326.opus
+                ch_0014.opus
+                ch_0078.opus
+                ch_0322.opus
+                ch_0067.opus
+                ch_0183.opus
+                ch_0374.opus
+                ch_0172.opus
+                ch_0206.opus
+                ch_0357.opus
+                ch_0024.opus
+                ch_0399.opus
+                ch_0178.opus
+                ch_0184.opus
+                ch_0097.opus
+                ch_0237.opus
+                ch_0216.opus
+                ch_0246.opus
+                ch_0343.opus
+                ch_0265.opus
+                ch_0174.opus
+                ch_0040.opus
+                ch_0354.opus
+                ch_0033.opus
+                ch_0053.opus
+                ch_0231.opus
+                ch_0054.opus
+                ch_0182.opus
+                ch_0283.opus
+                ch_0143.opus
+                ch_0390.opus
+                ch_0213.opus
+                ch_0031.opus
+                ch_0175.opus
+                ch_0049.opus
+                ch_0209.opus
+                ch_0140.opus
+                ch_0063.opus
+                ch_0075.opus
+                ch_0009.opus
+                ch_0101.opus
+                ch_0288.opus
+                ch_0226.opus
+                ch_0012.opus
+                ch_0280.opus
+                ch_0232.opus
+                ch_0238.opus
+                ch_0256.opus
+                ch_0034.opus
+                ch_0346.opus
+                ch_0259.opus
+                ch_0361.opus
+                ch_0079.opus
+                ch_0089.opus
+                ch_0110.opus
+                ch_0225.opus
+                ch_0069.opus
+                ch_0126.opus
+                ch_0257.opus
+                ch_0090.opus
+                ch_0025.opus
+                ch_0008.opus
+                ch_0071.opus
+                ch_0297.opus
+                ch_0401.opus
+                ch_0306.opus
+                ch_0162.opus
+                ch_0341.opus
+                ch_0043.opus
+                ch_0021.opus
+                ch_0316.opus
+                ch_0311.opus
+                ch_0204.opus
+                ch_0191.opus
+                ch_0005.opus
+                ch_0338.opus
+                ch_0393.opus
+                ch_0190.opus
+                ch_0219.opus
+                ch_0333.opus
+                ch_0289.opus
+                ch_0287.opus
+                ch_0104.opus
+                ch_0267.opus
+                ch_0307.opus
+                ch_0220.opus
+                ch_0375.opus
+                ch_0018.opus
+                ch_0194.opus
+                ch_0230.opus
+                ch_0205.opus
+                ch_0105.opus
+                ch_0080.opus
+                ch_0250.opus
+                ch_0193.opus
+                ch_0279.opus
+                ch_0212.opus
+                ch_0030.opus
+                ch_0391.opus
+                ch_0332.opus
+                ch_0385.opus
+                ch_0308.opus
+                ch_0093.opus
+                ch_0155.opus
+                ch_0345.opus
+                ch_0258.opus
+                ch_0272.opus
+                ch_0276.opus
+                ch_0094.opus
+                ch_0057.opus
+                ch_0055.opus
+                ch_0159.opus
+                ch_0068.opus
+                ch_0293.opus
+                ch_0027.opus
+                ch_0294.opus
+                ch_0173.opus
+                ch_0196.opus
+                ch_0170.opus
+                ch_0020.opus
+                ch_0177.opus
+                ch_0296.opus
+                ch_0141.opus
+                ch_0117.opus
+                ch_0368.opus
+                ch_0262.opus
+                ch_0064.opus
+                ch_0035.opus
+                ch_0066.opus
+                ch_0327.opus
+                ch_0108.opus
+                ch_0186.opus
+                ch_0295.opus
+                ch_0356.opus
+                ch_0106.opus
+                ch_0192.opus
+                ch_0365.opus
+                ch_0217.opus
+                ch_0202.opus
+                ch_0037.opus
+                ch_0249.opus
+                ch_0164.opus
+                ch_0185.opus
+                ch_0208.opus
+                ch_0324.opus
+                ch_0239.opus
+                ch_0019.opus
+                ch_0022.opus
+                ch_0266.opus
+                ch_0318.opus
+                ch_0383.opus
+                ch_0320.opus
+                ch_0397.opus
+                ch_0384.opus
+                ch_0016.opus
+                ch_0109.opus
+                ch_0135.opus
+                ch_0303.opus
+                ch_0233.opus
+                ch_0292.opus
+                ch_0197.opus
+                ch_0313.opus
+                ch_0015.opus
+                ch_0048.opus
+                ch_0198.opus
+                ch_0269.opus
+                ch_0321.opus
+                ch_0167.opus
+                ch_0096.opus
+                ch_0112.opus
+                ch_0403.opus
+                ch_0350.opus
+                ch_0059.opus
+                ch_0274.opus
+                ch_0145.opus
+                ch_0131.opus
+                ch_0302.opus
+                ch_0336.opus
+                ch_0340.opus
+                ch_0036.opus
+                ch_0339.opus
+                ch_0228.opus
+                ch_0367.opus
+                ch_0136.opus
+                ch_0362.opus
+                ch_0299.opus
+                ch_0133.opus
+                ch_0153.opus
+                ch_0180.opus
+                ch_0095.opus
+                ch_0264.opus
+                ch_0127.opus
+                ch_0061.opus
+                ch_0301.opus
+                ch_0234.opus
+                ch_0023.opus
+                ch_0376.opus
+                ch_0254.opus
+                ch_0253.opus
+                ch_0187.opus
+                ch_0329.opus
+                ch_0165.opus
+                ch_0086.opus
+                ch_0176.opus
+                ch_0028.opus
+                ch_0221.opus
+                ch_0275.opus
+                ch_0372.opus
+                ch_0347.opus
+                ch_0188.opus
+                ch_0349.opus
+                ch_0355.opus
+                ch_0050.opus
+                ch_0392.opus
+                ch_0058.opus
+                ch_0268.opus
+                ch_0029.opus
+                ch_0235.opus
+                ch_0252.opus
+                ch_0298.opus
+                ch_0281.opus
+                ch_0160.opus
+                ch_0107.opus
+                ch_0319.opus
+                ch_0147.opus
+                ch_0300.opus
+                ch_0369.opus
+                ch_0148.opus
+                ch_0166.opus
+                ch_0072.opus
+                ch_0229.opus
+                ch_0243.opus
+                ch_0085.opus
+                ch_0398.opus
+                ch_0364.opus
+                ch_0122.opus
+                ch_0156.opus
+                ch_0261.opus
+                ch_0103.opus
+                ch_0129.opus
+                ch_0077.opus
+                ch_0130.opus
+                ch_0092.opus
+                ch_0271.opus
+                ch_0201.opus
+                ch_0046.opus
+                ch_0116.opus
+                ch_0195.opus
+                ch_0396.opus
+                ch_0003.opus
+                ch_0251.opus
+                ch_0305.opus
+                ch_0310.opus
+                ch_0123.opus
+                ch_0120.opus
+                ch_0013.opus
+                ch_0359.opus
+                ch_0314.opus
+                ch_0082.opus
+                ch_0366.opus
+                ch_0363.opus
+                ch_0381.opus
+                ch_0242.opus
+                ch_0331.opus
+                ch_0328.opus
+                ch_0290.opus
+                ch_0087.opus
+                ch_0353.opus
+                ch_0260.opus
+                ch_0161.opus
+                ch_0380.opus
+                ch_0344.opus
+                ch_0118.opus
+                ch_0382.opus
+                ch_0171.opus
+                ch_0378.opus
+                ch_0284.opus
+                ch_0154.opus
+                ch_0199.opus
+                ch_0309.opus
+                ch_0152.opus
+                ch_0146.opus
+                ch_0142.opus
+                ch_0026.opus
+                ch_0045.opus
+                ch_0223.opus
+                ch_0352.opus
+                ch_0047.opus
+                ch_0285.opus
+                ch_0358.opus
+                ch_0402.opus
+                ch_0255.opus
+                ch_0091.opus
+                ch_0245.opus
+                ch_0263.opus
+                ch_0011.opus
+                ch_0032.opus
+                ch_0240.opus
+                ch_0227.opus
+                ch_0389.opus
+                ch_0060.opus
+                ch_0002.opus
+                ch_0386.opus
+                ch_0138.opus
+                ch_0065.opus
+                ch_0277.opus
+                ch_0273.opus
+                ch_0051.opus
+                ch_0124.opus
+                ch_0149.opus
+                ch_0039.opus
+                ch_0400.opus
+                ch_0119.opus
+                ch_0282.opus
+                ch_0100.opus
+                ch_0395.opus
+                ch_0203.opus
+                ch_0325.opus
+                ch_0373.opus
+                ch_0337.opus
+                ch_0074.opus
+                ch_0088.opus
+                ch_0113.opus
+                ch_0291.opus
+                ch_0081.opus
+                ch_0128.opus
+                ch_0001.opus
+                ch_0248.opus
+                ch_0189.opus
+                ch_0157.opus
+                ch_0052.opus
+                ch_0214.opus
+                ch_0098.opus
+                ch_0270.opus
+                ch_0334.opus
+                ch_0371.opus
+                ch_0102.opus
+                ch_0244.opus
+                ch_0379.opus
+                ch_0348.opus
+                ch_0207.opus
+                ch_0404.opus
+                ch_0044.opus
+                ch_0158.opus
+                ch_0151.opus
+                ch_0342.opus
+                ch_0070.opus
+                ch_0137.opus
+                ch_0114.opus
+                ch_0006.opus
+                ch_0004.opus
+                ch_0038.opus
+                ch_0210.opus
+                ch_0224.opus
+                ch_0076.opus
+                ch_0335.opus
+                ch_0150.opus
+                ch_0115.opus
+                ch_0041.opus
+                ch_0073.opus
+                ch_0222.opus
+                ch_0200.opus
+                ch_0312.opus
+                ch_0111.opus
+                ch_0056.opus
+                ch_0134.opus
+                ch_0370.opus
+                ch_0304.opus
+                ch_0125.opus
+                ch_0286.opus
+                ch_0360.opus
+                ch_0084.opus
+                ch_0236.opus
+                ch_0315.opus
+                ch_0099.opus
+                ch_0351.opus
+                ch_0083.opus
+                ch_0168.opus
+                ch_0132.opus
+                ch_0163.opus
+                ch_0211.opus
+                ch_0169.opus
+                ch_0394.opus
+                ch_0387.opus
+                ch_0377.opus
+                ch_0278.opus
+                ch_0215.opus
+                ch_0007.opus
+                ch_0062.opus
+                ch_0010.opus
+                ch_0017.opus
+                ch_0388.opus
+            temp_audio_chunks/
             01_Raw_Text/
+                ch_0188.txt
+                ch_0102.txt
+                ch_0263.txt
+                ch_0109.txt
+                ch_0338.txt
+                ch_0307.txt
+                ch_0390.txt
+                ch_0213.txt
+                ch_0372.txt
+                ch_0028.txt
+                ch_0376.txt
+                ch_0302.txt
+                ch_0399.txt
+                ch_0270.txt
+                ch_0092.txt
+                ch_0218.txt
+                ch_0336.txt
+                ch_0077.txt
+                ch_0203.txt
+                ch_0278.txt
+                ch_0125.txt
+                ch_0088.txt
+                ch_0144.txt
+                ch_0311.txt
+                ch_0329.txt
+                ch_0281.txt
+                ch_0224.txt
+                ch_0347.txt
+                ch_0062.txt
+                ch_0185.txt
+                ch_0153.txt
+                ch_0382.txt
+                ch_0058.txt
+                ch_0358.txt
+                ch_0271.txt
+                ch_0233.txt
+                ch_0134.txt
+                ch_0166.txt
+                ch_0130.txt
+                ch_0198.txt
+                ch_0146.txt
+                ch_0315.txt
+                ch_0067.txt
+                ch_0049.txt
+                ch_0202.txt
+                ch_0216.txt
+                ch_0199.txt
+                ch_0074.txt
+                ch_0145.txt
+                ch_0397.txt
+                ch_0009.txt
+                ch_0097.txt
+                ch_0138.txt
+                ch_0321.txt
+                ch_0187.txt
+                ch_0320.txt
+                ch_0094.txt
+                ch_0032.txt
+                ch_0400.txt
+                ch_0388.txt
+                ch_0300.txt
+                ch_0050.txt
+                ch_0183.txt
+                ch_0012.txt
+                ch_0072.txt
+                ch_0194.txt
+                ch_0055.txt
+                ch_0064.txt
+                ch_0337.txt
+                ch_0022.txt
+                ch_0175.txt
+                ch_0078.txt
+                ch_0370.txt
+                ch_0086.txt
+                ch_0242.txt
+                ch_0318.txt
+                ch_0308.txt
+                ch_0356.txt
+                ch_0286.txt
+                ch_0170.txt
+                ch_0046.txt
+                ch_0284.txt
+                ch_0027.txt
+                ch_0014.txt
+                ch_0217.txt
+                ch_0245.txt
+                ch_0007.txt
+                ch_0192.txt
+                ch_0033.txt
+                ch_0380.txt
+                ch_0069.txt
+                ch_0111.txt
+                ch_0177.txt
+                ch_0127.txt
+                ch_0179.txt
+                ch_0349.txt
+                ch_0060.txt
+                ch_0114.txt
+                ch_0374.txt
+                ch_0384.txt
+                ch_0369.txt
+                ch_0276.txt
+                ch_0165.txt
+                ch_0123.txt
+                ch_0080.txt
+                ch_0159.txt
+                ch_0248.txt
+                ch_0117.txt
+                ch_0246.txt
+                ch_0025.txt
+                ch_0352.txt
+                ch_0381.txt
+                ch_0149.txt
+                ch_0013.txt
+                ch_0104.txt
+                ch_0256.txt
+                ch_0351.txt
+                ch_0065.txt
+                ch_0335.txt
+                ch_0083.txt
+                ch_0096.txt
+                ch_0375.txt
+                ch_0122.txt
+                ch_0231.txt
+                ch_0379.txt
+                ch_0082.txt
+                ch_0310.txt
+                ch_0317.txt
+                ch_0290.txt
+                ch_0100.txt
+                ch_0366.txt
+                ch_0195.txt
+                ch_0006.txt
+                ch_0035.txt
+                ch_0340.txt
+                ch_0257.txt
+                ch_0076.txt
+                ch_0045.txt
+                ch_0108.txt
+                ch_0237.txt
+                ch_0143.txt
+                ch_0362.txt
+                ch_0222.txt
+                ch_0363.txt
+                ch_0164.txt
+                ch_0365.txt
+                ch_0085.txt
+                ch_0184.txt
+                ch_0057.txt
+                ch_0091.txt
+                ch_0011.txt
+                ch_0093.txt
+                ch_0323.txt
+                ch_0402.txt
+                ch_0272.txt
+                ch_0131.txt
+                ch_0228.txt
+                ch_0394.txt
+                ch_0251.txt
+                ch_0038.txt
+                ch_0292.txt
+                ch_0066.txt
+                ch_0158.txt
+                ch_0291.txt
+                ch_0396.txt
+                ch_0034.txt
+                ch_0040.txt
+                ch_0070.txt
+                ch_0152.txt
+                ch_0334.txt
+                ch_0226.txt
+                ch_0353.txt
+                ch_0106.txt
+                ch_0293.txt
+                ch_0156.txt
+                ch_0135.txt
+                ch_0265.txt
+                ch_0113.txt
+                ch_0355.txt
+                ch_0254.txt
+                ch_0260.txt
+                ch_0221.txt
+                ch_0294.txt
+                ch_0043.txt
+                ch_0031.txt
+                ch_0044.txt
+                ch_0345.txt
+                ch_0295.txt
+                ch_0017.txt
+                ch_0155.txt
+                ch_0208.txt
+                ch_0333.txt
+                ch_0377.txt
+                ch_0023.txt
+                ch_0259.txt
+                ch_0367.txt
+                ch_0330.txt
+                ch_0133.txt
+                ch_0391.txt
+                ch_0232.txt
+                ch_0262.txt
+                ch_0142.txt
+                ch_0387.txt
+                ch_0326.txt
+                ch_0360.txt
+                ch_0018.txt
+                ch_0024.txt
+                ch_0364.txt
+                ch_0116.txt
+                ch_0301.txt
+                ch_0393.txt
+                ch_0039.txt
                 chapters.json
+                ch_0238.txt
+                ch_0389.txt
+                ch_0305.txt
+                ch_0041.txt
+                ch_0341.txt
+                ch_0005.txt
+                ch_0137.txt
+                ch_0207.txt
+                ch_0289.txt
+                ch_0386.txt
+                ch_0176.txt
+                ch_0008.txt
+                ch_0051.txt
+                ch_0283.txt
+                ch_0053.txt
+                ch_0157.txt
+                ch_0350.txt
+                ch_0147.txt
+                ch_0403.txt
+                ch_0297.txt
+                ch_0209.txt
+                ch_0174.txt
+                ch_0359.txt
+                ch_0327.txt
+                ch_0250.txt
+                ch_0047.txt
+                ch_0075.txt
+                ch_0150.txt
+                ch_0378.txt
+                ch_0003.txt
+                ch_0148.txt
+                ch_0319.txt
+                ch_0211.txt
+                ch_0252.txt
+                ch_0324.txt
+                ch_0081.txt
+                ch_0244.txt
+                ch_0087.txt
+                ch_0056.txt
+                ch_0099.txt
+                ch_0105.txt
+                ch_0303.txt
+                ch_0314.txt
+                ch_0306.txt
+                ch_0090.txt
+                ch_0312.txt
+                ch_0296.txt
+                ch_0101.txt
+                ch_0181.txt
+                ch_0190.txt
+                ch_0189.txt
+                ch_0298.txt
+                ch_0325.txt
+                ch_0227.txt
+                ch_0225.txt
+                ch_0371.txt
+                ch_0071.txt
+                ch_0343.txt
+                ch_0182.txt
+                ch_0241.txt
+                ch_0401.txt
+                ch_0383.txt
+                ch_0112.txt
+                ch_0373.txt
+                ch_0186.txt
+                ch_0063.txt
+                ch_0395.txt
+                ch_0220.txt
+                ch_0229.txt
+                ch_0197.txt
+                ch_0161.txt
+                ch_0234.txt
+                ch_0274.txt
+                ch_0167.txt
+                ch_0277.txt
+                ch_0253.txt
+                ch_0240.txt
+                ch_0361.txt
+                ch_0173.txt
+                ch_0059.txt
+                ch_0201.txt
+                ch_0042.txt
+                ch_0180.txt
+                ch_0264.txt
+                ch_0339.txt
+                ch_0282.txt
+                ch_0118.txt
+                ch_0255.txt
+                ch_0119.txt
+                ch_0404.txt
+                ch_0247.txt
+                ch_0136.txt
+                ch_0392.txt
+                ch_0030.txt
+                ch_0344.txt
+                ch_0036.txt
+                ch_0172.txt
+                ch_0357.txt
+                ch_0249.txt
+                ch_0098.txt
+                ch_0160.txt
+                ch_0052.txt
+                ch_0128.txt
+                ch_0269.txt
+                ch_0171.txt
                 ch_0001.txt
+                ch_0120.txt
+                ch_0103.txt
+                ch_0212.txt
+                ch_0073.txt
+                ch_0261.txt
+                ch_0048.txt
+                ch_0020.txt
+                ch_0019.txt
+                ch_0139.txt
+                ch_0084.txt
+                ch_0348.txt
+                ch_0275.txt
+                ch_0154.txt
+                ch_0204.txt
+                ch_0316.txt
+                ch_0398.txt
+                ch_0215.txt
+                ch_0236.txt
+                ch_0151.txt
+                ch_0206.txt
+                ch_0368.txt
+                ch_0021.txt
+                ch_0309.txt
+                ch_0037.txt
+                ch_0163.txt
+                ch_0322.txt
+                ch_0015.txt
+                ch_0313.txt
+                ch_0026.txt
+                ch_0385.txt
+                ch_0267.txt
+                ch_0029.txt
+                ch_0214.txt
+                ch_0124.txt
+                ch_0140.txt
+                ch_0089.txt
+                ch_0243.txt
+                ch_0268.txt
+                ch_0196.txt
+                ch_0068.txt
+                ch_0287.txt
+                ch_0141.txt
+                ch_0054.txt
+                ch_0129.txt
+                ch_0107.txt
+                ch_0095.txt
+                ch_0010.txt
+                ch_0169.txt
+                ch_0304.txt
+                ch_0354.txt
+                ch_0235.txt
+                ch_0280.txt
+                ch_0132.txt
+                ch_0328.txt
+                ch_0285.txt
+                ch_0342.txt
+                ch_0162.txt
+                ch_0273.txt
+                ch_0205.txt
+                ch_0346.txt
+                ch_0288.txt
+                ch_0079.txt
+                ch_0258.txt
+                ch_0223.txt
+                ch_0061.txt
+                ch_0332.txt
+                ch_0115.txt
+                ch_0210.txt
+                ch_0279.txt
+                ch_0193.txt
+                ch_0230.txt
+                ch_0200.txt
+                ch_0178.txt
+                ch_0126.txt
+                ch_0299.txt
+                ch_0239.txt
+                ch_0331.txt
+                ch_0121.txt
+                ch_0004.txt
+                ch_0002.txt
+                ch_0016.txt
+                ch_0110.txt
+                ch_0266.txt
+                ch_0219.txt
+                ch_0191.txt
+                ch_0168.txt
             Scraper_Context/
                 site_structure.html
         BetrayedPrincess/
@@ -7560,6 +9660,15 @@ Project Directory Structure:
     backup/
         scraper_context_fetcher.py
     tests/
+        test_translation.py
+        test_utilities.py
+        test_scraper.py
+        test_tts_splitting.py
+    scripts/
+        test_env.py
+    .github/
+        workflows/
+            ci.yml
 
 
 File Contents:
@@ -9531,7 +11640,10 @@ def _split_by_force_chars(text_content, char_limit):
         chunk = text_content[current_chunk_start:end_index].strip()
         if chunk:
             chunks.append(chunk)
-        current_chunk_start = end_index + 1
+        if end_index < len(text_content) and text_content[end_index] == " ":
+            current_chunk_start = end_index + 1  # skip the space
+        else:
+            current_chunk_start = end_index  # don't skip non-space chars
     return chunks
 
 
@@ -9854,72 +11966,6 @@ GEMINI_MODEL_NAME = "gemini-3-flash-preview"
 CONFIG_FILE = "alltalk_path_config.json"
 
 --- END OF FILE: ./constants.py ---
-
---- START OF FILE: ./test_env.py ---
-import torch
-import undetected_chromedriver as uc
-import whisper
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-
-
-def print_separator():
-    print("\n" + "=" * 50 + "\n")
-
-
-def test_pytorch_cuda():
-    print("🧪 TESTING PYTORCH & CUDA...")
-    print(f"PyTorch Version: {torch.__version__}")
-    cuda_available = torch.cuda.is_available()
-    print(f"CUDA Available: {cuda_available}")
-
-    if cuda_available:
-        print(f"GPU Device: {torch.cuda.get_device_name(0)}")
-        # Test a simple tensor operation on GPU
-        x = torch.rand(5, 3).cuda()
-        print("✅ Success: Tensor successfully loaded to GPU.")
-    else:
-        print("⚠️ Warning: CUDA is not available. PyTorch is using CPU.")
-
-
-def test_scraping_tools():
-    print("🧪 TESTING SCRAPING TOOLS (BeautifulSoup)...")
-    html_doc = "<html><head><title>The Scraper</title></head><body><p class='title'><b>Success!</b></p></body></html>"
-    soup = BeautifulSoup(html_doc, "html.parser")
-    print(f"BeautifulSoup parsed title: {soup.title.string}")
-    print("✅ Success: BeautifulSoup is working.")
-
-
-def test_whisper():
-    print("🧪 TESTING WHISPER AI...")
-    model_size = "tiny"  # Using tiny model for quick download and test
-    print(f"Loading Whisper '{model_size}' model...")
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    try:
-        model = whisper.load_model(model_size, device=device)
-        print(f"✅ Success: Whisper loaded on {device.upper()}.")
-    except Exception as e:
-        print(f"❌ Whisper failed to load: {e}")
-
-
-if __name__ == "__main__":
-    print_separator()
-    print("🚀 STARTING ENVIRONMENT DIAGNOSTICS")
-    print_separator()
-
-    test_pytorch_cuda()
-    print_separator()
-
-    test_scraping_tools()
-    print_separator()
-
-    test_whisper()
-    print_separator()
-
-    print("Diagnostics complete! You are ready to scrape. 🕷️")
-
---- END OF FILE: ./test_env.py ---
 
 --- START OF FILE: ./convert_audio_to_opus_3.py ---
 import glob
@@ -10289,127 +12335,6 @@ if __name__ == "__main__":
     create_epub_project()
 
 --- END OF FILE: ./txt_to_epub.py ---
-
---- START OF FILE: ./fetch_metadata.py ---
-import json
-import os
-import shutil
-
-import requests
-from bs4 import BeautifulSoup
-
-# --- CONFIGURATION ---
-# The URL of the main page (Novel Info / Table of Contents)
-NOVEL_INDEX_URL = "https://www.blleattl.site/story/fairy/"
-# ---------------------
-
-
-def fetch_and_save_metadata(index_url, project_dir):
-    print(f"--- Fetching Metadata from: {index_url} ---")
-
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    }
-
-    try:
-        response = requests.get(index_url, headers=headers, timeout=15)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, "html.parser")
-
-        # --- 1. Extract Metadata using OpenGraph (Most Reliable) ---
-        metadata = {
-            "title": "Unknown Title",
-            "author": "Unknown Author",
-            "cover_url": None,
-            "description": "",
-        }
-
-        # Title
-        og_title = soup.find("meta", property="og:title")
-        if og_title:
-            metadata["title"] = og_title["content"].strip()
-        else:
-            # Fallback to standard H1
-            h1 = soup.find("h1")
-            if h1:
-                metadata["title"] = h1.get_text(strip=True)
-
-        # Cover Image
-        og_image = soup.find("meta", property="og:image")
-        if og_image:
-            metadata["cover_url"] = og_image["content"]
-
-        # Author (Site specific fallback)
-        # Try to find common "Author" labels
-        author_el = soup.find(string=lambda t: t and "Author" in t)
-        if author_el:
-            # Often extracting parent text helps, e.g. <div>Author: Name</div>
-            parent_text = author_el.find_parent().get_text(strip=True)
-            # Simple cleanup: remove "Author" and colons
-            metadata["author"] = (
-                parent_text.replace("Author", "").replace(":", "").strip()
-            )
-
-        # Description
-        og_desc = soup.find("meta", property="og:description")
-        if og_desc:
-            metadata["description"] = og_desc["content"].strip()
-
-        print(
-            f"Found Metadata:\n Title: {metadata['title']}\n Author: {metadata['author']}\n Cover: {metadata['cover_url']}"
-        )
-
-        # --- 2. Download Cover Image ---
-        cover_filename = None
-        if metadata["cover_url"]:
-            try:
-                # Resolve relative URLs if necessary
-                if not metadata["cover_url"].startswith("http"):
-                    from urllib.parse import urljoin
-
-                    metadata["cover_url"] = urljoin(index_url, metadata["cover_url"])
-
-                print(f"Downloading cover image...")
-                img_resp = requests.get(
-                    metadata["cover_url"], headers=headers, stream=True
-                )
-                if img_resp.status_code == 200:
-                    ext = os.path.splitext(metadata["cover_url"])[1].split("?")[
-                        0
-                    ]  # Get .jpg/.png
-                    if not ext:
-                        ext = ".jpg"
-
-                    cover_filename = f"cover{ext}"
-                    cover_path = os.path.join(project_dir, cover_filename)
-
-                    with open(cover_path, "wb") as f:
-                        shutil.copyfileobj(img_resp.raw, f)
-
-                    print(f"Cover saved to: {cover_path}")
-                    metadata["local_cover_path"] = cover_filename
-            except Exception as e:
-                print(f"Failed to download cover: {e}")
-
-        # --- 3. Save to JSON ---
-        json_path = os.path.join(project_dir, "project_metadata.json")
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(metadata, f, indent=4)
-
-        print(f"--- Success! Metadata saved to {json_path} ---")
-
-    except Exception as e:
-        print(f"Error fetching metadata: {e}")
-
-
-if __name__ == "__main__":
-    # Determine base directory dynamically
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-    # We save metadata in the Project Root (BASE_DIR), not the text folder
-    fetch_and_save_metadata(NOVEL_INDEX_URL, BASE_DIR)
-
---- END OF FILE: ./fetch_metadata.py ---
 
 --- START OF FILE: ./pipe_system_gui.py ---
 import glob
@@ -11483,18 +13408,19 @@ if __name__ == "__main__":
 
 --- END OF FILE: ./pipe_system_gui.py ---
 
---- START OF FILE: ./Novels/Villainous_Saintess_CH/custom_scraper.py ---
-import os
+--- START OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/custom_scraper.py ---
 import json
+import os
+import re
 import time
+
 import requests
 from bs4 import BeautifulSoup
 
 # --- CONFIGURATION ---
-DELAY_BETWEEN_REQUESTS = 1.5  # Seconds to wait between chapters
-START_URL = "https://katreadingcafe.com/young-fox-chapter-0-prologue-the-forsaken-knight/"
-SAVE_DIR_NAME = "KatReadingCafe_Novels"
+DELAY_BETWEEN_REQUESTS = 1.0  # Seconds
 # ---------------------
+
 
 def get_with_retries(session, url, headers, retries=3):
     for i in range(retries):
@@ -11507,164 +13433,477 @@ def get_with_retries(session, url, headers, retries=3):
             time.sleep(2 * (i + 1))
     return None
 
-def extract_and_clean_chapter_data(soup, ch_num):
-    """
-    Parses the BeautifulSoup object to extract the chapter title and body.
-    Removes ads, social sharing, and navigation elements.
-    """
-    # 1. Identify the Title
-    # Try standard WordPress title or the heading inside content
-    title_el = soup.select_one('h1.entry-title')
-    story_title = title_el.get_text(strip=True) if title_el else f"Chapter {ch_num}"
 
-    # 2. Identify Content Area
-    content_el = soup.select_one('.entry-content')
+def parse_chapter_title(raw_title, ch_counter):
+    """
+    Parses a raw page title and STRICTLY enforces the format:
+      "Chapter XX - CHAPTER TITLE"
+    """
+    # Strip zero-width characters
+    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title).strip()
+
+    # Strip optional "Volume X, " prefix
+    stripped = re.sub(r"(?i)^volume\s+\d+\s*,\s*", "", raw_title).strip()
+
+    # Match exact "Chapter <num> - <subtitle>" (handles -, –, —, :)
+    m1 = re.match(r"(?i)^chapter\s+(\d+)\s*[–—\-:]\s*(.+)$", stripped)
+    if m1:
+        return f"Chapter {m1.group(1)} - {m1.group(2).strip()}"
+
+    # Match exact "Chapter <num>"
+    m2 = re.match(r"(?i)^chapter\s+(\d+)\s*$", stripped)
+    if m2:
+        return f"Chapter {m2.group(1)}"
+
+    # Match embedded "Chapter X" somewhere in the string
+    m3 = re.search(r"(?i)chapter\s+(\d+)", stripped)
+    if m3:
+        ch_num = m3.group(1)
+        subtitle = re.sub(r"(?i)chapter\s+\d+\s*[–—\-:]*\s*", "", stripped).strip()
+        if subtitle:
+            return f"Chapter {ch_num} - {subtitle}"
+        return f"Chapter {ch_num}"
+
+    # Fallback: Prepend the counter to the raw title to enforce the requested format
+    # E.g., "ATAPOW Prologue" -> "Chapter 1 - ATAPOW Prologue"
+    return f"Chapter {ch_counter} - {stripped}"
+
+
+def clean_body_text(text):
+    """
+    Stripping zero-width characters, watermarks, and trailing credit lines
+    from chapter body text.
+    """
+    # Strip zero-width characters
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+
+    # Remove common watermarks
+    text = re.sub(r"(?i)read\s+(at|on)\s+\w+\.com", "", text)
+    text = re.sub(r"(?i)translated by.*?(?:\n|$)", "", text)
+
+    # Remove short trailing credit/watermark lines
+    lines = text.rstrip().split("\n")
+    while lines:
+        last = lines[-1].strip()
+        if not last or (len(last) < 40 and not any(c in last for c in ".?!,;:\"'”’")):
+            lines.pop()
+        else:
+            break
+
+    return "\n".join(lines).strip()
+
+
+def extract_and_clean_chapter_data(content_el, soup, ch_counter):
+    """
+    Targets the main content area, removes scripts, styles, ads, and navigation.
+    Formats the final header strictly.
+    """
     if not content_el:
-        return f"Chapter {ch_num}", "Content could not be found."
+        return f"Chapter {ch_counter}", ""
 
-    # 3. Remove Clutter
-    # Classes common to this site's theme: social sharing, ads, navigation buttons
-    junk_selectors = [
-        'script', 'style', '.sharedaddy', '.jp-relatedposts', 
-        '.wp-block-buttons', '.navigation', '.post-navigation',
-        '.entry-meta', '.social-share', 'button', 'section.related-posts'
-    ]
-    for selector in junk_selectors:
-        for junk in content_el.select(selector):
-            junk.decompose()
+    # Extract the page title from H1 or fallback
+    page_title_el = soup.select_one("#page-title h1") or soup.select_one("h1")
+    extracted_title = (
+        page_title_el.get_text(strip=True) if page_title_el else f"Chapter {ch_counter}"
+    )
 
-    # 4. Remove internal navigation links (e.g., "Previous | Table of Contents | Next")
-    # Often these are simple <a> tags or <em> tags at the top/bottom
-    for nav_candidate in content_el.find_all(['a', 'p', 'em']):
-        text = nav_candidate.get_text().lower()
-        if 'previous chapter' in text or 'next chapter' in text or 'table of contents' in text:
-            nav_candidate.decompose()
+    # 1. Remove script, style, ad blocks, and junk tags
+    for junk in content_el.find_all(["script", "style", "iframe", "ins"]):
+        junk.decompose()
 
-    # 5. Extract Text Content
-    cleaned_body = content_el.get_text(separator='\n\n', strip=True)
-    
-    # --- DEDUPLICATION LOGIC ---
-    # Split by lines to check if the first line is the title we already have
-    lines = cleaned_body.split('\n')
-    while lines and not lines[0].strip():
-        lines.pop(0)
-        
+    for ad_block in content_el.find_all(
+        "div", class_=lambda c: c and "code-block" in c
+    ):
+        ad_block.decompose()
+
+    # 2. Remove Navigation elements (Previous, Index, Next)
+    for a_tag in content_el.find_all("a", href=True):
+        a_text = a_tag.get_text(strip=True).lower()
+        if "next" in a_text or "previous" in a_text or "index" in a_text:
+            # Check if it's wrapped in a <p> tag that only serves as navigation
+            parent_p = a_tag.find_parent("p")
+            if parent_p:
+                parent_p.decompose()
+            else:
+                a_tag.decompose()
+
+    for hr in content_el.find_all("hr"):
+        hr.decompose()
+
+    # 3. Get text content, filtering empty lines
+    cleaned_body = content_el.get_text(separator="\n", strip=True)
+    lines = [line.strip() for line in cleaned_body.split("\n") if line.strip()]
+
+    # --- TITLE EXTRACTION & DEDUPLICATION ---
     if lines:
-        first_line = lines[0].strip()
-        # If the first line is very similar to the title or just says "Chapter X"
-        if (story_title.lower() in first_line.lower()) or \
-           (first_line.lower().startswith(f"chapter {ch_num}")) or \
-           (len(first_line) < 100 and "chapter" in first_line.lower()):
-            # Remove the duplicate title line
-            cleaned_body = "\n".join(lines[1:]).strip()
-            
-    final_header = f"Chapter {ch_num} - {story_title}"
+        # Loop to remove redundant title headers at the top of the content
+        while lines:
+            first_line = lines[0]
+
+            # Condition A: First line is basically the H1 title (e.g., "ATAPOW Chapter 2")
+            if (extracted_title.lower() in first_line.lower()) or (
+                first_line.lower() in extracted_title.lower() and len(first_line) > 4
+            ):
+                lines.pop(0)
+                continue
+
+            # Condition B: First line actually starts with "Chapter X"
+            # We capture this as the true title and remove it from the body text
+            if re.match(r"(?i)^chapter\s+\d+", first_line) and len(first_line) < 150:
+                extracted_title = first_line
+                lines.pop(0)
+                continue
+
+            # If neither condition is met, we've reached the actual story text
+            break
+
+    # Clean body text formatting (paragraphs separated by double newlines)
+    cleaned_body = "\n\n".join(lines).strip()
+    cleaned_body = clean_body_text(cleaned_body)
+
+    # Parse the title securely
+    final_header = parse_chapter_title(extracted_title, ch_counter)
+
     return final_header, cleaned_body
 
-def find_next_url(soup):
-    """
-    Strategy: 
-    1. Look for rel="next" attribute.
-    2. Look for anchor tags containing the word "Next".
-    """
-    # Priority 1: WordPress standard rel="next"
-    next_link = soup.find('a', rel='next')
-    if next_link and next_link.get('href'):
-        return next_link['href']
 
-    # Priority 2: Text search within the entry content or navigation area
-    for a in soup.find_all('a', href=True):
-        link_text = a.get_text(strip=True).lower()
-        if link_text == 'next' or 'next chapter' in link_text:
-            # Avoid picking up sidebars by checking parent container (optional but safer)
-            return a['href']
+def scrape_and_save_chapters(start_url, save_directory="BlleatTL_Novels"):
+    save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
 
-    return None
-
-def scrape_novel():
-    save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", SAVE_DIR_NAME)
     if not os.path.exists(save_directory):
         os.makedirs(save_directory)
 
     json_path = os.path.join(save_directory, "chapters.json")
     session = requests.Session()
-    session.headers.update({
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
-    })
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    }
 
-    # --- LOAD HISTORY ---
-    history_data = []
+    # --- LOAD HISTORY & SET COUNTER ---
     url_history_map = {}
+    history_data = []
     if os.path.exists(json_path):
         try:
-            with open(json_path, 'r', encoding='utf-8') as f:
+            with open(json_path, "r", encoding="utf-8") as f:
                 history_data = json.load(f)
                 for entry in history_data:
-                    url_history_map[entry['url']] = entry.get('next_url')
-        except Exception as e:
-            print(f"Error loading history: {e}")
+                    url_history_map[entry["url"]] = entry.get("next_url")
+        except:
+            pass
 
     ch_counter = len(history_data) + 1
-    current_url = START_URL
-
-    print(f"[*] Starting scraper at: {current_url}")
+    current_url = start_url
 
     try:
         while current_url:
-            # Resume/Skip logic
             if current_url in url_history_map and url_history_map[current_url]:
-                print(f"Skipping (already scraped): {current_url}")
-                current_url = url_history_map[current_url]
+                next_link = url_history_map[current_url]
+                print(f"Skipping (history): {current_url}")
+                current_url = next_link
                 continue
 
             print(f"Processing: {current_url}")
-            response = get_with_retries(session, current_url, session.headers)
+            response = get_with_retries(session, current_url, headers)
             if not response:
-                print("Failed to retrieve content. Stopping.")
                 break
 
-            soup = BeautifulSoup(response.content, 'html.parser')
-            
-            # Extract
-            full_header, cleaned_body = extract_and_clean_chapter_data(soup, ch_counter)
-            next_url = find_next_url(soup)
+            soup = BeautifulSoup(response.content, "html.parser")
 
-            # Save File
+            # Extract basic info
+            content_el = soup.select_one(".entry-content") or soup.find("article")
+            if not content_el:
+                print("Content not found.")
+                break
+
+            # --- EXTRACT NEXT URL FIRST ---
+            # Extract it BEFORE we call extract_and_clean_chapter_data()
+            next_url = None
+            next_el = soup.find("a", rel="next")
+            if not next_el:
+                for a in soup.find_all("a", href=True):
+                    if "next" in a.get_text(strip=True).lower():
+                        next_el = a
+                        break
+
+            if next_el and next_el.has_attr("href"):
+                next_url = next_el["href"]
+
+            # --- PROCESS CONTENT ---
             filename = f"ch_{ch_counter:04d}.txt"
             filepath = os.path.join(save_directory, filename)
-            
-            with open(filepath, 'w', encoding='utf-8') as f:
-                f.write(f"{full_header}\n\n{cleaned_body}")
-            
-            print(f"   -> Saved: {full_header}")
 
-            # Update History
-            history_entry = {
-                "url": current_url,
-                "next_url": next_url,
-                "file": filename,
-                "title": full_header
-            }
+            if os.path.exists(filepath):
+                print(f"   -> Exists: {filename}")
+            else:
+                full_header, cleaned_body = extract_and_clean_chapter_data(
+                    content_el, soup, ch_counter
+                )
+                with open(filepath, "w", encoding="utf-8") as f:
+                    # Strict formatting required
+                    f.write(f"{full_header}\n\n{cleaned_body}")
+                print(f"   -> Saved: {full_header}")
+
+            # Save History
+            history_entry = {"url": current_url, "next_url": next_url, "file": filename}
             history_data.append(history_entry)
-            with open(json_path, 'w', encoding='utf-8') as f:
+            with open(json_path, "w") as f:
                 json.dump(history_data, f, indent=4)
 
-            # Loop Increment
-            if not next_url or next_url == current_url:
-                print("No more chapters found.")
+            ch_counter += 1
+
+            if not next_url:
+                print("No next chapter found. Ending scrape.")
                 break
 
             current_url = next_url
-            ch_counter += 1
             time.sleep(DELAY_BETWEEN_REQUESTS)
 
-    except KeyboardInterrupt:
-        print("\nScraper paused by user.")
     except Exception as e:
-        print(f"\nCritical Error: {e}")
+        print(f"Critical Error: {e}")
 
-if __name__ == '__main__':
-    scrape_novel()
+
+if __name__ == "__main__":
+    # Replace the start_url with the desired novel's first chapter URL
+    scrape_and_save_chapters(
+        "https://shenhuatranslations.com/after-taken-as-a-prisoner-of-war-the-vampire-queen-turned-me-into-a-vampire-and-made-me-her-daughter/atapow-prologue/"
+    )
+
+--- END OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/custom_scraper.py ---
+
+--- START OF FILE: ./Novels/Villainous_Saintess_CH/custom_scraper.py ---
+import json
+import os
+import re
+import time
+from urllib.parse import urljoin
+import requests
+from bs4 import BeautifulSoup
+
+# --- CONFIGURATION ---
+DELAY_BETWEEN_REQUESTS = 0.1  # Seconds
+# ---------------------
+
+
+def get_with_retries(session, url, headers, retries=3):
+    for i in range(retries):
+        try:
+            response = session.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            return response
+        except requests.exceptions.RequestException as e:
+            print(f"   [!] Error fetching {url}: {e}. Retrying ({i+1}/{retries})...")
+            time.sleep(2 * (i + 1))
+    return None
+
+
+def parse_chapter_title(raw_title, ch_counter):
+    """
+    Parses a raw Chinese page title and STRICTLY enforces the format:
+      "Chapter XX - CHAPTER TITLE"
+    Handles removing duplicate "Volume X Volume X" prefixes.
+    """
+    # Strip zero-width characters
+    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title).strip()
+
+    # 1. Strip repetitive volume markers (e.g., "第四卷 第四卷" -> "第四卷")
+    # Matches consecutive identical volume strings.
+    title = re.sub(r'(第[一二三四五六七八九十百千\d]+[卷部])\s*\1', r'\1', raw_title)
+
+    # 2. Strip standard volume markers entirely to isolate chapter number and title
+    stripped = re.sub(r'第[一二三四五六七八九十百千\d]+[卷部]\s*', '', title).strip()
+
+    # Match formats like "9~爱诺琳节" or "9 - 爱诺琳节"
+    m1 = re.match(r"^(\d+)\s*[~－\-:：_]\s*(.+)$", stripped)
+    if m1:
+        return f"Chapter {m1.group(1)} - {m1.group(2).strip()}"
+
+    # Match formats like "第9章 爱诺琳节"
+    m2 = re.match(r"^第(\d+)[章回节]\s*(.+)$", stripped)
+    if m2:
+        return f"Chapter {m2.group(1)} - {m2.group(2).strip()}"
+
+    # Match standalone chapter numbers like "第9章" or "9"
+    m3 = re.match(r"^(?:第)?(\d+)[章回节]?$", stripped)
+    if m3:
+        return f"Chapter {m3.group(1)}"
+
+    # Fallback: Prepend the counter to the cleaned raw title
+    return f"Chapter {ch_counter} - {stripped}"
+
+
+def clean_body_text(text):
+    """
+    Strips zero-width characters, watermarks, and trailing timestamps.
+    """
+    # Strip zero-width characters
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+
+    # Remove common URL/Read-at watermarks
+    text = re.sub(r"(?i)read\s+(at|on)\s+\w+\.com", "", text)
+
+    lines = text.rstrip().split("\n")
+
+    # Remove trailing date strings (e.g. "2026/01/25/00/20") commonly appended at the end
+    while lines:
+        last = lines[-1].strip()
+        if not last or re.match(r"^\d{4}/\d{2}/\d{2}(?:/\d{2}/\d{2})?$", last):
+            lines.pop()
+        else:
+            break
+
+    return "\n".join(lines).strip()
+
+
+def extract_and_clean_chapter_data(content_el, soup, ch_counter):
+    """
+    Targets the main content area, converts `<br>` to newlines, removes metadata lines.
+    Formats the final header strictly.
+    """
+    if not content_el:
+        return f"Chapter {ch_counter}", ""
+
+    # Extract the page title from H1 or fallback
+    page_title_el = soup.select_one(".bookname h1") or soup.select_one("h1")
+    extracted_title = page_title_el.get_text(strip=True) if page_title_el else f"Chapter {ch_counter}"
+
+    # Convert all <br> tags into newline characters before extracting text
+    for br in content_el.find_all("br"):
+        br.replace_with("\n")
+
+    # Get text content, filtering out empty lines
+    raw_body = content_el.get_text(separator="\n", strip=True)
+    lines = [line.strip() for line in raw_body.split("\n") if line.strip()]
+
+    # --- TITLE EXTRACTION & METADATA DEDUPLICATION ---
+    if lines:
+        while lines:
+            first_line = lines[0]
+
+            # Remove repeated chapter title strings (e.g., "第四卷 9~爱诺琳节")
+            if extracted_title.replace(" ", "") in first_line.replace(" ", "") or first_line.replace(" ", "") in extracted_title.replace(" ", ""):
+                lines.pop(0)
+                continue
+
+            # Remove metadata string blocks (e.g., "作者：汉唐归来 更新时间：2026/1/24...")
+            if "作者：" in first_line or "更新时间：" in first_line or "字数：" in first_line:
+                lines.pop(0)
+                continue
+
+            # If neither condition is met, we've reached the actual story text
+            break
+
+    # Clean body text formatting (paragraphs separated by double newlines)
+    cleaned_body = "\n\n".join(lines).strip()
+    cleaned_body = clean_body_text(cleaned_body)
+
+    # Parse the title securely
+    final_header = parse_chapter_title(extracted_title, ch_counter)
+
+    return final_header, cleaned_body
+
+
+def scrape_and_save_chapters(start_url, save_directory="Chinese_Novels"):
+    save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
+
+    if not os.path.exists(save_directory):
+        os.makedirs(save_directory)
+
+    json_path = os.path.join(save_directory, "chapters.json")
+    session = requests.Session()
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    }
+
+    # --- LOAD HISTORY & SET COUNTER ---
+    url_history_map = {}
+    history_data = []
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                history_data = json.load(f)
+                for entry in history_data:
+                    url_history_map[entry["url"]] = entry.get("next_url")
+        except:
+            pass
+
+    ch_counter = len(history_data) + 1
+    current_url = start_url
+
+    try:
+        while current_url:
+            if current_url in url_history_map and url_history_map[current_url]:
+                next_link = url_history_map[current_url]
+                print(f"Skipping (history): {current_url}")
+                current_url = next_link
+                continue
+
+            print(f"Processing: {current_url}")
+            response = get_with_retries(session, current_url, headers)
+            if not response:
+                break
+
+            # Use from_encoding="gbk" if site specifies it via meta tag
+            soup = BeautifulSoup(response.content, "html.parser", from_encoding="gbk")
+
+            # Extract basic info (Chinese sites usually use #content or #BookText)
+            content_el = soup.select_one("#content") or soup.select_one(".box_con #content")
+            if not content_el:
+                print("Content not found.")
+                break
+
+            # --- EXTRACT NEXT URL FIRST ---
+            next_url = None
+            # Target the specific anchor containing "下一章" (Next Chapter)
+            next_el = soup.find("a", string=re.compile(r"下一[章页]"))
+
+            if next_el and next_el.has_attr("href"):
+                raw_next_href = next_el["href"]
+                # Resolve relative URL against current URL
+                resolved_next_url = urljoin(current_url, raw_next_href)
+
+                # Check if it redirects back to the directory (often ending with '/')
+                if resolved_next_url != current_url and not raw_next_href.endswith("/"):
+                    next_url = resolved_next_url
+
+            # --- PROCESS CONTENT ---
+            filename = f"ch_{ch_counter:04d}.txt"
+            filepath = os.path.join(save_directory, filename)
+
+            if os.path.exists(filepath):
+                print(f"   -> Exists: {filename}")
+            else:
+                full_header, cleaned_body = extract_and_clean_chapter_data(
+                    content_el, soup, ch_counter
+                )
+                with open(filepath, "w", encoding="utf-8") as f:
+                    # Strict formatting
+                    f.write(f"{full_header}\n\n{cleaned_body}")
+                print(f"   -> Saved: {full_header}")
+
+            # Save History
+            history_entry = {"url": current_url, "next_url": next_url, "file": filename}
+            history_data.append(history_entry)
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(history_data, f, indent=4)
+
+            ch_counter += 1
+
+            if not next_url:
+                print("No next chapter found or returned to index. Ending scrape.")
+                break
+
+            current_url = next_url
+            time.sleep(DELAY_BETWEEN_REQUESTS)
+
+    except Exception as e:
+        print(f"Critical Error: {e}")
+
+
+if __name__ == "__main__":
+    # Start URL corresponding to the chapter provided
+    start_url = "https://www.xiaoxiaoshuo8.com/0_8/5537.html"
+    scrape_and_save_chapters(start_url)
+
 --- END OF FILE: ./Novels/Villainous_Saintess_CH/custom_scraper.py ---
 
 --- START OF FILE: ./Novels/Villainous_Saintess_CH/custom_metadata_scraper.py ---
@@ -13441,10 +15680,37 @@ import re
 import time
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
 
 # --- CONFIGURATION ---
 DELAY_BETWEEN_REQUESTS = 1.5  # Seconds
+# The site uses two domains interchangeably; normalize to the WordPress one.
+CANONICAL_DOMAIN = "magichousetldotcom.wordpress.com"
+ALTERNATE_DOMAIN = "magichousetl.com"
 # ---------------------
+
+
+def normalize_url(url, base_url=None):
+    """
+    Normalizes URLs so that magichousetl.com and
+    magichousetldotcom.wordpress.com are treated as the same site.
+    Converts relative URLs to absolute using base_url.
+    """
+    if not url:
+        return None
+
+    # Make absolute if relative
+    if base_url and not url.startswith(("http://", "https://")):
+        url = urljoin(base_url, url)
+
+    # Normalize the alternate domain to the canonical WordPress domain
+    parsed = urlparse(url)
+    if parsed.hostname and ALTERNATE_DOMAIN in parsed.hostname:
+        url = url.replace(f"http://{ALTERNATE_DOMAIN}", f"https://{CANONICAL_DOMAIN}", 1)
+        url = url.replace(f"https://{ALTERNATE_DOMAIN}", f"https://{CANONICAL_DOMAIN}", 1)
+
+    return url
+
 
 def get_with_retries(session, url, headers, retries=3):
     for i in range(retries):
@@ -13457,44 +15723,54 @@ def get_with_retries(session, url, headers, retries=3):
             time.sleep(2 * (i + 1))
     return None
 
+
 def parse_chapter_title(raw_title):
     """
     Parses raw titles like "C1— My Heart is That of an Uncle."
     into "Chapter 1 - My Heart is That of an Uncle."
     """
-    # Strip zero-width characters and excessive whitespace
-    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title).strip()
-    
-    # Handle WordPress format "C1— Title" or "Chapter 1: Title"
-    # Matches "C" or "Chapter" followed by digits
-    m = re.match(r"(?i)^(?:C|Chapter)\s*(\d+)\s*[—\-:.]\s*(.+)$", raw_title)
+    # Strip zero-width characters, non-breaking spaces, and excessive whitespace
+    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff\xa0]", " ", raw_title).strip()
+    raw_title = re.sub(r"\s+", " ", raw_title)
+
+    # Handle "C1— Title" or "C123— Title" format
+    m = re.match(r"(?i)^C(\d+)\s*[—\-:.]\s*(.+)$", raw_title)
     if m:
         return f"Chapter {m.group(1)} - {m.group(2).strip()}"
 
-    # Fallback if it only contains the chapter number
+    # Handle "Chapter 1: Title" or "Chapter 1 - Title"
+    m = re.match(r"(?i)^Chapter\s*(\d+)\s*[—\-:.]\s*(.+)$", raw_title)
+    if m:
+        return f"Chapter {m.group(1)} - {m.group(2).strip()}"
+
+    # Fallback: chapter number only
     m2 = re.match(r"(?i)^(?:C|Chapter)\s*(\d+)\s*$", raw_title)
     if m2:
         return f"Chapter {m2.group(1)}"
 
     return raw_title
 
+
 def clean_body_text(text):
     """
     Strips zero-width characters, site watermarks, and trailing junk.
     """
-    # Strip zero-width characters
+    # Strip zero-width characters and non-breaking spaces
     text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+    text = re.sub(r"\xa0", " ", text)
 
     # Remove common watermarks/credit lines
     text = re.sub(r"(?i)read\s+(at|on)\s+magichousetl\.com", "", text)
     text = re.sub(r"(?i)translated\s+by.*?\n", "", text)
     text = re.sub(r"(?i)check\s+out\s+our\s+patreon.*?\n", "", text)
 
+    # Collapse triple+ newlines into double
+    text = re.sub(r"\n{3,}", "\n\n", text)
+
     # Remove short trailing credit/watermark lines or navigation artifacts
     lines = text.rstrip().split("\n")
     while lines:
         last = lines[-1].strip()
-        # If the line is very short or looks like a navigation button label
         if not last or (len(last) < 40 and not any(c in last for c in ".?!,;:")):
             lines.pop()
         else:
@@ -13502,81 +15778,165 @@ def clean_body_text(text):
 
     return "\n".join(lines).strip()
 
+
 def extract_and_clean_chapter_data(soup, ch_num):
     """
     Targets the main content area and extracts cleaned title and body.
     """
-    # Target Title
+    # --- Extract Title ---
     title_el = soup.select_one("h1.wp-block-post-title") or soup.select_one(".entry-title")
     extracted_title = title_el.get_text(strip=True) if title_el else f"Chapter {ch_num}"
 
-    # Target Content (WordPress Block Editor or Classic)
+    # --- Extract Content ---
     content_el = soup.select_one(".wp-block-post-content") or soup.select_one(".entry-content")
 
     if not content_el:
         return f"Chapter {ch_num}", ""
 
-    # 1. Decompose UI elements, social buttons, and navigation blocks
-    # WordPress usually wraps navigation in wp-block-buttons or sharedaddy
-    for junk in content_el.find_all(
-        ["script", "style", "div", "section", "button", "nav"],
-        class_=[
-            "wp-block-buttons", 
-            "sharedaddy", 
-            "jp-post-flair", 
-            "paragraph-tools",
-            "social-share",
-            "wpcnt",
-            "entry-meta"
-        ],
-    ):
-        junk.decompose()
+    # 1. Remove images (cover art, inline images)
+    for fig in content_el.find_all("figure", class_="wp-block-image"):
+        fig.decompose()
 
-    # 2. Extract Text
+    # 2. Remove navigation button groups (Next / ToC / Previous)
+    for btn_group in content_el.find_all("div", class_="wp-block-buttons"):
+        btn_group.decompose()
+
+    # 3. Remove "Latest Posts" sidebar lists
+    for latest in content_el.find_all("ul", class_="wp-block-latest-posts__list"):
+        latest.decompose()
+    for latest in content_el.find_all(class_=re.compile(r"wp-block-latest-posts")):
+        latest.decompose()
+
+    # 4. Remove spacers
+    for spacer in content_el.find_all("div", class_="wp-block-spacer"):
+        spacer.decompose()
+
+    # 5. Remove separators / horizontal rules
+    for sep in content_el.find_all("hr", class_="wp-block-separator"):
+        sep.decompose()
+
+    # 6. Remove social sharing, likes, post flair
+    for selector in [
+        "#jp-post-flair",
+        ".sharedaddy",
+        ".sd-sharing-enabled",
+        ".jetpack-likes-widget-wrapper",
+    ]:
+        for el in content_el.select(selector):
+            el.decompose()
+
+    # 7. Remove post metadata groups (date, author, category at bottom)
+    #    These are nested .wp-block-group containing .wp-block-post-date,
+    #    .wp-block-post-author, .wp-block-post-terms
+    for meta_el in content_el.find_all(class_="wp-block-post-date"):
+        # Walk up to the containing group and remove it
+        parent_group = meta_el.find_parent("div", class_="wp-block-group")
+        if parent_group:
+            parent_group.decompose()
+        else:
+            meta_el.decompose()
+
+    for meta_el in content_el.find_all(class_="wp-block-post-author"):
+        meta_el.decompose()
+    for meta_el in content_el.find_all(class_="wp-block-post-terms"):
+        meta_el.decompose()
+
+    # 8. Remove comments section
+    for comments in content_el.find_all("div", class_="wp-block-post-comments"):
+        comments.decompose()
+    for comments in content_el.find_all("ol", class_="commentlist"):
+        comments.decompose()
+    for comments in content_el.find_all("div", id="respond"):
+        comments.decompose()
+
+    # 9. Remove scripts and styles
+    for tag in content_el.find_all(["script", "style"]):
+        tag.decompose()
+
+    # --- Build Text ---
     cleaned_body = content_el.get_text(separator="\n\n", strip=True)
 
-    # --- TITLE DEDUPLICATION ---
+    # --- EXTRACT IN-BODY CHAPTER TITLE ---
+    # The real chapter title is often the first line of the body text, e.g.:
+    #   "Chapter 1: Uncle's Perception and the Fantasy World"
+    # The post heading is typically just the novel name with a chapter number.
     lines = cleaned_body.split("\n")
     while lines and not lines[0].strip():
         lines.pop(0)
 
+    in_body_title = None
     if lines:
         first_line = lines[0].strip()
-        # If the first line of text is basically the title, remove it
-        if (
-            (extracted_title.lower() in first_line.lower())
-            or (first_line.lower() in extracted_title.lower())
-            or (len(first_line) < 100 and (re.search(r"(?i)^chapter\s+\d+", first_line) or re.search(r"(?i)^c\d+", first_line)))
-        ):
+        # Check if the first line looks like a chapter heading
+        ch_match = re.match(
+            r"(?i)^(?:Chapter\s*(\d+)\s*[:\-—.]\s*(.+)|C(\d+)\s*[:\-—.]\s*(.+))$",
+            first_line,
+        )
+        if ch_match:
+            # Extract the chapter number and subtitle from the in-body title
+            num = ch_match.group(1) or ch_match.group(3)
+            subtitle = ch_match.group(2) or ch_match.group(4)
+            in_body_title = f"Chapter {num} - {subtitle.strip()}"
+            # Remove this line from the body since we're using it as the title
             cleaned_body = "\n".join(lines[1:]).strip()
+        else:
+            # No in-body chapter title found; check if first line duplicates the
+            # post heading and remove it if so
+            title_lower = extracted_title.lower().strip()
+            first_lower = first_line.lower().strip()
+            if (
+                (title_lower in first_lower)
+                or (first_lower in title_lower)
+            ):
+                cleaned_body = "\n".join(lines[1:]).strip()
 
-    # Clean body text (watermarks, credits)
+    # Clean body text (watermarks, credits, excess whitespace)
     cleaned_body = clean_body_text(cleaned_body)
 
-    # Format Header
-    final_header = parse_chapter_title(extracted_title)
+    # Use the in-body chapter title if found, otherwise fall back to the post title
+    if in_body_title:
+        final_header = in_body_title
+    else:
+        final_header = parse_chapter_title(extracted_title)
 
     return final_header, cleaned_body
 
-def find_next_url(soup):
+
+def find_next_url(soup, current_url):
     """
     Finds the next chapter link using rel="next" or text-based search.
+    Returns a normalized absolute URL or None.
     """
     # Priority 1: rel="next"
     next_link = soup.find("a", rel="next")
     if next_link and next_link.get("href"):
-        return next_link["href"]
+        return normalize_url(next_link["href"], current_url)
 
-    # Priority 2: <a> containing "Next" inside a button or nav div
+    # Priority 2: <a> containing "Next" inside a wp-block-button
     for a in soup.find_all("a", href=True):
-        text = a.get_text().lower()
-        if "next" in text and "previous" not in text:
-            # Ensure it's not a generic sidebar link by checking parent classes
-            parent = a.find_parent("div", class_=["wp-block-button", "nav-links", "navigation"])
+        text = a.get_text(strip=True).lower()
+        if text == "next" or text.startswith("next "):
+            # Make sure it's inside a navigation button, not a random sidebar link
+            parent = a.find_parent(
+                "div",
+                class_=lambda c: c and (
+                    "wp-block-button" in c
+                    or "nav-links" in c
+                    or "navigation" in c
+                ),
+            )
             if parent:
-                return a["href"]
-                
+                return normalize_url(a["href"], current_url)
+
+    # Priority 3: Broader search — any <a> with "Next" as sole text
+    #             inside .wp-block-buttons container
+    for container in soup.find_all("div", class_="wp-block-buttons"):
+        for a in container.find_all("a", href=True):
+            if a.get_text(strip=True).lower() in ("next", "next chapter", "next →"):
+                return normalize_url(a["href"], current_url)
+
     return None
+
 
 def scrape_and_save_chapters(start_url, save_directory="MagicHouseTL_Novels"):
     save_directory = os.getenv("PROJECT_RAW_TEXT_DIR", save_directory)
@@ -13587,7 +15947,11 @@ def scrape_and_save_chapters(start_url, save_directory="MagicHouseTL_Novels"):
     json_path = os.path.join(save_directory, "chapters.json")
     session = requests.Session()
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
     }
 
     # --- LOAD HISTORY ---
@@ -13598,18 +15962,23 @@ def scrape_and_save_chapters(start_url, save_directory="MagicHouseTL_Novels"):
             with open(json_path, "r", encoding="utf-8") as f:
                 history_data = json.load(f)
                 for entry in history_data:
-                    url_history_map[entry["url"]] = entry.get("next_url")
-        except:
+                    # Normalize stored URLs too for consistent matching
+                    norm_url = normalize_url(entry["url"])
+                    norm_next = normalize_url(entry.get("next_url"))
+                    url_history_map[norm_url] = norm_next
+        except Exception:
             pass
 
     ch_counter = len(history_data) + 1
-    current_url = start_url
+    current_url = normalize_url(start_url)
 
     try:
         while current_url:
+            norm_current = normalize_url(current_url)
+
             # Resume/Skip logic
-            if current_url in url_history_map and url_history_map[current_url]:
-                next_link = url_history_map[current_url]
+            if norm_current in url_history_map and url_history_map[norm_current]:
+                next_link = url_history_map[norm_current]
                 print(f"Skipping (history): {current_url}")
                 current_url = next_link
                 continue
@@ -13621,8 +15990,14 @@ def scrape_and_save_chapters(start_url, save_directory="MagicHouseTL_Novels"):
 
             soup = BeautifulSoup(response.content, "html.parser")
 
-            # Extract data
+            # Find Next URL FIRST — before content cleaning destroys nav buttons
+            next_url = find_next_url(soup, current_url)
+
+            # Extract data (this mutates/destroys parts of soup)
             full_header, cleaned_body = extract_and_clean_chapter_data(soup, ch_counter)
+
+            if not cleaned_body:
+                print(f"   [!] WARNING: No body text extracted for {current_url}")
 
             # Generate Filename
             filename = f"ch_{ch_counter:04d}.txt"
@@ -13637,11 +16012,12 @@ def scrape_and_save_chapters(start_url, save_directory="MagicHouseTL_Novels"):
             else:
                 print(f"   -> Already exists: {filename}")
 
-            # Find Next URL
-            next_url = find_next_url(soup)
-
-            # Update History
-            history_entry = {"url": current_url, "next_url": next_url, "file": filename}
+            # Update History (store normalized URLs)
+            history_entry = {
+                "url": norm_current,
+                "next_url": normalize_url(next_url) if next_url else None,
+                "file": filename,
+            }
             history_data.append(history_entry)
             with open(json_path, "w", encoding="utf-8") as f:
                 json.dump(history_data, f, indent=4)
@@ -13654,13 +16030,18 @@ def scrape_and_save_chapters(start_url, save_directory="MagicHouseTL_Novels"):
             ch_counter += 1
             time.sleep(DELAY_BETWEEN_REQUESTS)
 
+    except KeyboardInterrupt:
+        print("\nInterrupted by user. Progress saved.")
     except Exception as e:
         print(f"Critical Error: {e}")
+        import traceback
+        traceback.print_exc()
+
 
 if __name__ == "__main__":
-    # Example URL based on the provided HTML
     FIRST_CHAPTER_URL = "https://magichousetldotcom.wordpress.com/2024/06/03/c1-my-heart-is-that-of-an-uncle/"
     scrape_and_save_chapters(FIRST_CHAPTER_URL)
+
 --- END OF FILE: ./Novels/myheartisthatofanuncle/custom_scraper.py ---
 
 --- START OF FILE: ./Novels/BetrayedPrincess/custom_scraper.py ---
@@ -14900,3 +17281,778 @@ if __name__ == "__main__":
         print("Usage: python scraper_context_fetcher.py <url> <project_dir>")
 
 --- END OF FILE: ./backup/scraper_context_fetcher.py ---
+
+--- START OF FILE: ./tests/test_translation.py ---
+"""Tests for glossary and title reformatting (gemini/grok translate modules)"""
+import json
+import os
+import re
+import tempfile
+import unittest
+
+
+def load_glossary_from_json(filepath):
+    default = {"characters": {}, "places": {}}
+    if not os.path.exists(filepath):
+        return default
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            data.setdefault("characters", {})
+            data.setdefault("places", {})
+            return data
+    except (json.JSONDecodeError, IOError):
+        return default
+
+
+def save_glossary_to_json(filepath, data):
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
+
+
+def reformat_chapter_title_in_text(text_content):
+    if not text_content or not text_content.strip():
+        return text_content
+    lines = text_content.split("\n", 1)
+    first_line = lines[0]
+    rest = lines[1] if len(lines) > 1 else ""
+    match = re.match(r"^(Chapter\s*\d+)\s*[:\-–—]?\s*(.*)", first_line, re.IGNORECASE)
+    if match:
+        ch, title = match.group(1).strip(), match.group(2).strip()
+        header = f"{ch} - {title}" if title else ch
+        return f"{header}\n{rest}"
+    num = re.match(r"^(\d+)\s+(.*)", first_line)
+    if num:
+        try:
+            return f"Chapter {int(num.group(1))} - {num.group(2).strip()}\n{rest}"
+        except ValueError:
+            pass
+    return text_content
+
+
+class TestLoadGlossary(unittest.TestCase):
+    def test_missing_file(self):
+        self.assertEqual(load_glossary_from_json("/tmp/nonexistent_abc123.json"),
+                         {"characters": {}, "places": {}})
+
+    def test_valid_file(self):
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
+            json.dump({"characters": {"兰波": {"pinyin": "Lan Bo"}}, "places": {}}, f)
+            path = f.name
+        try:
+            result = load_glossary_from_json(path)
+            self.assertIn("兰波", result["characters"])
+        finally:
+            os.unlink(path)
+
+    def test_missing_characters_key(self):
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
+            json.dump({"places": {}}, f)
+            path = f.name
+        try:
+            result = load_glossary_from_json(path)
+            self.assertIn("characters", result)
+        finally:
+            os.unlink(path)
+
+    def test_corrupt_json(self):
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
+            f.write("{bad json")
+            path = f.name
+        try:
+            self.assertEqual(load_glossary_from_json(path),
+                             {"characters": {}, "places": {}})
+        finally:
+            os.unlink(path)
+
+
+class TestSaveGlossary(unittest.TestCase):
+    def test_round_trip(self):
+        data = {"characters": {"张三": {"pinyin": "Zhang San"}}, "places": {}}
+        with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as f:
+            path = f.name
+        try:
+            save_glossary_to_json(path, data)
+            loaded = load_glossary_from_json(path)
+            self.assertEqual(loaded["characters"]["张三"]["pinyin"], "Zhang San")
+        finally:
+            os.unlink(path)
+
+    def test_unicode_preserved(self):
+        data = {"characters": {"白蛇": {"name": "White Snake"}}, "places": {}}
+        with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as f:
+            path = f.name
+        try:
+            save_glossary_to_json(path, data)
+            with open(path, encoding="utf-8") as fh:
+                raw = fh.read()
+            self.assertIn("白蛇", raw)
+        finally:
+            os.unlink(path)
+
+
+class TestReformatChapterTitle(unittest.TestCase):
+    def test_colon(self):
+        self.assertTrue(
+            reformat_chapter_title_in_text("Chapter 5: The Dream\nBody.").startswith("Chapter 5 - The Dream"))
+
+    def test_dash(self):
+        self.assertTrue(
+            reformat_chapter_title_in_text("Chapter 10 - Awakening\nBody.").startswith("Chapter 10 - Awakening"))
+
+    def test_em_dash(self):
+        self.assertTrue(
+            reformat_chapter_title_in_text("Chapter 3—Escape\nBody.").startswith("Chapter 3 - Escape"))
+
+    def test_numeric_first_line(self):
+        self.assertTrue(
+            reformat_chapter_title_in_text("42 The Answer\nBody.").startswith("Chapter 42 - The Answer"))
+
+    def test_no_subtitle(self):
+        self.assertTrue(
+            reformat_chapter_title_in_text("Chapter 7\nBody.").startswith("Chapter 7"))
+
+    def test_unrecognized_unchanged(self):
+        text = "Epilogue\nBody text."
+        self.assertEqual(reformat_chapter_title_in_text(text), text)
+
+    def test_empty(self):
+        self.assertEqual(reformat_chapter_title_in_text(""), "")
+
+    def test_body_preserved(self):
+        result = reformat_chapter_title_in_text("Chapter 1: Start\nParagraph one.\nParagraph two.")
+        self.assertIn("Paragraph one.", result)
+        self.assertIn("Paragraph two.", result)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+--- END OF FILE: ./tests/test_translation.py ---
+
+--- START OF FILE: ./tests/test_utilities.py ---
+"""
+Tests for utility functions across multiple modules:
+- scraper_context_fetcher.py: extract_code_block
+- metadata_fetcher.py: sanitize_generated_code, default_metadata_extraction
+- tag_audiobook_files_opus_3.py: get_track_number, get_chapter_title_from_text
+- convert_audio_to_opus_3.py: normalize_audio
+"""
+import os
+import re
+import tempfile
+import unittest
+
+
+# === extract_code_block (scraper_context_fetcher.py) ===
+
+def extract_code_block(response_text):
+    pattern = r"```python\s*(.*?)\s*```"
+    match = re.search(pattern, response_text, re.DOTALL)
+    if match:
+        return match.group(1)
+    return response_text
+
+
+class TestExtractCodeBlock(unittest.TestCase):
+    def test_extracts_python(self):
+        self.assertEqual(extract_code_block('Intro\n```python\nprint("hi")\n```\nOutro'),
+                         'print("hi")')
+
+    def test_no_fence_returns_original(self):
+        text = "Just plain text."
+        self.assertEqual(extract_code_block(text), text)
+
+    def test_first_block_only(self):
+        self.assertEqual(extract_code_block('```python\nfirst\n```\n```python\nsecond\n```'), "first")
+
+    def test_multiline(self):
+        result = extract_code_block('```python\nimport os\nprint(os.getcwd())\n```')
+        self.assertIn("import os", result)
+        self.assertIn("print(os.getcwd())", result)
+
+    def test_non_python_ignored(self):
+        text = '```javascript\nconsole.log("hi")\n```'
+        self.assertEqual(extract_code_block(text), text)
+
+
+# === sanitize_generated_code (metadata_fetcher.py) ===
+
+def sanitize_generated_code(code):
+    lines = code.split("\n")
+    cleaned = []
+    for line in lines:
+        if "sys.stdin" in line or "input(" in line:
+            cleaned.append(f"    # [Auto-Removed Blocking Input]: {line.strip()}")
+            cleaned.append("    pass")
+        else:
+            cleaned.append(line)
+    return "\n".join(cleaned)
+
+
+class TestSanitizeCode(unittest.TestCase):
+    def test_removes_input(self):
+        result = sanitize_generated_code('x = input("val")\nprint(x)')
+        # The original input line should only appear in the comment
+        self.assertIn("pass", result)
+        self.assertIn("print(x)", result)
+
+    def test_removes_stdin(self):
+        result = sanitize_generated_code('data = sys.stdin.read()\nprocess(data)')
+        self.assertIn("pass", result)
+        self.assertIn("process(data)", result)
+
+    def test_clean_code_unchanged(self):
+        code = 'import os\nprint("hello")'
+        self.assertEqual(sanitize_generated_code(code), code)
+
+    def test_multiple_blocking(self):
+        code = 'a = input("a")\nb = input("b")\nprint(a, b)'
+        self.assertEqual(sanitize_generated_code(code).count("pass"), 2)
+
+
+# === default_metadata_extraction (metadata_fetcher.py) ===
+
+try:
+    from bs4 import BeautifulSoup
+    BS4 = True
+except ImportError:
+    BS4 = False
+
+
+def default_metadata_extraction(html, url):
+    soup = BeautifulSoup(html, "html.parser")
+    data = {"title": "Unknown Title", "author": "Unknown Author",
+            "description": "", "cover_url": ""}
+    og_title = soup.find("meta", property="og:title")
+    if og_title:
+        data["title"] = og_title.get("content", "").replace("– Dobytranslations", "").strip()
+    else:
+        h1 = soup.select_one("h1.entry-title")
+        if h1:
+            data["title"] = h1.get_text(strip=True)
+    og_image = soup.find("meta", property="og:image")
+    if og_image:
+        data["cover_url"] = og_image.get("content", "")
+    og_desc = soup.find("meta", property="og:description")
+    if og_desc:
+        data["description"] = og_desc.get("content", "")
+    return data
+
+
+@unittest.skipUnless(BS4, "beautifulsoup4 not installed")
+class TestMetadataExtraction(unittest.TestCase):
+    def test_og_title(self):
+        html = '<html><head><meta property="og:title" content="My Novel" /></head></html>'
+        self.assertEqual(default_metadata_extraction(html, "")["title"], "My Novel")
+
+    def test_strips_doby(self):
+        html = '<html><head><meta property="og:title" content="Novel – Dobytranslations" /></head></html>'
+        self.assertEqual(default_metadata_extraction(html, "")["title"], "Novel")
+
+    def test_h1_fallback(self):
+        html = '<html><body><h1 class="entry-title">Fallback</h1></body></html>'
+        self.assertEqual(default_metadata_extraction(html, "")["title"], "Fallback")
+
+    def test_cover_url(self):
+        html = '<html><head><meta property="og:image" content="http://img.com/c.jpg" /></head></html>'
+        self.assertEqual(default_metadata_extraction(html, "")["cover_url"], "http://img.com/c.jpg")
+
+    def test_description(self):
+        html = '<html><head><meta property="og:description" content="Great story." /></head></html>'
+        self.assertEqual(default_metadata_extraction(html, "")["description"], "Great story.")
+
+    def test_defaults(self):
+        result = default_metadata_extraction("<html><body></body></html>", "")
+        self.assertEqual(result["title"], "Unknown Title")
+        self.assertEqual(result["author"], "Unknown Author")
+
+
+# === get_track_number (tag_audiobook_files_opus_3.py) ===
+
+def get_track_number(filename):
+    matches = re.findall(r"(\d+)", filename)
+    return int(matches[-1]) if matches else None
+
+
+class TestGetTrackNumber(unittest.TestCase):
+    def test_standard(self):
+        self.assertEqual(get_track_number("ch_0042.opus"), 42)
+
+    def test_multiple_numbers(self):
+        self.assertEqual(get_track_number("vol_02_ch_0015.opus"), 15)
+
+    def test_no_numbers(self):
+        self.assertIsNone(get_track_number("prologue.opus"))
+
+    def test_simple(self):
+        self.assertEqual(get_track_number("track7.opus"), 7)
+
+
+# === get_chapter_title_from_text (tag_audiobook_files_opus_3.py) ===
+
+def get_chapter_title_from_text(track_num, text_dir):
+    if not text_dir or not os.path.exists(text_dir):
+        return None
+    txt_path = os.path.join(text_dir, f"ch_{track_num:04d}.txt")
+    if os.path.exists(txt_path):
+        try:
+            with open(txt_path, "r", encoding="utf-8") as f:
+                first_line = f.readline().strip()
+                return first_line if first_line else None
+        except Exception:
+            pass
+    return None
+
+
+class TestGetChapterTitle(unittest.TestCase):
+    def test_reads_first_line(self):
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "ch_0001.txt"), "w") as f:
+                f.write("Chapter 1 - Start\n\nBody.")
+            self.assertEqual(get_chapter_title_from_text(1, d), "Chapter 1 - Start")
+
+    def test_missing_file(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertIsNone(get_chapter_title_from_text(999, d))
+
+    def test_empty_file(self):
+        with tempfile.TemporaryDirectory() as d:
+            with open(os.path.join(d, "ch_0002.txt"), "w") as f:
+                f.write("")
+            self.assertIsNone(get_chapter_title_from_text(2, d))
+
+    def test_bad_dir(self):
+        self.assertIsNone(get_chapter_title_from_text(1, "/nonexistent"))
+
+
+# === normalize_audio (convert_audio_to_opus_3.py) ===
+
+class MockAudio:
+    def __init__(self, dbfs):
+        self._dbfs = dbfs
+        self.gain_applied = 0
+
+    @property
+    def dBFS(self):
+        return self._dbfs
+
+    def apply_gain(self, gain):
+        new = MockAudio(self._dbfs + gain)
+        new.gain_applied = gain
+        return new
+
+
+def normalize_audio(sound, target_dbfs):
+    if sound.dBFS == float("-inf"):
+        return sound
+    return sound.apply_gain(target_dbfs - sound.dBFS)
+
+
+class TestNormalizeAudio(unittest.TestCase):
+    def test_quiet_boosted(self):
+        self.assertAlmostEqual(normalize_audio(MockAudio(-30.0), -20.0).gain_applied, 10.0)
+
+    def test_loud_reduced(self):
+        self.assertAlmostEqual(normalize_audio(MockAudio(-10.0), -20.0).gain_applied, -10.0)
+
+    def test_at_target(self):
+        self.assertAlmostEqual(normalize_audio(MockAudio(-20.0), -20.0).gain_applied, 0.0)
+
+    def test_silent_unchanged(self):
+        audio = MockAudio(float("-inf"))
+        self.assertIs(normalize_audio(audio, -20.0), audio)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+--- END OF FILE: ./tests/test_utilities.py ---
+
+--- START OF FILE: ./tests/test_scraper.py ---
+"""Tests for scraper_2.py — parse_chapter_title, clean_body_text"""
+import re
+import unittest
+
+
+def parse_chapter_title(raw_title):
+    raw_title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title)
+    stripped = re.sub(r"(?i)^volume\s+\d+\s*,\s*", "", raw_title).strip()
+    m = re.match(r"(?i)^chapter\s+(\d+)\s*[–—\-:]\s*(.+)$", stripped)
+    if m:
+        return f"Chapter {m.group(1)} - {m.group(2).strip()}"
+    m2 = re.match(r"(?i)^chapter\s+(\d+)\s*$", stripped)
+    if m2:
+        return f"Chapter {m2.group(1)}"
+    return stripped
+
+
+def clean_body_text(text):
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+    text = re.sub(r"(?i)read\s+(at|on)\s+\w+\.com", "", text)
+    text = re.sub(r"(?i)translated by.*?\n", "", text)
+    lines = text.rstrip().split("\n")
+    while lines:
+        last = lines[-1].strip()
+        if not last or (len(last) < 40 and not any(c in last for c in ".?!,;:")):
+            lines.pop()
+        else:
+            break
+    return "\n".join(lines).strip()
+
+
+class TestParseChapterTitle(unittest.TestCase):
+    def test_volume_and_subtitle(self):
+        self.assertEqual(
+            parse_chapter_title("Volume 1, Chapter 0 – Prologue: A Clumsy Transmigration"),
+            "Chapter 0 - Prologue: A Clumsy Transmigration")
+
+    def test_no_volume(self):
+        self.assertEqual(parse_chapter_title("Chapter 42 – The Final Battle"),
+                         "Chapter 42 - The Final Battle")
+
+    def test_chapter_only(self):
+        self.assertEqual(parse_chapter_title("Chapter 7"), "Chapter 7")
+
+    def test_em_dash(self):
+        self.assertEqual(parse_chapter_title("Chapter 100—Awakening"),
+                         "Chapter 100 - Awakening")
+
+    def test_colon(self):
+        self.assertEqual(parse_chapter_title("Chapter 5: The Dream"),
+                         "Chapter 5 - The Dream")
+
+    def test_zero_width_stripped(self):
+        self.assertEqual(parse_chapter_title("Chapter\u200b 3\u200d – Hidden"),
+                         "Chapter 3 - Hidden")
+
+    def test_case_insensitive_volume(self):
+        self.assertEqual(parse_chapter_title("VOLUME 2, chapter 10 – Reunion"),
+                         "Chapter 10 - Reunion")
+
+    def test_fallback_non_chapter(self):
+        self.assertEqual(parse_chapter_title("Epilogue: After the Storm"),
+                         "Epilogue: After the Storm")
+
+    def test_empty(self):
+        self.assertEqual(parse_chapter_title(""), "")
+
+    def test_whitespace(self):
+        self.assertEqual(parse_chapter_title("   "), "")
+
+    def test_volume_no_chapter(self):
+        self.assertEqual(parse_chapter_title("Volume 3, Prologue"), "Prologue")
+
+
+class TestCleanBodyText(unittest.TestCase):
+    def test_zero_width_removed(self):
+        self.assertEqual(clean_body_text("Hello\u200bWorld\ufeff!"), "HelloWorld!")
+
+    def test_read_at_watermark(self):
+        result = clean_body_text("Some story text.\nRead at example.com\nMore text.")
+        self.assertNotIn("Read at", result)
+        self.assertIn("More text.", result)
+
+    def test_read_on_watermark(self):
+        self.assertNotIn("read on", clean_body_text("Story.\nread on novelsite.com\nEnd."))
+
+    def test_translated_by_watermark(self):
+        self.assertNotIn("Translated by",
+                         clean_body_text("Story text.\nTranslated by SomeTeam\nMore story."))
+
+    def test_trailing_credit_stripped(self):
+        self.assertEqual(clean_body_text("Last real sentence.\nRedZTL\nTL handle"),
+                         "Last real sentence.")
+
+    def test_keeps_punctuated_trailing(self):
+        self.assertIn("This is also real",
+                      clean_body_text("Last real sentence.\nThis is also real, with commas."))
+
+    def test_empty(self):
+        self.assertEqual(clean_body_text(""), "")
+
+    def test_all_short_trailing_removed(self):
+        self.assertEqual(clean_body_text("Real content here.\nfoo\nbar\nbaz"),
+                         "Real content here.")
+
+    def test_short_with_sentence_ending_kept(self):
+        self.assertIn("Yes!", clean_body_text("Real content.\nYes!"))
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+--- END OF FILE: ./tests/test_scraper.py ---
+
+--- START OF FILE: ./tests/test_tts_splitting.py ---
+"""Tests for alltalk_tts_generator — text splitting and normalization"""
+import math
+import re
+import unittest
+
+AVG_CHARS_PER_TOKEN = 1.9
+FALLBACK_TOKEN_LIMIT = 170
+
+
+def _estimate_tokens(text, avg_chars_per_token=AVG_CHARS_PER_TOKEN):
+    if not text:
+        return 0
+    return math.ceil(len(text) / max(1.0, avg_chars_per_token))
+
+
+def normalize_text(text):
+    replacements = {
+        "\u201c": '"', "\u201d": '"', "\u2018": "'", "\u2019": "'",
+        "\u2026": "...", "\u2014": "-", "\u2013": "-",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    text = text.replace(".", ". ")
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
+def _split_by_force_chars(text_content, char_limit):
+    if len(text_content) <= char_limit:
+        return [text_content]
+    chunks = []
+    start = 0
+    while start < len(text_content):
+        end = min(start + int(char_limit), len(text_content))
+        if end < len(text_content):
+            space = text_content.rfind(" ", start, end)
+            if space != -1 and space > start:
+                end = space
+        chunk = text_content[start:end].strip()
+        if chunk:
+            chunks.append(chunk)
+        start = end + 1
+    return chunks
+
+
+def _simple_sent_tokenize(text):
+    return [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
+
+
+def _split_by_sentence_groups(text_content, token_limit, avg_cpt):
+    char_limit = token_limit * avg_cpt
+    sentences = _simple_sent_tokenize(text_content)
+    if not sentences:
+        return []
+    chunks, buf, buf_tok = [], [], 0
+    for s in sentences:
+        s = s.strip()
+        if not s:
+            continue
+        est = _estimate_tokens(s, avg_cpt)
+        if est > token_limit:
+            if buf:
+                chunks.append(" ".join(buf)); buf, buf_tok = [], 0
+            chunks.extend(_split_by_force_chars(s, char_limit))
+        elif buf_tok + est <= token_limit:
+            buf.append(s); buf_tok += est
+        else:
+            if buf:
+                chunks.append(" ".join(buf))
+            buf, buf_tok = [s], est
+    if buf:
+        chunks.append(" ".join(buf))
+    return [c for c in chunks if c.strip()]
+
+
+def _split_by_line_groups(text_content, token_limit, avg_cpt):
+    if not text_content or not text_content.strip():
+        return []
+    lines = [l.strip() for l in text_content.split("\n") if l.strip()]
+    if not lines:
+        return []
+    chunks, buf, buf_tok = [], [], 0
+    for line in lines:
+        est = _estimate_tokens(line, avg_cpt)
+        if est > token_limit:
+            if buf:
+                chunks.append("\n".join(buf)); buf, buf_tok = [], 0
+            chunks.extend(_split_by_sentence_groups(line, token_limit, avg_cpt))
+        elif buf_tok + est <= token_limit:
+            buf.append(line); buf_tok += est
+        else:
+            if buf:
+                chunks.append("\n".join(buf))
+            buf, buf_tok = [line], est
+    if buf:
+        chunks.append("\n".join(buf))
+    return [c for c in chunks if c.strip()]
+
+
+class TestEstimateTokens(unittest.TestCase):
+    def test_empty(self):
+        self.assertEqual(_estimate_tokens(""), 0)
+
+    def test_none(self):
+        self.assertEqual(_estimate_tokens(None), 0)
+
+    def test_short(self):
+        self.assertEqual(_estimate_tokens("Hello"), 3)  # 5/1.9 → ceil = 3
+
+    def test_exact(self):
+        self.assertEqual(_estimate_tokens("A" * 190), 100)
+
+    def test_custom_ratio(self):
+        self.assertEqual(_estimate_tokens("ABCDEF", 3.0), 2)
+
+
+class TestNormalizeText(unittest.TestCase):
+    def test_smart_quotes(self):
+        result = normalize_text("\u201cHello,\u201d she said")
+        self.assertIn('"Hello,"', result)
+        self.assertNotIn("\u201c", result)
+
+    def test_em_dash(self):
+        result = normalize_text("word\u2014word")
+        self.assertIn("-", result)
+        self.assertNotIn("\u2014", result)
+
+    def test_ellipsis(self):
+        # … → ... → ". . . " because normalize_text also adds space after every period
+        result = normalize_text("wait\u2026")
+        self.assertNotIn("\u2026", result)  # original ellipsis removed
+
+    def test_period_spacing(self):
+        self.assertIn("end. start", normalize_text("end.start"))
+
+    def test_double_spaces_collapsed(self):
+        self.assertNotIn("  ", normalize_text("too   many    spaces"))
+
+
+class TestSplitByForceChars(unittest.TestCase):
+    def test_short_not_split(self):
+        self.assertEqual(_split_by_force_chars("Short.", 100), ["Short."])
+
+    def test_splits_needed(self):
+        text = ("word " * 20).strip()
+        chunks = _split_by_force_chars(text, 50)
+        self.assertGreaterEqual(len(chunks), 2)
+
+    def test_no_empty_chunks(self):
+        chunks = _split_by_force_chars("Hello world. This is a test.", 20)
+        for c in chunks:
+            self.assertTrue(c.strip())
+
+    def test_single_long_word(self):
+        text = "A" * 200
+        chunks = _split_by_force_chars(text, 50)
+        self.assertGreaterEqual(len(chunks), 4)
+        # Each chunk should contain only 'A's
+        for c in chunks:
+            self.assertTrue(all(ch == "A" for ch in c))
+
+
+class TestSplitByLineGroups(unittest.TestCase):
+    def test_empty(self):
+        self.assertEqual(_split_by_line_groups("", 170, 1.9), [])
+
+    def test_whitespace_only(self):
+        self.assertEqual(_split_by_line_groups("   \n  ", 170, 1.9), [])
+
+    def test_single_short_line(self):
+        self.assertEqual(_split_by_line_groups("Hello.", 170, 1.9), ["Hello."])
+
+    def test_short_lines_grouped(self):
+        result = _split_by_line_groups("Line one.\nLine two.\nLine three.", 170, 1.9)
+        self.assertEqual(len(result), 1)
+
+    def test_long_lines_split(self):
+        text = f"Short.\n{'A' * 400}\nShort again."
+        result = _split_by_line_groups(text, 170, 1.9)
+        self.assertGreaterEqual(len(result), 2)
+
+    def test_no_empty_results(self):
+        result = _split_by_line_groups("Line one.\n\n\nLine two.", 170, 1.9)
+        for c in result:
+            self.assertTrue(c.strip())
+
+
+class TestSplitBySentenceGroups(unittest.TestCase):
+    def test_empty(self):
+        self.assertEqual(_split_by_sentence_groups("", 170, 1.9), [])
+
+    def test_short_single_chunk(self):
+        result = _split_by_sentence_groups("Hello. World. Test.", 170, 1.9)
+        self.assertEqual(len(result), 1)
+
+    def test_respects_limit(self):
+        s1, s2 = "A" * 100 + ".", "B" * 100 + "."
+        result = _split_by_sentence_groups(f"{s1} {s2}", 60, 1.9)
+        self.assertGreaterEqual(len(result), 2)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+--- END OF FILE: ./tests/test_tts_splitting.py ---
+
+--- START OF FILE: ./scripts/test_env.py ---
+import torch
+import undetected_chromedriver as uc
+import whisper
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+
+def print_separator():
+    print("\n" + "=" * 50 + "\n")
+
+
+def test_pytorch_cuda():
+    print("🧪 TESTING PYTORCH & CUDA...")
+    print(f"PyTorch Version: {torch.__version__}")
+    cuda_available = torch.cuda.is_available()
+    print(f"CUDA Available: {cuda_available}")
+
+    if cuda_available:
+        print(f"GPU Device: {torch.cuda.get_device_name(0)}")
+        # Test a simple tensor operation on GPU
+        x = torch.rand(5, 3).cuda()
+        print("✅ Success: Tensor successfully loaded to GPU.")
+    else:
+        print("⚠️ Warning: CUDA is not available. PyTorch is using CPU.")
+
+
+def test_scraping_tools():
+    print("🧪 TESTING SCRAPING TOOLS (BeautifulSoup)...")
+    html_doc = "<html><head><title>The Scraper</title></head><body><p class='title'><b>Success!</b></p></body></html>"
+    soup = BeautifulSoup(html_doc, "html.parser")
+    print(f"BeautifulSoup parsed title: {soup.title.string}")
+    print("✅ Success: BeautifulSoup is working.")
+
+
+def test_whisper():
+    print("🧪 TESTING WHISPER AI...")
+    model_size = "tiny"  # Using tiny model for quick download and test
+    print(f"Loading Whisper '{model_size}' model...")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    try:
+        model = whisper.load_model(model_size, device=device)
+        print(f"✅ Success: Whisper loaded on {device.upper()}.")
+    except Exception as e:
+        print(f"❌ Whisper failed to load: {e}")
+
+
+if __name__ == "__main__":
+    print_separator()
+    print("🚀 STARTING ENVIRONMENT DIAGNOSTICS")
+    print_separator()
+
+    test_pytorch_cuda()
+    print_separator()
+
+    test_scraping_tools()
+    print_separator()
+
+    test_whisper()
+    print_separator()
+
+    print("Diagnostics complete! You are ready to scrape. 🕷️")
+
+--- END OF FILE: ./scripts/test_env.py ---
