@@ -34,6 +34,7 @@ SCRIPTS = {
     "Metadata": "metadata_fetcher.py",
     "Translate (Gemini)": "gemini_transelate_4.py",
     "Translate (Grok)": "grok_transelate.py",
+    "Translate (LM Studio)": "lmstudio_transelate.py",
     "TTS Generator": "alltalk_tts_generator_chunky_17.py",
     "Audio Converter": "convert_audio_to_opus_3.py",
     "Tag Audio": "tag_audiobook_files_opus_3.py",
@@ -45,7 +46,7 @@ class PipelineGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Audiobook Pipe System")
-        self.root.geometry("950x950")
+        self.root.geometry("950x1000")
 
         # --- THEME SETUP ---
         self.style = ttk.Style()
@@ -84,6 +85,11 @@ class PipelineGUI:
         self.qwen_index_var = tk.StringVar()
         self.qwen_pitch_var = tk.IntVar(value=-2)
 
+        # LM Studio Config Vars
+        self.lmstudio_url_var = tk.StringVar(value="http://localhost:1234/v1")
+        self.lmstudio_model_var = tk.StringVar()
+        self.lmstudio_models_list = []
+
         # Metadata Tab Vars
         self.meta_title = tk.StringVar()
         self.meta_author = tk.StringVar()
@@ -111,6 +117,7 @@ class PipelineGUI:
         self.load_config()
         self.create_ui()
         self.refresh_project_list()
+        self.toggle_translation_ui()  # Show/hide LM Studio panel based on loaded config
 
         if self.alltalk_path_var.get():
             self.scan_alltalk_content()
@@ -127,7 +134,7 @@ class PipelineGUI:
         entry_bg = "#404040"
         accent_color = "#4f46e5"
         active_color = "#4338ca"
-        hover_bg = "#505050"  # A lighter gray for hover, instead of system white
+        hover_bg = "#505050"
 
         # General
         self.style.configure(
@@ -180,7 +187,7 @@ class PipelineGUI:
             borderwidth=1,
         )
 
-        # --- FIXED COMBOBOX STYLING ---
+        # --- Combobox Styling ---
         self.style.configure(
             "TCombobox",
             fieldbackground=entry_bg,
@@ -190,18 +197,14 @@ class PipelineGUI:
             borderwidth=1,
         )
 
-        # This map ensures the background stays dark even when hovering or active
         self.style.map(
             "TCombobox",
             fieldbackground=[("readonly", entry_bg), ("active", entry_bg)],
             background=[("active", hover_bg), ("pressed", accent_color)],
             foreground=[("readonly", fg_color), ("active", fg_color)],
-            selectbackground=[
-                ("readonly", entry_bg)
-            ],  # Prevents blue highlight on text selection
+            selectbackground=[("readonly", entry_bg)],
             selectforeground=[("readonly", fg_color)],
         )
-        # ------------------------------
 
         self.style.configure(
             "TSpinbox",
@@ -255,7 +258,7 @@ class PipelineGUI:
         # --- TABS ---
         tabs = ttk.Notebook(self.root)
         self.tab_run = ttk.Frame(tabs)
-        self.tab_meta = ttk.Frame(tabs)  # NEW TAB
+        self.tab_meta = ttk.Frame(tabs)
         self.tab_adapt = ttk.Frame(tabs)
 
         tabs.add(self.tab_run, text="  Run Pipeline  ")
@@ -369,6 +372,41 @@ class PipelineGUI:
 
         self.toggle_tts_ui()
 
+        # 2. LM Studio Setup (shown when LM Studio translation engine is selected)
+        self.lmstudio_frame = ttk.LabelFrame(
+            self.tab_run, text="LM Studio Translation Setup"
+        )
+
+        lm_url_frame = ttk.Frame(self.lmstudio_frame)
+        lm_url_frame.pack(fill="x", padx=5, pady=3)
+        ttk.Label(lm_url_frame, text="Server URL:").pack(side="left", padx=5)
+        ttk.Entry(lm_url_frame, textvariable=self.lmstudio_url_var, width=35).pack(
+            side="left", padx=5, fill="x", expand=True
+        )
+        ttk.Button(
+            lm_url_frame, text="Fetch Models", command=self.fetch_lmstudio_models
+        ).pack(side="left", padx=5)
+        self.lmstudio_status_label = ttk.Label(
+            lm_url_frame, text="", foreground="#888888"
+        )
+        self.lmstudio_status_label.pack(side="left", padx=5)
+
+        lm_model_frame = ttk.Frame(self.lmstudio_frame)
+        lm_model_frame.pack(fill="x", padx=5, pady=3)
+        ttk.Label(lm_model_frame, text="Model:").pack(side="left", padx=5)
+        self.lmstudio_model_combo = ttk.Combobox(
+            lm_model_frame,
+            textvariable=self.lmstudio_model_var,
+            state="readonly",
+            width=55,
+        )
+        self.lmstudio_model_combo.pack(side="left", padx=5, fill="x", expand=True)
+
+        # If we have a saved model, populate the combo with at least that value
+        if self.lmstudio_model_var.get():
+            self.lmstudio_model_combo["values"] = [self.lmstudio_model_var.get()]
+            self.lmstudio_model_combo.current(0)
+
         # Source & Steps
         mid_frame = ttk.Frame(self.tab_run)
         mid_frame.pack(fill="x", padx=10, pady=5)
@@ -408,13 +446,21 @@ class PipelineGUI:
                 ttk.Checkbutton(f, text=text, variable=self.pipeline_vars[key]).pack(
                     side="left"
                 )
-                ttk.Combobox(
+                trans_combo = ttk.Combobox(
                     f,
                     textvariable=self.trans_engine,
-                    values=["Translate (Gemini)", "Translate (Grok)"],
+                    values=[
+                        "Translate (Gemini)",
+                        "Translate (Grok)",
+                        "Translate (LM Studio)",
+                    ],
                     state="readonly",
-                    width=12,
-                ).pack(side="left", padx=2)
+                    width=16,
+                )
+                trans_combo.pack(side="left", padx=2)
+                trans_combo.bind(
+                    "<<ComboboxSelected>>", lambda e: self.toggle_translation_ui()
+                )
             else:
                 ttk.Checkbutton(
                     chk_frame, text=text, variable=self.pipeline_vars[key]
@@ -538,17 +584,95 @@ class PipelineGUI:
             right_col, text="No Image", anchor="center", background="#1e1e1e"
         )
         self.lbl_cover_preview.pack(padx=10, pady=10, fill="both", expand=True)
-        # Fixed size container
-        self.lbl_cover_preview.configure(width=30)  # approx chars
+        self.lbl_cover_preview.configure(width=30)
 
         ttk.Button(
             right_col, text="Select Cover Image...", command=self.select_cover_image
         ).pack(pady=10, padx=10, fill="x")
 
+    # --- TRANSLATION ENGINE UI TOGGLE ---
+    def toggle_translation_ui(self):
+        """Show or hide the LM Studio settings panel based on translation engine selection."""
+        if self.trans_engine.get() == "Translate (LM Studio)":
+            self.lmstudio_frame.pack(
+                fill="x", padx=10, pady=5, after=self._get_tts_frame_widget()
+            )
+        else:
+            self.lmstudio_frame.pack_forget()
+        self.save_config()
+
+    def _get_tts_frame_widget(self):
+        """Helper to find the TTS LabelFrame so we can pack LM Studio frame after it."""
+        for child in self.tab_run.winfo_children():
+            if isinstance(child, ttk.LabelFrame) and "TTS" in str(child.cget("text")):
+                return child
+        return self.tab_run.winfo_children()[0]
+
+    # --- LM STUDIO MODEL FETCHING ---
+    def fetch_lmstudio_models(self):
+        """Fetch available models from LM Studio in a background thread."""
+        self.lmstudio_status_label.config(text="Connecting...", foreground="#6366f1")
+        self.lmstudio_model_combo["values"] = []
+
+        def _worker():
+            try:
+                import urllib.error
+                import urllib.request
+
+                base_url = self.lmstudio_url_var.get().strip().rstrip("/")
+                models_url = base_url + "/models"
+
+                req = urllib.request.Request(models_url)
+                req.add_header("Content-Type", "application/json")
+                with urllib.request.urlopen(req, timeout=10) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    model_ids = [m["id"] for m in data.get("data", []) if "id" in m]
+
+                self.lmstudio_models_list = model_ids
+
+                def _update_ui():
+                    if model_ids:
+                        self.lmstudio_model_combo["values"] = model_ids
+                        # Try to keep current selection if it's still valid
+                        current = self.lmstudio_model_var.get()
+                        if current in model_ids:
+                            self.lmstudio_model_combo.set(current)
+                        else:
+                            self.lmstudio_model_combo.current(0)
+                        self.lmstudio_status_label.config(
+                            text=f"{len(model_ids)} model(s) found",
+                            foreground="green",
+                        )
+                        self.save_config()
+                    else:
+                        self.lmstudio_status_label.config(
+                            text="No models loaded",
+                            foreground="#ff6b6b",
+                        )
+                    self.log(
+                        f"LM Studio: Found {len(model_ids)} model(s) at {base_url}"
+                    )
+
+                self.root.after(0, _update_ui)
+
+            except Exception as e:
+                err_msg = str(e)
+
+                def _update_err():
+                    self.lmstudio_status_label.config(
+                        text="Connection failed",
+                        foreground="#ff6b6b",
+                    )
+                    self.log(f"LM Studio connection error: {err_msg}")
+
+                self.root.after(0, _update_err)
+
+        threading.Thread(target=_worker, daemon=True).start()
+
     # --- METADATA LOGIC ---
     def on_project_change(self, event):
         self.log(f"Selected: {self.current_project.get()}")
-        self.load_project_metadata()  # Auto-load when project changes
+        self.load_project_metadata()
 
     def get_project_path(self):
         proj = self.current_project.get()
@@ -577,7 +701,6 @@ class PipelineGUI:
             except Exception as e:
                 self.log(f"Error loading metadata: {e}")
         else:
-            # Clear fields if no file
             self.meta_title.set("")
             self.meta_author.set("")
             self.meta_year.set("2025")
@@ -586,7 +709,6 @@ class PipelineGUI:
         if PILLOW_AVAILABLE and os.path.exists(cover_file):
             try:
                 img = Image.open(cover_file)
-                # Resize for preview (keep aspect ratio, max height 300)
                 img.thumbnail((250, 350))
                 self.cover_image_ref = ImageTk.PhotoImage(img)
                 self.lbl_cover_preview.configure(image=self.cover_image_ref, text="")
@@ -630,22 +752,18 @@ class PipelineGUI:
         if file_path:
             try:
                 if PILLOW_AVAILABLE:
-                    # Convert to JPG and resize if massive
                     img = Image.open(file_path)
                     if img.mode in ("RGBA", "P"):
                         img = img.convert("RGB")
 
                     target_path = os.path.join(path, "cover.jpg")
                     img.save(target_path, "JPEG", quality=90)
-
-                    self.load_project_metadata()  # Refresh UI
+                    self.load_project_metadata()
                     self.log(f"Cover image updated: {target_path}")
                 else:
-                    # Simple copy if no Pillow
                     target_path = os.path.join(path, "cover.jpg")
                     shutil.copy(file_path, target_path)
                     self.log("Cover image copied (install Pillow for preview).")
-
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to process image: {e}")
 
@@ -680,11 +798,36 @@ class PipelineGUI:
                     self.qwen_pth_var.set(data.get("qwen_pth", ""))
                     self.qwen_index_var.set(data.get("qwen_index", ""))
                     self.qwen_pitch_var.set(data.get("qwen_pitch", -2))
+                    # LM Studio settings
+                    self.lmstudio_url_var.set(
+                        data.get("lmstudio_url", "http://localhost:1234/v1")
+                    )
+                    self.lmstudio_model_var.set(data.get("lmstudio_model", ""))
+                    # Pipeline settings
+                    self.trans_engine.set(
+                        data.get("trans_engine", "Translate (Gemini)")
+                    )
+                    self.tts_engine_var.set(data.get("tts_engine", "AllTalk"))
+                    self.input_source_var.set(data.get("input_source", "Raw"))
+                    self.tts_start_chapter_var.set(data.get("tts_start_chapter", 1))
+                    # Pipeline step checkboxes
+                    saved_steps = data.get("pipeline_steps", {})
+                    if saved_steps:
+                        for key, var in self.pipeline_vars.items():
+                            if key in saved_steps:
+                                var.set(saved_steps[key])
+                    # Last selected project
+                    last_project = data.get("last_project", "")
+                    if last_project:
+                        self.current_project.set(last_project)
         except Exception as e:
             print(f"Config Error: {e}")
 
     def save_config(self):
         try:
+            # Collect pipeline step states
+            pipeline_steps = {key: var.get() for key, var in self.pipeline_vars.items()}
+
             with open(CONFIG_FILE, "w") as f:
                 json.dump(
                     {
@@ -693,8 +836,19 @@ class PipelineGUI:
                         "qwen_pth": self.qwen_pth_var.get(),
                         "qwen_index": self.qwen_index_var.get(),
                         "qwen_pitch": self.qwen_pitch_var.get(),
+                        # LM Studio settings
+                        "lmstudio_url": self.lmstudio_url_var.get(),
+                        "lmstudio_model": self.lmstudio_model_var.get(),
+                        # Pipeline settings
+                        "trans_engine": self.trans_engine.get(),
+                        "tts_engine": self.tts_engine_var.get(),
+                        "input_source": self.input_source_var.get(),
+                        "tts_start_chapter": self.tts_start_chapter_var.get(),
+                        "pipeline_steps": pipeline_steps,
+                        "last_project": self.current_project.get(),
                     },
                     f,
+                    indent=2,
                 )
         except Exception as e:
             print(f"Config Save Error: {e}")
@@ -792,9 +946,14 @@ class PipelineGUI:
             if os.path.isdir(os.path.join(NOVELS_ROOT_DIR, d))
         ]
         self.project_dropdown["values"] = sorted(projects)
-        if projects and not self.current_project.get():
+        # Use saved project if valid, otherwise pick first
+        saved = self.current_project.get()
+        if saved and saved in projects:
+            self.current_project.set(saved)
+        elif projects and not saved:
             self.current_project.set(projects[0])
-            self.load_project_metadata()  # Load first project meta
+        if self.current_project.get():
+            self.load_project_metadata()
 
     def create_new_project(self):
         name = simpledialog.askstring("New Project", "Enter Novel Name:")
@@ -854,6 +1013,11 @@ class PipelineGUI:
         env["EPUB_INPUT_DIR"] = tts_input
         env["EPUB_OUTPUT_FILE"] = os.path.join(base, f"{proj}.epub")
         env["EPUB_TITLE"] = proj.replace("_", " ")
+
+        # LM Studio environment variables
+        env["LMSTUDIO_BASE_URL"] = self.lmstudio_url_var.get().strip()
+        env["LMSTUDIO_MODEL_NAME"] = self.lmstudio_model_var.get().strip()
+
         return env
 
     def stop_process(self):
@@ -918,6 +1082,18 @@ class PipelineGUI:
                 )
                 self.save_config()
 
+        # Validate LM Studio selection before running translation
+        if (
+            script_key.startswith("Translate")
+            and self.trans_engine.get() == "Translate (LM Studio)"
+        ):
+            if not self.lmstudio_model_var.get().strip():
+                self.log(
+                    "Error: No LM Studio model selected. Use 'Fetch Models' first."
+                )
+                return False
+            self.save_config()
+
         try:
             self.current_process = subprocess.Popen(
                 cmd,
@@ -951,6 +1127,7 @@ class PipelineGUI:
         self.stop_requested = False
         self.btn_run.config(state="disabled")
         self.btn_stop.config(state="normal")
+        self.save_config()  # Save all settings before running
         threading.Thread(target=self.run_pipeline).start()
 
     def run_pipeline(self):
@@ -1003,9 +1180,7 @@ class PipelineGUI:
                 proc.wait()
                 if proc.returncode == 0:
                     self.log("Metadata Fetch Complete.")
-                    self.root.after(
-                        0, self.load_project_metadata
-                    )  # Refresh UI with new data
+                    self.root.after(0, self.load_project_metadata)
             except Exception as e:
                 self.log(f"Meta Error: {e}")
 

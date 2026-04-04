@@ -1,5 +1,5 @@
 {
-  description = "Unified Audio Pipeline dev shell";
+  description = "Unified Audio Pipeline - Audiobook Pipe System";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -87,3 +87,4 @@
       };
     };
 }
+

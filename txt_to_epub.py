@@ -7,33 +7,142 @@ import uuid
 
 from ebooklib import epub
 
+# --- Annotation Pattern ---
+# Matches: text^[explanation text here]
+# Group 1 = the explanation content inside brackets
+ANNOTATION_PATTERN = re.compile(r"\^\[([^\]]+)\]")
+
+
+def process_annotations(text, chapter_id, footnote_counter_start=1):
+    """
+    Finds all ^[explanation] markers in text and converts them to EPUB3 footnotes.
+
+    Returns:
+        - processed_html: The text with footnote reference links replacing ^[...] markers
+        - footnotes_html: HTML block of <aside> footnotes to append at chapter end
+        - footnote_count: How many footnotes were created (for numbering across paragraphs)
+    """
+    footnotes = []
+    counter = footnote_counter_start
+
+    def replace_annotation(match):
+        nonlocal counter
+        note_id = f"{chapter_id}_note_{counter}"
+        explanation = html.escape(match.group(1))
+
+        # Superscript reference link (epub:type="noteref" triggers popup in readers)
+        ref_html = (
+            f'<a epub:type="noteref" href="#{note_id}" id="{note_id}_ref"'
+            f' role="doc-noteref"><sup>[{counter}]</sup></a>'
+        )
+
+        # The footnote aside block
+        footnote_html = (
+            f'<aside epub:type="footnote" id="{note_id}" role="doc-footnote">\n'
+            f'  <p><a href="#{note_id}_ref">[{counter}]</a> {explanation}</p>\n'
+            f"</aside>"
+        )
+        footnotes.append(footnote_html)
+        counter += 1
+        return ref_html
+
+    processed_text = ANNOTATION_PATTERN.sub(replace_annotation, text)
+    footnotes_html = "\n".join(footnotes)
+    return processed_text, footnotes_html, counter
+
 
 def create_xhtml_chapter(chapter_title, text_content, chapter_file_name_base):
     """
     Converts plain text content to a simple XHTML chapter object.
+    Processes ^[annotation] markers into EPUB3 popup footnotes.
     """
     file_name = f"{chapter_file_name_base}.xhtml"
     chapter = epub.EpubHtml(title=chapter_title, file_name=file_name, lang="en")
+
+    # We need the EPUB3 namespace for epub:type attributes
+    chapter.properties = []
 
     # Create HTML content
     escaped_title = html.escape(chapter_title)
     xhtml_content_parts = [f"<h1>{escaped_title}</h1>"]
 
     # Split by blank lines to form paragraphs
-    # Handle various line ending types
     paragraphs = re.split(r"\n\s*\n+", text_content.strip())
+
+    all_footnotes = []
+    footnote_counter = 1
+    chapter_id = chapter_file_name_base  # e.g., "chapter_0001"
 
     for para_text in paragraphs:
         cleaned_para = para_text.strip()
-        if cleaned_para:
-            escaped_para = html.escape(cleaned_para)
-            # Preserve internal line breaks within a paragraph
-            escaped_para = escaped_para.replace("\r\n", "<br />\n").replace(
-                "\n", "<br />\n"
-            )
-            xhtml_content_parts.append(f"<p>{escaped_para}</p>")
+        if not cleaned_para:
+            continue
 
-    chapter.content = "\n".join(xhtml_content_parts)
+        # First: extract annotations BEFORE html-escaping the main text,
+        # because annotations contain special chars we need to handle carefully.
+        # Strategy: find annotations, replace with placeholders, escape, restore.
+        annotations_found = []
+        placeholder_map = {}
+
+        def extract_and_placeholder(match):
+            placeholder = f"__ANNOT_{len(annotations_found)}__"
+            annotations_found.append(match.group(0))  # full ^[...] match
+            placeholder_map[placeholder] = match.group(0)
+            return placeholder
+
+        para_with_placeholders = ANNOTATION_PATTERN.sub(
+            extract_and_placeholder, cleaned_para
+        )
+
+        # Now HTML-escape the main text (placeholders are safe ASCII)
+        escaped_para = html.escape(para_with_placeholders)
+
+        # Preserve internal line breaks
+        escaped_para = escaped_para.replace("\r\n", "<br />\n").replace(
+            "\n", "<br />\n"
+        )
+
+        # Restore annotation markers so we can process them into footnote HTML
+        for placeholder, original in placeholder_map.items():
+            escaped_para = escaped_para.replace(placeholder, original)
+
+        # Now convert ^[...] to footnote references
+        processed_para, footnotes_html, footnote_counter = process_annotations(
+            escaped_para, chapter_id, footnote_counter
+        )
+
+        xhtml_content_parts.append(f"<p>{processed_para}</p>")
+        if footnotes_html:
+            all_footnotes.append(footnotes_html)
+
+    # Append footnotes section at the end of the chapter
+    if all_footnotes:
+        xhtml_content_parts.append('<hr class="footnote-separator" />')
+        xhtml_content_parts.append('<section class="footnotes" epub:type="footnotes">')
+        xhtml_content_parts.extend(all_footnotes)
+        xhtml_content_parts.append("</section>")
+
+    # Build final XHTML with proper namespace
+    body_content = "\n".join(xhtml_content_parts)
+    full_xhtml = (
+        '<?xml version="1.0" encoding="utf-8"?>\n'
+        "<!DOCTYPE html>\n"
+        '<html xmlns="http://www.w3.org/1999/xhtml"'
+        ' xmlns:epub="http://www.idpf.org/2007/ops">\n'
+        "<head>\n"
+        f"  <title>{escaped_title}</title>\n"
+        '  <link rel="stylesheet" type="text/css" href="style/default.css" />\n'
+        "</head>\n"
+        "<body>\n"
+        f"{body_content}\n"
+        "</body>\n"
+        "</html>"
+    )
+
+    chapter.content = full_xhtml.encode("utf-8")
+    # Mark as having the full XHTML (ebooklib won't wrap it again)
+    chapter.is_chapter = True
+
     return chapter
 
 
@@ -150,6 +259,7 @@ def create_epub_project():
     # --- 5. Process Chapters ---
     epub_chapters = []
     toc_links = []
+    total_annotations = 0
 
     print(f"Processing text files...")
     for i, entry in enumerate(chapter_entries):
@@ -176,6 +286,12 @@ def create_epub_project():
                     final_title = f"Chapter {i+1}"
                     body_content = "".join(lines).strip()
 
+            # Count annotations for logging
+            annotation_count = len(ANNOTATION_PATTERN.findall(body_content))
+            total_annotations += annotation_count
+            if annotation_count > 0:
+                print(f"  [{txt_filename}] Found {annotation_count} annotation(s)")
+
             # Create XHTML Chapter Object
             chapter_obj = create_xhtml_chapter(
                 final_title, body_content, f"chapter_{i+1:04d}"
@@ -194,11 +310,22 @@ def create_epub_project():
     book.add_item(epub.EpubNcx())
     book.add_item(epub.EpubNav())
 
-    # CSS Styling
+    # CSS Styling (includes footnote styles)
     css = """
     body { margin: 5%; font-family: serif; font-size: 1.1em; line-height: 1.6; }
     h1 { text-align: center; margin-top: 2em; margin-bottom: 1em; font-weight: bold; border-bottom: 1px solid #ddd; padding-bottom: 0.5em;}
     p { text-indent: 1.5em; margin-bottom: 0.5em; text-align: justify; }
+
+    /* Footnote reference styling */
+    a[epub|type~="noteref"] { text-decoration: none; color: #4f46e5; }
+    a[epub|type~="noteref"] sup { font-size: 0.75em; vertical-align: super; }
+
+    /* Footnotes section at end of chapter */
+    hr.footnote-separator { margin-top: 2em; border: none; border-top: 1px solid #ccc; }
+    section.footnotes { margin-top: 1em; font-size: 0.9em; color: #555; }
+    section.footnotes aside { margin-bottom: 0.5em; }
+    section.footnotes aside p { text-indent: 0; margin-bottom: 0.3em; }
+    section.footnotes a { color: #4f46e5; text-decoration: none; }
     """
     style_item = epub.EpubItem(
         uid="style_default",
@@ -216,6 +343,7 @@ def create_epub_project():
     try:
         epub.write_epub(OUTPUT_FILE, book, {})
         print(f"SUCCESS! EPUB saved to: {OUTPUT_FILE}")
+        print(f"Total cultural annotations converted to footnotes: {total_annotations}")
     except Exception as e:
         print(f"Error saving EPUB file: {e}")
 

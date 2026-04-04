@@ -10,8 +10,8 @@ from google.generativeai.types import HarmBlockThreshold, HarmCategory
 # pip install -U google-generativeai
 
 # --- Configuration ---
-INPUT_DIR = "SnakeFairy_CH_Qushucheng"
-OUTPUT_DIR = "SnakeFairy_EN_transelated"
+INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "SnakeFairy_CH_Qushucheng")
+OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "SnakeFairy_EN_transelated")
 GLOSSARY_JSON_FILE = "translation_glossary.json"
 
 
@@ -133,14 +133,20 @@ def translate_text_with_gemini(
 
     prompt = (
         f"You are an expert Chinese-to-English translator and data extractor.\n"
-        f"Your task is twofold:\n"
+        f"Your task has three parts:\n"
         f"1. Translate the Chinese text into high-quality, natural-sounding {target_language}. For names and places, you MUST use the 'english_name' from the 'Relevant Glossary' below if present.\n"
-        f"2. Identify new character names and place names in the text NOT already in the glossary, and extract their details.\n\n"
+        f"2. Identify new character names and place names in the text NOT already in the glossary, and extract their details.\n"
+        f"3. Annotate cultural references, idioms, wordplay, internet slang, memes, inside jokes, or any phrase whose humor or meaning would be lost on a non-Chinese reader. Place the annotation IMMEDIATELY after the translated phrase using this exact syntax: translated phrase^[Brief explanation of the joke, reference, or cultural context]. Keep explanations concise (one or two sentences). Only annotate when the meaning would genuinely be unclear; do NOT annotate straightforward text.\n\n"
+        f"--- ANNOTATION EXAMPLES ---\n"
+        f"- Original: 他真是个柠檬精 → He was such a lemon spirit^[Chinese internet slang for someone who is extremely jealous or envious of others.]\n"
+        f"- Original: 这波是五五开 → This was a fifty-fifty^[A gaming meme from Chinese esports meaning something is an even split, often used sarcastically when the odds are clearly not equal.]\n"
+        f'- Original: 我太南了 → I\'m just too south^[A homophonic pun - "south" (南 nán) sounds like "hard/difficult" (难 nán), expressing that life is too hard.]\n'
+        f"- Do NOT annotate simple/obvious phrases like greetings, common expressions, or straightforward dialogue.\n\n"
         f"--- RELEVANT GLOSSARY (Specific to this text) ---\n"
         f"{known_glossary_json_str}\n\n"
         f"--- RESPONSE FORMATTING RULES ---\n"
         f"- Your response MUST have two parts separated by '---JSON---'.\n"
-        f"- PART 1 (Translation): MUST ONLY contain the final {target_language.upper()} translation.\n"
+        f"- PART 1 (Translation): MUST ONLY contain the final {target_language.upper()} translation (including any ^[annotation] markers inline).\n"
         f"- PART 2 (Data): MUST start on a new line immediately after '---JSON---' and contain a single JSON object of NEW entities. This object should have two keys: 'characters' and 'places'.\n"
         f"- Under 'characters', provide new characters with their 'pinyin', 'english_name', and 'pronoun'.\n"
         f"- Under 'places', provide new places with their 'pinyin' and 'english_name'.\n"
@@ -243,9 +249,20 @@ def translate_text_with_gemini(
 # --- MODIFIED: Main Processing Logic for Glossary ---
 def process_files_for_translation():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    input_dir_full_path = os.path.join(script_dir, INPUT_DIR)
-    output_dir_full_path = os.path.join(script_dir, OUTPUT_DIR)
-    glossary_json_full_path = os.path.join(script_dir, GLOSSARY_JSON_FILE)
+
+    # Resolve paths: if absolute (from GUI env), use directly; if relative, join with script_dir
+    input_dir_full_path = (
+        INPUT_DIR if os.path.isabs(INPUT_DIR) else os.path.join(script_dir, INPUT_DIR)
+    )
+    output_dir_full_path = (
+        OUTPUT_DIR
+        if os.path.isabs(OUTPUT_DIR)
+        else os.path.join(script_dir, OUTPUT_DIR)
+    )
+
+    # Glossary lives in the project root (parent of input dir, e.g. Novels/BookName/)
+    project_root = os.path.dirname(input_dir_full_path)
+    glossary_json_full_path = os.path.join(project_root, GLOSSARY_JSON_FILE)
     glossary_data = load_glossary_from_json(glossary_json_full_path)
 
     if not os.path.exists(input_dir_full_path):
