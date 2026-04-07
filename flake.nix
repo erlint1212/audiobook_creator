@@ -13,7 +13,9 @@
         config.allowUnfree = true;
       };
       ccLib = pkgs.stdenv.cc.cc;
-      pythonEnv = pkgs.python310.withPackages (ps: [ ps.tkinter ]);
+      pythonEnv = pkgs.python310.withPackages (ps: [ 
+        ps.tkinter
+      ]);
     in
     {
       devShells.${system}.default = pkgs.mkShell {

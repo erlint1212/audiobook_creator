@@ -15,4 +15,6 @@ tkinter-tooltip
 undetected-chromedriver
 selenium
 
+lmstudio
+
 # --- Note: Torch, RVC, Qwen are handled by shell.nix to ensure CUDA support ---

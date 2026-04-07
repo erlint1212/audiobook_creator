@@ -15,30 +15,38 @@ OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "SnakeFairy_EN_transelated")
 GLOSSARY_JSON_FILE = "translation_glossary.json"
 
 
+# All supported glossary categories (shared across translation engines)
+DEFAULT_GLOSSARY = {
+    "characters": {},
+    "places": {},
+    "organizations": {},
+    "items": {},
+    "skills": {},
+    "species": {},
+}
+
+
 # --- Helper Function to Load Glossary from JSON ---
 def load_glossary_from_json(filepath: str) -> dict:
     """
-    Loads a glossary dictionary (for characters and places) from a JSON file.
-    If the file doesn't exist or is invalid, it returns a new dictionary structure.
+    Loads a glossary dictionary from a JSON file.
+    Ensures all category keys exist even if the file is from an older version.
     """
-    default_glossary = {"characters": {}, "places": {}}
     if not os.path.exists(filepath):
         print(
             f"Glossary JSON file not found at '{filepath}'. A new one will be created."
         )
-        return default_glossary
+        return dict(DEFAULT_GLOSSARY)
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
-            # Ensure both top-level keys exist
-            if "characters" not in data:
-                data["characters"] = {}
-            if "places" not in data:
-                data["places"] = {}
+            for key in DEFAULT_GLOSSARY:
+                if key not in data:
+                    data[key] = {}
             return data
     except (json.JSONDecodeError, IOError) as e:
         print(f"Error reading or parsing JSON file '{filepath}': {e}. Starting fresh.")
-        return default_glossary
+        return dict(DEFAULT_GLOSSARY)
 
 
 # --- Helper Function to Save Glossary to JSON ---
@@ -103,27 +111,24 @@ def translate_text_with_gemini(
     model_name_for_api = "gemini-3-flash-preview"
 
     # --- OPTIMIZATION START: Dynamic Glossary Filtering ---
-    filtered_glossary = {"characters": {}, "places": {}}
+    filtered_glossary = {key: {} for key in DEFAULT_GLOSSARY}
 
-    # 1. Filter Characters
-    for name_key, details in known_glossary_data.get("characters", {}).items():
-        if name_key in text_to_translate:
-            filtered_glossary["characters"][name_key] = details
+    for category in DEFAULT_GLOSSARY:
+        for name_key, details in known_glossary_data.get(category, {}).items():
+            if name_key in text_to_translate:
+                filtered_glossary[category][name_key] = details
 
-    # 2. Filter Places
-    for place_key, details in known_glossary_data.get("places", {}).items():
-        if place_key in text_to_translate:
-            filtered_glossary["places"][place_key] = details
-
-    # 3. Minify JSON
+    # Minify JSON
     known_glossary_json_str = json.dumps(
         filtered_glossary, ensure_ascii=False, separators=(",", ":")
     )
 
-    total_chars = len(known_glossary_data.get("characters", {}))
-    relevant_chars = len(filtered_glossary["characters"])
+    total_entries = sum(
+        len(known_glossary_data.get(cat, {})) for cat in DEFAULT_GLOSSARY
+    )
+    relevant_entries = sum(len(filtered_glossary[cat]) for cat in DEFAULT_GLOSSARY)
     print(
-        f"  Glossary Optimization: Sending {relevant_chars}/{total_chars} characters relevant to this chapter."
+        f"  Glossary Optimization: Sending {relevant_entries}/{total_entries} entries relevant to this chapter."
     )
     # --- OPTIMIZATION END ---
 
@@ -328,25 +333,18 @@ def process_files_for_translation():
                 )
 
                 if new_glossary_items:
-                    new_chars = new_glossary_items.get("characters", {})
-                    if new_chars:
-                        print(
-                            f"  Updating master list with {len(new_chars)} new character(s)."
-                        )
-                        for name, details in new_chars.items():
-                            if name not in glossary_data["characters"]:
-                                glossary_data["characters"][name] = details
-                                print(f"    + Added Character: {name} -> {details}")
-
-                    new_places = new_glossary_items.get("places", {})
-                    if new_places:
-                        print(
-                            f"  Updating master list with {len(new_places)} new place(s)."
-                        )
-                        for name, details in new_places.items():
-                            if name not in glossary_data["places"]:
-                                glossary_data["places"][name] = details
-                                print(f"    + Added Place: {name} -> {details}")
+                    for category in DEFAULT_GLOSSARY:
+                        new_entries = new_glossary_items.get(category, {})
+                        if new_entries:
+                            print(
+                                f"  Updating {category} with {len(new_entries)} new entry/entries."
+                            )
+                            for name, details in new_entries.items():
+                                if name not in glossary_data.get(category, {}):
+                                    if category not in glossary_data:
+                                        glossary_data[category] = {}
+                                    glossary_data[category][name] = details
+                                    print(f"    + [{category}] {name} -> {details}")
 
             final_content_to_write = (
                 translated_content
