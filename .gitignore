@@ -2,6 +2,7 @@ Novels/
 __pycache__/
 tts/
 *.json
+*.csv
 .venv
 backup
 project_context.txt
