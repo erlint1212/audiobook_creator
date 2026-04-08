@@ -3,8 +3,6 @@ import os
 import re
 import time
 
-# Ensure you have the openai package installed
-# pip install openai
 try:
     from openai import (
         APIError,
@@ -14,13 +12,12 @@ try:
         RateLimitError,
     )
 except ImportError:
-    print(
-        "CRITICAL ERROR: The 'openai' package is not installed. Please install it by running: pip install openai"
-    )
+    print("CRITICAL: 'openai' package not installed. Run: pip install openai")
     exit()
 
+from prompts import DEFAULT_GLOSSARY, SYSTEM_COMBINED, build_combined_prompt
+
 # --- Configuration ---
-# Updated to support the GUI Pipeline (os.getenv) with fallbacks to your original folders
 INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "SnakeFairy_CH_Qushucheng")
 OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "SnakeFairy_EN_transelated")
 XAI_MODEL_NAME = "grok-4-0709"
@@ -29,27 +26,9 @@ API_TIMEOUT_SECONDS = 300.0
 GLOSSARY_JSON_FILE = "translation_glossary.json"
 
 
-# All supported glossary categories (shared across translation engines)
-DEFAULT_GLOSSARY = {
-    "characters": {},
-    "places": {},
-    "organizations": {},
-    "items": {},
-    "skills": {},
-    "species": {},
-}
-
-
-# --- Glossary Helper Functions ---
-def load_glossary_from_json(filepath: str) -> dict:
-    """
-    Loads a glossary dictionary from a JSON file.
-    Ensures all category keys exist even if the file is from an older version.
-    """
+def load_glossary_from_json(filepath):
     if not os.path.exists(filepath):
-        print(
-            f"Glossary JSON file not found at '{filepath}'. A new one will be created."
-        )
+        print(f"Glossary not found at '{filepath}'. Creating new.")
         return dict(DEFAULT_GLOSSARY)
     try:
         with open(filepath, "r", encoding="utf-8") as f:
@@ -59,71 +38,57 @@ def load_glossary_from_json(filepath: str) -> dict:
                     data[key] = {}
             return data
     except (json.JSONDecodeError, IOError) as e:
-        print(f"Error reading or parsing JSON file '{filepath}': {e}. Starting fresh.")
+        print(f"Error reading glossary: {e}. Starting fresh.")
         return dict(DEFAULT_GLOSSARY)
 
 
-def save_glossary_to_json(filepath: str, data: dict):
-    """Saves a glossary dictionary to a JSON file with pretty printing."""
+def save_glossary_to_json(filepath, data):
     try:
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-        print(f"Successfully saved updated glossary to '{filepath}'.")
+        print(f"Saved glossary to '{filepath}'.")
     except IOError as e:
-        print(f"Error writing to JSON file '{filepath}': {e}")
+        print(f"Error writing glossary: {e}")
 
 
-# --- Helper Function to Reformat Title ---
-def reformat_chapter_title_in_text(text_content: str) -> str:
+def reformat_chapter_title_in_text(text_content):
     if not text_content or not text_content.strip():
         return text_content
-
     lines = text_content.split("\n", 1)
-    first_line = lines[0]
-    rest_of_content = lines[1] if len(lines) > 1 else ""
-
-    match = re.match(r"^(Chapter\s*\d+)\s*[:\-–—]?\s*(.*)", first_line, re.IGNORECASE)
+    first_line, rest = lines[0], lines[1] if len(lines) > 1 else ""
+    match = re.match(
+        r"^(Chapter\s*\d+)\s*[:\-\u2013\u2014]?\s*(.*)", first_line, re.IGNORECASE
+    )
     if match:
-        chapter_part = match.group(1).strip()
-        title_part = match.group(2).strip()
-        reformatted_first_line = (
-            f"{chapter_part} - {title_part}" if title_part else chapter_part
-        )
-        return f"{reformatted_first_line}\n{rest_of_content}"
-
-    numeric_match = re.match(r"^(\d+)\s+(.*)", first_line)
-    if numeric_match:
+        ch, title = match.group(1).strip(), match.group(2).strip()
+        return f"{ch} - {title}\n{rest}" if title else f"{ch}\n{rest}"
+    numeric = re.match(r"^(\d+)\s+(.*)", first_line)
+    if numeric:
         try:
-            chapter_number_int = int(numeric_match.group(1))
-            title_part = numeric_match.group(2).strip()
-            reformatted_first_line = f"Chapter {chapter_number_int} - {title_part}"
-            return f"{reformatted_first_line}\n{rest_of_content}"
+            return (
+                f"Chapter {int(numeric.group(1))} - {numeric.group(2).strip()}\n{rest}"
+            )
         except ValueError:
             pass
     return text_content
 
 
-# --- MODIFIED: xAI API Translation Function with Context Optimization ---
 def translate_text_with_xai(
-    text_to_translate: str, known_glossary_data: dict, target_language: str = "English"
-) -> (str, dict):
+    text_to_translate, known_glossary_data, target_language="English"
+):
     api_key = os.environ.get("XAI_API_KEY")
     if not api_key:
-        return "[Translation Error: 'XAI_API_KEY' environment variable not set.]", {}
+        return "[Translation Error: 'XAI_API_KEY' not set.]", {}
 
     try:
         client = OpenAI(
             api_key=api_key, base_url=XAI_BASE_URL, timeout=API_TIMEOUT_SECONDS
         )
     except Exception as e:
-        return (
-            f"[Translation Error: Could not initialize OpenAI client for xAI - {type(e).__name__}: {e}]",
-            {},
-        )
+        return f"[Translation Error: {type(e).__name__}: {e}]", {}
 
-    # --- OPTIMIZATION START: Dynamic Glossary Filtering ---
+    # Dynamic glossary filtering across all categories
     filtered_glossary = {key: {} for key in DEFAULT_GLOSSARY}
-
     for category in DEFAULT_GLOSSARY:
         for name_key, details in known_glossary_data.get(category, {}).items():
             if name_key in text_to_translate:
@@ -133,54 +98,20 @@ def translate_text_with_xai(
         filtered_glossary, ensure_ascii=False, separators=(",", ":")
     )
 
-    total_entries = sum(
-        len(known_glossary_data.get(cat, {})) for cat in DEFAULT_GLOSSARY
-    )
-    relevant_entries = sum(len(filtered_glossary[cat]) for cat in DEFAULT_GLOSSARY)
-    print(
-        f"  Glossary Optimization: Sending {relevant_entries}/{total_entries} entries relevant to this chapter."
-    )
-    # --- OPTIMIZATION END ---
+    total = sum(len(known_glossary_data.get(c, {})) for c in DEFAULT_GLOSSARY)
+    relevant = sum(len(filtered_glossary[c]) for c in DEFAULT_GLOSSARY)
+    print(f"  Glossary: {relevant}/{total} entries relevant to this chapter.")
+    print(f"Translating (length: {len(text_to_translate)} chars)...")
 
-    print(
-        f"Attempting to translate and extract glossary items from text (length: {len(text_to_translate)} chars)..."
-    )
-
-    # --- UPDATED PROMPT: Aligned with Gemini prompt for consistency ---
-    prompt = (
-        f"You are an expert Chinese-to-English translator and data extractor.\n"
-        f"Your task has three parts:\n"
-        f"1. Translate the Chinese text into high-quality, natural-sounding {target_language}. For names and places, you MUST use the 'english_name' from the 'Relevant Glossary' below if present.\n"
-        f"2. Identify new character names and place names in the text NOT already in the 'Relevant Glossary', and extract their details.\n"
-        f"3. Annotate cultural references, idioms, wordplay, internet slang, memes, inside jokes, or any phrase whose humor or meaning would be lost on a non-Chinese reader. Place the annotation IMMEDIATELY after the translated phrase using this exact syntax: translated phrase^[Brief explanation of the joke, reference, or cultural context]. Keep explanations concise (one or two sentences). Only annotate when the meaning would genuinely be unclear; do NOT annotate straightforward text.\n\n"
-        f"--- ANNOTATION EXAMPLES ---\n"
-        f"- Original: 他真是个柠檬精 → He was such a lemon spirit^[Chinese internet slang for someone who is extremely jealous or envious of others.]\n"
-        f"- Original: 这波是五五开 → This was a fifty-fifty^[A gaming meme from Chinese esports meaning something is an even split, often used sarcastically when the odds are clearly not equal.]\n"
-        f'- Original: 我太南了 → I\'m just too south^[A homophonic pun - "south" (南 nán) sounds like "hard/difficult" (难 nán), expressing that life is too hard.]\n'
-        f"- Do NOT annotate simple/obvious phrases like greetings, common expressions, or straightforward dialogue.\n\n"
-        f"--- RELEVANT GLOSSARY (Specific to this text) ---\n"
-        f"{known_glossary_json_str}\n\n"
-        f"--- RESPONSE FORMATTING RULES ---\n"
-        f"- Your response MUST have two parts separated by '---JSON---'.\n"
-        f"- PART 1 (Translation): MUST ONLY contain the final {target_language.upper()} translation (including any ^[annotation] markers inline).\n"
-        f"- PART 2 (Data): MUST start on a new line immediately after '---JSON---' and contain a single JSON object of NEW entities. This object should have two keys: 'characters' and 'places'.\n"
-        f"- Under 'characters', provide new characters with their 'pinyin', 'english_name', and 'pronoun'.\n"
-        f"- Under 'places', provide new places with their 'pinyin' and 'english_name'.\n"
-        f'- Example JSON Format: {{"characters": {{"兰波": {{"pinyin": "Lan Bo", "english_name": "Lan Bo", "pronoun": "he/him"}}}}, "places": {{"清河市": {{"pinyin": "Qinghe Shi", "english_name": "Qinghe City"}}}}}}\n'
-        f'- If NO NEW entities of a type are found, that key\'s value must be an empty object: e.g., {{"characters": {{}}, "places": {{...}}}}\n\n'
-        f"--- CHINESE TEXT TO PROCESS ---\n"
-        f"{text_to_translate}\n"
-        f"--- END OF TEXT ---\n\n"
-        f"Please provide your response following all rules."
+    # Build prompt from shared templates
+    prompt = build_combined_prompt(
+        text_to_translate, known_glossary_json_str, target_language
     )
 
     try:
         chat_completion = client.chat.completions.create(
             messages=[
-                {
-                    "role": "system",
-                    "content": "You are a helpful assistant that follows instructions precisely.",
-                },
+                {"role": "system", "content": SYSTEM_COMBINED},
                 {"role": "user", "content": prompt},
             ],
             model=XAI_MODEL_NAME,
@@ -192,6 +123,7 @@ def translate_text_with_xai(
             if chat_completion.choices and chat_completion.choices[0].message
             else ""
         )
+
         separator = "---JSON---"
         new_glossary_items = {}
         translation_part = raw_response_text
@@ -200,166 +132,130 @@ def translate_text_with_xai(
             parts = raw_response_text.split(separator, 1)
             translation_part = parts[0].strip()
             json_part = parts[1].strip()
-
             try:
-                json_part_cleaned = re.sub(
+                json_cleaned = re.sub(
                     r"```json\s*|\s*```", "", json_part, flags=re.DOTALL
                 ).strip()
-                if json_part_cleaned:
-                    new_glossary_items = json.loads(json_part_cleaned)
-                    print(f"  Successfully parsed glossary data from API response.")
+                if json_cleaned:
+                    new_glossary_items = json.loads(json_cleaned)
+                    for key in DEFAULT_GLOSSARY:
+                        if key not in new_glossary_items:
+                            new_glossary_items[key] = {}
+                    print(f"  Parsed glossary data from response.")
             except json.JSONDecodeError as e:
-                print(f"  Warning: Failed to parse JSON from API response. Error: {e}")
+                print(f"  Warning: JSON parse failed: {e}")
         else:
-            print("  Warning: JSON separator not found in API response.")
+            print("  Warning: ---JSON--- separator not found.")
 
         final_translation = re.sub(
             r"\n---\s*"
             + target_language.upper()
-            + r"\s*TRANSLATION\s*(END|START)\s*---|\^ENGLISH TRANSLATION ONLY:[\s\n]*",
+            + r"\s*TRANSLATION\s*(END|START)\s*---"
+            r"|\^ENGLISH TRANSLATION ONLY:[\s\n]*",
             "",
             translation_part,
             flags=re.IGNORECASE,
         ).strip()
-        print(f"Translation API call successful.")
+        print(f"Translation successful.")
         return final_translation, new_glossary_items
 
     except (APIError, APITimeoutError, AuthenticationError, RateLimitError) as e:
         error_type = type(e).__name__
-        print(f"An API error occurred during translation: {error_type} - {e}")
+        print(f"  API error: {error_type} - {e}")
         return f"[Translation Error ({XAI_MODEL_NAME} - {error_type})]", {}
     except Exception as e:
         error_type = type(e).__name__
-        print(f"An unexpected error occurred during translation: {error_type} - {e}")
+        print(f"  Unexpected error: {error_type} - {e}")
         return f"[Translation Error ({XAI_MODEL_NAME} - {error_type})]", {}
 
 
-# --- MODIFIED: Main Processing Logic with Glossary ---
 def process_files_for_translation():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Resolve paths: if absolute (from GUI env), use directly; if relative, join with script_dir
-    input_dir_full_path = (
+    input_dir = (
         INPUT_DIR if os.path.isabs(INPUT_DIR) else os.path.join(script_dir, INPUT_DIR)
     )
-    output_dir_full_path = (
+    output_dir = (
         OUTPUT_DIR
         if os.path.isabs(OUTPUT_DIR)
         else os.path.join(script_dir, OUTPUT_DIR)
     )
+    project_root = os.path.dirname(input_dir)
+    glossary_path = os.path.join(project_root, GLOSSARY_JSON_FILE)
+    glossary_data = load_glossary_from_json(glossary_path)
 
-    # Glossary lives in the project root (parent of input dir, e.g. Novels/BookName/)
-    project_root = os.path.dirname(input_dir_full_path)
-    glossary_json_full_path = os.path.join(project_root, GLOSSARY_JSON_FILE)
-    glossary_data = load_glossary_from_json(glossary_json_full_path)
-
-    if not os.path.exists(input_dir_full_path):
-        print(f"Error: Input directory '{input_dir_full_path}' not found.")
+    if not os.path.exists(input_dir):
+        print(f"Error: Input directory '{input_dir}' not found.")
         return
-    if not os.path.exists(output_dir_full_path):
-        os.makedirs(output_dir_full_path)
-        print(f"Created output directory: {output_dir_full_path}")
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
-    files_to_process = sorted(
-        [f for f in os.listdir(input_dir_full_path) if f.endswith(".txt")]
-    )
-    if not files_to_process:
-        print(f"No .txt files found in '{input_dir_full_path}'.")
+    files = sorted([f for f in os.listdir(input_dir) if f.endswith(".txt")])
+    if not files:
+        print(f"No .txt files in '{input_dir}'.")
         return
 
-    print(
-        f"Found {len(files_to_process)} file(s) to process from '{input_dir_full_path}'."
-    )
+    print(f"Found {len(files)} file(s) from '{input_dir}'.")
 
-    for i, filename in enumerate(files_to_process):
-        input_filepath = os.path.join(input_dir_full_path, filename)
-        output_filepath = os.path.join(output_dir_full_path, filename)
-        print(f"\n[{i+1}/{len(files_to_process)}] Checking: {filename}...")
+    for i, filename in enumerate(files):
+        in_path = os.path.join(input_dir, filename)
+        out_path = os.path.join(output_dir, filename)
+        print(f"\n[{i+1}/{len(files)}] {filename}...")
 
-        if os.path.exists(output_filepath):
+        if os.path.exists(out_path):
             try:
-                with open(output_filepath, "r", encoding="utf-8") as f_check:
-                    content_check = f_check.read(200)
-                    if (
-                        "[Translation Error" not in content_check
-                        and "[ERROR PROCESSING FILE" not in content_check
-                    ):
-                        print(
-                            f"Output file '{output_filepath}' exists and is valid. Skipping."
-                        )
+                with open(out_path, "r", encoding="utf-8") as f:
+                    check = f.read(200)
+                    if "[Translation Error" not in check and "[ERROR" not in check:
+                        print(f"  Valid output exists. Skipping.")
                         continue
-                    else:
-                        print(
-                            f"Output file contains an error marker. Will re-translate."
-                        )
             except Exception:
                 pass
 
-        print(f"Processing for translation: {filename}")
-
         try:
-            with open(input_filepath, "r", encoding="utf-8") as f:
-                source_content = f.read()
-            clean_source_for_api = "\n".join(
-                [
-                    line
-                    for line in source_content.splitlines()
-                    if line.strip() and re.search(r"[\u4e00-\u9fff]", line)
-                ]
+            with open(in_path, "r", encoding="utf-8") as f:
+                source = f.read()
+            clean = "\n".join(
+                l
+                for l in source.splitlines()
+                if l.strip() and re.search(r"[\u4e00-\u9fff]", l)
             ).strip()
 
-            if not clean_source_for_api:
-                translated_content = "[No Chinese content found in source]"
+            if not clean:
+                translated = "[No Chinese content found]"
             else:
-                translated_content, new_glossary_items = translate_text_with_xai(
-                    clean_source_for_api, glossary_data, target_language="English"
-                )
+                translated, new_items = translate_text_with_xai(clean, glossary_data)
+                if new_items:
+                    for cat in DEFAULT_GLOSSARY:
+                        for name, details in new_items.get(cat, {}).items():
+                            if name not in glossary_data.get(cat, {}):
+                                if cat not in glossary_data:
+                                    glossary_data[cat] = {}
+                                glossary_data[cat][name] = details
+                                print(f"    + [{cat}] {name} -> {details}")
 
-                if new_glossary_items:
-                    for category in DEFAULT_GLOSSARY:
-                        new_entries = new_glossary_items.get(category, {})
-                        if new_entries:
-                            print(
-                                f"  Updating {category} with {len(new_entries)} new entry/entries."
-                            )
-                            for name, details in new_entries.items():
-                                if name not in glossary_data.get(category, {}):
-                                    if category not in glossary_data:
-                                        glossary_data[category] = {}
-                                    glossary_data[category][name] = details
-                                    print(f"    + [{category}] {name} -> {details}")
-
-            final_content_to_write = (
-                translated_content
-                if translated_content.startswith("[")
-                else reformat_chapter_title_in_text(translated_content)
+            final = (
+                translated
+                if translated.startswith("[")
+                else reformat_chapter_title_in_text(translated)
             )
-            with open(output_filepath, "w", encoding="utf-8") as f:
-                f.write(final_content_to_write)
-            print(f"Saved: {output_filepath}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(final)
+            print(f"  Saved: {out_path}")
+            save_glossary_to_json(glossary_path, glossary_data)
 
-            # --- Save glossary after each file is processed ---
-            save_glossary_to_json(glossary_json_full_path, glossary_data)
-
-            if i < len(files_to_process) - 1:
-                print(f"Pausing for 5.0 seconds...")
+            if i < len(files) - 1:
                 time.sleep(5.0)
-
         except Exception as e:
-            print(f"FATAL Error processing file {filename}: {e}")
-            with open(output_filepath, "w", encoding="utf-8") as f_err:
-                f_err.write(f"[ERROR PROCESSING FILE: {e}]")
+            print(f"  FATAL: {e}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(f"[ERROR PROCESSING FILE: {e}]")
 
-    print(f"\n--- Translation Run Summary ---")
-    print(f"Total source files checked: {len(files_to_process)}")
-    print(f"-----------------------------")
+    print(f"\n--- Done. {len(files)} files checked ---")
 
 
 if __name__ == "__main__":
-    print(f"Starting Chinese to English translation process...")
+    print("Starting Chinese to English translation (Grok/xAI)...")
     if not os.environ.get("XAI_API_KEY"):
-        print("\nCRITICAL ERROR: 'XAI_API_KEY' environment variable not set.")
+        print("CRITICAL: 'XAI_API_KEY' not set.")
         exit()
-
     process_files_for_translation()
-    print("Translation process finished.")

@@ -4,6 +4,8 @@ import re
 import sys
 import time
 
+from logger import log_chapter_translation
+
 try:
     import lmstudio as lms
 except ImportError:
@@ -481,12 +483,16 @@ def process_files_for_translation():
             print(f"Saved: {out_path}")
             save_glossary_to_json(glossary_path, glossary_data)
 
+            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME)
+
             if i < len(files) - 1:
                 time.sleep(1.0)
         except Exception as e:
             print(f"FATAL Error: {e}")
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(f"[ERROR PROCESSING FILE: {e}]")
+
+            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME, f"Error: {e}")
 
     print(f"\n--- Translation Run Summary ---")
     print(f"Total: {len(files)} files checked")
