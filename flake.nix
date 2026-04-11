@@ -15,6 +15,7 @@
       ccLib = pkgs.stdenv.cc.cc;
       pythonEnv = pkgs.python310.withPackages (ps: [ 
         ps.tkinter
+        ps.pytest
       ]);
     in
     {

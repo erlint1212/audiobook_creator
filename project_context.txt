@@ -12,6 +12,8 @@ Project Directory Structure:
     flake.lock
     grok_transelate.py
     gemini_transelate_4.py
+    translation_history.csv
+    prompts.py
     environment.yml
     translation_glossary.json
     metadata_fetcher.py
@@ -20,6 +22,7 @@ Project Directory Structure:
     alltalk_tts_generator_chunky_17.py
     constants.py
     convert_audio_to_opus_3.py
+    logger.py
     icon.png
     txt_to_epub.py
     context_builder.py
@@ -28,22 +31,32 @@ Project Directory Structure:
     pipe_system_gui.py
     Novels/
         icon.svg
+        prompts.md
         The_Blood_Princess_And_The_Knight/
             The_Blood_Princess_And_The_Knight.epub
             failed_chunks.log
+            translation_glossary.json
             custom_scraper.py
             metadata.json
             custom_scraper_old.py
+            translation_glossary copy.json
             cover.jpg
+            HQ.md
             03_Audio_WAV/
                 ch_0097.wav
+                ch_0262.wav
+                ch_0290.wav
                 ch_0197.wav
                 ch_0076.wav
                 ch_0208.wav
                 ch_0086.wav
+                ch_0309.wav
+                ch_0320.wav
                 ch_0231.wav
                 ch_0200.wav
                 ch_0239.wav
+                ch_0375.wav
+                ch_0257.wav
                 ch_0034.wav
                 ch_0205.wav
                 ch_0229.wav
@@ -51,14 +64,20 @@ Project Directory Structure:
                 ch_0094.wav
                 ch_0217.wav
                 ch_0037.wav
+                ch_0287.wav
+                ch_0364.wav
                 ch_0209.wav
                 ch_0112.wav
+                ch_0315.wav
                 ch_0221.wav
+                ch_0317.wav
                 ch_0072.wav
                 ch_0193.wav
                 ch_0154.wav
                 ch_0143.wav
+                ch_0301.wav
                 ch_0125.wav
+                ch_0330.wav
                 ch_0212.wav
                 ch_0026.wav
                 ch_0111.wav
@@ -69,30 +88,47 @@ Project Directory Structure:
                 ch_0024.wav
                 ch_0012.wav
                 ch_0064.wav
+                ch_0312.wav
                 ch_0049.wav
                 ch_0083.wav
                 ch_0003.wav
+                ch_0310.wav
+                ch_0302.wav
                 ch_0146.wav
                 ch_0052.wav
+                ch_0323.wav
                 ch_0088.wav
                 ch_0190.wav
                 ch_0120.wav
+                ch_0358.wav
+                ch_0318.wav
                 ch_0131.wav
                 ch_0220.wav
+                ch_0256.wav
+                ch_0261.wav
+                ch_0308.wav
+                ch_0360.wav
+                ch_0295.wav
                 ch_0069.wav
                 ch_0023.wav
                 ch_0134.wav
                 ch_0039.wav
                 ch_0105.wav
+                ch_0271.wav
                 ch_0119.wav
+                ch_0264.wav
                 ch_0153.wav
                 ch_0073.wav
                 ch_0116.wav
                 ch_0008.wav
+                ch_0347.wav
                 ch_0061.wav
+                ch_0289.wav
+                ch_0311.wav
                 ch_0179.wav
                 ch_0018.wav
                 ch_0139.wav
+                ch_0297.wav
                 ch_0079.wav
                 ch_0138.wav
                 ch_0211.wav
@@ -102,8 +138,11 @@ Project Directory Structure:
                 ch_0032.wav
                 ch_0029.wav
                 ch_0100.wav
+                ch_0374.wav
+                ch_0260.wav
                 ch_0047.wav
                 ch_0058.wav
+                ch_0303.wav
                 ch_0170.wav
                 ch_0172.wav
                 ch_0045.wav
@@ -111,56 +150,87 @@ Project Directory Structure:
                 ch_0041.wav
                 ch_0014.wav
                 ch_0136.wav
+                ch_0255.wav
                 ch_0177.wav
                 ch_0236.wav
                 ch_0142.wav
+                ch_0356.wav
                 ch_0210.wav
+                ch_0367.wav
+                ch_0291.wav
                 ch_0171.wav
+                ch_0368.wav
                 ch_0188.wav
+                ch_0274.wav
+                ch_0267.wav
+                ch_0276.wav
+                ch_0258.wav
                 ch_0237.wav
+                ch_0253.wav
                 ch_0110.wav
                 ch_0109.wav
                 ch_0095.wav
+                ch_0296.wav
                 ch_0218.wav
                 ch_0028.wav
                 ch_0187.wav
                 ch_0065.wav
                 ch_0092.wav
+                ch_0254.wav
+                ch_0286.wav
                 ch_0181.wav
                 ch_0043.wav
                 ch_0056.wav
                 ch_0164.wav
                 ch_0191.wav
+                ch_0279.wav
                 ch_0059.wav
                 ch_0189.wav
                 ch_0185.wav
+                ch_0284.wav
                 ch_0027.wav
+                ch_0305.wav
                 ch_0246.wav
                 ch_0099.wav
                 ch_0101.wav
+                ch_0371.wav
                 ch_0241.wav
                 ch_0158.wav
                 ch_0198.wav
                 ch_0145.wav
                 ch_0176.wav
+                ch_0334.wav
                 ch_0160.wav
                 ch_0093.wav
+                ch_0340.wav
                 ch_0070.wav
+                ch_0353.wav
                 ch_0074.wav
                 ch_0013.wav
                 ch_0121.wav
                 ch_0016.wav
+                ch_0298.wav
                 ch_0133.wav
+                ch_0249.wav
                 ch_0107.wav
                 ch_0055.wav
+                ch_0372.wav
                 ch_0167.wav
                 ch_0247.wav
                 ch_0182.wav
                 ch_0216.wav
+                ch_0265.wav
                 ch_0227.wav
+                ch_0251.wav
+                ch_0370.wav
                 ch_0159.wav
+                ch_0270.wav
                 ch_0238.wav
+                ch_0343.wav
+                ch_0348.wav
+                ch_0349.wav
                 ch_0215.wav
+                ch_0313.wav
                 ch_0025.wav
                 ch_0206.wav
                 ch_0050.wav
@@ -172,48 +242,77 @@ Project Directory Structure:
                 ch_0207.wav
                 ch_0126.wav
                 ch_0161.wav
+                ch_0359.wav
                 ch_0087.wav
                 ch_0151.wav
                 ch_0165.wav
+                ch_0327.wav
                 ch_0152.wav
                 ch_0075.wav
                 ch_0067.wav
                 ch_0203.wav
+                ch_0259.wav
+                ch_0266.wav
                 ch_0005.wav
                 ch_0009.wav
                 ch_0021.wav
+                ch_0363.wav
                 ch_0002.wav
+                ch_0278.wav
+                ch_0333.wav
+                ch_0269.wav
+                ch_0332.wav
                 ch_0098.wav
                 ch_0117.wav
                 ch_0022.wav
                 ch_0234.wav
                 ch_0235.wav
+                ch_0273.wav
                 ch_0115.wav
                 ch_0199.wav
                 ch_0103.wav
+                ch_0341.wav
                 ch_0178.wav
+                ch_0292.wav
                 ch_0106.wav
+                ch_0282.wav
                 ch_0077.wav
+                ch_0369.wav
                 ch_0127.wav
+                ch_0325.wav
                 ch_0174.wav
                 ch_0232.wav
+                ch_0326.wav
                 ch_0001.wav
                 ch_0051.wav
+                ch_0350.wav
+                ch_0345.wav
+                ch_0324.wav
                 ch_0129.wav
                 ch_0192.wav
                 ch_0163.wav
+                ch_0319.wav
                 ch_0053.wav
                 ch_0225.wav
+                ch_0288.wav
                 ch_0081.wav
                 ch_0228.wav
+                ch_0293.wav
                 ch_0168.wav
                 ch_0213.wav
                 ch_0031.wav
+                ch_0250.wav
+                ch_0344.wav
                 ch_0224.wav
+                ch_0352.wav
+                ch_0299.wav
                 ch_0066.wav
+                ch_0285.wav
                 ch_0147.wav
                 ch_0040.wav
+                ch_0252.wav
                 ch_0248.wav
+                ch_0280.wav
                 ch_0124.wav
                 ch_0046.wav
                 ch_0196.wav
@@ -223,26 +322,44 @@ Project Directory Structure:
                 ch_0090.wav
                 ch_0082.wav
                 ch_0006.wav
+                ch_0268.wav
+                ch_0283.wav
                 ch_0004.wav
                 ch_0044.wav
                 ch_0244.wav
                 ch_0201.wav
                 ch_0223.wav
+                ch_0304.wav
                 ch_0180.wav
                 ch_0030.wav
+                ch_0272.wav
                 ch_0140.wav
+                ch_0294.wav
                 ch_0242.wav
                 ch_0036.wav
+                ch_0306.wav
                 ch_0084.wav
                 ch_0144.wav
+                ch_0342.wav
                 ch_0243.wav
                 ch_0054.wav
+                ch_0316.wav
+                ch_0335.wav
+                ch_0307.wav
+                ch_0314.wav
+                ch_0366.wav
                 ch_0114.wav
+                ch_0365.wav
+                ch_0336.wav
                 ch_0033.wav
+                ch_0346.wav
                 ch_0122.wav
+                ch_0328.wav
                 ch_0068.wav
                 ch_0010.wav
+                ch_0373.wav
                 ch_0204.wav
+                ch_0338.wav
                 ch_0071.wav
                 ch_0063.wav
                 ch_0019.wav
@@ -251,11 +368,16 @@ Project Directory Structure:
                 ch_0183.wav
                 ch_0184.wav
                 ch_0102.wav
+                ch_0355.wav
+                ch_0351.wav
                 ch_0156.wav
                 ch_0113.wav
                 ch_0007.wav
+                ch_0339.wav
+                ch_0354.wav
                 ch_0155.wav
                 ch_0123.wav
+                ch_0263.wav
                 ch_0015.wav
                 ch_0173.wav
                 ch_0085.wav
@@ -264,24 +386,35 @@ Project Directory Structure:
                 ch_0062.wav
                 ch_0060.wav
                 ch_0157.wav
+                ch_0275.wav
                 ch_0128.wav
+                ch_0281.wav
                 ch_0091.wav
                 ch_0194.wav
+                ch_0362.wav
                 ch_0038.wav
+                ch_0322.wav
                 ch_0078.wav
                 ch_0219.wav
                 ch_0195.wav
                 ch_0011.wav
+                ch_0337.wav
                 ch_0214.wav
                 ch_0080.wav
                 ch_0089.wav
+                ch_0331.wav
+                ch_0329.wav
                 ch_0162.wav
                 ch_0096.wav
                 ch_0149.wav
                 ch_0137.wav
                 ch_0233.wav
+                ch_0300.wav
+                ch_0361.wav
                 ch_0169.wav
                 ch_0230.wav
+                ch_0277.wav
+                ch_0321.wav
                 ch_0245.wav
                 ch_0222.wav
             02_Translated/
@@ -289,26 +422,42 @@ Project Directory Structure:
                 ch_0102.txt
                 ch_0263.txt
                 ch_0109.txt
+                ch_0338.txt
+                ch_0307.txt
                 ch_0213.txt
+                ch_0372.txt
                 ch_0028.txt
+                ch_0376.txt
+                ch_0302.txt
+                ch_0270.txt
                 ch_0092.txt
                 ch_0218.txt
+                ch_0336.txt
                 ch_0077.txt
                 ch_0203.txt
+                ch_0278.txt
                 ch_0125.txt
                 ch_0088.txt
                 ch_0144.txt
+                ch_0311.txt
+                ch_0329.txt
+                ch_0281.txt
                 ch_0224.txt
+                ch_0347.txt
                 ch_0062.txt
                 ch_0185.txt
                 ch_0153.txt
+                ch_0382.txt
                 ch_0058.txt
+                ch_0358.txt
+                ch_0271.txt
                 ch_0233.txt
                 ch_0134.txt
                 ch_0166.txt
                 ch_0130.txt
                 ch_0198.txt
                 ch_0146.txt
+                ch_0315.txt
                 ch_0067.txt
                 ch_0049.txt
                 ch_0202.txt
@@ -319,9 +468,12 @@ Project Directory Structure:
                 ch_0009.txt
                 ch_0097.txt
                 ch_0138.txt
+                ch_0321.txt
                 ch_0187.txt
+                ch_0320.txt
                 ch_0094.txt
                 ch_0032.txt
+                ch_0300.txt
                 ch_0050.txt
                 ch_0183.txt
                 ch_0012.txt
@@ -329,13 +481,20 @@ Project Directory Structure:
                 ch_0194.txt
                 ch_0055.txt
                 ch_0064.txt
+                ch_0337.txt
                 ch_0022.txt
                 ch_0175.txt
                 ch_0078.txt
+                ch_0370.txt
                 ch_0086.txt
                 ch_0242.txt
+                ch_0318.txt
+                ch_0308.txt
+                ch_0356.txt
+                ch_0286.txt
                 ch_0170.txt
                 ch_0046.txt
+                ch_0284.txt
                 ch_0027.txt
                 ch_0014.txt
                 ch_0217.txt
@@ -343,13 +502,19 @@ Project Directory Structure:
                 ch_0007.txt
                 ch_0192.txt
                 ch_0033.txt
+                ch_0380.txt
                 ch_0069.txt
                 ch_0111.txt
                 ch_0177.txt
                 ch_0127.txt
                 ch_0179.txt
+                ch_0349.txt
                 ch_0060.txt
                 ch_0114.txt
+                ch_0374.txt
+                ch_0384.txt
+                ch_0369.txt
+                ch_0276.txt
                 ch_0165.txt
                 ch_0123.txt
                 ch_0080.txt
@@ -358,108 +523,163 @@ Project Directory Structure:
                 ch_0117.txt
                 ch_0246.txt
                 ch_0025.txt
+                ch_0352.txt
+                ch_0381.txt
                 ch_0149.txt
                 ch_0013.txt
                 ch_0104.txt
                 ch_0256.txt
+                ch_0351.txt
                 ch_0065.txt
+                ch_0335.txt
                 ch_0083.txt
                 ch_0096.txt
+                ch_0375.txt
                 ch_0122.txt
                 ch_0231.txt
+                ch_0379.txt
                 ch_0082.txt
+                ch_0310.txt
+                ch_0317.txt
+                ch_0290.txt
                 ch_0100.txt
+                ch_0366.txt
                 ch_0195.txt
                 ch_0006.txt
                 ch_0035.txt
+                ch_0340.txt
                 ch_0257.txt
                 ch_0076.txt
                 ch_0045.txt
                 ch_0108.txt
                 ch_0237.txt
                 ch_0143.txt
+                ch_0362.txt
                 ch_0222.txt
+                ch_0363.txt
                 ch_0164.txt
+                ch_0365.txt
                 ch_0085.txt
                 ch_0184.txt
                 ch_0057.txt
                 ch_0091.txt
                 ch_0011.txt
                 ch_0093.txt
+                ch_0323.txt
+                ch_0272.txt
                 ch_0131.txt
                 ch_0228.txt
                 ch_0251.txt
                 ch_0038.txt
+                ch_0292.txt
                 ch_0066.txt
                 ch_0158.txt
+                ch_0291.txt
                 ch_0034.txt
                 ch_0040.txt
                 ch_0070.txt
                 ch_0152.txt
+                ch_0334.txt
                 ch_0226.txt
+                ch_0353.txt
                 ch_0106.txt
+                ch_0293.txt
                 ch_0156.txt
                 ch_0135.txt
                 ch_0265.txt
                 ch_0113.txt
+                ch_0355.txt
                 ch_0254.txt
                 ch_0260.txt
                 ch_0221.txt
+                ch_0294.txt
                 ch_0043.txt
                 ch_0031.txt
                 ch_0044.txt
+                ch_0345.txt
+                ch_0295.txt
                 ch_0017.txt
                 ch_0155.txt
                 ch_0208.txt
+                ch_0333.txt
+                ch_0377.txt
                 ch_0023.txt
                 ch_0259.txt
+                ch_0367.txt
+                ch_0330.txt
                 ch_0133.txt
                 ch_0232.txt
                 ch_0262.txt
                 ch_0142.txt
+                ch_0326.txt
+                ch_0360.txt
                 ch_0018.txt
                 ch_0024.txt
+                ch_0364.txt
                 ch_0116.txt
+                ch_0301.txt
                 ch_0039.txt
                 chapters.json
                 ch_0238.txt
+                ch_0305.txt
                 ch_0041.txt
+                ch_0341.txt
                 ch_0005.txt
                 ch_0137.txt
                 ch_0207.txt
+                ch_0289.txt
                 ch_0176.txt
                 ch_0008.txt
                 ch_0051.txt
+                ch_0283.txt
                 ch_0053.txt
                 ch_0157.txt
+                ch_0350.txt
                 ch_0147.txt
+                ch_0297.txt
                 ch_0209.txt
                 ch_0174.txt
+                ch_0359.txt
+                ch_0327.txt
                 ch_0250.txt
                 ch_0047.txt
                 ch_0075.txt
                 ch_0150.txt
+                ch_0378.txt
                 ch_0003.txt
                 ch_0148.txt
+                ch_0319.txt
                 ch_0211.txt
                 ch_0252.txt
+                ch_0324.txt
                 ch_0081.txt
                 ch_0244.txt
                 ch_0087.txt
                 ch_0056.txt
                 ch_0099.txt
                 ch_0105.txt
+                ch_0303.txt
+                ch_0314.txt
+                ch_0306.txt
                 ch_0090.txt
+                ch_0312.txt
+                ch_0296.txt
                 ch_0101.txt
                 ch_0181.txt
                 ch_0190.txt
                 ch_0189.txt
+                ch_0298.txt
+                ch_0325.txt
                 ch_0227.txt
                 ch_0225.txt
+                ch_0371.txt
                 ch_0071.txt
+                ch_0343.txt
                 ch_0182.txt
                 ch_0241.txt
+                ch_0383.txt
                 ch_0112.txt
+                ch_0373.txt
                 ch_0186.txt
                 ch_0063.txt
                 ch_0220.txt
@@ -467,28 +687,36 @@ Project Directory Structure:
                 ch_0197.txt
                 ch_0161.txt
                 ch_0234.txt
+                ch_0274.txt
                 ch_0167.txt
+                ch_0277.txt
                 ch_0253.txt
                 ch_0240.txt
+                ch_0361.txt
                 ch_0173.txt
                 ch_0059.txt
                 ch_0201.txt
                 ch_0042.txt
                 ch_0180.txt
                 ch_0264.txt
+                ch_0339.txt
+                ch_0282.txt
                 ch_0118.txt
                 ch_0255.txt
                 ch_0119.txt
                 ch_0247.txt
                 ch_0136.txt
                 ch_0030.txt
+                ch_0344.txt
                 ch_0036.txt
                 ch_0172.txt
+                ch_0357.txt
                 ch_0249.txt
                 ch_0098.txt
                 ch_0160.txt
                 ch_0052.txt
                 ch_0128.txt
+                ch_0269.txt
                 ch_0171.txt
                 ch_0001.txt
                 ch_0120.txt
@@ -501,17 +729,25 @@ Project Directory Structure:
                 ch_0019.txt
                 ch_0139.txt
                 ch_0084.txt
+                ch_0348.txt
+                ch_0275.txt
                 ch_0154.txt
                 ch_0204.txt
+                ch_0316.txt
                 ch_0215.txt
                 ch_0236.txt
                 ch_0151.txt
                 ch_0206.txt
+                ch_0368.txt
                 ch_0021.txt
+                ch_0309.txt
                 ch_0037.txt
                 ch_0163.txt
+                ch_0322.txt
                 ch_0015.txt
+                ch_0313.txt
                 ch_0026.txt
+                ch_0385.txt
                 ch_0267.txt
                 ch_0029.txt
                 ch_0214.txt
@@ -519,8 +755,10 @@ Project Directory Structure:
                 ch_0140.txt
                 ch_0089.txt
                 ch_0243.txt
+                ch_0268.txt
                 ch_0196.txt
                 ch_0068.txt
+                ch_0287.txt
                 ch_0141.txt
                 ch_0054.txt
                 ch_0129.txt
@@ -528,22 +766,35 @@ Project Directory Structure:
                 ch_0095.txt
                 ch_0010.txt
                 ch_0169.txt
+                ch_0304.txt
+                ch_0354.txt
                 ch_0235.txt
+                ch_0280.txt
                 ch_0132.txt
+                ch_0328.txt
+                ch_0285.txt
+                ch_0342.txt
                 ch_0162.txt
+                ch_0273.txt
                 ch_0205.txt
+                ch_0346.txt
+                ch_0288.txt
                 ch_0079.txt
                 ch_0258.txt
                 ch_0223.txt
                 ch_0061.txt
+                ch_0332.txt
                 ch_0115.txt
                 ch_0210.txt
+                ch_0279.txt
                 ch_0193.txt
                 ch_0230.txt
                 ch_0200.txt
                 ch_0178.txt
                 ch_0126.txt
+                ch_0299.txt
                 ch_0239.txt
+                ch_0331.txt
                 ch_0121.txt
                 ch_0004.txt
                 ch_0002.txt
@@ -824,27 +1075,44 @@ Project Directory Structure:
                     ch_0168.txt
             04_Audio_Opus/
                 ch_0042.opus
+                ch_0323.opus
+                ch_0218.opus
                 ch_0144.opus
                 ch_0139.opus
                 ch_0121.opus
+                ch_0241.opus
                 ch_0181.opus
                 ch_0179.opus
+                ch_0317.opus
+                ch_0247.opus
+                ch_0330.opus
+                ch_0326.opus
                 ch_0014.opus
                 ch_0078.opus
+                ch_0322.opus
                 ch_0067.opus
                 ch_0183.opus
+                ch_0374.opus
                 ch_0172.opus
                 ch_0206.opus
                 ch_0024.opus
                 ch_0178.opus
                 ch_0184.opus
                 ch_0097.opus
+                ch_0237.opus
+                ch_0216.opus
+                ch_0246.opus
+                ch_0343.opus
+                ch_0265.opus
                 ch_0174.opus
                 ch_0040.opus
+                ch_0354.opus
                 ch_0033.opus
                 ch_0053.opus
+                ch_0231.opus
                 ch_0054.opus
                 ch_0182.opus
+                ch_0283.opus
                 ch_0143.opus
                 ch_0213.opus
                 ch_0031.opus
@@ -856,158 +1124,288 @@ Project Directory Structure:
                 ch_0075.opus
                 ch_0009.opus
                 ch_0101.opus
+                ch_0288.opus
+                ch_0226.opus
                 ch_0012.opus
+                ch_0280.opus
+                ch_0232.opus
+                ch_0238.opus
+                ch_0256.opus
                 ch_0034.opus
+                ch_0346.opus
+                ch_0259.opus
+                ch_0361.opus
                 ch_0079.opus
                 ch_0089.opus
                 ch_0110.opus
+                ch_0225.opus
                 ch_0069.opus
                 ch_0126.opus
+                ch_0257.opus
                 ch_0090.opus
                 ch_0025.opus
                 ch_0008.opus
                 ch_0071.opus
+                ch_0297.opus
+                ch_0306.opus
                 ch_0162.opus
+                ch_0341.opus
                 ch_0043.opus
                 ch_0021.opus
+                ch_0316.opus
+                ch_0311.opus
                 ch_0204.opus
                 ch_0191.opus
                 ch_0005.opus
+                ch_0338.opus
                 ch_0190.opus
+                ch_0219.opus
+                ch_0333.opus
+                ch_0289.opus
+                ch_0287.opus
                 ch_0104.opus
+                ch_0267.opus
+                ch_0307.opus
+                ch_0220.opus
+                ch_0375.opus
                 ch_0018.opus
                 ch_0194.opus
+                ch_0230.opus
                 ch_0205.opus
                 ch_0105.opus
                 ch_0080.opus
+                ch_0250.opus
                 ch_0193.opus
+                ch_0279.opus
                 ch_0212.opus
                 ch_0030.opus
+                ch_0332.opus
+                ch_0308.opus
                 ch_0093.opus
                 ch_0155.opus
+                ch_0345.opus
+                ch_0258.opus
+                ch_0272.opus
+                ch_0276.opus
                 ch_0094.opus
                 ch_0057.opus
                 ch_0055.opus
                 ch_0159.opus
                 ch_0068.opus
+                ch_0293.opus
                 ch_0027.opus
+                ch_0294.opus
                 ch_0173.opus
                 ch_0196.opus
                 ch_0170.opus
                 ch_0020.opus
                 ch_0177.opus
+                ch_0296.opus
                 ch_0141.opus
                 ch_0117.opus
+                ch_0368.opus
+                ch_0262.opus
                 ch_0064.opus
                 ch_0035.opus
                 ch_0066.opus
+                ch_0327.opus
                 ch_0108.opus
                 ch_0186.opus
+                ch_0295.opus
+                ch_0356.opus
                 ch_0106.opus
                 ch_0192.opus
+                ch_0365.opus
+                ch_0217.opus
                 ch_0202.opus
                 ch_0037.opus
+                ch_0249.opus
                 ch_0164.opus
                 ch_0185.opus
                 ch_0208.opus
+                ch_0324.opus
+                ch_0239.opus
                 ch_0019.opus
                 ch_0022.opus
+                ch_0266.opus
+                ch_0318.opus
+                ch_0320.opus
                 ch_0016.opus
                 ch_0109.opus
                 ch_0135.opus
+                ch_0303.opus
+                ch_0233.opus
+                ch_0292.opus
                 ch_0197.opus
+                ch_0313.opus
                 ch_0015.opus
                 ch_0048.opus
                 ch_0198.opus
+                ch_0269.opus
+                ch_0321.opus
                 ch_0167.opus
                 ch_0096.opus
                 ch_0112.opus
+                ch_0350.opus
                 ch_0059.opus
+                ch_0274.opus
                 ch_0145.opus
                 ch_0131.opus
+                ch_0302.opus
+                ch_0336.opus
+                ch_0340.opus
                 ch_0036.opus
+                ch_0339.opus
+                ch_0228.opus
+                ch_0367.opus
                 ch_0136.opus
+                ch_0362.opus
+                ch_0299.opus
                 ch_0133.opus
                 ch_0153.opus
                 ch_0180.opus
                 ch_0095.opus
+                ch_0264.opus
                 ch_0127.opus
                 ch_0061.opus
+                ch_0301.opus
+                ch_0234.opus
                 ch_0023.opus
+                ch_0254.opus
+                ch_0253.opus
                 ch_0187.opus
+                ch_0329.opus
                 ch_0165.opus
                 ch_0086.opus
                 ch_0176.opus
                 ch_0028.opus
+                ch_0221.opus
+                ch_0275.opus
+                ch_0372.opus
+                ch_0347.opus
                 ch_0188.opus
+                ch_0349.opus
+                ch_0355.opus
                 ch_0050.opus
                 ch_0058.opus
+                ch_0268.opus
                 ch_0029.opus
+                ch_0235.opus
+                ch_0252.opus
+                ch_0298.opus
+                ch_0281.opus
                 ch_0160.opus
                 ch_0107.opus
+                ch_0319.opus
                 ch_0147.opus
+                ch_0300.opus
+                ch_0369.opus
                 ch_0148.opus
                 ch_0166.opus
                 ch_0072.opus
+                ch_0229.opus
+                ch_0243.opus
                 ch_0085.opus
+                ch_0364.opus
                 ch_0122.opus
                 ch_0156.opus
+                ch_0261.opus
                 ch_0103.opus
                 ch_0129.opus
                 ch_0077.opus
                 ch_0130.opus
                 ch_0092.opus
+                ch_0271.opus
                 ch_0201.opus
                 ch_0046.opus
                 ch_0116.opus
                 ch_0195.opus
                 ch_0003.opus
+                ch_0251.opus
+                ch_0305.opus
+                ch_0310.opus
                 ch_0123.opus
                 ch_0120.opus
                 ch_0013.opus
+                ch_0359.opus
+                ch_0314.opus
                 ch_0082.opus
+                ch_0366.opus
+                ch_0363.opus
+                ch_0242.opus
+                ch_0331.opus
+                ch_0328.opus
+                ch_0290.opus
                 ch_0087.opus
+                ch_0353.opus
+                ch_0260.opus
                 ch_0161.opus
+                ch_0344.opus
                 ch_0118.opus
                 ch_0171.opus
+                ch_0284.opus
                 ch_0154.opus
                 ch_0199.opus
+                ch_0309.opus
                 ch_0152.opus
                 ch_0146.opus
                 ch_0142.opus
                 ch_0026.opus
                 ch_0045.opus
+                ch_0223.opus
+                ch_0352.opus
                 ch_0047.opus
+                ch_0285.opus
+                ch_0358.opus
+                ch_0255.opus
                 ch_0091.opus
+                ch_0245.opus
+                ch_0263.opus
                 ch_0011.opus
                 ch_0032.opus
+                ch_0240.opus
+                ch_0227.opus
                 ch_0060.opus
                 ch_0002.opus
                 ch_0138.opus
                 ch_0065.opus
+                ch_0277.opus
+                ch_0273.opus
                 ch_0051.opus
                 ch_0124.opus
                 ch_0149.opus
                 ch_0039.opus
                 ch_0119.opus
+                ch_0282.opus
                 ch_0100.opus
                 ch_0203.opus
+                ch_0325.opus
+                ch_0373.opus
+                ch_0337.opus
                 ch_0074.opus
                 ch_0088.opus
                 ch_0113.opus
+                ch_0291.opus
                 ch_0081.opus
                 ch_0128.opus
                 ch_0001.opus
+                ch_0248.opus
                 ch_0189.opus
                 ch_0157.opus
                 ch_0052.opus
                 ch_0214.opus
                 ch_0098.opus
+                ch_0270.opus
+                ch_0334.opus
+                ch_0371.opus
                 ch_0102.opus
+                ch_0244.opus
+                ch_0348.opus
                 ch_0207.opus
                 ch_0044.opus
                 ch_0158.opus
                 ch_0151.opus
+                ch_0342.opus
                 ch_0070.opus
                 ch_0137.opus
                 ch_0114.opus
@@ -1015,29 +1413,50 @@ Project Directory Structure:
                 ch_0004.opus
                 ch_0038.opus
                 ch_0210.opus
+                ch_0224.opus
                 ch_0076.opus
+                ch_0335.opus
                 ch_0150.opus
                 ch_0115.opus
                 ch_0041.opus
                 ch_0073.opus
+                ch_0222.opus
                 ch_0200.opus
+                ch_0312.opus
                 ch_0111.opus
                 ch_0056.opus
                 ch_0134.opus
+                ch_0370.opus
+                ch_0304.opus
                 ch_0125.opus
+                ch_0286.opus
+                ch_0360.opus
                 ch_0084.opus
+                ch_0236.opus
+                ch_0315.opus
                 ch_0099.opus
+                ch_0351.opus
                 ch_0083.opus
                 ch_0168.opus
                 ch_0132.opus
                 ch_0163.opus
                 ch_0211.opus
                 ch_0169.opus
+                ch_0278.opus
+                ch_0215.opus
                 ch_0007.opus
                 ch_0062.opus
                 ch_0010.opus
                 ch_0017.opus
             temp_audio_chunks/
+                ch_0338/
+                    ch_0338_l_006.wav
+                    ch_0338_l_004.wav
+                    ch_0338_l_002.wav
+                    ch_0338_l_007.wav
+                    ch_0338_l_005.wav
+                    ch_0338_l_003.wav
+                    ch_0338_l_001.wav
                 ch_0029/
                     ch_0029_l_002.wav
                     ch_0029_l_028.wav
@@ -1071,54 +1490,6 @@ Project Directory Structure:
                     ch_0029_l_022.wav
                     ch_0029_l_020.wav
                     ch_0029_l_021.wav
-                ch_0249/
-                    ch_0249_l_023.wav
-                    ch_0249_l_020.wav
-                    ch_0249_l_040.wav
-                    ch_0249_l_008.wav
-                    ch_0249_l_024.wav
-                    ch_0249_l_032.wav
-                    ch_0249_l_002.wav
-                    ch_0249_l_028.wav
-                    ch_0249_l_041.wav
-                    ch_0249_l_045.wav
-                    ch_0249_l_018.wav
-                    ch_0249_l_013.wav
-                    ch_0249_l_029.wav
-                    ch_0249_l_025.wav
-                    ch_0249_l_012.wav
-                    ch_0249_l_047.wav
-                    ch_0249_l_042.wav
-                    ch_0249_l_021.wav
-                    ch_0249_l_001.wav
-                    ch_0249_l_027.wav
-                    ch_0249_l_006.wav
-                    ch_0249_l_017.wav
-                    ch_0249_l_046.wav
-                    ch_0249_l_037.wav
-                    ch_0249_l_015.wav
-                    ch_0249_l_026.wav
-                    ch_0249_l_004.wav
-                    ch_0249_l_019.wav
-                    ch_0249_l_038.wav
-                    ch_0249_l_009.wav
-                    ch_0249_l_014.wav
-                    ch_0249_l_031.wav
-                    ch_0249_l_044.wav
-                    ch_0249_l_010.wav
-                    ch_0249_l_039.wav
-                    ch_0249_l_036.wav
-                    ch_0249_l_030.wav
-                    ch_0249_l_043.wav
-                    ch_0249_l_016.wav
-                    ch_0249_l_007.wav
-                    ch_0249_l_005.wav
-                    ch_0249_l_022.wav
-                    ch_0249_l_033.wav
-                    ch_0249_l_003.wav
-                    ch_0249_l_035.wav
-                    ch_0249_l_011.wav
-                    ch_0249_l_034.wav
             01_Raw_Text/
                 ch_1051.txt
                 ch_0922.txt
@@ -1291,6 +1662,7 @@ Project Directory Structure:
                 ch_0985.txt
                 ch_1063.txt
                 ch_0400.txt
+                ch_1154.txt
                 ch_0423.txt
                 ch_0479.txt
                 ch_0582.txt
@@ -1301,6 +1673,7 @@ Project Directory Structure:
                 ch_0300.txt
                 ch_1048.txt
                 ch_1112.txt
+                rename.py
                 ch_0523.txt
                 ch_0050.txt
                 ch_0960.txt
@@ -1963,6 +2336,7 @@ Project Directory Structure:
                 ch_0344.txt
                 ch_1030.txt
                 ch_1151.txt
+                ch_1155.txt
                 ch_0844.txt
                 ch_0036.txt
                 ch_0172.txt
@@ -2000,7 +2374,6 @@ Project Directory Structure:
                 ch_0269.txt
                 ch_0882.txt
                 ch_0171.txt
-                ch_0001.txt
                 ch_0618.txt
                 ch_1021.txt
                 ch_0556.txt
@@ -2250,7 +2623,6 @@ Project Directory Structure:
                 ch_0121.txt
                 ch_0469.txt
                 ch_0004.txt
-                ch_0002.txt
                 ch_0016.txt
                 ch_0497.txt
                 ch_0903.txt
@@ -2274,6 +2646,1161 @@ Project Directory Structure:
                 ch_0821.txt
                 ch_0191.txt
                 ch_0168.txt
+                bak/
+                    ch_1051.txt
+                    ch_0922.txt
+                    ch_0188.txt
+                    ch_0995.txt
+                    ch_0102.txt
+                    ch_0619.txt
+                    ch_0263.txt
+                    ch_1097.txt
+                    ch_0109.txt
+                    ch_0973.txt
+                    ch_1029.txt
+                    ch_0841.txt
+                    ch_0961.txt
+                    ch_0852.txt
+                    ch_0338.txt
+                    ch_1077.txt
+                    ch_0458.txt
+                    ch_0307.txt
+                    ch_0482.txt
+                    ch_0390.txt
+                    ch_0419.txt
+                    ch_0213.txt
+                    ch_1145.txt
+                    ch_0372.txt
+                    ch_0679.txt
+                    ch_0457.txt
+                    ch_0028.txt
+                    ch_0376.txt
+                    ch_1143.txt
+                    ch_0302.txt
+                    ch_0437.txt
+                    ch_0915.txt
+                    ch_0791.txt
+                    ch_1078.txt
+                    ch_0630.txt
+                    ch_0399.txt
+                    ch_0668.txt
+                    ch_0270.txt
+                    ch_0593.txt
+                    ch_0415.txt
+                    ch_0475.txt
+                    ch_0695.txt
+                    ch_0474.txt
+                    ch_0651.txt
+                    ch_1127.txt
+                    ch_0092.txt
+                    ch_0929.txt
+                    ch_1024.txt
+                    ch_0514.txt
+                    ch_0218.txt
+                    ch_0581.txt
+                    ch_0336.txt
+                    ch_1103.txt
+                    ch_0989.txt
+                    ch_0620.txt
+                    ch_0729.txt
+                    ch_0786.txt
+                    ch_0820.txt
+                    ch_0077.txt
+                    ch_0839.txt
+                    ch_0460.txt
+                    ch_0435.txt
+                    ch_0895.txt
+                    ch_0203.txt
+                    ch_0278.txt
+                    ch_0678.txt
+                    ch_0125.txt
+                    ch_0088.txt
+                    ch_0563.txt
+                    ch_0636.txt
+                    ch_0717.txt
+                    ch_0421.txt
+                    ch_0144.txt
+                    ch_0898.txt
+                    ch_0992.txt
+                    ch_0311.txt
+                    ch_0624.txt
+                    ch_0901.txt
+                    ch_0772.txt
+                    ch_0329.txt
+                    ch_0281.txt
+                    ch_0825.txt
+                    ch_0765.txt
+                    ch_0976.txt
+                    ch_1036.txt
+                    ch_0224.txt
+                    ch_0347.txt
+                    ch_0649.txt
+                    ch_0809.txt
+                    ch_0850.txt
+                    ch_0062.txt
+                    ch_0505.txt
+                    ch_0185.txt
+                    ch_1028.txt
+                    ch_1133.txt
+                    ch_0153.txt
+                    ch_0382.txt
+                    ch_0058.txt
+                    ch_0907.txt
+                    ch_0358.txt
+                    ch_0518.txt
+                    ch_0672.txt
+                    ch_0271.txt
+                    ch_0954.txt
+                    ch_0233.txt
+                    ch_0134.txt
+                    ch_0941.txt
+                    ch_0725.txt
+                    ch_1001.txt
+                    ch_0416.txt
+                    ch_0503.txt
+                    ch_0783.txt
+                    ch_1102.txt
+                    ch_1005.txt
+                    ch_0166.txt
+                    ch_0891.txt
+                    ch_0130.txt
+                    ch_0591.txt
+                    ch_0198.txt
+                    ch_0146.txt
+                    ch_0510.txt
+                    ch_0923.txt
+                    ch_0927.txt
+                    ch_0872.txt
+                    ch_0982.txt
+                    ch_0752.txt
+                    ch_0315.txt
+                    ch_0067.txt
+                    ch_0049.txt
+                    ch_0442.txt
+                    ch_1022.txt
+                    ch_0202.txt
+                    ch_1069.txt
+                    ch_0997.txt
+                    ch_0979.txt
+                    ch_1071.txt
+                    ch_0902.txt
+                    ch_0216.txt
+                    ch_0199.txt
+                    ch_1057.txt
+                    ch_0074.txt
+                    ch_0145.txt
+                    ch_0397.txt
+                    ch_0861.txt
+                    ch_0858.txt
+                    ch_0009.txt
+                    ch_0097.txt
+                    ch_0601.txt
+                    ch_0589.txt
+                    ch_0984.txt
+                    ch_0691.txt
+                    ch_0971.txt
+                    ch_0138.txt
+                    ch_0965.txt
+                    ch_0321.txt
+                    ch_0434.txt
+                    ch_0659.txt
+                    ch_0818.txt
+                    ch_0756.txt
+                    ch_0481.txt
+                    ch_0187.txt
+                    ch_0654.txt
+                    ch_0320.txt
+                    ch_0094.txt
+                    ch_0914.txt
+                    ch_0667.txt
+                    ch_0942.txt
+                    ch_0032.txt
+                    ch_0985.txt
+                    ch_1063.txt
+                    ch_0400.txt
+                    ch_0423.txt
+                    ch_0479.txt
+                    ch_0582.txt
+                    ch_1149.txt
+                    ch_1020.txt
+                    ch_0488.txt
+                    ch_0388.txt
+                    ch_0300.txt
+                    ch_1048.txt
+                    ch_1112.txt
+                    ch_0523.txt
+                    ch_0050.txt
+                    ch_0960.txt
+                    ch_0183.txt
+                    ch_0800.txt
+                    ch_0012.txt
+                    ch_1084.txt
+                    ch_1117.txt
+                    ch_0072.txt
+                    ch_0194.txt
+                    ch_0055.txt
+                    ch_0700.txt
+                    ch_0064.txt
+                    ch_1098.txt
+                    ch_0337.txt
+                    ch_0599.txt
+                    ch_0554.txt
+                    ch_0022.txt
+                    ch_1116.txt
+                    ch_0422.txt
+                    ch_0175.txt
+                    ch_0078.txt
+                    ch_0370.txt
+                    ch_0086.txt
+                    ch_0801.txt
+                    ch_0848.txt
+                    ch_1138.txt
+                    ch_0242.txt
+                    ch_0318.txt
+                    ch_1055.txt
+                    ch_0308.txt
+                    ch_0356.txt
+                    ch_0863.txt
+                    ch_0896.txt
+                    ch_0764.txt
+                    ch_0286.txt
+                    ch_0621.txt
+                    ch_0867.txt
+                    ch_0170.txt
+                    ch_0980.txt
+                    ch_0826.txt
+                    ch_0868.txt
+                    ch_0046.txt
+                    ch_0284.txt
+                    ch_0740.txt
+                    ch_1081.txt
+                    ch_0027.txt
+                    ch_0480.txt
+                    ch_0471.txt
+                    ch_0014.txt
+                    ch_1110.txt
+                    ch_0728.txt
+                    ch_0583.txt
+                    ch_1122.txt
+                    ch_1088.txt
+                    ch_0555.txt
+                    ch_0807.txt
+                    ch_0217.txt
+                    ch_0245.txt
+                    ch_0007.txt
+                    ch_0544.txt
+                    ch_0831.txt
+                    ch_0192.txt
+                    ch_0573.txt
+                    ch_0033.txt
+                    ch_1007.txt
+                    ch_0450.txt
+                    ch_0743.txt
+                    ch_0948.txt
+                    ch_0937.txt
+                    ch_0453.txt
+                    ch_0380.txt
+                    ch_0069.txt
+                    ch_0111.txt
+                    ch_0177.txt
+                    ch_0562.txt
+                    ch_1125.txt
+                    ch_0816.txt
+                    ch_0127.txt
+                    ch_0538.txt
+                    ch_0564.txt
+                    ch_0179.txt
+                    ch_0873.txt
+                    ch_0545.txt
+                    ch_1025.txt
+                    ch_1013.txt
+                    ch_0631.txt
+                    ch_0349.txt
+                    ch_1045.txt
+                    ch_0060.txt
+                    ch_0114.txt
+                    ch_0760.txt
+                    ch_0374.txt
+                    ch_0384.txt
+                    ch_0369.txt
+                    ch_0451.txt
+                    ch_0827.txt
+                    ch_0521.txt
+                    ch_0276.txt
+                    ch_0507.txt
+                    ch_0165.txt
+                    ch_0123.txt
+                    ch_0080.txt
+                    ch_0159.txt
+                    ch_0248.txt
+                    ch_0117.txt
+                    ch_0246.txt
+                    ch_0720.txt
+                    ch_0853.txt
+                    ch_0025.txt
+                    ch_0998.txt
+                    ch_1087.txt
+                    ch_0495.txt
+                    ch_0887.txt
+                    ch_0993.txt
+                    ch_0466.txt
+                    ch_0639.txt
+                    ch_0352.txt
+                    ch_0409.txt
+                    ch_0381.txt
+                    ch_1044.txt
+                    ch_0149.txt
+                    ch_0970.txt
+                    ch_0813.txt
+                    ch_0013.txt
+                    ch_0924.txt
+                    ch_0104.txt
+                    ch_0908.txt
+                    ch_0256.txt
+                    ch_0351.txt
+                    ch_0935.txt
+                    ch_0684.txt
+                    ch_0065.txt
+                    ch_0444.txt
+                    ch_1049.txt
+                    ch_1107.txt
+                    ch_0539.txt
+                    ch_0819.txt
+                    ch_0798.txt
+                    ch_0600.txt
+                    ch_0335.txt
+                    ch_0629.txt
+                    ch_0603.txt
+                    ch_0634.txt
+                    ch_0083.txt
+                    ch_0096.txt
+                    ch_0440.txt
+                    ch_0375.txt
+                    ch_0122.txt
+                    ch_0607.txt
+                    ch_1124.txt
+                    ch_0231.txt
+                    ch_0779.txt
+                    ch_1064.txt
+                    ch_0379.txt
+                    ch_0082.txt
+                    ch_0658.txt
+                    ch_0500.txt
+                    ch_0532.txt
+                    ch_0755.txt
+                    ch_0565.txt
+                    ch_1014.txt
+                    ch_0310.txt
+                    ch_0781.txt
+                    ch_0424.txt
+                    ch_0317.txt
+                    ch_0663.txt
+                    ch_0718.txt
+                    ch_0879.txt
+                    ch_1118.txt
+                    ch_0553.txt
+                    ch_0290.txt
+                    ch_0612.txt
+                    ch_0888.txt
+                    ch_1058.txt
+                    ch_0100.txt
+                    ch_0366.txt
+                    ch_0195.txt
+                    ch_1104.txt
+                    ch_1074.txt
+                    ch_0477.txt
+                    ch_0557.txt
+                    ch_0006.txt
+                    ch_0835.txt
+                    ch_0035.txt
+                    ch_0340.txt
+                    ch_0877.txt
+                    ch_0257.txt
+                    ch_1052.txt
+                    ch_0076.txt
+                    ch_0501.txt
+                    ch_0045.txt
+                    ch_0706.txt
+                    ch_0862.txt
+                    ch_0675.txt
+                    ch_0580.txt
+                    ch_0108.txt
+                    ch_1129.txt
+                    ch_0727.txt
+                    ch_0560.txt
+                    ch_1035.txt
+                    ch_0237.txt
+                    ch_0143.txt
+                    ch_0542.txt
+                    ch_0362.txt
+                    ch_0749.txt
+                    ch_0890.txt
+                    ch_0408.txt
+                    ch_0222.txt
+                    ch_0363.txt
+                    ch_0164.txt
+                    ch_0608.txt
+                    ch_0602.txt
+                    ch_0530.txt
+                    ch_0708.txt
+                    ch_0585.txt
+                    ch_0365.txt
+                    ch_0432.txt
+                    ch_0085.txt
+                    ch_0439.txt
+                    ch_0511.txt
+                    ch_0912.txt
+                    ch_0709.txt
+                    ch_0869.txt
+                    ch_0796.txt
+                    ch_0184.txt
+                    ch_0057.txt
+                    ch_1004.txt
+                    ch_0091.txt
+                    ch_0714.txt
+                    ch_0656.txt
+                    ch_0670.txt
+                    ch_0011.txt
+                    ch_0855.txt
+                    ch_0575.txt
+                    ch_0456.txt
+                    ch_0093.txt
+                    ch_0638.txt
+                    ch_0697.txt
+                    ch_0726.txt
+                    ch_0754.txt
+                    ch_0828.txt
+                    ch_0323.txt
+                    ch_0936.txt
+                    ch_0632.txt
+                    ch_0402.txt
+                    ch_0652.txt
+                    ch_1041.txt
+                    ch_1101.txt
+                    ch_1094.txt
+                    ch_0892.txt
+                    ch_1006.txt
+                    ch_0272.txt
+                    ch_0524.txt
+                    ch_0131.txt
+                    ch_0988.txt
+                    ch_0228.txt
+                    ch_0394.txt
+                    ch_0251.txt
+                    ch_1119.txt
+                    ch_0038.txt
+                    ch_0292.txt
+                    ch_0916.txt
+                    ch_0897.txt
+                    ch_0066.txt
+                    ch_0806.txt
+                    ch_1079.txt
+                    ch_0158.txt
+                    ch_1108.txt
+                    ch_0884.txt
+                    ch_0291.txt
+                    ch_0571.txt
+                    ch_1147.txt
+                    ch_1121.txt
+                    ch_0771.txt
+                    ch_1123.txt
+                    ch_0396.txt
+                    ch_0595.txt
+                    ch_1003.txt
+                    ch_0034.txt
+                    ch_1076.txt
+                    ch_0040.txt
+                    ch_0676.txt
+                    ch_0070.txt
+                    ch_0671.txt
+                    ch_1072.txt
+                    ch_0448.txt
+                    ch_0152.txt
+                    ch_0484.txt
+                    ch_0661.txt
+                    ch_1144.txt
+                    ch_0334.txt
+                    ch_0703.txt
+                    ch_1038.txt
+                    ch_0226.txt
+                    ch_0945.txt
+                    ch_0353.txt
+                    ch_1002.txt
+                    ch_0106.txt
+                    ch_0537.txt
+                    ch_0293.txt
+                    ch_0156.txt
+                    ch_0135.txt
+                    ch_0462.txt
+                    ch_1131.txt
+                    ch_0680.txt
+                    ch_0918.txt
+                    ch_0265.txt
+                    ch_0411.txt
+                    ch_0113.txt
+                    ch_0355.txt
+                    ch_0254.txt
+                    ch_0260.txt
+                    ch_0436.txt
+                    ch_0221.txt
+                    ch_0294.txt
+                    ch_1023.txt
+                    ch_1152.txt
+                    ch_0043.txt
+                    ch_0905.txt
+                    ch_0461.txt
+                    ch_0031.txt
+                    ch_0044.txt
+                    ch_0345.txt
+                    ch_0683.txt
+                    ch_0295.txt
+                    ch_0483.txt
+                    ch_0546.txt
+                    ch_0017.txt
+                    ch_0155.txt
+                    ch_0208.txt
+                    ch_0413.txt
+                    ch_0333.txt
+                    ch_0377.txt
+                    ch_0023.txt
+                    ch_0696.txt
+                    ch_1139.txt
+                    ch_0418.txt
+                    ch_0259.txt
+                    ch_0367.txt
+                    ch_0478.txt
+                    ch_0616.txt
+                    ch_0699.txt
+                    ch_0517.txt
+                    ch_0977.txt
+                    ch_0330.txt
+                    ch_0928.txt
+                    ch_0133.txt
+                    ch_0391.txt
+                    ch_1070.txt
+                    ch_0576.txt
+                    ch_0232.txt
+                    ch_0588.txt
+                    ch_0262.txt
+                    ch_1050.txt
+                    ch_0900.txt
+                    ch_0142.txt
+                    ch_0594.txt
+                    ch_0387.txt
+                    ch_1093.txt
+                    ch_0615.txt
+                    ch_0622.txt
+                    ch_0326.txt
+                    ch_0360.txt
+                    ch_0018.txt
+                    ch_0024.txt
+                    ch_0657.txt
+                    ch_0574.txt
+                    ch_0794.txt
+                    ch_0364.txt
+                    ch_0116.txt
+                    ch_0301.txt
+                    ch_0802.txt
+                    ch_0910.txt
+                    ch_1085.txt
+                    ch_0393.txt
+                    ch_0990.txt
+                    ch_0039.txt
+                    ch_0430.txt
+                    ch_0744.txt
+                    ch_0596.txt
+                    chapters.json
+                    ch_0766.txt
+                    ch_0238.txt
+                    ch_0389.txt
+                    ch_0305.txt
+                    ch_0426.txt
+                    ch_0041.txt
+                    ch_0956.txt
+                    ch_0940.txt
+                    ch_0341.txt
+                    ch_0414.txt
+                    ch_0005.txt
+                    ch_0137.txt
+                    ch_0926.txt
+                    ch_0592.txt
+                    ch_0207.txt
+                    ch_0289.txt
+                    ch_0527.txt
+                    ch_0645.txt
+                    ch_1033.txt
+                    ch_0496.txt
+                    ch_0920.txt
+                    ch_0911.txt
+                    ch_0613.txt
+                    ch_0492.txt
+                    ch_0386.txt
+                    ch_0628.txt
+                    ch_0590.txt
+                    ch_0176.txt
+                    ch_0008.txt
+                    ch_0509.txt
+                    ch_0569.txt
+                    ch_0893.txt
+                    ch_0857.txt
+                    ch_0525.txt
+                    ch_0051.txt
+                    ch_0283.txt
+                    ch_0053.txt
+                    ch_0417.txt
+                    ch_0502.txt
+                    ch_0157.txt
+                    ch_0350.txt
+                    ch_0147.txt
+                    ch_0403.txt
+                    ch_1100.txt
+                    ch_0955.txt
+                    ch_0883.txt
+                    ch_0969.txt
+                    ch_0297.txt
+                    ch_0713.txt
+                    ch_0209.txt
+                    ch_0833.txt
+                    ch_0174.txt
+                    ch_0689.txt
+                    ch_0730.txt
+                    ch_0790.txt
+                    ch_1053.txt
+                    ch_0889.txt
+                    ch_1060.txt
+                    ch_0359.txt
+                    ch_0427.txt
+                    ch_0693.txt
+                    ch_0986.txt
+                    ch_0327.txt
+                    ch_0250.txt
+                    ch_0047.txt
+                    ch_0822.txt
+                    ch_0803.txt
+                    ch_0854.txt
+                    ch_0075.txt
+                    ch_0150.txt
+                    ch_0540.txt
+                    ch_0470.txt
+                    ch_0865.txt
+                    ch_0746.txt
+                    ch_0736.txt
+                    ch_0512.txt
+                    ch_0674.txt
+                    ch_0533.txt
+                    ch_1150.txt
+                    ch_0943.txt
+                    ch_0547.txt
+                    ch_1043.txt
+                    ch_0378.txt
+                    ch_0623.txt
+                    ch_0003.txt
+                    ch_1032.txt
+                    ch_0526.txt
+                    ch_0849.txt
+                    ch_1039.txt
+                    ch_0558.txt
+                    ch_0148.txt
+                    ch_0319.txt
+                    ch_0211.txt
+                    ch_0252.txt
+                    ch_0515.txt
+                    ch_0687.txt
+                    ch_0981.txt
+                    ch_0324.txt
+                    ch_0763.txt
+                    ch_0081.txt
+                    ch_0244.txt
+                    ch_0627.txt
+                    ch_0087.txt
+                    ch_0606.txt
+                    ch_0842.txt
+                    ch_0056.txt
+                    ch_0099.txt
+                    ch_1142.txt
+                    ch_0455.txt
+                    ch_0609.txt
+                    ch_0570.txt
+                    ch_0105.txt
+                    ch_0303.txt
+                    ch_0731.txt
+                    ch_0780.txt
+                    ch_1017.txt
+                    ch_0648.txt
+                    ch_0314.txt
+                    ch_0972.txt
+                    ch_0870.txt
+                    ch_0846.txt
+                    ch_0306.txt
+                    ch_0090.txt
+                    ch_0312.txt
+                    ch_0296.txt
+                    ch_0101.txt
+                    ch_1008.txt
+                    ch_0921.txt
+                    ch_0412.txt
+                    ch_0653.txt
+                    ch_0966.txt
+                    ch_0804.txt
+                    ch_0836.txt
+                    ch_0181.txt
+                    ch_0747.txt
+                    ch_0637.txt
+                    ch_0830.txt
+                    ch_0662.txt
+                    ch_0759.txt
+                    ch_0190.txt
+                    ch_1034.txt
+                    ch_1134.txt
+                    ch_0491.txt
+                    ch_0704.txt
+                    ch_1073.txt
+                    ch_0189.txt
+                    ch_0298.txt
+                    ch_0325.txt
+                    ch_0644.txt
+                    ch_0876.txt
+                    ch_0227.txt
+                    ch_0838.txt
+                    ch_0225.txt
+                    ch_0847.txt
+                    ch_1105.txt
+                    ch_0840.txt
+                    ch_0931.txt
+                    ch_0598.txt
+                    ch_0944.txt
+                    ch_0371.txt
+                    ch_0949.txt
+                    ch_0071.txt
+                    ch_0788.txt
+                    ch_1046.txt
+                    ch_1137.txt
+                    ch_0733.txt
+                    ch_1031.txt
+                    ch_0522.txt
+                    ch_0549.txt
+                    ch_0698.txt
+                    ch_0673.txt
+                    ch_0880.txt
+                    ch_0441.txt
+                    ch_0343.txt
+                    ch_1146.txt
+                    ch_0904.txt
+                    ch_0182.txt
+                    ch_0851.txt
+                    ch_0467.txt
+                    ch_0405.txt
+                    ch_0610.txt
+                    ch_0805.txt
+                    ch_0241.txt
+                    ch_0463.txt
+                    ch_1135.txt
+                    ch_0751.txt
+                    ch_0406.txt
+                    ch_1054.txt
+                    ch_0494.txt
+                    ch_0799.txt
+                    ch_1016.txt
+                    ch_0401.txt
+                    ch_0520.txt
+                    ch_0383.txt
+                    ch_0719.txt
+                    ch_0112.txt
+                    ch_0899.txt
+                    ch_0410.txt
+                    ch_0373.txt
+                    ch_1082.txt
+                    ch_0767.txt
+                    ch_0186.txt
+                    ch_0063.txt
+                    ch_0395.txt
+                    ch_0220.txt
+                    ch_0229.txt
+                    ch_0197.txt
+                    ch_0682.txt
+                    ch_0792.txt
+                    ch_0745.txt
+                    ch_0866.txt
+                    ch_0635.txt
+                    ch_0161.txt
+                    ch_0938.txt
+                    ch_0584.txt
+                    ch_1061.txt
+                    ch_0234.txt
+                    ch_0535.txt
+                    ch_0274.txt
+                    ch_0758.txt
+                    ch_1040.txt
+                    ch_0167.txt
+                    ch_0277.txt
+                    ch_0875.txt
+                    ch_0795.txt
+                    ch_0991.txt
+                    ch_0253.txt
+                    ch_1126.txt
+                    ch_0686.txt
+                    ch_0240.txt
+                    ch_0761.txt
+                    ch_0925.txt
+                    ch_1010.txt
+                    ch_0361.txt
+                    ch_0173.txt
+                    ch_0059.txt
+                    ch_0201.txt
+                    ch_0487.txt
+                    ch_1148.txt
+                    ch_0042.txt
+                    ch_0666.txt
+                    ch_0541.txt
+                    ch_0513.txt
+                    ch_0180.txt
+                    ch_0264.txt
+                    ch_0572.txt
+                    ch_0983.txt
+                    ch_0339.txt
+                    ch_0669.txt
+                    ch_0519.txt
+                    ch_0947.txt
+                    ch_0508.txt
+                    ch_0737.txt
+                    ch_0282.txt
+                    ch_0824.txt
+                    ch_1092.txt
+                    ch_0707.txt
+                    ch_0118.txt
+                    ch_0975.txt
+                    ch_0255.txt
+                    ch_1067.txt
+                    ch_0952.txt
+                    ch_0119.txt
+                    ch_0404.txt
+                    ch_1011.txt
+                    ch_0823.txt
+                    ch_1120.txt
+                    ch_0247.txt
+                    ch_1015.txt
+                    ch_0561.txt
+                    ch_0136.txt
+                    ch_0874.txt
+                    ch_0919.txt
+                    ch_0392.txt
+                    ch_0996.txt
+                    ch_1130.txt
+                    ch_0030.txt
+                    ch_0344.txt
+                    ch_1030.txt
+                    ch_1151.txt
+                    ch_0844.txt
+                    ch_0036.txt
+                    ch_0172.txt
+                    ch_0946.txt
+                    ch_1037.txt
+                    ch_0420.txt
+                    ch_0999.txt
+                    ch_0712.txt
+                    ch_0962.txt
+                    ch_0357.txt
+                    ch_0739.txt
+                    ch_0249.txt
+                    ch_0939.txt
+                    ch_0586.txt
+                    ch_0098.txt
+                    ch_1009.txt
+                    ch_1086.txt
+                    ch_0934.txt
+                    ch_1109.txt
+                    ch_1059.txt
+                    ch_0784.txt
+                    ch_0160.txt
+                    ch_0646.txt
+                    ch_0529.txt
+                    ch_0447.txt
+                    ch_0917.txt
+                    ch_0690.txt
+                    ch_0428.txt
+                    ch_0052.txt
+                    ch_0856.txt
+                    ch_0464.txt
+                    ch_0128.txt
+                    ch_0617.txt
+                    ch_1095.txt
+                    ch_0269.txt
+                    ch_0882.txt
+                    ch_0171.txt
+                    ch_0001.txt
+                    ch_0618.txt
+                    ch_1021.txt
+                    ch_0556.txt
+                    ch_0120.txt
+                    ch_0103.txt
+                    ch_0485.txt
+                    ch_0433.txt
+                    ch_0212.txt
+                    ch_0721.txt
+                    ch_0710.txt
+                    ch_0647.txt
+                    ch_0073.txt
+                    ch_0454.txt
+                    ch_0261.txt
+                    ch_0473.txt
+                    ch_0516.txt
+                    ch_0701.txt
+                    ch_0425.txt
+                    ch_0048.txt
+                    ch_0020.txt
+                    ch_0019.txt
+                    ch_0808.txt
+                    ch_0773.txt
+                    ch_1019.txt
+                    ch_0688.txt
+                    ch_0139.txt
+                    ch_1153.txt
+                    ch_0640.txt
+                    ch_0933.txt
+                    ch_1132.txt
+                    ch_0817.txt
+                    ch_0452.txt
+                    ch_0493.txt
+                    ch_1140.txt
+                    ch_0605.txt
+                    ch_0778.txt
+                    ch_0881.txt
+                    ch_0499.txt
+                    ch_1111.txt
+                    ch_0084.txt
+                    ch_0871.txt
+                    ch_0643.txt
+                    ch_1106.txt
+                    ch_0650.txt
+                    ch_1012.txt
+                    ch_0348.txt
+                    ch_0449.txt
+                    ch_0625.txt
+                    ch_0660.txt
+                    ch_0641.txt
+                    ch_0275.txt
+                    ch_1080.txt
+                    ch_0957.txt
+                    ch_0534.txt
+                    ch_0604.txt
+                    ch_0154.txt
+                    ch_0694.txt
+                    ch_0677.txt
+                    ch_1091.txt
+                    ch_0953.txt
+                    ch_0626.txt
+                    ch_0785.txt
+                    ch_0438.txt
+                    ch_0860.txt
+                    ch_0762.txt
+                    ch_0859.txt
+                    ch_0204.txt
+                    ch_0316.txt
+                    ch_0468.txt
+                    ch_0845.txt
+                    ch_0398.txt
+                    ch_0768.txt
+                    ch_0215.txt
+                    ch_0236.txt
+                    ch_0702.txt
+                    ch_0829.txt
+                    ch_0837.txt
+                    ch_0151.txt
+                    ch_0206.txt
+                    ch_0968.txt
+                    ch_0757.txt
+                    ch_0742.txt
+                    ch_0705.txt
+                    ch_0738.txt
+                    ch_0368.txt
+                    ch_0787.txt
+                    ch_0021.txt
+                    ch_0958.txt
+                    ch_0543.txt
+                    ch_0309.txt
+                    ch_0037.txt
+                    ch_0459.txt
+                    ch_0681.txt
+                    ch_0163.txt
+                    ch_1056.txt
+                    ch_1018.txt
+                    ch_0950.txt
+                    ch_0322.txt
+                    ch_0864.txt
+                    ch_0465.txt
+                    ch_0774.txt
+                    ch_0724.txt
+                    ch_0776.txt
+                    ch_0909.txt
+                    ch_0552.txt
+                    ch_0015.txt
+                    ch_0313.txt
+                    ch_0429.txt
+                    ch_0026.txt
+                    ch_1075.txt
+                    ch_0443.txt
+                    ch_0815.txt
+                    ch_0385.txt
+                    ch_0267.txt
+                    ch_0550.txt
+                    ch_0029.txt
+                    ch_0797.txt
+                    ch_0214.txt
+                    ch_0506.txt
+                    ch_0124.txt
+                    ch_0559.txt
+                    ch_1062.txt
+                    ch_0932.txt
+                    ch_0642.txt
+                    ch_0140.txt
+                    ch_0089.txt
+                    ch_0577.txt
+                    ch_0243.txt
+                    ch_0445.txt
+                    ch_0268.txt
+                    ch_0843.txt
+                    ch_0196.txt
+                    ch_0587.txt
+                    ch_1042.txt
+                    ch_0068.txt
+                    ch_1099.txt
+                    ch_1027.txt
+                    ch_0567.txt
+                    ch_0951.txt
+                    ch_0287.txt
+                    ch_0692.txt
+                    ch_0814.txt
+                    ch_0664.txt
+                    ch_0141.txt
+                    ch_0498.txt
+                    ch_0994.txt
+                    ch_0490.txt
+                    ch_0054.txt
+                    ch_0129.txt
+                    ch_1141.txt
+                    ch_0107.txt
+                    ch_0476.txt
+                    ch_0489.txt
+                    ch_0095.txt
+                    ch_0010.txt
+                    ch_0579.txt
+                    ch_0753.txt
+                    ch_0169.txt
+                    ch_0304.txt
+                    ch_0551.txt
+                    ch_0655.txt
+                    ch_0354.txt
+                    ch_0235.txt
+                    ch_0280.txt
+                    ch_0132.txt
+                    ch_0328.txt
+                    ch_0810.txt
+                    ch_0711.txt
+                    ch_0285.txt
+                    ch_1128.txt
+                    ch_0531.txt
+                    ch_1096.txt
+                    ch_0987.txt
+                    ch_0446.txt
+                    ch_0342.txt
+                    ch_0894.txt
+                    ch_0472.txt
+                    ch_0723.txt
+                    ch_0431.txt
+                    ch_0536.txt
+                    ch_0885.txt
+                    ch_0162.txt
+                    ch_1113.txt
+                    ch_0273.txt
+                    ch_0205.txt
+                    ch_1136.txt
+                    ch_0597.txt
+                    ch_0633.txt
+                    ch_0346.txt
+                    ch_0288.txt
+                    ch_0079.txt
+                    ch_0716.txt
+                    ch_1090.txt
+                    ch_0811.txt
+                    ch_0258.txt
+                    ch_1083.txt
+                    ch_0223.txt
+                    ch_0769.txt
+                    ch_1068.txt
+                    ch_1089.txt
+                    ch_0504.txt
+                    ch_0486.txt
+                    ch_0061.txt
+                    ch_0978.txt
+                    ch_0832.txt
+                    ch_1047.txt
+                    ch_0332.txt
+                    ch_0777.txt
+                    ch_0568.txt
+                    ch_0115.txt
+                    ch_0548.txt
+                    ch_0775.txt
+                    ch_0566.txt
+                    ch_0614.txt
+                    ch_0210.txt
+                    ch_0279.txt
+                    ch_0748.txt
+                    ch_0193.txt
+                    ch_1066.txt
+                    ch_0770.txt
+                    ch_0230.txt
+                    ch_1000.txt
+                    ch_0959.txt
+                    ch_0741.txt
+                    ch_0913.txt
+                    ch_0974.txt
+                    ch_0735.txt
+                    ch_0930.txt
+                    ch_0528.txt
+                    ch_0200.txt
+                    ch_0178.txt
+                    ch_0126.txt
+                    ch_0789.txt
+                    ch_0878.txt
+                    ch_0834.txt
+                    ch_0964.txt
+                    ch_0732.txt
+                    ch_1115.txt
+                    ch_0299.txt
+                    ch_0734.txt
+                    ch_0782.txt
+                    ch_0963.txt
+                    ch_1026.txt
+                    ch_0239.txt
+                    ch_0331.txt
+                    ch_0611.txt
+                    ch_0121.txt
+                    ch_0469.txt
+                    ch_0004.txt
+                    ch_0002.txt
+                    ch_0016.txt
+                    ch_0497.txt
+                    ch_0903.txt
+                    ch_0578.txt
+                    ch_0110.txt
+                    ch_0715.txt
+                    ch_0812.txt
+                    ch_0266.txt
+                    ch_0886.txt
+                    ch_0793.txt
+                    ch_0407.txt
+                    ch_1114.txt
+                    ch_0685.txt
+                    ch_0219.txt
+                    ch_0665.txt
+                    ch_1065.txt
+                    ch_0750.txt
+                    ch_0967.txt
+                    ch_0722.txt
+                    ch_0906.txt
+                    ch_0821.txt
+                    ch_0191.txt
+                    ch_0168.txt
             Scraper_Context/
                 site_structure.html
         Villainous_Saintess_CH/
@@ -11908,8 +13435,6 @@ import os
 import re
 import time
 
-# Ensure you have the openai package installed
-# pip install openai
 try:
     from openai import (
         APIError,
@@ -11919,13 +13444,12 @@ try:
         RateLimitError,
     )
 except ImportError:
-    print(
-        "CRITICAL ERROR: The 'openai' package is not installed. Please install it by running: pip install openai"
-    )
+    print("CRITICAL: 'openai' package not installed. Run: pip install openai")
     exit()
 
+from prompts import DEFAULT_GLOSSARY, SYSTEM_COMBINED, build_combined_prompt
+
 # --- Configuration ---
-# Updated to support the GUI Pipeline (os.getenv) with fallbacks to your original folders
 INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "SnakeFairy_CH_Qushucheng")
 OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "SnakeFairy_EN_transelated")
 XAI_MODEL_NAME = "grok-4-0709"
@@ -11934,155 +13458,92 @@ API_TIMEOUT_SECONDS = 300.0
 GLOSSARY_JSON_FILE = "translation_glossary.json"
 
 
-# --- Glossary Helper Functions ---
-def load_glossary_from_json(filepath: str) -> dict:
-    """
-    Loads a glossary dictionary (for characters and places) from a JSON file.
-    If the file doesn't exist or is invalid, it returns a new dictionary structure.
-    """
-    default_glossary = {"characters": {}, "places": {}}
+def load_glossary_from_json(filepath):
     if not os.path.exists(filepath):
-        print(
-            f"Glossary JSON file not found at '{filepath}'. A new one will be created."
-        )
-        return default_glossary
+        print(f"Glossary not found at '{filepath}'. Creating new.")
+        return dict(DEFAULT_GLOSSARY)
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
-            # Ensure both top-level keys exist
-            if "characters" not in data:
-                data["characters"] = {}
-            if "places" not in data:
-                data["places"] = {}
+            for key in DEFAULT_GLOSSARY:
+                if key not in data:
+                    data[key] = {}
             return data
     except (json.JSONDecodeError, IOError) as e:
-        print(f"Error reading or parsing JSON file '{filepath}': {e}. Starting fresh.")
-        return default_glossary
+        print(f"Error reading glossary: {e}. Starting fresh.")
+        return dict(DEFAULT_GLOSSARY)
 
 
-def save_glossary_to_json(filepath: str, data: dict):
-    """Saves a glossary dictionary to a JSON file with pretty printing."""
+def save_glossary_to_json(filepath, data):
     try:
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-        print(f"Successfully saved updated glossary to '{filepath}'.")
+        print(f"Saved glossary to '{filepath}'.")
     except IOError as e:
-        print(f"Error writing to JSON file '{filepath}': {e}")
+        print(f"Error writing glossary: {e}")
 
 
-# --- Helper Function to Reformat Title ---
-def reformat_chapter_title_in_text(text_content: str) -> str:
+def reformat_chapter_title_in_text(text_content):
     if not text_content or not text_content.strip():
         return text_content
-
     lines = text_content.split("\n", 1)
-    first_line = lines[0]
-    rest_of_content = lines[1] if len(lines) > 1 else ""
-
-    match = re.match(r"^(Chapter\s*\d+)\s*[:\-–—]?\s*(.*)", first_line, re.IGNORECASE)
+    first_line, rest = lines[0], lines[1] if len(lines) > 1 else ""
+    match = re.match(
+        r"^(Chapter\s*\d+)\s*[:\-\u2013\u2014]?\s*(.*)", first_line, re.IGNORECASE
+    )
     if match:
-        chapter_part = match.group(1).strip()
-        title_part = match.group(2).strip()
-        reformatted_first_line = (
-            f"{chapter_part} - {title_part}" if title_part else chapter_part
-        )
-        return f"{reformatted_first_line}\n{rest_of_content}"
-
-    numeric_match = re.match(r"^(\d+)\s+(.*)", first_line)
-    if numeric_match:
+        ch, title = match.group(1).strip(), match.group(2).strip()
+        return f"{ch} - {title}\n{rest}" if title else f"{ch}\n{rest}"
+    numeric = re.match(r"^(\d+)\s+(.*)", first_line)
+    if numeric:
         try:
-            chapter_number_int = int(numeric_match.group(1))
-            title_part = numeric_match.group(2).strip()
-            reformatted_first_line = f"Chapter {chapter_number_int} - {title_part}"
-            return f"{reformatted_first_line}\n{rest_of_content}"
+            return (
+                f"Chapter {int(numeric.group(1))} - {numeric.group(2).strip()}\n{rest}"
+            )
         except ValueError:
             pass
     return text_content
 
 
-# --- MODIFIED: xAI API Translation Function with Context Optimization ---
 def translate_text_with_xai(
-    text_to_translate: str, known_glossary_data: dict, target_language: str = "English"
-) -> (str, dict):
+    text_to_translate, known_glossary_data, target_language="English"
+):
     api_key = os.environ.get("XAI_API_KEY")
     if not api_key:
-        return "[Translation Error: 'XAI_API_KEY' environment variable not set.]", {}
+        return "[Translation Error: 'XAI_API_KEY' not set.]", {}
 
     try:
         client = OpenAI(
             api_key=api_key, base_url=XAI_BASE_URL, timeout=API_TIMEOUT_SECONDS
         )
     except Exception as e:
-        return (
-            f"[Translation Error: Could not initialize OpenAI client for xAI - {type(e).__name__}: {e}]",
-            {},
-        )
+        return f"[Translation Error: {type(e).__name__}: {e}]", {}
 
-    # --- OPTIMIZATION START: Dynamic Glossary Filtering ---
-    # This logic matches the Gemini script: only send relevant glossary items to save context.
-    filtered_glossary = {"characters": {}, "places": {}}
+    # Dynamic glossary filtering across all categories
+    filtered_glossary = {key: {} for key in DEFAULT_GLOSSARY}
+    for category in DEFAULT_GLOSSARY:
+        for name_key, details in known_glossary_data.get(category, {}).items():
+            if name_key in text_to_translate:
+                filtered_glossary[category][name_key] = details
 
-    # 1. Filter Characters
-    for name_key, details in known_glossary_data.get("characters", {}).items():
-        if name_key in text_to_translate:
-            filtered_glossary["characters"][name_key] = details
-
-    # 2. Filter Places
-    for place_key, details in known_glossary_data.get("places", {}).items():
-        if place_key in text_to_translate:
-            filtered_glossary["places"][place_key] = details
-
-    # 3. Minify JSON (remove whitespace)
     known_glossary_json_str = json.dumps(
         filtered_glossary, ensure_ascii=False, separators=(",", ":")
     )
 
-    total_chars = len(known_glossary_data.get("characters", {}))
-    relevant_chars = len(filtered_glossary["characters"])
-    print(
-        f"  Glossary Optimization: Sending {relevant_chars}/{total_chars} characters relevant to this chapter."
-    )
-    # --- OPTIMIZATION END ---
+    total = sum(len(known_glossary_data.get(c, {})) for c in DEFAULT_GLOSSARY)
+    relevant = sum(len(filtered_glossary[c]) for c in DEFAULT_GLOSSARY)
+    print(f"  Glossary: {relevant}/{total} entries relevant to this chapter.")
+    print(f"Translating (length: {len(text_to_translate)} chars)...")
 
-    print(
-        f"Attempting to translate and extract glossary items from text (length: {len(text_to_translate)} chars)..."
-    )
-
-    # --- UPDATED PROMPT: Aligned with Gemini prompt for consistency ---
-    prompt = (
-        f"You are an expert Chinese-to-English translator and data extractor.\n"
-        f"Your task has three parts:\n"
-        f"1. Translate the Chinese text into high-quality, natural-sounding {target_language}. For names and places, you MUST use the 'english_name' from the 'Relevant Glossary' below if present.\n"
-        f"2. Identify new character names and place names in the text NOT already in the 'Relevant Glossary', and extract their details.\n"
-        f"3. Annotate cultural references, idioms, wordplay, internet slang, memes, inside jokes, or any phrase whose humor or meaning would be lost on a non-Chinese reader. Place the annotation IMMEDIATELY after the translated phrase using this exact syntax: translated phrase^[Brief explanation of the joke, reference, or cultural context]. Keep explanations concise (one or two sentences). Only annotate when the meaning would genuinely be unclear; do NOT annotate straightforward text.\n\n"
-        f"--- ANNOTATION EXAMPLES ---\n"
-        f'- Original: 他真是个柠檬精 → He was such a lemon spirit^[Chinese internet slang for someone who is extremely jealous or envious of others.]\n'
-        f'- Original: 这波是五五开 → This was a fifty-fifty^[A gaming meme from Chinese esports meaning something is an even split, often used sarcastically when the odds are clearly not equal.]\n'
-        f'- Original: 我太南了 → I\'m just too south^[A homophonic pun - "south" (南 nán) sounds like "hard/difficult" (难 nán), expressing that life is too hard.]\n'
-        f"- Do NOT annotate simple/obvious phrases like greetings, common expressions, or straightforward dialogue.\n\n"
-        f"--- RELEVANT GLOSSARY (Specific to this text) ---\n"
-        f"{known_glossary_json_str}\n\n"
-        f"--- RESPONSE FORMATTING RULES ---\n"
-        f"- Your response MUST have two parts separated by '---JSON---'.\n"
-        f"- PART 1 (Translation): MUST ONLY contain the final {target_language.upper()} translation (including any ^[annotation] markers inline).\n"
-        f"- PART 2 (Data): MUST start on a new line immediately after '---JSON---' and contain a single JSON object of NEW entities. This object should have two keys: 'characters' and 'places'.\n"
-        f"- Under 'characters', provide new characters with their 'pinyin', 'english_name', and 'pronoun'.\n"
-        f"- Under 'places', provide new places with their 'pinyin' and 'english_name'.\n"
-        f'- Example JSON Format: {{"characters": {{"兰波": {{"pinyin": "Lan Bo", "english_name": "Lan Bo", "pronoun": "he/him"}}}}, "places": {{"清河市": {{"pinyin": "Qinghe Shi", "english_name": "Qinghe City"}}}}}}\n'
-        f'- If NO NEW entities of a type are found, that key\'s value must be an empty object: e.g., {{"characters": {{}}, "places": {{...}}}}\n\n'
-        f"--- CHINESE TEXT TO PROCESS ---\n"
-        f"{text_to_translate}\n"
-        f"--- END OF TEXT ---\n\n"
-        f"Please provide your response following all rules."
+    # Build prompt from shared templates
+    prompt = build_combined_prompt(
+        text_to_translate, known_glossary_json_str, target_language
     )
 
     try:
         chat_completion = client.chat.completions.create(
             messages=[
-                {
-                    "role": "system",
-                    "content": "You are a helpful assistant that follows instructions precisely.",
-                },
+                {"role": "system", "content": SYSTEM_COMBINED},
                 {"role": "user", "content": prompt},
             ],
             model=XAI_MODEL_NAME,
@@ -12094,6 +13555,7 @@ def translate_text_with_xai(
             if chat_completion.choices and chat_completion.choices[0].message
             else ""
         )
+
         separator = "---JSON---"
         new_glossary_items = {}
         translation_part = raw_response_text
@@ -12102,166 +13564,133 @@ def translate_text_with_xai(
             parts = raw_response_text.split(separator, 1)
             translation_part = parts[0].strip()
             json_part = parts[1].strip()
-
             try:
-                json_part_cleaned = re.sub(
+                json_cleaned = re.sub(
                     r"```json\s*|\s*```", "", json_part, flags=re.DOTALL
                 ).strip()
-                if json_part_cleaned:
-                    new_glossary_items = json.loads(json_part_cleaned)
-                    print(f"  Successfully parsed glossary data from API response.")
+                if json_cleaned:
+                    new_glossary_items = json.loads(json_cleaned)
+                    for key in DEFAULT_GLOSSARY:
+                        if key not in new_glossary_items:
+                            new_glossary_items[key] = {}
+                    print(f"  Parsed glossary data from response.")
             except json.JSONDecodeError as e:
-                print(f"  Warning: Failed to parse JSON from API response. Error: {e}")
+                print(f"  Warning: JSON parse failed: {e}")
         else:
-            print("  Warning: JSON separator not found in API response.")
+            print("  Warning: ---JSON--- separator not found.")
 
         final_translation = re.sub(
             r"\n---\s*"
             + target_language.upper()
-            + r"\s*TRANSLATION\s*(END|START)\s*---|\^ENGLISH TRANSLATION ONLY:[\s\n]*",
+            + r"\s*TRANSLATION\s*(END|START)\s*---"
+            r"|\^ENGLISH TRANSLATION ONLY:[\s\n]*",
             "",
             translation_part,
             flags=re.IGNORECASE,
         ).strip()
-        print(f"Translation API call successful.")
+        print(f"Translation successful.")
         return final_translation, new_glossary_items
 
     except (APIError, APITimeoutError, AuthenticationError, RateLimitError) as e:
         error_type = type(e).__name__
-        print(f"An API error occurred during translation: {error_type} - {e}")
+        print(f"  API error: {error_type} - {e}")
         return f"[Translation Error ({XAI_MODEL_NAME} - {error_type})]", {}
     except Exception as e:
         error_type = type(e).__name__
-        print(f"An unexpected error occurred during translation: {error_type} - {e}")
+        print(f"  Unexpected error: {error_type} - {e}")
         return f"[Translation Error ({XAI_MODEL_NAME} - {error_type})]", {}
 
 
-# --- MODIFIED: Main Processing Logic with Glossary ---
 def process_files_for_translation():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    # Using the global variables configured via os.getenv above
-    input_dir_full_path = os.path.join(script_dir, INPUT_DIR)
-    output_dir_full_path = os.path.join(script_dir, OUTPUT_DIR)
-    glossary_json_full_path = os.path.join(script_dir, GLOSSARY_JSON_FILE)
-    glossary_data = load_glossary_from_json(glossary_json_full_path)
-
-    if not os.path.exists(input_dir_full_path):
-        print(f"Error: Input directory '{input_dir_full_path}' not found.")
-        return
-    if not os.path.exists(output_dir_full_path):
-        os.makedirs(output_dir_full_path)
-        print(f"Created output directory: {output_dir_full_path}")
-
-    files_to_process = sorted(
-        [f for f in os.listdir(input_dir_full_path) if f.endswith(".txt")]
+    input_dir = (
+        INPUT_DIR if os.path.isabs(INPUT_DIR) else os.path.join(script_dir, INPUT_DIR)
     )
-    if not files_to_process:
-        print(f"No .txt files found in '{input_dir_full_path}'.")
+    output_dir = (
+        OUTPUT_DIR
+        if os.path.isabs(OUTPUT_DIR)
+        else os.path.join(script_dir, OUTPUT_DIR)
+    )
+    project_root = os.path.dirname(input_dir)
+    glossary_path = os.path.join(project_root, GLOSSARY_JSON_FILE)
+    glossary_data = load_glossary_from_json(glossary_path)
+
+    if not os.path.exists(input_dir):
+        print(f"Error: Input directory '{input_dir}' not found.")
+        return
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    files = sorted([f for f in os.listdir(input_dir) if f.endswith(".txt")])
+    if not files:
+        print(f"No .txt files in '{input_dir}'.")
         return
 
-    print(
-        f"Found {len(files_to_process)} file(s) to process from '{input_dir_full_path}'."
-    )
+    print(f"Found {len(files)} file(s) from '{input_dir}'.")
 
-    for i, filename in enumerate(files_to_process):
-        input_filepath = os.path.join(input_dir_full_path, filename)
-        output_filepath = os.path.join(output_dir_full_path, filename)
-        print(f"\n[{i+1}/{len(files_to_process)}] Checking: {filename}...")
+    for i, filename in enumerate(files):
+        in_path = os.path.join(input_dir, filename)
+        out_path = os.path.join(output_dir, filename)
+        print(f"\n[{i+1}/{len(files)}] {filename}...")
 
-        if os.path.exists(output_filepath):
+        if os.path.exists(out_path):
             try:
-                with open(output_filepath, "r", encoding="utf-8") as f_check:
-                    content_check = f_check.read(200)
-                    if (
-                        "[Translation Error" not in content_check
-                        and "[ERROR PROCESSING FILE" not in content_check
-                    ):
-                        print(
-                            f"Output file '{output_filepath}' exists and is valid. Skipping."
-                        )
+                with open(out_path, "r", encoding="utf-8") as f:
+                    check = f.read(200)
+                    if "[Translation Error" not in check and "[ERROR" not in check:
+                        print(f"  Valid output exists. Skipping.")
                         continue
-                    else:
-                        print(
-                            f"Output file contains an error marker. Will re-translate."
-                        )
             except Exception:
                 pass
 
-        print(f"Processing for translation: {filename}")
-
         try:
-            with open(input_filepath, "r", encoding="utf-8") as f:
-                source_content = f.read()
-            clean_source_for_api = "\n".join(
-                [
-                    line
-                    for line in source_content.splitlines()
-                    if line.strip() and re.search(r"[\u4e00-\u9fff]", line)
-                ]
+            with open(in_path, "r", encoding="utf-8") as f:
+                source = f.read()
+            clean = "\n".join(
+                l
+                for l in source.splitlines()
+                if l.strip() and re.search(r"[\u4e00-\u9fff]", l)
             ).strip()
 
-            if not clean_source_for_api:
-                translated_content = "[No Chinese content found in source]"
+            if not clean:
+                translated = "[No Chinese content found]"
             else:
-                translated_content, new_glossary_items = translate_text_with_xai(
-                    clean_source_for_api, glossary_data, target_language="English"
-                )
+                translated, new_items = translate_text_with_xai(clean, glossary_data)
+                if new_items:
+                    for cat in DEFAULT_GLOSSARY:
+                        for name, details in new_items.get(cat, {}).items():
+                            if name not in glossary_data.get(cat, {}):
+                                if cat not in glossary_data:
+                                    glossary_data[cat] = {}
+                                glossary_data[cat][name] = details
+                                print(f"    + [{cat}] {name} -> {details}")
 
-                if new_glossary_items:
-                    new_chars = new_glossary_items.get("characters", {})
-                    if new_chars:
-                        print(
-                            f"  Updating master list with {len(new_chars)} new character(s)."
-                        )
-                        for name, details in new_chars.items():
-                            if name not in glossary_data["characters"]:
-                                glossary_data["characters"][name] = details
-                                print(f"    + Added Character: {name} -> {details}")
-
-                    new_places = new_glossary_items.get("places", {})
-                    if new_places:
-                        print(
-                            f"  Updating master list with {len(new_places)} new place(s)."
-                        )
-                        for name, details in new_places.items():
-                            if name not in glossary_data["places"]:
-                                glossary_data["places"][name] = details
-                                print(f"    + Added Place: {name} -> {details}")
-
-            final_content_to_write = (
-                translated_content
-                if translated_content.startswith("[")
-                else reformat_chapter_title_in_text(translated_content)
+            final = (
+                translated
+                if translated.startswith("[")
+                else reformat_chapter_title_in_text(translated)
             )
-            with open(output_filepath, "w", encoding="utf-8") as f:
-                f.write(final_content_to_write)
-            print(f"Saved: {output_filepath}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(final)
+            print(f"  Saved: {out_path}")
+            save_glossary_to_json(glossary_path, glossary_data)
 
-            # --- Save glossary after each file is processed ---
-            save_glossary_to_json(glossary_json_full_path, glossary_data)
-
-            if i < len(files_to_process) - 1:
-                print(f"Pausing for 5.0 seconds...")
+            if i < len(files) - 1:
                 time.sleep(5.0)
-
         except Exception as e:
-            print(f"FATAL Error processing file {filename}: {e}")
-            with open(output_filepath, "w", encoding="utf-8") as f_err:
-                f_err.write(f"[ERROR PROCESSING FILE: {e}]")
+            print(f"  FATAL: {e}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(f"[ERROR PROCESSING FILE: {e}]")
 
-    print(f"\n--- Translation Run Summary ---")
-    print(f"Total source files checked: {len(files_to_process)}")
-    print(f"-----------------------------")
+    print(f"\n--- Done. {len(files)} files checked ---")
 
 
 if __name__ == "__main__":
-    print(f"Starting Chinese to English translation process...")
+    print("Starting Chinese to English translation (Grok/xAI)...")
     if not os.environ.get("XAI_API_KEY"):
-        print("\nCRITICAL ERROR: 'XAI_API_KEY' environment variable not set.")
+        print("CRITICAL: 'XAI_API_KEY' not set.")
         exit()
-
     process_files_for_translation()
-    print("Translation process finished.")
 
 --- END OF FILE: ./grok_transelate.py ---
 
@@ -12269,91 +13698,73 @@ if __name__ == "__main__":
 import json
 import os
 import re
-import sys  # Added for sys.exit()
+import sys
 import time
 
 from google.generativeai.types import HarmBlockThreshold, HarmCategory
 
-# Ensure you have the google-generativeai package installed
-# pip install -U google-generativeai
+from prompts import DEFAULT_GLOSSARY, SYSTEM_COMBINED, build_combined_prompt
+from logger import log_chapter_translation
 
-# --- Helper Function to Load Glossary from JSON ---
-def load_glossary_from_json(filepath: str) -> dict:
-    """
-    Loads a glossary dictionary (for characters and places) from a JSON file.
-    If the file doesn't exist or is invalid, it returns a new dictionary structure.
-    """
-    default_glossary = {"characters": {}, "places": {}}
+# --- Configuration ---
+INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "SnakeFairy_CH_Qushucheng")
+OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "SnakeFairy_EN_transelated")
+GLOSSARY_JSON_FILE = "translation_glossary.json"
+
+
+def load_glossary_from_json(filepath):
     if not os.path.exists(filepath):
-        print(
-            f"Glossary JSON file not found at '{filepath}'. A new one will be created."
-        )
-        return default_glossary
+        print(f"Glossary not found at '{filepath}'. Creating new.")
+        return dict(DEFAULT_GLOSSARY)
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
-            # Ensure both top-level keys exist
-            if "characters" not in data:
-                data["characters"] = {}
-            if "places" not in data:
-                data["places"] = {}
+            for key in DEFAULT_GLOSSARY:
+                if key not in data:
+                    data[key] = {}
             return data
     except (json.JSONDecodeError, IOError) as e:
-        print(f"Error reading or parsing JSON file '{filepath}': {e}. Starting fresh.")
-        return default_glossary
+        print(f"Error reading glossary: {e}. Starting fresh.")
+        return dict(DEFAULT_GLOSSARY)
 
 
-# --- Helper Function to Save Glossary to JSON ---
-def save_glossary_to_json(filepath: str, data: dict):
-    """Saves a glossary dictionary to a JSON file with pretty printing."""
+def save_glossary_to_json(filepath, data):
     try:
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-        print(f"Successfully saved updated glossary to '{filepath}'.")
+        print(f"Saved glossary to '{filepath}'.")
     except IOError as e:
-        print(f"Error writing to JSON file '{filepath}': {e}")
+        print(f"Error writing glossary: {e}")
 
 
-# --- Helper Function to Reformat Title (unchanged) ---
-def reformat_chapter_title_in_text(text_content: str) -> str:
+def reformat_chapter_title_in_text(text_content):
     if not text_content or not text_content.strip():
         return text_content
     lines = text_content.split("\n", 1)
-    first_line, rest_of_content = lines[0], lines[1] if len(lines) > 1 else ""
-    match = re.match(r"^(Chapter\s*\d+)\s*[:\-–—]?\s*(.*)", first_line, re.IGNORECASE)
+    first_line, rest = lines[0], lines[1] if len(lines) > 1 else ""
+    match = re.match(
+        r"^(Chapter\s*\d+)\s*[:\-\u2013\u2014]?\s*(.*)", first_line, re.IGNORECASE
+    )
     if match:
-        chapter_part, title_part = match.group(1).strip(), match.group(2).strip()
-        reformatted_first_line = (
-            f"{chapter_part} - {title_part}" if title_part else chapter_part
-        )
-        return f"{reformatted_first_line}\n{rest_of_content}"
-    numeric_match = re.match(r"^(\d+)\s+(.*)", first_line)
-    if numeric_match:
+        ch, title = match.group(1).strip(), match.group(2).strip()
+        return f"{ch} - {title}\n{rest}" if title else f"{ch}\n{rest}"
+    numeric = re.match(r"^(\d+)\s+(.*)", first_line)
+    if numeric:
         try:
-            chapter_number_int, title_part = (
-                int(numeric_match.group(1)),
-                numeric_match.group(2).strip(),
+            return (
+                f"Chapter {int(numeric.group(1))} - {numeric.group(2).strip()}\n{rest}"
             )
-            reformatted_first_line = f"Chapter {chapter_number_int} - {title_part}"
-            return f"{reformatted_first_line}\n{rest_of_content}"
         except ValueError:
             pass
     return text_content
 
 
-# --- MODIFIED: Gemini API Translation Function for Glossary ---
 def translate_text_with_gemini(
-    text_to_translate: str, known_glossary_data: dict, target_language: str = "English"
-) -> (str, dict):
-    """
-    Translates text and extracts new glossary items (characters and places).
-    INCLUDES RETRY LOGIC for DeadlineExceeded and AUTO-QUIT for ResourceExhausted.
-    """
+    text_to_translate, known_glossary_data, target_language="English"
+):
     try:
         import google.generativeai as genai_sdk
-        from google.api_core import (
-            exceptions as google_exceptions,
-        )  # Import specific exceptions
+        from google.api_core import exceptions as google_exceptions
     except ImportError:
         return "[Translation Error: Package not installed.]", {}
 
@@ -12364,60 +13775,25 @@ def translate_text_with_gemini(
     genai_sdk.configure(api_key=api_key)
     model_name_for_api = "gemini-3-flash-preview"
 
-    # --- OPTIMIZATION START: Dynamic Glossary Filtering ---
-    filtered_glossary = {"characters": {}, "places": {}}
+    # Dynamic glossary filtering across all categories
+    filtered_glossary = {key: {} for key in DEFAULT_GLOSSARY}
+    for category in DEFAULT_GLOSSARY:
+        for name_key, details in known_glossary_data.get(category, {}).items():
+            if name_key in text_to_translate:
+                filtered_glossary[category][name_key] = details
 
-    # 1. Filter Characters
-    for name_key, details in known_glossary_data.get("characters", {}).items():
-        if name_key in text_to_translate:
-            filtered_glossary["characters"][name_key] = details
-
-    # 2. Filter Places
-    for place_key, details in known_glossary_data.get("places", {}).items():
-        if place_key in text_to_translate:
-            filtered_glossary["places"][place_key] = details
-
-    # 3. Minify JSON
     known_glossary_json_str = json.dumps(
         filtered_glossary, ensure_ascii=False, separators=(",", ":")
     )
 
-    total_chars = len(known_glossary_data.get("characters", {}))
-    relevant_chars = len(filtered_glossary["characters"])
-    print(
-        f"  Glossary Optimization: Sending {relevant_chars}/{total_chars} characters relevant to this chapter."
-    )
-    # --- OPTIMIZATION END ---
+    total = sum(len(known_glossary_data.get(c, {})) for c in DEFAULT_GLOSSARY)
+    relevant = sum(len(filtered_glossary[c]) for c in DEFAULT_GLOSSARY)
+    print(f"  Glossary: {relevant}/{total} entries relevant to this chapter.")
+    print(f"Translating (length: {len(text_to_translate)} chars)...")
 
-    print(
-        f"Attempting to translate and extract glossary items from text (length: {len(text_to_translate)} chars)..."
-    )
-
-    prompt = (
-        f"You are an expert Chinese-to-English translator and data extractor.\n"
-        f"Your task has three parts:\n"
-        f"1. Translate the Chinese text into high-quality, natural-sounding {target_language}. For names and places, you MUST use the 'english_name' from the 'Relevant Glossary' below if present.\n"
-        f"2. Identify new character names and place names in the text NOT already in the glossary, and extract their details.\n"
-        f"3. Annotate cultural references, idioms, wordplay, internet slang, memes, inside jokes, or any phrase whose humor or meaning would be lost on a non-Chinese reader. Place the annotation IMMEDIATELY after the translated phrase using this exact syntax: translated phrase^[Brief explanation of the joke, reference, or cultural context]. Keep explanations concise (one or two sentences). Only annotate when the meaning would genuinely be unclear; do NOT annotate straightforward text.\n\n"
-        f"--- ANNOTATION EXAMPLES ---\n"
-        f"- Original: 他真是个柠檬精 → He was such a lemon spirit^[Chinese internet slang for someone who is extremely jealous or envious of others.]\n"
-        f"- Original: 这波是五五开 → This was a fifty-fifty^[A gaming meme from Chinese esports meaning something is an even split, often used sarcastically when the odds are clearly not equal.]\n"
-        f'- Original: 我太南了 → I\'m just too south^[A homophonic pun - "south" (南 nán) sounds like "hard/difficult" (难 nán), expressing that life is too hard.]\n'
-        f"- Do NOT annotate simple/obvious phrases like greetings, common expressions, or straightforward dialogue.\n\n"
-        f"--- RELEVANT GLOSSARY (Specific to this text) ---\n"
-        f"{known_glossary_json_str}\n\n"
-        f"--- RESPONSE FORMATTING RULES ---\n"
-        f"- Your response MUST have two parts separated by '---JSON---'.\n"
-        f"- PART 1 (Translation): MUST ONLY contain the final {target_language.upper()} translation (including any ^[annotation] markers inline).\n"
-        f"- PART 2 (Data): MUST start on a new line immediately after '---JSON---' and contain a single JSON object of NEW entities. This object should have two keys: 'characters' and 'places'.\n"
-        f"- Under 'characters', provide new characters with their 'pinyin', 'english_name', and 'pronoun'.\n"
-        f"- Under 'places', provide new places with their 'pinyin' and 'english_name'.\n"
-        f'- Example JSON Format: {{"characters": {{"兰波": {{"pinyin": "Lan Bo", "english_name": "Lan Bo", "pronoun": "he/him"}}}}, "places": {{"清河市": {{"pinyin": "Qinghe Shi", "english_name": "Qinghe City"}}}}}}\n'
-        f'- If NO NEW entities of a type are found, that key\'s value must be an empty object: e.g., {{"characters": {{}}, "places": {{...}}}}\n\n'
-        f"--- CHINESE TEXT TO PROCESS ---\n"
-        f"{text_to_translate}\n"
-        f"--- END OF TEXT ---\n\n"
-        f"Please provide your response following all rules."
+    # Build prompt from shared templates
+    prompt = build_combined_prompt(
+        text_to_translate, known_glossary_json_str, target_language
     )
 
     safety_settings = {
@@ -12427,49 +13803,38 @@ def translate_text_with_gemini(
         HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
     }
 
-    # --- RETRY LOGIC START ---
     max_retries = 3
-    retry_delay = 10  # seconds
+    retry_delay = 10
 
     for attempt in range(max_retries):
         try:
             model = genai_sdk.GenerativeModel(model_name_for_api)
-            # Increased timeout to 600
             response = model.generate_content(
                 prompt,
                 request_options={"timeout": 600},
                 generation_config=genai_sdk.types.GenerationConfig(temperature=0.2),
                 safety_settings=safety_settings,
             )
-
-            # If successful, break out of retry loop and process response
             raw_response_text = response.text
             break
-
         except google_exceptions.ResourceExhausted:
-            print(f"\nCRITICAL: Resource Exhausted (Quota limit reached).")
-            print("Auto-quitting script to prevent further errors.")
-            sys.exit(0)  # Quit the program entirely
-
+            print(f"\nCRITICAL: Resource Exhausted. Auto-quitting.")
+            sys.exit(0)
         except google_exceptions.DeadlineExceeded:
-            print(
-                f"  Warning: API Deadline Exceeded (Timeout). Retrying {attempt + 1}/{max_retries} in {retry_delay}s..."
-            )
+            print(f"  Timeout. Retrying {attempt+1}/{max_retries} in {retry_delay}s...")
             time.sleep(retry_delay)
-            retry_delay *= 2  # Increase delay for next retry
+            retry_delay *= 2
             if attempt == max_retries - 1:
                 return (
                     f"[Translation Error: Deadline Exceeded after {max_retries} attempts]",
                     {},
                 )
-
         except Exception as e:
-            # Handle other unexpected API errors
             error_type = type(e).__name__
             print(f"  API Error ({error_type}): {e}")
             return f"[Translation Error ({model_name_for_api} - {error_type})]", {}
-    # --- RETRY LOGIC END ---
 
+    # Parse response
     try:
         separator = "---JSON---"
         new_glossary_items = {}
@@ -12479,162 +13844,353 @@ def translate_text_with_gemini(
             parts = raw_response_text.split(separator, 1)
             translation_part = parts[0].strip()
             json_part = parts[1].strip()
-
             try:
-                json_part_cleaned = re.sub(
+                json_cleaned = re.sub(
                     r"```json\s*|\s*```", "", json_part, flags=re.DOTALL
                 ).strip()
-                if json_part_cleaned:
-                    new_glossary_items = json.loads(json_part_cleaned)
-                    print(f"  Successfully parsed glossary data from API response.")
+                if json_cleaned:
+                    new_glossary_items = json.loads(json_cleaned)
+                    # Ensure all category keys
+                    for key in DEFAULT_GLOSSARY:
+                        if key not in new_glossary_items:
+                            new_glossary_items[key] = {}
+                    print(f"  Parsed glossary data from response.")
             except json.JSONDecodeError as e:
-                print(f"  Warning: Failed to parse JSON from API response. Error: {e}")
+                print(f"  Warning: JSON parse failed: {e}")
         else:
-            print("  Warning: JSON separator not found in API response.")
+            print("  Warning: ---JSON--- separator not found.")
 
         final_translation = re.sub(
             r"\n---\s*"
             + target_language.upper()
-            + r"\s*TRANSLATION\s*(END|START)\s*---|\^ENGLISH TRANSLATION ONLY:[\s\n]*",
+            + r"\s*TRANSLATION\s*(END|START)\s*---"
+            r"|\^ENGLISH TRANSLATION ONLY:[\s\n]*",
             "",
             translation_part,
             flags=re.IGNORECASE,
         ).strip()
-        print(f"Translation API call successful.")
+        print(f"Translation successful.")
         return final_translation, new_glossary_items
-
     except Exception as e:
-        print(f"An error occurred during response parsing: {e}")
+        print(f"Error parsing response: {e}")
         return f"[Translation Error (Parsing)]", {}
 
 
-# --- MODIFIED: Main Processing Logic for Glossary ---
 def process_files_for_translation():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    input_dir_full_path = os.path.join(script_dir)
-    output_dir_full_path = os.path.join(script_dir)
-    glossary_json_full_path = os.path.join(script_dir)
-    glossary_data = load_glossary_from_json(glossary_json_full_path)
-
-    if not os.path.exists(input_dir_full_path):
-        print(f"Error: Input directory '{input_dir_full_path}' not found.")
-        return
-    if not os.path.exists(output_dir_full_path):
-        os.makedirs(output_dir_full_path)
-        print(f"Created output directory: {output_dir_full_path}")
-
-    files_to_process = sorted(
-        [f for f in os.listdir(input_dir_full_path) if f.endswith(".txt")]
+    input_dir = (
+        INPUT_DIR if os.path.isabs(INPUT_DIR) else os.path.join(script_dir, INPUT_DIR)
     )
-    if not files_to_process:
-        print(f"No .txt files found in '{input_dir_full_path}'.")
+    output_dir = (
+        OUTPUT_DIR
+        if os.path.isabs(OUTPUT_DIR)
+        else os.path.join(script_dir, OUTPUT_DIR)
+    )
+    project_root = os.path.dirname(input_dir)
+    glossary_path = os.path.join(project_root, GLOSSARY_JSON_FILE)
+    glossary_data = load_glossary_from_json(glossary_path)
+
+    if not os.path.exists(input_dir):
+        print(f"Error: Input directory '{input_dir}' not found.")
+        return
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    files = sorted([f for f in os.listdir(input_dir) if f.endswith(".txt")])
+    if not files:
+        print(f"No .txt files in '{input_dir}'.")
         return
 
-    print(
-        f"Found {len(files_to_process)} file(s) to process from '{input_dir_full_path}'."
-    )
+    print(f"Found {len(files)} file(s) from '{input_dir}'.")
 
-    for i, filename in enumerate(files_to_process):
-        input_filepath = os.path.join(input_dir_full_path, filename)
-        output_filepath = os.path.join(output_dir_full_path, filename)
-        print(f"\n[{i+1}/{len(files_to_process)}] Checking: {filename}...")
+    for i, filename in enumerate(files):
+        in_path = os.path.join(input_dir, filename)
+        out_path = os.path.join(output_dir, filename)
+        print(f"\n[{i+1}/{len(files)}] {filename}...")
 
-        if os.path.exists(output_filepath):
+        if os.path.exists(out_path):
             try:
-                with open(output_filepath, "r", encoding="utf-8") as f_check:
-                    content_check = f_check.read(200)
-                    if (
-                        "[Translation Error" not in content_check
-                        and "[ERROR PROCESSING FILE" not in content_check
-                    ):
-                        print(
-                            f"Output file '{output_filepath}' exists and is valid. Skipping."
-                        )
+                with open(out_path, "r", encoding="utf-8") as f:
+                    check = f.read(200)
+                    if "[Translation Error" not in check and "[ERROR" not in check:
+                        print(f"  Valid output exists. Skipping.")
                         continue
-                    else:
-                        print(
-                            f"Output file contains an error marker. Will re-translate."
-                        )
             except Exception:
                 pass
 
-        print(f"Processing for translation: {filename}")
-
         try:
-            with open(input_filepath, "r", encoding="utf-8") as f:
-                source_content = f.read()
-            clean_source_for_api = "\n".join(
-                [
-                    line
-                    for line in source_content.splitlines()
-                    if line.strip() and re.search(r"[\u4e00-\u9fff]", line)
-                ]
+            with open(in_path, "r", encoding="utf-8") as f:
+                source = f.read()
+            clean = "\n".join(
+                l
+                for l in source.splitlines()
+                if l.strip() and re.search(r"[\u4e00-\u9fff]", l)
             ).strip()
 
-            if not clean_source_for_api:
-                translated_content = "[No Chinese content found in source]"
+            if not clean:
+                translated = "[No Chinese content found]"
             else:
-                translated_content, new_glossary_items = translate_text_with_gemini(
-                    clean_source_for_api, glossary_data, target_language="English"
-                )
+                translated, new_items = translate_text_with_gemini(clean, glossary_data)
+                if new_items:
+                    for cat in DEFAULT_GLOSSARY:
+                        for name, details in new_items.get(cat, {}).items():
+                            if name not in glossary_data.get(cat, {}):
+                                if cat not in glossary_data:
+                                    glossary_data[cat] = {}
+                                glossary_data[cat][name] = details
+                                print(f"    + [{cat}] {name} -> {details}")
 
-                if new_glossary_items:
-                    new_chars = new_glossary_items.get("characters", {})
-                    if new_chars:
-                        print(
-                            f"  Updating master list with {len(new_chars)} new character(s)."
-                        )
-                        for name, details in new_chars.items():
-                            if name not in glossary_data["characters"]:
-                                glossary_data["characters"][name] = details
-                                print(f"    + Added Character: {name} -> {details}")
-
-                    new_places = new_glossary_items.get("places", {})
-                    if new_places:
-                        print(
-                            f"  Updating master list with {len(new_places)} new place(s)."
-                        )
-                        for name, details in new_places.items():
-                            if name not in glossary_data["places"]:
-                                glossary_data["places"][name] = details
-                                print(f"    + Added Place: {name} -> {details}")
-
-            final_content_to_write = (
-                translated_content
-                if translated_content.startswith("[")
-                else reformat_chapter_title_in_text(translated_content)
+            final = (
+                translated
+                if translated.startswith("[")
+                else reformat_chapter_title_in_text(translated)
             )
-            with open(output_filepath, "w", encoding="utf-8") as f:
-                f.write(final_content_to_write)
-            print(f"Saved: {output_filepath}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(final)
+            print(f"  Saved: {out_path}")
+            save_glossary_to_json(glossary_path, glossary_data)
 
-            # --- MODIFIED: Save glossary after each file is processed ---
-            save_glossary_to_json(glossary_json_full_path, glossary_data)
+            log_chapter_translation(filename, "gemini-3-flash-preview")
 
-            if i < len(files_to_process) - 1:
-                print(f"Pausing for 5.0 seconds...")
+            if i < len(files) - 1:
                 time.sleep(5.0)
-
         except Exception as e:
-            print(f"FATAL Error processing file {filename}: {e}")
-            with open(output_filepath, "w", encoding="utf-8") as f_err:
-                f_err.write(f"[ERROR PROCESSING FILE: {e}]")
+            print(f"  FATAL: {e}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(f"[ERROR PROCESSING FILE: {e}]")
 
-    print(f"\n--- Translation Run Summary ---")
-    print(f"Total source files checked: {len(files_to_process)}")
-    print(f"-----------------------------")
+            log_chapter_translation(filename, "gemini-3-flash-preview", f"Error: {e}")
+
+    print(f"\n--- Done. {len(files)} files checked ---")
 
 
 if __name__ == "__main__":
-    print(f"Starting Chinese to English translation process...")
+    print("Starting Chinese to English translation (Gemini)...")
     if not os.environ.get("GEMINI_API_KEY"):
-        print("\nCRITICAL ERROR: 'GEMINI_API_KEY' environment variable not set.")
+        print("CRITICAL: 'GEMINI_API_KEY' not set.")
         exit()
-
     process_files_for_translation()
-    print("Translation process finished.")
 
 --- END OF FILE: ./gemini_transelate_4.py ---
+
+--- START OF FILE: ./prompts.py ---
+"""
+prompts.py — Shared prompt templates for all translation engines.
+
+Edit the rules, examples, and categories here once and they apply
+to Gemini, Grok, and LM Studio simultaneously.
+"""
+
+import json
+
+# ============================================================
+# Glossary categories (shared across all engines)
+# ============================================================
+DEFAULT_GLOSSARY = {
+    "characters": {},
+    "places": {},
+    "organizations": {},
+    "items": {},
+    "skills": {},
+    "species": {},
+}
+
+# ============================================================
+# Annotation rules (strict — only genuinely obscure stuff)
+# ============================================================
+ANNOTATION_RULES = """
+ANNOTATION RULES — BE EXTREMELY SELECTIVE:
+Only use ^[explanation] for things genuinely obscure to a non-Chinese reader.
+
+DO annotate:
+- Internet memes or slang with no English equivalent (五五开, 柠檬精, 996, 躺平, 打工人, 内卷)
+- Homophonic puns where the humor is completely lost in translation
+- References to specific Chinese pop culture, viral moments, or social media trends
+- Idioms you kept literal for stylistic reasons where the English is confusing without context
+
+DO NOT annotate:
+- Standard idioms you already translated into natural English
+- Words whose meaning is clear from context (e.g. "demon race", "knight order", "sword spirit")
+- Character names, place names, titles, or ranks
+- Common expressions, greetings, farewells, emotional reactions
+- Self-explanatory fantasy or cultivation terms
+- Anything where the English translation already conveys the full meaning
+- General vocabulary or dictionary definitions of Chinese words
+
+When in doubt, DO NOT annotate. A chapter with zero annotations is perfectly normal.
+""".strip()
+
+ANNOTATION_EXAMPLES = """
+ANNOTATION EXAMPLES:
+- 他真是个柠檬精 → He was such a lemon spirit^[Chinese internet slang for someone consumed by jealousy.]
+- 这波是五五开 → This was a fifty-fifty^[A gaming meme from Chinese esports, used sarcastically when the odds are clearly not equal.]
+- 我太南了 → I'm just too south^[Homophonic pun — "south" (南 nán) sounds like "hard/difficult" (难 nán).]
+- Do NOT annotate phrases like "old master", "demonic energy", "broke through to the next realm" — these are self-evident.
+""".strip()
+
+# ============================================================
+# Translation rules
+# ============================================================
+TRANSLATION_RULES = """
+RULES:
+- For names, places, items, organizations, skills, and species, you MUST use the 'english_name' from the glossary if present.
+- Pronouns: Chinese frequently omits pronouns. Carefully infer he/she/they from context.
+- Titles: Translate relational terms of address (老爷子, 师兄, 兄弟) contextually based on the actual relationship, not literally, unless they are blood relatives.
+""".strip()
+
+# ============================================================
+# Glossary extraction categories & disambiguation
+# ============================================================
+GLOSSARY_CATEGORIES = """
+CATEGORIES:
+- "characters": People, individuals, named beings. Needs "pinyin", "english_name", "pronoun" (he/him, she/her, they/them).
+- "places": Cities, regions, named buildings, towers, dungeons. Needs "pinyin", "english_name".
+- "organizations": Knight orders, sects, guilds, factions, clans, armies, noble houses. Needs "pinyin", "english_name".
+- "items": Named weapons, artifacts, treasures, tools, potions, books, scrolls. Needs "pinyin", "english_name".
+- "skills": Named techniques, spells, martial arts moves, formations, arrays. Needs "pinyin", "english_name".
+- "species": Races, creature types, monster species, bloodlines, ranked classifications. Needs "pinyin", "english_name".
+""".strip()
+
+GLOSSARY_DISAMBIGUATION = """
+DISAMBIGUATION:
+- 骑士团 (knight order) → ORGANIZATION, not place.
+- 城 (city) / 塔 (tower) → PLACE, not organization.
+- 剑/杖/named weapon → ITEM, not character or skill.
+- 术 (technique) / 阵 (formation) → SKILL, not item.
+- 族 (race) / 种 (species) → SPECIES. But 族 as family/clan → ORGANIZATION.
+- Can people join/leave it? → ORGANIZATION. Is it a physical location? → PLACE.
+""".strip()
+
+# ============================================================
+# Few-shot examples
+# ============================================================
+FEWSHOT_GLOSSARY_USER = "Extract entities from: 兰波带着破妄剑去了清河市的天辉骑士团。"
+
+FEWSHOT_GLOSSARY_ASSISTANT = json.dumps(
+    {
+        "characters": {
+            "兰波": {"pinyin": "Lan Bo", "english_name": "Lan Bo", "pronoun": "he/him"}
+        },
+        "places": {
+            "清河市": {"pinyin": "Qinghe Shi", "english_name": "Qinghe City"}
+        },
+        "organizations": {
+            "天辉骑士团": {
+                "pinyin": "Tianhui Qishi Tuan",
+                "english_name": "Radiant Knights",
+            }
+        },
+        "items": {
+            "破妄剑": {"pinyin": "Po Wang Jian", "english_name": "Delusion Breaker"}
+        },
+        "skills": {},
+        "species": {},
+    },
+    ensure_ascii=False,
+)
+
+FEWSHOT_TRANSLATE_USER = (
+    "Translate into English. Output ONLY the translation.\n\n"
+    "--- CHINESE TEXT ---\n"
+    "那个叫姬白的骑士挥舞着破妄剑，说道：\"这波是五五开，你们先撤。\"\n"
+    "老骑士点了点头，转身离开。\n"
+    "--- END ---"
+)
+
+FEWSHOT_TRANSLATE_ASSISTANT = (
+    'The knight named Ji Bai swung the Delusion Breaker and said, '
+    '"This is a fifty-fifty^[A gaming meme from Chinese esports meaning an even '
+    "split, often used sarcastically when the odds are clearly not equal.], "
+    'you all retreat first."\n'
+    "The old knight nodded and turned to leave."
+)
+
+
+# ============================================================
+# System prompts
+# ============================================================
+SYSTEM_TRANSLATION = (
+    "You are a professional translation engine. Output ONLY the final English translation. "
+    "No reasoning, no chain of thought, no meta-commentary. "
+    "Start immediately with the translated text."
+)
+
+SYSTEM_GLOSSARY = (
+    "You are a data extractor. Output ONLY valid JSON. "
+    "No markdown fences, no explanation — just the JSON object."
+)
+
+SYSTEM_COMBINED = "You are a helpful assistant that follows instructions precisely."
+
+
+# ============================================================
+# Prompt builders
+# ============================================================
+def build_translation_prompt(text_to_translate, glossary_json_str, target_language="English"):
+    """
+    Builds the translation-only prompt (used by LM Studio Pass 2).
+    Returns the user prompt string.
+    """
+    return (
+        f"You are an expert Chinese-to-English translator.\n"
+        f"Translate the Chinese text below into high-quality, natural-sounding {target_language}.\n\n"
+        f"{TRANSLATION_RULES}\n\n"
+        f"{ANNOTATION_RULES}\n\n"
+        f"{ANNOTATION_EXAMPLES}\n\n"
+        f"GLOSSARY:\n{glossary_json_str}\n\n"
+        f"--- CHINESE TEXT ---\n{text_to_translate}\n--- END ---\n\n"
+        f"Output ONLY the translated text. No reasoning, no commentary."
+    )
+
+
+def build_glossary_prompt(original_chinese):
+    """
+    Builds the glossary extraction prompt (used by LM Studio Pass 1).
+    Returns the user prompt string.
+    """
+    return (
+        f"You are a named entity extraction assistant for Chinese fantasy/web novels.\n"
+        f"Given the Chinese text below, extract ALL named entities and provide English translations.\n\n"
+        f"{GLOSSARY_CATEGORIES}\n\n"
+        f"{GLOSSARY_DISAMBIGUATION}\n\n"
+        f"Return JSON with all six keys. Empty objects for empty categories.\n"
+        f"ONLY the JSON. No markdown, no explanation.\n\n"
+        f"--- CHINESE TEXT ---\n{original_chinese}\n--- END ---"
+    )
+
+
+def build_combined_prompt(text_to_translate, glossary_json_str, target_language="English"):
+    """
+    Builds the combined translation+glossary prompt (used by Gemini and Grok).
+    The LLM does everything in one call, separated by ---JSON---.
+    Returns the user prompt string.
+    """
+    return (
+        f"You are an expert Chinese-to-English translator and data extractor.\n"
+        f"Your task has three parts:\n"
+        f"1. Translate the Chinese text into high-quality, natural-sounding {target_language}.\n"
+        f"   {TRANSLATION_RULES}\n"
+        f"2. Identify new named entities (characters, places, organizations, items, skills, species) "
+        f"NOT already in the glossary, and extract their details.\n"
+        f"3. Annotate cultural references where needed.\n\n"
+        f"{ANNOTATION_RULES}\n\n"
+        f"{ANNOTATION_EXAMPLES}\n\n"
+        f"--- RELEVANT GLOSSARY ---\n{glossary_json_str}\n\n"
+        f"--- RESPONSE FORMATTING RULES ---\n"
+        f"- Your response MUST have two parts separated by '---JSON---'.\n"
+        f"- PART 1 (Translation): ONLY the final {target_language.upper()} translation "
+        f"(with any ^[annotation] markers inline).\n"
+        f"- PART 2 (Data): A JSON object of NEW entities (not already in the glossary).\n\n"
+        f"{GLOSSARY_CATEGORIES}\n\n"
+        f"{GLOSSARY_DISAMBIGUATION}\n\n"
+        f"- Use empty objects for categories with no new entities.\n"
+        f'- Example: {{"characters": {{"兰波": {{"pinyin": "Lan Bo", "english_name": "Lan Bo", "pronoun": "he/him"}}}}, '
+        f'"places": {{}}, "organizations": {{}}, "items": {{}}, "skills": {{}}, "species": {{}}}}\n\n'
+        f"--- CHINESE TEXT TO PROCESS ---\n{text_to_translate}\n--- END OF TEXT ---\n\n"
+        f"Provide your response following all rules."
+    )
+
+--- END OF FILE: ./prompts.py ---
 
 --- START OF FILE: ./metadata_fetcher.py ---
 import json
@@ -12951,139 +14507,110 @@ import re
 import sys
 import time
 
-# LM Studio exposes an OpenAI-compatible API, so we reuse the openai package.
+from logger import log_chapter_translation
+
 try:
-    from openai import APIError, APITimeoutError, OpenAI
+    import lmstudio as lms
 except ImportError:
     print(
-        "CRITICAL ERROR: The 'openai' package is not installed. Please install it by running: pip install openai"
+        "CRITICAL ERROR: The 'lmstudio' package is not installed. "
+        "Please install it by running: pip install lmstudio"
     )
     exit()
 
 # --- Configuration (GUI passes these via environment variables) ---
 INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "01_Raw_Text")
 OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "02_Translated")
-LMSTUDIO_BASE_URL = os.getenv("LMSTUDIO_BASE_URL", "http://localhost:1234/v1")
+LMSTUDIO_HOST = os.getenv("LMSTUDIO_HOST", "localhost:1234")
 LMSTUDIO_MODEL_NAME = os.getenv("LMSTUDIO_MODEL_NAME", "")
-API_TIMEOUT_SECONDS = 600.0
+API_TIMEOUT_SECONDS = 600
 GLOSSARY_JSON_FILE = "translation_glossary.json"
 
+# Set SDK-wide timeout for sync operations
+lms.set_sync_api_timeout(API_TIMEOUT_SECONDS)
 
-# --- Glossary Helper Functions ---
-def load_glossary_from_json(filepath: str) -> dict:
-    """
-    Loads a glossary dictionary (for characters and places) from a JSON file.
-    If the file doesn't exist or is invalid, it returns a new dictionary structure.
-    """
-    default_glossary = {"characters": {}, "places": {}}
+DEFAULT_GLOSSARY = {
+    "characters": {},
+    "places": {},
+    "organizations": {},
+    "items": {},
+    "skills": {},
+    "species": {},
+}
+
+
+def load_glossary_from_json(filepath):
     if not os.path.exists(filepath):
         print(
             f"Glossary JSON file not found at '{filepath}'. A new one will be created."
         )
-        return default_glossary
+        return dict(DEFAULT_GLOSSARY)
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
-            if "characters" not in data:
-                data["characters"] = {}
-            if "places" not in data:
-                data["places"] = {}
+            for key in DEFAULT_GLOSSARY:
+                if key not in data:
+                    data[key] = {}
             return data
     except (json.JSONDecodeError, IOError) as e:
-        print(f"Error reading or parsing JSON file '{filepath}': {e}. Starting fresh.")
-        return default_glossary
+        print(f"Error reading glossary '{filepath}': {e}. Starting fresh.")
+        return dict(DEFAULT_GLOSSARY)
 
 
-def save_glossary_to_json(filepath: str, data: dict):
-    """Saves a glossary dictionary to a JSON file with pretty printing."""
+def save_glossary_to_json(filepath, data):
     try:
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-        print(f"Successfully saved updated glossary to '{filepath}'.")
+        print(f"Successfully saved glossary to '{filepath}'.")
     except IOError as e:
-        print(f"Error writing to JSON file '{filepath}': {e}")
+        print(f"Error writing glossary '{filepath}': {e}")
 
 
-# --- Helper Function to Reformat Title ---
-def reformat_chapter_title_in_text(text_content: str) -> str:
+def reformat_chapter_title_in_text(text_content):
     if not text_content or not text_content.strip():
         return text_content
-
     lines = text_content.split("\n", 1)
     first_line = lines[0]
-    rest_of_content = lines[1] if len(lines) > 1 else ""
-
+    rest = lines[1] if len(lines) > 1 else ""
     match = re.match(
         r"^(Chapter\s*\d+)\s*[:\-\u2013\u2014]?\s*(.*)", first_line, re.IGNORECASE
     )
     if match:
-        chapter_part = match.group(1).strip()
-        title_part = match.group(2).strip()
-        reformatted_first_line = (
-            f"{chapter_part} - {title_part}" if title_part else chapter_part
-        )
-        return f"{reformatted_first_line}\n{rest_of_content}"
-
-    numeric_match = re.match(r"^(\d+)\s+(.*)", first_line)
-    if numeric_match:
+        ch, title = match.group(1).strip(), match.group(2).strip()
+        return f"{ch} - {title}\n{rest}" if title else f"{ch}\n{rest}"
+    numeric = re.match(r"^(\d+)\s+(.*)", first_line)
+    if numeric:
         try:
-            chapter_number_int = int(numeric_match.group(1))
-            title_part = numeric_match.group(2).strip()
-            reformatted_first_line = f"Chapter {chapter_number_int} - {title_part}"
-            return f"{reformatted_first_line}\n{rest_of_content}"
+            return (
+                f"Chapter {int(numeric.group(1))} - {numeric.group(2).strip()}\n{rest}"
+            )
         except ValueError:
             pass
     return text_content
 
 
-# --- Utility: List available models from LM Studio ---
-def list_available_models(base_url: str) -> list:
-    """
-    Queries the LM Studio /v1/models endpoint and returns a list of model IDs.
-    This is used by the GUI to populate the model dropdown.
-    """
-    import urllib.error
-    import urllib.request
-
-    models_url = base_url.rstrip("/")
-    if models_url.endswith("/v1"):
-        models_url += "/models"
-    elif not models_url.endswith("/models"):
-        models_url += "/v1/models"
-
+def list_available_models(host=None):
+    """Returns loaded LLM model identifiers. Used by the GUI."""
     try:
-        req = urllib.request.Request(models_url)
-        req.add_header("Content-Type", "application/json")
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            model_ids = [m["id"] for m in data.get("data", []) if "id" in m]
-            return model_ids
-    except urllib.error.URLError as e:
-        print(f"Error connecting to LM Studio at '{models_url}': {e}")
-        return []
+        if host:
+            clean = host.replace("http://", "").replace("https://", "").rstrip("/")
+            if clean.endswith("/v1"):
+                clean = clean[:-3]
+            with lms.Client(clean) as client:
+                return [m.model_key for m in client.list_loaded_models("llm")]
+        else:
+            return [m.model_key for m in lms.list_loaded_models("llm")]
     except Exception as e:
         print(f"Error fetching models: {type(e).__name__}: {e}")
         return []
 
 
-# --- Extract actual content from thinking-model output ---
 def _extract_translation_content(text):
-    """
-    When a thinking model (Qwen3.5, DeepSeek, etc.) leaks its reasoning into the
-    response content field, this function extracts only the actual translation.
-    """
     if not text:
         return text
-
     original_len = len(text)
-
-    # 1. Strip <think>...</think> blocks (Qwen3/3.5 standard thinking format)
     text = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL)
-
-    # 2. Strip <reasoning>...</reasoning> blocks
     text = re.sub(r"<reasoning>.*?</reasoning>\s*", "", text, flags=re.DOTALL)
-
-    # 3. Handle freeform thinking preamble (when reasoning isn't wrapped in tags)
     thinking_headers = [
         r"Thinking Process\s*:",
         r"Analysis\s*:",
@@ -13093,533 +14620,400 @@ def _extract_translation_content(text):
         r"I'll (?:start|begin) by",
         r"I need to (?:translate|analyze|consider)",
         r"First,? (?:let me|I'll|I need)",
-        # UPDATED: Added headers specific to Qwen's recent behavior
         r"The user wants",
         r"I need to follow",
         r"\*\*Text Analysis",
     ]
-    header_pattern = "|".join(thinking_headers)
-
-    if re.match(rf"^\s*(?:{header_pattern})", text, re.IGNORECASE):
-        # Look for transition markers where the actual translation begins
+    if re.match(rf"^\s*(?:{'|'.join(thinking_headers)})", text, re.IGNORECASE):
         content_markers = [
-            r"\n---+\s*\n",  # --- separator lines
-            r"\nTranslation\s*:\s*\n",  # "Translation:" header
+            r"\n---+\s*\n",
+            r"\nTranslation\s*:\s*\n",
             r"\nFinal (?:Translation|Output)\s*:\s*\n",
-            r"\nChapter\s+\d+",  # Chapter heading (the actual output)
-            r"\n第\s*\d+\s*章",  # Chinese chapter heading
+            r"\nChapter\s+\d+",
+            r"\n\u7b2c\s*\d+\s*\u7ae0",
+            r"\nHere is the translation:\s*\n",
         ]
         best_pos = -1
         for marker in content_markers:
             m = re.search(marker, text, re.IGNORECASE)
             if m:
-                if marker.startswith(r"\nChapter") or marker.startswith(r"\n第"):
-                    pos = m.start() + 1  # keep the content line
-                else:
-                    pos = m.end()
+                pos = (
+                    m.start() + 1
+                    if marker.startswith(r"\nChapter") or marker.startswith(r"\n\u7b2c")
+                    else m.end()
+                )
                 if best_pos == -1 or pos < best_pos:
                     best_pos = pos
-
         if best_pos > 0:
             text = text[best_pos:]
         else:
-            # Model spent its entire output budget on reasoning and never
-            # produced the translation. Return empty to signal retry.
-            print(f"  Thinking-only response detected (no translation content found).")
-            return ""
-
+            parts = text.split("\n\n", 1)
+            if len(parts) > 1:
+                print(f"  [DEBUG] Dropping first paragraph as assumed reasoning.")
+                text = parts[1]
     text = text.strip()
-
     stripped = original_len - len(text)
     if stripped > 50:
-        print(
-            f"  Extracted translation from thinking output (stripped {stripped} chars of reasoning)."
-        )
-
+        print(f"  Extracted translation (stripped {stripped} chars of reasoning).")
     return text
 
 
-# --- Shared: LLM call with retry logic ---
 def _call_lmstudio(
-    client,
-    model_name,
+    model,
     system_prompt,
     user_prompt,
     temperature=0.2,
-    max_tokens=None,
+    max_tokens=-1,
     expect_json=False,
+    few_shot_user=None,
+    few_shot_assistant=None,
 ):
-    """
-    Makes a single LLM call to LM Studio with retry logic.
-    Supports thinking models — checks for separated reasoning_content first,
-    then falls back to extracting translation from content field.
-
-    If expect_json=True, only strips <think> tags and lets the caller parse
-    the JSON (since the translation-specific content markers won't apply).
-    Returns the cleaned response text, or None on failure.
-    """
     max_retries = 3
     retry_delay = 10
-
-    kwargs = {
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        "model": model_name,
-        "temperature": temperature,
-    }
-    if max_tokens:
-        kwargs["max_tokens"] = max_tokens
-
     for attempt in range(max_retries):
         try:
-            chat_completion = client.chat.completions.create(**kwargs)
-
-            choice = chat_completion.choices[0] if chat_completion.choices else None
-            if not choice or not choice.message:
-                return None
-
-            # Some backends (vLLM, SGLang) properly separate thinking into
-            # a reasoning_content field. If present, content is already clean.
-            raw_content = choice.message.content or ""
-
-            # Check if the backend provided separated reasoning
-            has_reasoning_field = (
-                hasattr(choice.message, "reasoning_content")
-                and choice.message.reasoning_content
-            )
-            if has_reasoning_field:
-                thinking_len = len(choice.message.reasoning_content)
-                print(f"  Model reasoned ({thinking_len} chars) before responding.")
-                # Content is already the clean output
-                return raw_content.strip()
-
-            # Backend didn't separate thinking — extract content from mixed output
+            chat = lms.Chat(system_prompt)
+            if few_shot_user and few_shot_assistant:
+                chat.add_user_message(few_shot_user)
+                chat.add_assistant_response(few_shot_assistant)
+            chat.add_user_message(user_prompt)
+            config = {"temperature": temperature}
+            if max_tokens and max_tokens > 0:
+                config["maxTokens"] = max_tokens
+            result = model.respond(chat, config=config)
+            raw = str(result) if result else ""
             if expect_json:
-                # For JSON output, just strip <think> tags and let caller parse
-                cleaned = re.sub(
-                    r"<think>.*?</think>\s*", "", raw_content, flags=re.DOTALL
-                )
-                cleaned = re.sub(
-                    r"<reasoning>.*?</reasoning>\s*", "", cleaned, flags=re.DOTALL
-                )
-                return cleaned.strip()
+                raw = re.sub(r"<think>.*?</think>\s*", "", raw, flags=re.DOTALL)
+                raw = re.sub(r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL)
+                return raw.strip()
             else:
-                cleaned = _extract_translation_content(raw_content)
-                return cleaned
-
-        except APITimeoutError:
-            print(
-                f"  Warning: API Timeout. Retrying {attempt + 1}/{max_retries} in {retry_delay}s..."
-            )
+                return _extract_translation_content(raw)
+        except TimeoutError:
+            print(f"  Timeout. Retrying {attempt+1}/{max_retries} in {retry_delay}s...")
             time.sleep(retry_delay)
             retry_delay *= 2
             if attempt == max_retries - 1:
-                print(f"  ERROR: Timeout after {max_retries} attempts.")
                 return None
-
-        except APIError as e:
-            print(f"  API Error ({type(e).__name__}): {e}")
-            return None
-
         except Exception as e:
-            error_type = type(e).__name__
-            print(f"  Unexpected Error ({error_type}): {e}")
-            if "Connection refused" in str(e) or "ConnectionError" in error_type:
-                print(
-                    f"  HINT: Is LM Studio running and serving at {LMSTUDIO_BASE_URL}?"
-                )
-            return None
-
+            print(f"  Error ({type(e).__name__}): {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+                retry_delay *= 2
+            else:
+                return None
     return None
 
 
-# ============================================================
-# PASS 1: Translation + Cultural Annotations
-# ============================================================
-def _translate_pass(
-    client, model_name, text_to_translate, glossary_json_str, target_language
-):
-    """
-    First LLM call: Translate the Chinese text and annotate cultural references.
-    The model only needs to output the English translation — no JSON, no separators.
-    If the model burns its output budget on thinking, retries with higher max_tokens.
-    """
+def _glossary_pass(model, original_chinese):
+    few_shot_user = "Extract entities from: \u5170\u6ce2\u5e26\u7740\u7834\u5984\u5251\u53bb\u4e86\u6e05\u6cb3\u5e02\u7684\u5929\u8f89\u9a91\u58eb\u56e2\u3002"
+    few_shot_assistant = json.dumps(
+        {
+            "characters": {
+                "\u5170\u6ce2": {
+                    "pinyin": "Lan Bo",
+                    "english_name": "Lan Bo",
+                    "pronoun": "he/him",
+                }
+            },
+            "places": {
+                "\u6e05\u6cb3\u5e02": {
+                    "pinyin": "Qinghe Shi",
+                    "english_name": "Qinghe City",
+                }
+            },
+            "organizations": {
+                "\u5929\u8f89\u9a91\u58eb\u56e2": {
+                    "pinyin": "Tianhui Qishi Tuan",
+                    "english_name": "Radiant Knights",
+                }
+            },
+            "items": {
+                "\u7834\u5984\u5251": {
+                    "pinyin": "Po Wang Jian",
+                    "english_name": "Delusion Breaker",
+                }
+            },
+            "skills": {},
+            "species": {},
+        },
+        ensure_ascii=False,
+    )
+    prompt = (
+        "You are a named entity extraction assistant for Chinese fantasy/web novels.\n"
+        "Given the Chinese text below, extract ALL named entities and provide English translations.\n\n"
+        "CATEGORIES:\n"
+        '- "characters": People/beings. Needs "pinyin", "english_name", "pronoun".\n'
+        '- "places": Cities, buildings, towers, dungeons. Needs "pinyin", "english_name".\n'
+        '- "organizations": Orders, sects, guilds, factions, clans. Needs "pinyin", "english_name".\n'
+        '- "items": Weapons, artifacts, tools, potions, books. Needs "pinyin", "english_name".\n'
+        '- "skills": Techniques, spells, formations. Needs "pinyin", "english_name".\n'
+        '- "species": Races, creature types, bloodlines. Needs "pinyin", "english_name".\n\n'
+        "DISAMBIGUATION:\n"
+        "- \u9a91\u58eb\u56e2 (knight order) \u2192 ORGANIZATION, not place.\n"
+        "- \u57ce (city) / \u5854 (tower) \u2192 PLACE, not organization.\n"
+        "- \u5251/\u6756/named weapon \u2192 ITEM, not character or skill.\n"
+        "- \u672f (technique) / \u9635 (formation) \u2192 SKILL, not item.\n"
+        "- \u65cf (race) / \u79cd (species) \u2192 SPECIES. But \u65cf as family/clan \u2192 ORGANIZATION.\n\n"
+        "Return JSON with all six keys. Empty objects for empty categories.\n"
+        "ONLY the JSON. No markdown, no explanation.\n\n"
+        f"--- CHINESE TEXT ---\n{original_chinese}\n--- END ---"
+    )
+    system = (
+        "You are a data extractor. Output ONLY valid JSON. No markdown, no explanation."
+    )
+    print(f"  [Pass 1/2] Extracting glossary...")
+    raw = _call_lmstudio(
+        model,
+        system,
+        prompt,
+        temperature=0.1,
+        expect_json=True,
+        few_shot_user=few_shot_user,
+        few_shot_assistant=few_shot_assistant,
+    )
+    if raw is None:
+        print(f"  [Pass 1/2] Glossary extraction failed.")
+        return {}
+    try:
+        cleaned = re.sub(r"```json\s*|\s*```", "", raw.strip(), flags=re.DOTALL).strip()
+        if not cleaned.startswith("{"):
+            m = re.search(r"\{.*\}", cleaned, re.DOTALL)
+            if m:
+                cleaned = m.group(0)
+        items = json.loads(cleaned)
+        if not isinstance(items, dict):
+            return {}
+        for key in DEFAULT_GLOSSARY:
+            if key not in items:
+                items[key] = {}
+        counts = [f"{len(items[k])} {k}" for k in DEFAULT_GLOSSARY if items.get(k)]
+        print(f"  [Pass 1/2] Extracted: {', '.join(counts) if counts else 'nothing'}.")
+        return items
+    except json.JSONDecodeError as e:
+        print(f"  [Pass 1/2] JSON parse failed: {e}")
+        return {}
+
+
+def _translate_pass(model, text_to_translate, glossary_json_str, target_language):
+    few_shot_user = (
+        "Translate into English. Output ONLY the translation.\n\n"
+        "--- CHINESE TEXT ---\n"
+        "\u90a3\u4e2a\u53eb\u59ec\u767d\u7684\u9a91\u58eb\u6325\u821e\u7740\u7834\u5984\u5251\uff0c\u8bf4\u9053\uff1a\u201c\u8fd9\u6ce2\u662f\u4e94\u4e94\u5f00\uff0c\u4f60\u4eec\u5148\u6492\u3002\u201d\n"
+        "\u8001\u9a91\u58eb\u70b9\u4e86\u70b9\u5934\uff0c\u8f6c\u8eab\u79bb\u5f00\u3002\n"
+        "--- END ---"
+    )
+    few_shot_assistant = (
+        "The knight named Ji Bai swung the Delusion Breaker and said, "
+        '"This is a fifty-fifty^[A gaming meme from Chinese esports meaning an even '
+        "split, often used sarcastically when the odds are clearly not equal.], "
+        'you all retreat first."\n'
+        "The old knight nodded and turned to leave."
+    )
     prompt = (
         f"You are an expert Chinese-to-English translator.\n"
         f"Translate the Chinese text below into high-quality, natural-sounding {target_language}.\n\n"
         f"RULES:\n"
-        f"- For character names and place names, you MUST use the 'english_name' from the glossary below if present.\n"
-        f"- Annotate cultural references, idioms, wordplay, internet slang, memes, inside jokes, or any phrase whose humor or meaning would be lost on a non-Chinese reader.\n"
-        f"- Place annotations IMMEDIATELY after the translated phrase using this exact syntax: translated phrase^[Brief explanation]\n"
-        f"- Keep explanations concise (one or two sentences). Only annotate when the meaning would genuinely be unclear. Do NOT annotate straightforward text.\n\n"
-        f"ANNOTATION EXAMPLES:\n"
-        f"- 他真是个柠檬精 → He was such a lemon spirit^[Chinese internet slang for someone who is extremely jealous or envious of others.]\n"
-        f"- 这波是五五开 → This was a fifty-fifty^[A gaming meme from Chinese esports meaning something is an even split, often used sarcastically when the odds are clearly not equal.]\n"
-        f'- 我太南了 → I\'m just too south^[A homophonic pun - "south" (南 nán) sounds like "hard/difficult" (难 nán), expressing that life is too hard.]\n\n'
-        f"GLOSSARY (use these translations for known names):\n"
-        f"{glossary_json_str}\n\n"
-        f"IMPORTANT: Your response must contain ONLY the English translation with any ^[] annotations inline. No other commentary or preamble.\n\n"
-        f"--- CHINESE TEXT ---\n"
-        f"{text_to_translate}\n"
-        f"--- END ---"
+        f"- Use 'english_name' from the glossary below for all known names.\n"
+        f"- Pronouns: Chinese often omits them. Infer from context.\n"
+        f"- Titles: Translate \u8001\u7237\u5b50, \u5e08\u5144, \u5144\u5f1f etc. contextually, not literally.\n\n"
+        f"ANNOTATION RULES \u2014 BE EXTREMELY SELECTIVE:\n"
+        f"Only annotate with ^[explanation] for things genuinely obscure to non-Chinese readers.\n\n"
+        f"DO annotate:\n"
+        f"- Internet memes/slang with no English equivalent (\u4e94\u4e94\u5f00, \u67e0\u6aac\u7cbe, 996, \u8eba\u5e73)\n"
+        f"- Homophonic puns where the joke is lost in translation\n"
+        f"- References to specific Chinese pop culture, history, or social media\n"
+        f"- Idioms kept literal for style where meaning is non-obvious\n\n"
+        f"DO NOT annotate:\n"
+        f"- Standard idioms already translated into natural English\n"
+        f"- Words clear from context ('demon race', 'knight order', 'magic array')\n"
+        f"- Character names, place names, or titles\n"
+        f"- Common expressions, greetings, emotional reactions\n"
+        f"- Self-explanatory fantasy/cultivation terms\n"
+        f"- Anything where the English already conveys the meaning\n\n"
+        f"When in doubt, DO NOT annotate. Zero annotations per chapter is fine.\n\n"
+        f"GLOSSARY:\n{glossary_json_str}\n\n"
+        f"--- CHINESE TEXT ---\n{text_to_translate}\n--- END ---\n\n"
+        f"Output ONLY the translated text. No reasoning, no commentary."
     )
-
-    # UPDATED: Strictly forbid reasoning and analysis in the system prompt
     system = (
         "You are a professional translation engine. Output ONLY the final English translation. "
-        "CRITICAL: Do NOT output any reasoning, chain of thought, text analysis, or meta-commentary. "
-        "Start your response immediately with the translated text."
+        "No reasoning, no chain of thought, no meta-commentary. Start immediately with the translation."
     )
-
-    # Try with default max_tokens first. If the model spends all its tokens
-    # on thinking and produces no translation, retry with a larger budget.
-    max_tokens_attempts = [None, 16384, 32768]
-
+    max_tokens_attempts = [-1]
     for i, max_tok in enumerate(max_tokens_attempts):
-        tok_label = str(max_tok) if max_tok else "default"
-        print(f"  [Pass 1/2] Translating (max_tokens={tok_label})...")
-
+        label = "Unlimited" if max_tok == -1 else str(max_tok)
+        print(f"  [Pass 2/2] Translating (max_tokens={label})...")
         raw = _call_lmstudio(
-            client, model_name, system, prompt, temperature=0.2, max_tokens=max_tok
+            model,
+            system,
+            prompt,
+            temperature=0.2,
+            max_tokens=max_tok,
+            few_shot_user=few_shot_user,
+            few_shot_assistant=few_shot_assistant,
         )
-
         if raw is None:
-            return None  # Hard failure (connection, API error)
-
+            return None
         if raw == "":
-            # Model used its entire output on reasoning, never got to translation.
             if i < len(max_tokens_attempts) - 1:
-                next_tok = max_tokens_attempts[i + 1]
-                print(
-                    f"  [Pass 1/2] Model spent all tokens on reasoning. "
-                    f"Retrying with max_tokens={next_tok}..."
-                )
                 continue
-            else:
-                print(
-                    f"  [Pass 1/2] Model failed to produce translation even with max_tokens={tok_label}."
-                )
-                return None
-
-        # Got actual translation content
+            return None
         break
-
-    # Clean up any leftover preamble
     translation = re.sub(
         r"^(Here is|Here's|Below is|The translation)[^\n]*\n+",
         "",
         raw.strip(),
         flags=re.IGNORECASE,
     ).strip()
-
-    print(f"  [Pass 1/2] Translation complete ({len(translation)} chars).")
+    print(f"  [Pass 2/2] Translation complete ({len(translation)} chars).")
     return translation
 
 
-# ============================================================
-# PASS 2: Glossary Extraction (new characters & places)
-# ============================================================
-def _glossary_pass(client, model_name, original_chinese, translation):
-    """
-    Second LLM call: Given the original Chinese and the English translation,
-    extract any NEW character names and place names as structured JSON.
-    """
-    prompt = (
-        f"You are a data extraction assistant. Given a Chinese text and its English translation below, "
-        f"identify ALL character names and place names that appear in the text.\n\n"
-        f"Return a JSON object with two keys:\n"
-        f'- "characters": an object where each key is the Chinese name, with values containing "pinyin", "english_name", and "pronoun" (he/him, she/her, or they/them).\n'
-        f'- "places": an object where each key is the Chinese place name, with values containing "pinyin" and "english_name".\n\n'
-        f"If no characters or places are found, use empty objects.\n\n"
-        f"EXAMPLE OUTPUT:\n"
-        f'{{"characters": {{"兰波": {{"pinyin": "Lan Bo", "english_name": "Lan Bo", "pronoun": "he/him"}}}}, "places": {{"清河市": {{"pinyin": "Qinghe Shi", "english_name": "Qinghe City"}}}}}}\n\n'
-        f"IMPORTANT: Respond with ONLY the JSON object. No markdown fences, no explanation, no preamble.\n\n"
-        f"--- CHINESE TEXT ---\n"
-        f"{original_chinese}\n\n"
-        f"--- ENGLISH TRANSLATION ---\n"
-        f"{translation}\n"
-        f"--- END ---"
-    )
-
-    system = "You are a data extractor. Output ONLY valid JSON. No markdown fences, no explanation — just the JSON object."
-
-    print(f"  [Pass 2/2] Extracting glossary...")
-    raw = _call_lmstudio(
-        client, model_name, system, prompt, temperature=0.1, expect_json=True
-    )
-
-    if raw is None:
-        print(
-            f"  [Pass 2/2] Glossary extraction failed. Continuing without new entries."
-        )
-        return {}
-
-    # Try to parse JSON from the response
-    try:
-        # Strip markdown fences if present
-        cleaned = re.sub(r"```json\s*|\s*```", "", raw.strip(), flags=re.DOTALL).strip()
-
-        # Sometimes the model wraps it in extra text — try to find the JSON object
-        if not cleaned.startswith("{"):
-            json_match = re.search(r"\{.*\}", cleaned, re.DOTALL)
-            if json_match:
-                cleaned = json_match.group(0)
-
-        glossary_items = json.loads(cleaned)
-
-        # Validate structure
-        if not isinstance(glossary_items, dict):
-            print(f"  [Pass 2/2] Warning: Response is not a JSON object. Skipping.")
-            return {}
-
-        # Ensure expected keys exist
-        if "characters" not in glossary_items:
-            glossary_items["characters"] = {}
-        if "places" not in glossary_items:
-            glossary_items["places"] = {}
-
-        char_count = len(glossary_items.get("characters", {}))
-        place_count = len(glossary_items.get("places", {}))
-        print(
-            f"  [Pass 2/2] Extracted {char_count} character(s), {place_count} place(s)."
-        )
-        return glossary_items
-
-    except json.JSONDecodeError as e:
-        print(f"  [Pass 2/2] Warning: Failed to parse JSON: {e}")
-        print(f"  [Pass 2/2] Raw response (first 200 chars): {raw[:200]}")
-        return {}
-
-
-# ============================================================
-# Main Translation Orchestrator
-# ============================================================
 def translate_text_with_lmstudio(
-    text_to_translate: str, known_glossary_data: dict, target_language: str = "English"
-) -> (str, dict):
-    """
-    Translates text using two separate LLM calls for reliability:
-      Pass 1: Translation + cultural annotations
-      Pass 2: Glossary extraction (new characters & places)
-    """
+    text_to_translate, known_glossary_data, target_language="English"
+):
     model_name = LMSTUDIO_MODEL_NAME
-    base_url = LMSTUDIO_BASE_URL
-
     if not model_name:
-        return (
-            "[Translation Error: No LM Studio model selected. Set LMSTUDIO_MODEL_NAME.]",
-            {},
-        )
-
+        return "[Translation Error: No LM Studio model selected.]", {}
     try:
-        client = OpenAI(
-            api_key="lm-studio",
-            base_url=base_url,
-            timeout=API_TIMEOUT_SECONDS,
-        )
+        model = lms.llm(model_name)
     except Exception as e:
-        return (
-            f"[Translation Error: Could not initialize client for LM Studio - {type(e).__name__}: {e}]",
-            {},
-        )
+        return f"[Translation Error: {type(e).__name__}: {e}]", {}
 
-    # --- Dynamic Glossary Filtering ---
-    filtered_glossary = {"characters": {}, "places": {}}
+    filtered_glossary = {key: {} for key in DEFAULT_GLOSSARY}
+    for cat in DEFAULT_GLOSSARY:
+        for k, v in known_glossary_data.get(cat, {}).items():
+            if k in text_to_translate:
+                filtered_glossary[cat][k] = v
 
-    for name_key, details in known_glossary_data.get("characters", {}).items():
-        if name_key in text_to_translate:
-            filtered_glossary["characters"][name_key] = details
+    print(f"Translating with '{model_name}' ({len(text_to_translate)} chars)...")
 
-    for place_key, details in known_glossary_data.get("places", {}).items():
-        if place_key in text_to_translate:
-            filtered_glossary["places"][place_key] = details
+    new_glossary_items = _glossary_pass(model, text_to_translate)
+    filtered_new = {key: {} for key in DEFAULT_GLOSSARY}
+    for cat in DEFAULT_GLOSSARY:
+        for name, details in new_glossary_items.get(cat, {}).items():
+            if name not in known_glossary_data.get(cat, {}):
+                filtered_new[cat][name] = details
+                filtered_glossary[cat][name] = details
 
-    known_glossary_json_str = json.dumps(
-        filtered_glossary, ensure_ascii=False, separators=(",", ":")
-    )
-
-    total_chars = len(known_glossary_data.get("characters", {}))
-    relevant_chars = len(filtered_glossary["characters"])
-    print(
-        f"  Glossary Optimization: Sending {relevant_chars}/{total_chars} characters relevant to this chapter."
-    )
-
-    print(
-        f"Translating with LM Studio model '{model_name}' (length: {len(text_to_translate)} chars)..."
-    )
-
-    # --- PASS 1: Translation + Annotations ---
-    translation = _translate_pass(
-        client, model_name, text_to_translate, known_glossary_json_str, target_language
-    )
-
+    combined = json.dumps(filtered_glossary, ensure_ascii=False, separators=(",", ":"))
+    translation = _translate_pass(model, text_to_translate, combined, target_language)
     if translation is None:
-        return f"[Translation Error ({model_name} - Pass 1 Failed)]", {}
-
-    # --- PASS 2: Glossary Extraction ---
-    new_glossary_items = _glossary_pass(
-        client, model_name, text_to_translate, translation
-    )
-
-    # Filter out entities we already know about
-    filtered_new = {"characters": {}, "places": {}}
-    for name, details in new_glossary_items.get("characters", {}).items():
-        if name not in known_glossary_data.get("characters", {}):
-            filtered_new["characters"][name] = details
-    for name, details in new_glossary_items.get("places", {}).items():
-        if name not in known_glossary_data.get("places", {}):
-            filtered_new["places"][name] = details
-
+        return f"[Translation Error ({model_name} - Pass 2 Failed)]", {}
     return translation, filtered_new
 
 
-# --- Main Processing Logic ---
 def process_files_for_translation():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    input_dir_full_path = os.path.join(script_dir, INPUT_DIR)
-    output_dir_full_path = os.path.join(script_dir, OUTPUT_DIR)
-    glossary_json_full_path = os.path.join(script_dir, GLOSSARY_JSON_FILE)
-    glossary_data = load_glossary_from_json(glossary_json_full_path)
-
-    if not os.path.exists(input_dir_full_path):
-        print(f"Error: Input directory '{input_dir_full_path}' not found.")
-        return
-    if not os.path.exists(output_dir_full_path):
-        os.makedirs(output_dir_full_path)
-        print(f"Created output directory: {output_dir_full_path}")
-
-    files_to_process = sorted(
-        [f for f in os.listdir(input_dir_full_path) if f.endswith(".txt")]
+    input_dir = (
+        INPUT_DIR if os.path.isabs(INPUT_DIR) else os.path.join(script_dir, INPUT_DIR)
     )
-    if not files_to_process:
-        print(f"No .txt files found in '{input_dir_full_path}'.")
+    output_dir = (
+        OUTPUT_DIR
+        if os.path.isabs(OUTPUT_DIR)
+        else os.path.join(script_dir, OUTPUT_DIR)
+    )
+    project_root = os.path.dirname(input_dir)
+    glossary_path = os.path.join(project_root, GLOSSARY_JSON_FILE)
+    glossary_data = load_glossary_from_json(glossary_path)
+
+    if not os.path.exists(input_dir):
+        print(f"Error: Input directory '{input_dir}' not found.")
+        return
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    files = sorted([f for f in os.listdir(input_dir) if f.endswith(".txt")])
+    if not files:
+        print(f"No .txt files found in '{input_dir}'.")
         return
 
-    print(
-        f"Found {len(files_to_process)} file(s) to process from '{input_dir_full_path}'."
-    )
-    print(f"Using LM Studio model: {LMSTUDIO_MODEL_NAME}")
-    print(f"LM Studio endpoint: {LMSTUDIO_BASE_URL}")
-    print(f"Mode: Two-pass (Translation → Glossary Extraction)")
+    print(f"Found {len(files)} file(s). Model: {LMSTUDIO_MODEL_NAME}")
+    print(f"Mode: Two-pass (Glossary Extraction \u2192 Translation)")
 
-    for i, filename in enumerate(files_to_process):
-        input_filepath = os.path.join(input_dir_full_path, filename)
-        output_filepath = os.path.join(output_dir_full_path, filename)
-        print(f"\n[{i+1}/{len(files_to_process)}] Checking: {filename}...")
+    for i, filename in enumerate(files):
+        in_path = os.path.join(input_dir, filename)
+        out_path = os.path.join(output_dir, filename)
+        print(f"\n[{i+1}/{len(files)}] Checking: {filename}...")
 
-        if os.path.exists(output_filepath):
+        if os.path.exists(out_path):
             try:
-                with open(output_filepath, "r", encoding="utf-8") as f_check:
-                    content_check = f_check.read(200)
+                with open(out_path, "r", encoding="utf-8") as f:
+                    check = f.read(200)
                     if (
-                        "[Translation Error" not in content_check
-                        and "[ERROR PROCESSING FILE" not in content_check
+                        "[Translation Error" not in check
+                        and "[ERROR PROCESSING FILE" not in check
                     ):
-                        print(
-                            f"Output file '{output_filepath}' exists and is valid. Skipping."
-                        )
+                        print(f"Output exists and is valid. Skipping.")
                         continue
                     else:
-                        print(
-                            f"Output file contains an error marker. Will re-translate."
-                        )
+                        print(f"Output contains error marker. Re-translating.")
             except Exception:
                 pass
 
-        print(f"Processing for translation: {filename}")
-
+        print(f"Processing: {filename}")
         try:
-            with open(input_filepath, "r", encoding="utf-8") as f:
-                source_content = f.read()
-            clean_source_for_api = "\n".join(
-                [
-                    line
-                    for line in source_content.splitlines()
-                    if line.strip() and re.search(r"[\u4e00-\u9fff]", line)
-                ]
+            with open(in_path, "r", encoding="utf-8") as f:
+                source = f.read()
+            clean = "\n".join(
+                l
+                for l in source.splitlines()
+                if l.strip() and re.search(r"[\u4e00-\u9fff]", l)
             ).strip()
 
-            if not clean_source_for_api:
-                translated_content = "[No Chinese content found in source]"
+            if not clean:
+                translated = "[No Chinese content found in source]"
             else:
-                translated_content, new_glossary_items = translate_text_with_lmstudio(
-                    clean_source_for_api, glossary_data, target_language="English"
+                translated, new_items = translate_text_with_lmstudio(
+                    clean, glossary_data
                 )
+                if new_items:
+                    for cat in DEFAULT_GLOSSARY:
+                        for name, details in new_items.get(cat, {}).items():
+                            if name not in glossary_data.get(cat, {}):
+                                if cat not in glossary_data:
+                                    glossary_data[cat] = {}
+                                glossary_data[cat][name] = details
+                                print(f"    + [{cat}] {name} -> {details}")
 
-                if new_glossary_items:
-                    new_chars = new_glossary_items.get("characters", {})
-                    if new_chars:
-                        print(
-                            f"  Updating master list with {len(new_chars)} new character(s)."
-                        )
-                        for name, details in new_chars.items():
-                            if name not in glossary_data["characters"]:
-                                glossary_data["characters"][name] = details
-                                print(f"    + Added Character: {name} -> {details}")
-
-                    new_places = new_glossary_items.get("places", {})
-                    if new_places:
-                        print(
-                            f"  Updating master list with {len(new_places)} new place(s)."
-                        )
-                        for name, details in new_places.items():
-                            if name not in glossary_data["places"]:
-                                glossary_data["places"][name] = details
-                                print(f"    + Added Place: {name} -> {details}")
-
-            final_content_to_write = (
-                translated_content
-                if translated_content.startswith("[")
-                else reformat_chapter_title_in_text(translated_content)
+            final = (
+                translated
+                if translated.startswith("[")
+                else reformat_chapter_title_in_text(translated)
             )
-            with open(output_filepath, "w", encoding="utf-8") as f:
-                f.write(final_content_to_write)
-            print(f"Saved: {output_filepath}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(final)
+            print(f"Saved: {out_path}")
+            save_glossary_to_json(glossary_path, glossary_data)
 
-            # Save glossary after each file
-            save_glossary_to_json(glossary_json_full_path, glossary_data)
+            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME)
 
-            # No sleep needed for local models, but a tiny pause to be safe
-            if i < len(files_to_process) - 1:
-                print(f"Pausing for 1.0 seconds...")
+            if i < len(files) - 1:
                 time.sleep(1.0)
-
         except Exception as e:
-            print(f"FATAL Error processing file {filename}: {e}")
-            with open(output_filepath, "w", encoding="utf-8") as f_err:
-                f_err.write(f"[ERROR PROCESSING FILE: {e}]")
+            print(f"FATAL Error: {e}")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(f"[ERROR PROCESSING FILE: {e}]")
+
+            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME, f"Error: {e}")
 
     print(f"\n--- Translation Run Summary ---")
-    print(f"Total source files checked: {len(files_to_process)}")
-    print(f"-----------------------------")
+    print(f"Total: {len(files)} files checked")
 
 
 if __name__ == "__main__":
-    print(f"Starting Chinese to English translation process (LM Studio)...")
+    print("Starting translation (LM Studio SDK)...")
     if not LMSTUDIO_MODEL_NAME:
-        print("\nCRITICAL ERROR: 'LMSTUDIO_MODEL_NAME' environment variable not set.")
-        print("Please select a model in the GUI or set the variable manually.")
+        print("CRITICAL: LMSTUDIO_MODEL_NAME not set.")
         exit()
-
-    print(f"LM Studio URL: {LMSTUDIO_BASE_URL}")
     print(f"Model: {LMSTUDIO_MODEL_NAME}")
-
-    # Quick connectivity check
-    models = list_available_models(LMSTUDIO_BASE_URL)
+    models = list_available_models()
     if models:
-        print(f"Connected! Available models: {models}")
-        if LMSTUDIO_MODEL_NAME not in models:
-            print(
-                f"WARNING: Selected model '{LMSTUDIO_MODEL_NAME}' not in available models."
-            )
-            print(f"Available: {models}")
+        print(f"Loaded models: {models}")
     else:
-        print("WARNING: Could not connect to LM Studio. Is it running?")
-
+        print("WARNING: No models found. Is LM Studio running?")
     process_files_for_translation()
-    print("Translation process finished.")
+    print("Done.")
 
 --- END OF FILE: ./lmstudio_transelate.py ---
 
@@ -14217,6 +15611,53 @@ if __name__ == "__main__":
     print(f"Processed: {processed} | Skipped: {skipped} | Failed: {failed}")
 
 --- END OF FILE: ./convert_audio_to_opus_3.py ---
+
+--- START OF FILE: ./logger.py ---
+import csv
+import os
+import subprocess
+from datetime import datetime
+
+
+def get_git_hash():
+    """Fetches the current short Git commit hash."""
+    try:
+        # Runs the standard git command to get the short hash
+        result = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return result.stdout.strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        # Fallback if git is not installed or the folder isn't a git repo
+        return "unknown-hash"
+
+
+def log_chapter_translation(filename, model_name, status="Success"):
+    """Appends a record to the translation history CSV."""
+    log_file = "translation_history.csv"
+    file_exists = os.path.exists(log_file)
+    git_hash = get_git_hash()
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # Open the CSV in 'append' mode ('a')
+    try:
+        with open(log_file, mode="a", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            # Write the header row if the file was just created
+            if not file_exists:
+                writer.writerow(
+                    ["Timestamp", "Filename", "Model", "Git Hash", "Status"]
+                )
+
+            # Write the actual log data
+            writer.writerow([timestamp, filename, model_name, git_hash, status])
+    except IOError as e:
+        print(f"  Warning: Could not write to log file: {e}")
+
+--- END OF FILE: ./logger.py ---
 
 --- START OF FILE: ./txt_to_epub.py ---
 import html
@@ -16362,6 +17803,57 @@ if __name__ == "__main__":
     )
 
 --- END OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/custom_scraper_old.py ---
+
+--- START OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/01_Raw_Text/rename.py ---
+import os
+import re
+from pathlib import Path
+
+def rename_chapters(directory="."):
+    # Regex to match 'ch_' followed by digits and '.txt'
+    # It dynamically captures however many digits are there
+    pattern = re.compile(r"^ch_(\d+)\.txt$")
+    
+    # Collect all matching files
+    files_to_rename = []
+    for filename in os.listdir(directory):
+        match = pattern.match(filename)
+        if match:
+            files_to_rename.append((filename, match.group(1)))
+    
+    if not files_to_rename:
+        print("No files matching the pattern 'ch_XXXX.txt' were found.")
+        return
+
+    # Sort in REVERSE order (highest numbers first). 
+    # This prevents 'ch_0001' from overwriting an existing 'ch_0003' during the increment.
+    files_to_rename.sort(key=lambda x: int(x[1]), reverse=True)
+    
+    count = 0
+    for filename, number_str in files_to_rename:
+        old_path = Path(directory) / filename
+        
+        # Increment the extracted number by 2
+        new_number = int(number_str) + 2
+        
+        # Keep the original zero-padding (e.g., if original had 4 digits, keep 4 digits)
+        new_number_str = str(new_number).zfill(len(number_str))
+        new_filename = f"ch_{new_number_str}.txt"
+        new_path = Path(directory) / new_filename
+        
+        print(f"Renaming: {filename} -> {new_filename}")
+        
+        # Perform the rename
+        old_path.rename(new_path)
+        count += 1
+        
+    print(f"\nDone! Successfully renamed {count} files.")
+
+if __name__ == "__main__":
+    # You can change "." to a specific folder path like "C:/my_folder" if needed
+    rename_chapters(".")
+
+--- END OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/01_Raw_Text/rename.py ---
 
 --- START OF FILE: ./Novels/Villainous_Saintess_CH/custom_scraper.py ---
 import json

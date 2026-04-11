@@ -1,9 +1,11 @@
 import json
+import math
 import os
 import re
 import sys
 import time
 
+from constants import *
 from logger import log_chapter_translation
 
 try:
@@ -36,6 +38,98 @@ DEFAULT_GLOSSARY = {
 }
 
 
+# ==============================================================
+# Context Window Budget
+# ==============================================================
+def _estimate_zh_tokens(text):
+    return math.ceil(len(text) / AVG_CHARS_PER_TOKEN_ZH)
+
+
+def _max_input_tokens(glossary_json_str):
+    """How many tokens of Chinese source text we can fit."""
+    glossary_tokens = math.ceil(len(glossary_json_str) / AVG_CHARS_PER_TOKEN_EN)
+    available = int(CONTEXT_LIMIT * SAFETY_MARGIN)
+    # input_zh_tokens + output_en_tokens <= available - overhead - glossary
+    # output_tokens ≈ input_zh_tokens * OUTPUT_RATIO * (ZH/EN) ≈ input_zh_tokens * 0.94
+    # input_tokens * (1 + 0.94) <= budget  →  input_tokens <= budget / 1.94
+    budget = available - PROMPT_OVERHEAD_TOKENS - glossary_tokens
+    max_input = int(budget / 1.94)
+    return max(200, max_input)
+
+
+def _output_token_budget(glossary_json_str):
+    """Max tokens to allow for generation output."""
+    return int(_max_input_tokens(glossary_json_str) * 0.94 * 1.1)
+
+
+def chunk_for_context(text, glossary_json_str):
+    """Split Chinese source text into chunks that fit the context window."""
+    max_tok = _max_input_tokens(glossary_json_str)
+    max_chars = int(max_tok * AVG_CHARS_PER_TOKEN_ZH)
+
+    if len(text) <= max_chars:
+        return [text]
+
+    paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+    chunks, buf, buf_len = [], [], 0
+    for p in paragraphs:
+        if buf_len + len(p) > max_chars and buf:
+            chunks.append("\n".join(buf))
+            buf, buf_len = [], 0
+        if len(p) > max_chars:
+            if buf:
+                chunks.append("\n".join(buf))
+                buf, buf_len = [], 0
+            sents = re.split(r"(?<=[。！？])", p)
+            sbuf, slen = [], 0
+            for s in sents:
+                if slen + len(s) > max_chars and sbuf:
+                    chunks.append("".join(sbuf))
+                    sbuf, slen = [], 0
+                sbuf.append(s)
+                slen += len(s)
+            if sbuf:
+                chunks.append("".join(sbuf))
+        else:
+            buf.append(p)
+            buf_len += len(p)
+    if buf:
+        chunks.append("\n".join(buf))
+
+    print(
+        f"  Split into {len(chunks)} chunks (max ~{max_chars} chars/chunk, ctx={CONTEXT_LIMIT})"
+    )
+    return chunks
+
+
+# ==============================================================
+# Thinking Dump Detection
+# ==============================================================
+def _is_thinking_dump(text):
+    """Detect interleaved reasoning dumps vs clean translation."""
+    if not text:
+        return False
+    lines = text.split("\n")
+    indicators = 0
+    for line in lines:
+        if re.search(r".+\s*->\s*.+", line):
+            indicators += 1
+        if re.search(r"\((?:Note|Wait|Actually|Looking)", line):
+            indicators += 1
+        if re.search(r"\*\*Paragraph \d+", line):
+            indicators += 1
+        if re.search(r"(?:Let me|I will|I'll|Let's|Given the)", line):
+            indicators += 1
+    # CJK chars in output = source text leaking through
+    cjk_count = len(re.findall(r"[\u4e00-\u9fff]", text))
+    if cjk_count > THINKING_DUMP_CJK_THRESHOLD:
+        indicators += 3
+    return indicators >= THINKING_DUMP_INDICATOR_THRESHOLD
+
+
+# ==============================================================
+# Glossary / File I/O
+# ==============================================================
 def load_glossary_from_json(filepath):
     if not os.path.exists(filepath):
         print(
@@ -102,6 +196,9 @@ def list_available_models(host=None):
         return []
 
 
+# ==============================================================
+# Extraction / Cleaning
+# ==============================================================
 def _extract_translation_content(text):
     if not text:
         return text
@@ -155,6 +252,9 @@ def _extract_translation_content(text):
     return text
 
 
+# ==============================================================
+# LM Studio API Call (with thinking dump retry)
+# ==============================================================
 def _call_lmstudio(
     model,
     system_prompt,
@@ -184,7 +284,20 @@ def _call_lmstudio(
                 raw = re.sub(r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL)
                 return raw.strip()
             else:
-                return _extract_translation_content(raw)
+                cleaned = _extract_translation_content(raw)
+                # Thinking dump detection → retry
+                if _is_thinking_dump(cleaned):
+                    if attempt < max_retries - 1:
+                        print(
+                            f"  ⚠ Thinking dump detected. "
+                            f"Retrying {attempt+1}/{max_retries} in {retry_delay}s..."
+                        )
+                        time.sleep(retry_delay)
+                        retry_delay *= 2
+                        continue
+                    else:
+                        print(f"  ⚠ Thinking dump on final attempt. Returning as-is.")
+                return cleaned
         except TimeoutError:
             print(f"  Timeout. Retrying {attempt+1}/{max_retries} in {retry_delay}s...")
             time.sleep(retry_delay)
@@ -201,8 +314,15 @@ def _call_lmstudio(
     return None
 
 
+# ==============================================================
+# Pass 1: Glossary Extraction
+# ==============================================================
 def _glossary_pass(model, original_chinese):
-    few_shot_user = "Extract entities from: \u5170\u6ce2\u5e26\u7740\u7834\u5984\u5251\u53bb\u4e86\u6e05\u6cb3\u5e02\u7684\u5929\u8f89\u9a91\u58eb\u56e2\u3002"
+    few_shot_user = (
+        "Extract entities from: "
+        "\u5170\u6ce2\u5e26\u7740\u7834\u5984\u5251\u53bb\u4e86"
+        "\u6e05\u6cb3\u5e02\u7684\u5929\u8f89\u9a91\u58eb\u56e2\u3002"
+    )
     few_shot_assistant = json.dumps(
         {
             "characters": {
@@ -271,13 +391,34 @@ def _glossary_pass(model, original_chinese):
     if raw is None:
         print(f"  [Pass 1/2] Glossary extraction failed.")
         return {}
+
     try:
         cleaned = re.sub(r"```json\s*|\s*```", "", raw.strip(), flags=re.DOTALL).strip()
         if not cleaned.startswith("{"):
             m = re.search(r"\{.*\}", cleaned, re.DOTALL)
             if m:
                 cleaned = m.group(0)
-        items = json.loads(cleaned)
+
+        # Fix "Extra data" errors: trim after the matching closing brace
+        depth, end_pos = 0, -1
+        for i, ch in enumerate(cleaned):
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    end_pos = i
+                    break
+        if end_pos > 0:
+            cleaned = cleaned[: end_pos + 1]
+
+        # Try parsing; on failure, fix single quotes → double quotes and retry
+        try:
+            items = json.loads(cleaned)
+        except json.JSONDecodeError:
+            cleaned = cleaned.replace("'", '"')
+            items = json.loads(cleaned)
+
         if not isinstance(items, dict):
             return {}
         for key in DEFAULT_GLOSSARY:
@@ -291,11 +432,16 @@ def _glossary_pass(model, original_chinese):
         return {}
 
 
+# ==============================================================
+# Pass 2: Translation
+# ==============================================================
 def _translate_pass(model, text_to_translate, glossary_json_str, target_language):
     few_shot_user = (
         "Translate into English. Output ONLY the translation.\n\n"
         "--- CHINESE TEXT ---\n"
-        "\u90a3\u4e2a\u53eb\u59ec\u767d\u7684\u9a91\u58eb\u6325\u821e\u7740\u7834\u5984\u5251\uff0c\u8bf4\u9053\uff1a\u201c\u8fd9\u6ce2\u662f\u4e94\u4e94\u5f00\uff0c\u4f60\u4eec\u5148\u6492\u3002\u201d\n"
+        "\u90a3\u4e2a\u53eb\u59ec\u767d\u7684\u9a91\u58eb\u6325\u821e\u7740"
+        "\u7834\u5984\u5251\uff0c\u8bf4\u9053\uff1a\u201c\u8fd9\u6ce2\u662f"
+        "\u4e94\u4e94\u5f00\uff0c\u4f60\u4eec\u5148\u6492\u3002\u201d\n"
         "\u8001\u9a91\u58eb\u70b9\u4e86\u70b9\u5934\uff0c\u8f6c\u8eab\u79bb\u5f00\u3002\n"
         "--- END ---"
     )
@@ -336,26 +482,21 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
         "You are a professional translation engine. Output ONLY the final English translation. "
         "No reasoning, no chain of thought, no meta-commentary. Start immediately with the translation."
     )
-    max_tokens_attempts = [-1]
-    for i, max_tok in enumerate(max_tokens_attempts):
-        label = "Unlimited" if max_tok == -1 else str(max_tok)
-        print(f"  [Pass 2/2] Translating (max_tokens={label})...")
-        raw = _call_lmstudio(
-            model,
-            system,
-            prompt,
-            temperature=0.2,
-            max_tokens=max_tok,
-            few_shot_user=few_shot_user,
-            few_shot_assistant=few_shot_assistant,
-        )
-        if raw is None:
-            return None
-        if raw == "":
-            if i < len(max_tokens_attempts) - 1:
-                continue
-            return None
-        break
+    output_budget = _output_token_budget(glossary_json_str)
+    print(f"  [Pass 2/2] Translating (max_tokens={output_budget})...")
+    raw = _call_lmstudio(
+        model,
+        system,
+        prompt,
+        temperature=0.2,
+        max_tokens=output_budget,
+        few_shot_user=few_shot_user,
+        few_shot_assistant=few_shot_assistant,
+    )
+    if raw is None:
+        return None
+    if raw == "":
+        return None
     translation = re.sub(
         r"^(Here is|Here's|Below is|The translation)[^\n]*\n+",
         "",
@@ -366,6 +507,9 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
     return translation
 
 
+# ==============================================================
+# Main Translation Orchestrator
+# ==============================================================
 def translate_text_with_lmstudio(
     text_to_translate, known_glossary_data, target_language="English"
 ):
@@ -385,6 +529,7 @@ def translate_text_with_lmstudio(
 
     print(f"Translating with '{model_name}' ({len(text_to_translate)} chars)...")
 
+    # Single glossary pass on full text
     new_glossary_items = _glossary_pass(model, text_to_translate)
     filtered_new = {key: {} for key in DEFAULT_GLOSSARY}
     for cat in DEFAULT_GLOSSARY:
@@ -394,12 +539,24 @@ def translate_text_with_lmstudio(
                 filtered_glossary[cat][name] = details
 
     combined = json.dumps(filtered_glossary, ensure_ascii=False, separators=(",", ":"))
-    translation = _translate_pass(model, text_to_translate, combined, target_language)
-    if translation is None:
-        return f"[Translation Error ({model_name} - Pass 2 Failed)]", {}
-    return translation, filtered_new
+
+    # Chunk for context window, translate each
+    chunks = chunk_for_context(text_to_translate, combined)
+    translations = []
+    for j, chunk in enumerate(chunks):
+        if len(chunks) > 1:
+            print(f"  Chunk {j+1}/{len(chunks)} ({len(chunk)} chars)...")
+        t = _translate_pass(model, chunk, combined, target_language)
+        if t is None:
+            return f"[Translation Error - chunk {j+1} failed]", {}
+        translations.append(t)
+
+    return "\n\n".join(translations), filtered_new
 
 
+# ==============================================================
+# File Processing Loop
+# ==============================================================
 def process_files_for_translation():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_dir = (
@@ -427,6 +584,7 @@ def process_files_for_translation():
 
     print(f"Found {len(files)} file(s). Model: {LMSTUDIO_MODEL_NAME}")
     print(f"Mode: Two-pass (Glossary Extraction \u2192 Translation)")
+    print(f"Context limit: {CONTEXT_LIMIT} tokens (safety margin: {SAFETY_MARGIN})")
 
     for i, filename in enumerate(files):
         in_path = os.path.join(input_dir, filename)

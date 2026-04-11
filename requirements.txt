@@ -16,5 +16,6 @@ undetected-chromedriver
 selenium
 
 lmstudio
+pytest
 
 # --- Note: Torch, RVC, Qwen are handled by shell.nix to ensure CUDA support ---
