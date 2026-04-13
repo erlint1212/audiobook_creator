@@ -43,8 +43,12 @@ Project Directory Structure:
             cover.jpg
             HQ.md
             03_Audio_WAV/
+                ch_0398.wav
                 ch_0097.wav
+                ch_0376.wav
                 ch_0262.wav
+                ch_0435.wav
+                ch_0379.wav
                 ch_0290.wav
                 ch_0197.wav
                 ch_0076.wav
@@ -52,16 +56,22 @@ Project Directory Structure:
                 ch_0086.wav
                 ch_0309.wav
                 ch_0320.wav
+                ch_0473.wav
+                ch_0418.wav
                 ch_0231.wav
                 ch_0200.wav
                 ch_0239.wav
                 ch_0375.wav
+                ch_0468.wav
                 ch_0257.wav
                 ch_0034.wav
                 ch_0205.wav
                 ch_0229.wav
                 ch_0148.wav
                 ch_0094.wav
+                ch_0437.wav
+                ch_0430.wav
+                ch_0467.wav
                 ch_0217.wav
                 ch_0037.wav
                 ch_0287.wav
@@ -69,6 +79,7 @@ Project Directory Structure:
                 ch_0209.wav
                 ch_0112.wav
                 ch_0315.wav
+                ch_0380.wav
                 ch_0221.wav
                 ch_0317.wav
                 ch_0072.wav
@@ -91,9 +102,11 @@ Project Directory Structure:
                 ch_0312.wav
                 ch_0049.wav
                 ch_0083.wav
+                ch_0432.wav
                 ch_0003.wav
                 ch_0310.wav
                 ch_0302.wav
+                ch_0391.wav
                 ch_0146.wav
                 ch_0052.wav
                 ch_0323.wav
@@ -101,7 +114,9 @@ Project Directory Structure:
                 ch_0190.wav
                 ch_0120.wav
                 ch_0358.wav
+                ch_0387.wav
                 ch_0318.wav
+                ch_0382.wav
                 ch_0131.wav
                 ch_0220.wav
                 ch_0256.wav
@@ -117,9 +132,11 @@ Project Directory Structure:
                 ch_0271.wav
                 ch_0119.wav
                 ch_0264.wav
+                ch_0401.wav
                 ch_0153.wav
                 ch_0073.wav
                 ch_0116.wav
+                ch_0462.wav
                 ch_0008.wav
                 ch_0347.wav
                 ch_0061.wav
@@ -140,6 +157,8 @@ Project Directory Structure:
                 ch_0100.wav
                 ch_0374.wav
                 ch_0260.wav
+                ch_0472.wav
+                ch_0392.wav
                 ch_0047.wav
                 ch_0058.wav
                 ch_0303.wav
@@ -152,19 +171,29 @@ Project Directory Structure:
                 ch_0136.wav
                 ch_0255.wav
                 ch_0177.wav
+                ch_0465.wav
+                ch_0396.wav
                 ch_0236.wav
+                ch_0389.wav
+                ch_0393.wav
                 ch_0142.wav
                 ch_0356.wav
                 ch_0210.wav
                 ch_0367.wav
+                ch_0400.wav
+                ch_0383.wav
                 ch_0291.wav
+                ch_0394.wav
                 ch_0171.wav
                 ch_0368.wav
                 ch_0188.wav
+                ch_0422.wav
                 ch_0274.wav
                 ch_0267.wav
                 ch_0276.wav
                 ch_0258.wav
+                ch_0412.wav
+                ch_0405.wav
                 ch_0237.wav
                 ch_0253.wav
                 ch_0110.wav
@@ -179,8 +208,10 @@ Project Directory Structure:
                 ch_0254.wav
                 ch_0286.wav
                 ch_0181.wav
+                ch_0411.wav
                 ch_0043.wav
                 ch_0056.wav
+                ch_0441.wav
                 ch_0164.wav
                 ch_0191.wav
                 ch_0279.wav
@@ -189,8 +220,11 @@ Project Directory Structure:
                 ch_0185.wav
                 ch_0284.wav
                 ch_0027.wav
+                ch_0424.wav
                 ch_0305.wav
+                ch_0408.wav
                 ch_0246.wav
+                ch_0446.wav
                 ch_0099.wav
                 ch_0101.wav
                 ch_0371.wav
@@ -199,6 +233,7 @@ Project Directory Structure:
                 ch_0198.wav
                 ch_0145.wav
                 ch_0176.wav
+                ch_0439.wav
                 ch_0334.wav
                 ch_0160.wav
                 ch_0093.wav
@@ -206,14 +241,21 @@ Project Directory Structure:
                 ch_0070.wav
                 ch_0353.wav
                 ch_0074.wav
+                ch_0390.wav
                 ch_0013.wav
+                ch_0423.wav
+                ch_0455.wav
                 ch_0121.wav
                 ch_0016.wav
+                ch_0449.wav
+                ch_0461.wav
                 ch_0298.wav
                 ch_0133.wav
+                ch_0450.wav
                 ch_0249.wav
                 ch_0107.wav
                 ch_0055.wav
+                ch_0453.wav
                 ch_0372.wav
                 ch_0167.wav
                 ch_0247.wav
@@ -234,11 +276,15 @@ Project Directory Structure:
                 ch_0025.wav
                 ch_0206.wav
                 ch_0050.wav
+                ch_0421.wav
+                ch_0471.wav
+                ch_0399.wav
                 ch_0042.wav
                 ch_0175.wav
                 ch_0104.wav
                 ch_0141.wav
                 ch_0166.wav
+                ch_0427.wav
                 ch_0207.wav
                 ch_0126.wav
                 ch_0161.wav
@@ -248,35 +294,50 @@ Project Directory Structure:
                 ch_0165.wav
                 ch_0327.wav
                 ch_0152.wav
+                ch_0419.wav
                 ch_0075.wav
                 ch_0067.wav
                 ch_0203.wav
                 ch_0259.wav
                 ch_0266.wav
+                ch_0426.wav
                 ch_0005.wav
                 ch_0009.wav
                 ch_0021.wav
+                ch_0417.wav
                 ch_0363.wav
+                ch_0414.wav
                 ch_0002.wav
                 ch_0278.wav
                 ch_0333.wav
+                ch_0470.wav
                 ch_0269.wav
                 ch_0332.wav
                 ch_0098.wav
+                ch_0377.wav
                 ch_0117.wav
+                ch_0463.wav
                 ch_0022.wav
+                ch_0442.wav
                 ch_0234.wav
+                ch_0384.wav
                 ch_0235.wav
+                ch_0438.wav
                 ch_0273.wav
                 ch_0115.wav
                 ch_0199.wav
                 ch_0103.wav
                 ch_0341.wav
                 ch_0178.wav
+                ch_0403.wav
                 ch_0292.wav
                 ch_0106.wav
+                ch_0407.wav
+                ch_0436.wav
+                ch_0454.wav
                 ch_0282.wav
                 ch_0077.wav
+                ch_0388.wav
                 ch_0369.wav
                 ch_0127.wav
                 ch_0325.wav
@@ -284,24 +345,32 @@ Project Directory Structure:
                 ch_0232.wav
                 ch_0326.wav
                 ch_0001.wav
+                ch_0357.wav
                 ch_0051.wav
+                ch_0381.wav
+                ch_0425.wav
                 ch_0350.wav
                 ch_0345.wav
                 ch_0324.wav
                 ch_0129.wav
                 ch_0192.wav
+                ch_0402.wav
                 ch_0163.wav
                 ch_0319.wav
                 ch_0053.wav
                 ch_0225.wav
                 ch_0288.wav
+                ch_0378.wav
+                ch_0475.wav
                 ch_0081.wav
                 ch_0228.wav
                 ch_0293.wav
                 ch_0168.wav
                 ch_0213.wav
                 ch_0031.wav
+                ch_0429.wav
                 ch_0250.wav
+                ch_0434.wav
                 ch_0344.wav
                 ch_0224.wav
                 ch_0352.wav
@@ -309,11 +378,13 @@ Project Directory Structure:
                 ch_0066.wav
                 ch_0285.wav
                 ch_0147.wav
+                ch_0397.wav
                 ch_0040.wav
                 ch_0252.wav
                 ch_0248.wav
                 ch_0280.wav
                 ch_0124.wav
+                ch_0433.wav
                 ch_0046.wav
                 ch_0196.wav
                 ch_0057.wav
@@ -326,12 +397,17 @@ Project Directory Structure:
                 ch_0283.wav
                 ch_0004.wav
                 ch_0044.wav
+                ch_0464.wav
+                ch_0413.wav
                 ch_0244.wav
+                ch_0404.wav
                 ch_0201.wav
                 ch_0223.wav
                 ch_0304.wav
+                ch_0395.wav
                 ch_0180.wav
                 ch_0030.wav
+                ch_0416.wav
                 ch_0272.wav
                 ch_0140.wav
                 ch_0294.wav
@@ -358,11 +434,14 @@ Project Directory Structure:
                 ch_0068.wav
                 ch_0010.wav
                 ch_0373.wav
+                ch_0410.wav
                 ch_0204.wav
                 ch_0338.wav
                 ch_0071.wav
                 ch_0063.wav
                 ch_0019.wav
+                ch_0431.wav
+                ch_0460.wav
                 ch_0108.wav
                 ch_0130.wav
                 ch_0183.wav
@@ -377,8 +456,14 @@ Project Directory Structure:
                 ch_0354.wav
                 ch_0155.wav
                 ch_0123.wav
+                ch_0448.wav
+                ch_0428.wav
                 ch_0263.wav
                 ch_0015.wav
+                ch_0458.wav
+                ch_0469.wav
+                ch_0415.wav
+                ch_0385.wav
                 ch_0173.wav
                 ch_0085.wav
                 ch_0020.wav
@@ -389,19 +474,27 @@ Project Directory Structure:
                 ch_0275.wav
                 ch_0128.wav
                 ch_0281.wav
+                ch_0443.wav
                 ch_0091.wav
+                ch_0440.wav
                 ch_0194.wav
+                ch_0406.wav
                 ch_0362.wav
                 ch_0038.wav
                 ch_0322.wav
                 ch_0078.wav
                 ch_0219.wav
                 ch_0195.wav
+                ch_0457.wav
                 ch_0011.wav
                 ch_0337.wav
                 ch_0214.wav
                 ch_0080.wav
                 ch_0089.wav
+                ch_0466.wav
+                ch_0420.wav
+                ch_0386.wav
+                ch_0447.wav
                 ch_0331.wav
                 ch_0329.wav
                 ch_0162.wav
@@ -412,6 +505,7 @@ Project Directory Structure:
                 ch_0300.wav
                 ch_0361.wav
                 ch_0169.wav
+                ch_0444.wav
                 ch_0230.wav
                 ch_0277.wav
                 ch_0321.wav
@@ -423,21 +517,34 @@ Project Directory Structure:
                 ch_0263.txt
                 ch_0109.txt
                 ch_0338.txt
+                ch_0458.txt
                 ch_0307.txt
+                ch_0482.txt
+                ch_0390.txt
+                ch_0419.txt
                 ch_0213.txt
                 ch_0372.txt
+                ch_0457.txt
                 ch_0028.txt
                 ch_0376.txt
                 ch_0302.txt
+                ch_0437.txt
+                ch_0399.txt
                 ch_0270.txt
+                ch_0415.txt
+                ch_0475.txt
+                ch_0474.txt
                 ch_0092.txt
                 ch_0218.txt
                 ch_0336.txt
                 ch_0077.txt
+                ch_0460.txt
+                ch_0435.txt
                 ch_0203.txt
                 ch_0278.txt
                 ch_0125.txt
                 ch_0088.txt
+                ch_0421.txt
                 ch_0144.txt
                 ch_0311.txt
                 ch_0329.txt
@@ -453,6 +560,7 @@ Project Directory Structure:
                 ch_0271.txt
                 ch_0233.txt
                 ch_0134.txt
+                ch_0416.txt
                 ch_0166.txt
                 ch_0130.txt
                 ch_0198.txt
@@ -460,19 +568,28 @@ Project Directory Structure:
                 ch_0315.txt
                 ch_0067.txt
                 ch_0049.txt
+                ch_0442.txt
                 ch_0202.txt
                 ch_0216.txt
                 ch_0199.txt
                 ch_0074.txt
                 ch_0145.txt
+                ch_0397.txt
                 ch_0009.txt
                 ch_0097.txt
                 ch_0138.txt
                 ch_0321.txt
+                ch_0434.txt
+                ch_0481.txt
                 ch_0187.txt
                 ch_0320.txt
                 ch_0094.txt
                 ch_0032.txt
+                ch_0400.txt
+                ch_0423.txt
+                ch_0479.txt
+                ch_0488.txt
+                ch_0388.txt
                 ch_0300.txt
                 ch_0050.txt
                 ch_0183.txt
@@ -483,6 +600,7 @@ Project Directory Structure:
                 ch_0064.txt
                 ch_0337.txt
                 ch_0022.txt
+                ch_0422.txt
                 ch_0175.txt
                 ch_0078.txt
                 ch_0370.txt
@@ -496,12 +614,16 @@ Project Directory Structure:
                 ch_0046.txt
                 ch_0284.txt
                 ch_0027.txt
+                ch_0480.txt
+                ch_0471.txt
                 ch_0014.txt
                 ch_0217.txt
                 ch_0245.txt
                 ch_0007.txt
                 ch_0192.txt
                 ch_0033.txt
+                ch_0450.txt
+                ch_0453.txt
                 ch_0380.txt
                 ch_0069.txt
                 ch_0111.txt
@@ -514,6 +636,7 @@ Project Directory Structure:
                 ch_0374.txt
                 ch_0384.txt
                 ch_0369.txt
+                ch_0451.txt
                 ch_0276.txt
                 ch_0165.txt
                 ch_0123.txt
@@ -523,7 +646,9 @@ Project Directory Structure:
                 ch_0117.txt
                 ch_0246.txt
                 ch_0025.txt
+                ch_0466.txt
                 ch_0352.txt
+                ch_0409.txt
                 ch_0381.txt
                 ch_0149.txt
                 ch_0013.txt
@@ -531,20 +656,24 @@ Project Directory Structure:
                 ch_0256.txt
                 ch_0351.txt
                 ch_0065.txt
+                ch_0444.txt
                 ch_0335.txt
                 ch_0083.txt
                 ch_0096.txt
+                ch_0440.txt
                 ch_0375.txt
                 ch_0122.txt
                 ch_0231.txt
                 ch_0379.txt
                 ch_0082.txt
                 ch_0310.txt
+                ch_0424.txt
                 ch_0317.txt
                 ch_0290.txt
                 ch_0100.txt
                 ch_0366.txt
                 ch_0195.txt
+                ch_0477.txt
                 ch_0006.txt
                 ch_0035.txt
                 ch_0340.txt
@@ -555,30 +684,39 @@ Project Directory Structure:
                 ch_0237.txt
                 ch_0143.txt
                 ch_0362.txt
+                ch_0408.txt
                 ch_0222.txt
                 ch_0363.txt
                 ch_0164.txt
                 ch_0365.txt
+                ch_0432.txt
                 ch_0085.txt
+                ch_0439.txt
                 ch_0184.txt
                 ch_0057.txt
                 ch_0091.txt
                 ch_0011.txt
+                ch_0456.txt
                 ch_0093.txt
                 ch_0323.txt
+                ch_0402.txt
                 ch_0272.txt
                 ch_0131.txt
                 ch_0228.txt
+                ch_0394.txt
                 ch_0251.txt
                 ch_0038.txt
                 ch_0292.txt
                 ch_0066.txt
                 ch_0158.txt
                 ch_0291.txt
+                ch_0396.txt
                 ch_0034.txt
                 ch_0040.txt
                 ch_0070.txt
+                ch_0448.txt
                 ch_0152.txt
+                ch_0484.txt
                 ch_0334.txt
                 ch_0226.txt
                 ch_0353.txt
@@ -586,31 +724,41 @@ Project Directory Structure:
                 ch_0293.txt
                 ch_0156.txt
                 ch_0135.txt
+                ch_0462.txt
                 ch_0265.txt
+                ch_0411.txt
                 ch_0113.txt
                 ch_0355.txt
                 ch_0254.txt
                 ch_0260.txt
+                ch_0436.txt
                 ch_0221.txt
                 ch_0294.txt
                 ch_0043.txt
+                ch_0461.txt
                 ch_0031.txt
                 ch_0044.txt
                 ch_0345.txt
                 ch_0295.txt
+                ch_0483.txt
                 ch_0017.txt
                 ch_0155.txt
                 ch_0208.txt
+                ch_0413.txt
                 ch_0333.txt
                 ch_0377.txt
                 ch_0023.txt
+                ch_0418.txt
                 ch_0259.txt
                 ch_0367.txt
+                ch_0478.txt
                 ch_0330.txt
                 ch_0133.txt
+                ch_0391.txt
                 ch_0232.txt
                 ch_0262.txt
                 ch_0142.txt
+                ch_0387.txt
                 ch_0326.txt
                 ch_0360.txt
                 ch_0018.txt
@@ -618,33 +766,44 @@ Project Directory Structure:
                 ch_0364.txt
                 ch_0116.txt
                 ch_0301.txt
+                ch_0393.txt
                 ch_0039.txt
+                ch_0430.txt
                 chapters.json
                 ch_0238.txt
+                ch_0389.txt
                 ch_0305.txt
+                ch_0426.txt
                 ch_0041.txt
                 ch_0341.txt
+                ch_0414.txt
                 ch_0005.txt
                 ch_0137.txt
                 ch_0207.txt
                 ch_0289.txt
+                ch_0492.txt
+                ch_0386.txt
                 ch_0176.txt
                 ch_0008.txt
                 ch_0051.txt
                 ch_0283.txt
                 ch_0053.txt
+                ch_0417.txt
                 ch_0157.txt
                 ch_0350.txt
                 ch_0147.txt
+                ch_0403.txt
                 ch_0297.txt
                 ch_0209.txt
                 ch_0174.txt
                 ch_0359.txt
+                ch_0427.txt
                 ch_0327.txt
                 ch_0250.txt
                 ch_0047.txt
                 ch_0075.txt
                 ch_0150.txt
+                ch_0470.txt
                 ch_0378.txt
                 ch_0003.txt
                 ch_0148.txt
@@ -657,6 +816,7 @@ Project Directory Structure:
                 ch_0087.txt
                 ch_0056.txt
                 ch_0099.txt
+                ch_0455.txt
                 ch_0105.txt
                 ch_0303.txt
                 ch_0314.txt
@@ -665,8 +825,10 @@ Project Directory Structure:
                 ch_0312.txt
                 ch_0296.txt
                 ch_0101.txt
+                ch_0412.txt
                 ch_0181.txt
                 ch_0190.txt
+                ch_0491.txt
                 ch_0189.txt
                 ch_0298.txt
                 ch_0325.txt
@@ -674,14 +836,23 @@ Project Directory Structure:
                 ch_0225.txt
                 ch_0371.txt
                 ch_0071.txt
+                ch_0441.txt
                 ch_0343.txt
                 ch_0182.txt
+                ch_0467.txt
+                ch_0405.txt
                 ch_0241.txt
+                ch_0463.txt
+                ch_0406.txt
+                ch_0494.txt
+                ch_0401.txt
                 ch_0383.txt
                 ch_0112.txt
+                ch_0410.txt
                 ch_0373.txt
                 ch_0186.txt
                 ch_0063.txt
+                ch_0395.txt
                 ch_0220.txt
                 ch_0229.txt
                 ch_0197.txt
@@ -696,6 +867,7 @@ Project Directory Structure:
                 ch_0173.txt
                 ch_0059.txt
                 ch_0201.txt
+                ch_0487.txt
                 ch_0042.txt
                 ch_0180.txt
                 ch_0264.txt
@@ -704,36 +876,53 @@ Project Directory Structure:
                 ch_0118.txt
                 ch_0255.txt
                 ch_0119.txt
+                ch_0404.txt
                 ch_0247.txt
                 ch_0136.txt
+                ch_0392.txt
                 ch_0030.txt
                 ch_0344.txt
                 ch_0036.txt
                 ch_0172.txt
+                ch_0420.txt
                 ch_0357.txt
                 ch_0249.txt
                 ch_0098.txt
                 ch_0160.txt
+                ch_0447.txt
+                ch_0428.txt
                 ch_0052.txt
+                ch_0464.txt
                 ch_0128.txt
                 ch_0269.txt
                 ch_0171.txt
                 ch_0001.txt
                 ch_0120.txt
                 ch_0103.txt
+                ch_0485.txt
+                ch_0433.txt
                 ch_0212.txt
                 ch_0073.txt
+                ch_0454.txt
                 ch_0261.txt
+                ch_0473.txt
+                ch_0425.txt
                 ch_0048.txt
                 ch_0020.txt
                 ch_0019.txt
                 ch_0139.txt
+                ch_0452.txt
+                ch_0493.txt
                 ch_0084.txt
                 ch_0348.txt
+                ch_0449.txt
                 ch_0275.txt
                 ch_0154.txt
+                ch_0438.txt
                 ch_0204.txt
                 ch_0316.txt
+                ch_0468.txt
+                ch_0398.txt
                 ch_0215.txt
                 ch_0236.txt
                 ch_0151.txt
@@ -742,11 +931,15 @@ Project Directory Structure:
                 ch_0021.txt
                 ch_0309.txt
                 ch_0037.txt
+                ch_0459.txt
                 ch_0163.txt
                 ch_0322.txt
+                ch_0465.txt
                 ch_0015.txt
                 ch_0313.txt
+                ch_0429.txt
                 ch_0026.txt
+                ch_0443.txt
                 ch_0385.txt
                 ch_0267.txt
                 ch_0029.txt
@@ -755,14 +948,18 @@ Project Directory Structure:
                 ch_0140.txt
                 ch_0089.txt
                 ch_0243.txt
+                ch_0445.txt
                 ch_0268.txt
                 ch_0196.txt
                 ch_0068.txt
                 ch_0287.txt
                 ch_0141.txt
+                ch_0490.txt
                 ch_0054.txt
                 ch_0129.txt
                 ch_0107.txt
+                ch_0476.txt
+                ch_0489.txt
                 ch_0095.txt
                 ch_0010.txt
                 ch_0169.txt
@@ -773,7 +970,10 @@ Project Directory Structure:
                 ch_0132.txt
                 ch_0328.txt
                 ch_0285.txt
+                ch_0446.txt
                 ch_0342.txt
+                ch_0472.txt
+                ch_0431.txt
                 ch_0162.txt
                 ch_0273.txt
                 ch_0205.txt
@@ -782,6 +982,7 @@ Project Directory Structure:
                 ch_0079.txt
                 ch_0258.txt
                 ch_0223.txt
+                ch_0486.txt
                 ch_0061.txt
                 ch_0332.txt
                 ch_0115.txt
@@ -796,11 +997,13 @@ Project Directory Structure:
                 ch_0239.txt
                 ch_0331.txt
                 ch_0121.txt
+                ch_0469.txt
                 ch_0004.txt
                 ch_0002.txt
                 ch_0016.txt
                 ch_0110.txt
                 ch_0266.txt
+                ch_0407.txt
                 ch_0219.txt
                 ch_0191.txt
                 ch_0168.txt
@@ -1080,6 +1283,7 @@ Project Directory Structure:
                 ch_0144.opus
                 ch_0139.opus
                 ch_0121.opus
+                ch_0431.opus
                 ch_0241.opus
                 ch_0181.opus
                 ch_0179.opus
@@ -1088,21 +1292,29 @@ Project Directory Structure:
                 ch_0330.opus
                 ch_0326.opus
                 ch_0014.opus
+                ch_0427.opus
                 ch_0078.opus
                 ch_0322.opus
                 ch_0067.opus
+                ch_0446.opus
                 ch_0183.opus
                 ch_0374.opus
                 ch_0172.opus
+                ch_0428.opus
                 ch_0206.opus
+                ch_0357.opus
                 ch_0024.opus
+                ch_0399.opus
+                ch_0449.opus
                 ch_0178.opus
                 ch_0184.opus
                 ch_0097.opus
+                ch_0407.opus
                 ch_0237.opus
                 ch_0216.opus
                 ch_0246.opus
                 ch_0343.opus
+                ch_0422.opus
                 ch_0265.opus
                 ch_0174.opus
                 ch_0040.opus
@@ -1111,9 +1323,11 @@ Project Directory Structure:
                 ch_0053.opus
                 ch_0231.opus
                 ch_0054.opus
+                ch_0439.opus
                 ch_0182.opus
                 ch_0283.opus
                 ch_0143.opus
+                ch_0390.opus
                 ch_0213.opus
                 ch_0031.opus
                 ch_0175.opus
@@ -1132,21 +1346,27 @@ Project Directory Structure:
                 ch_0238.opus
                 ch_0256.opus
                 ch_0034.opus
+                ch_0442.opus
                 ch_0346.opus
                 ch_0259.opus
                 ch_0361.opus
+                ch_0469.opus
                 ch_0079.opus
                 ch_0089.opus
                 ch_0110.opus
                 ch_0225.opus
+                ch_0454.opus
+                ch_0464.opus
                 ch_0069.opus
                 ch_0126.opus
+                ch_0426.opus
                 ch_0257.opus
                 ch_0090.opus
                 ch_0025.opus
                 ch_0008.opus
                 ch_0071.opus
                 ch_0297.opus
+                ch_0401.opus
                 ch_0306.opus
                 ch_0162.opus
                 ch_0341.opus
@@ -1155,20 +1375,28 @@ Project Directory Structure:
                 ch_0316.opus
                 ch_0311.opus
                 ch_0204.opus
+                ch_0433.opus
                 ch_0191.opus
                 ch_0005.opus
                 ch_0338.opus
+                ch_0393.opus
                 ch_0190.opus
+                ch_0412.opus
                 ch_0219.opus
+                ch_0418.opus
                 ch_0333.opus
                 ch_0289.opus
                 ch_0287.opus
                 ch_0104.opus
+                ch_0435.opus
                 ch_0267.opus
+                ch_0475.opus
                 ch_0307.opus
                 ch_0220.opus
                 ch_0375.opus
                 ch_0018.opus
+                ch_0436.opus
+                ch_0424.opus
                 ch_0194.opus
                 ch_0230.opus
                 ch_0205.opus
@@ -1179,7 +1407,9 @@ Project Directory Structure:
                 ch_0279.opus
                 ch_0212.opus
                 ch_0030.opus
+                ch_0391.opus
                 ch_0332.opus
+                ch_0385.opus
                 ch_0308.opus
                 ch_0093.opus
                 ch_0155.opus
@@ -1197,6 +1427,7 @@ Project Directory Structure:
                 ch_0294.opus
                 ch_0173.opus
                 ch_0196.opus
+                ch_0419.opus
                 ch_0170.opus
                 ch_0020.opus
                 ch_0177.opus
@@ -1213,6 +1444,7 @@ Project Directory Structure:
                 ch_0186.opus
                 ch_0295.opus
                 ch_0356.opus
+                ch_0457.opus
                 ch_0106.opus
                 ch_0192.opus
                 ch_0365.opus
@@ -1222,15 +1454,22 @@ Project Directory Structure:
                 ch_0249.opus
                 ch_0164.opus
                 ch_0185.opus
+                ch_0410.opus
+                ch_0473.opus
                 ch_0208.opus
                 ch_0324.opus
                 ch_0239.opus
                 ch_0019.opus
                 ch_0022.opus
+                ch_0429.opus
                 ch_0266.opus
                 ch_0318.opus
+                ch_0383.opus
                 ch_0320.opus
+                ch_0397.opus
+                ch_0384.opus
                 ch_0016.opus
+                ch_0415.opus
                 ch_0109.opus
                 ch_0135.opus
                 ch_0303.opus
@@ -1246,20 +1485,27 @@ Project Directory Structure:
                 ch_0167.opus
                 ch_0096.opus
                 ch_0112.opus
+                ch_0403.opus
                 ch_0350.opus
                 ch_0059.opus
                 ch_0274.opus
                 ch_0145.opus
+                ch_0440.opus
                 ch_0131.opus
+                ch_0434.opus
                 ch_0302.opus
                 ch_0336.opus
                 ch_0340.opus
+                ch_0406.opus
                 ch_0036.opus
                 ch_0339.opus
                 ch_0228.opus
                 ch_0367.opus
                 ch_0136.opus
+                ch_0455.opus
+                ch_0463.opus
                 ch_0362.opus
+                ch_0437.opus
                 ch_0299.opus
                 ch_0133.opus
                 ch_0153.opus
@@ -1268,9 +1514,11 @@ Project Directory Structure:
                 ch_0264.opus
                 ch_0127.opus
                 ch_0061.opus
+                ch_0450.opus
                 ch_0301.opus
                 ch_0234.opus
                 ch_0023.opus
+                ch_0376.opus
                 ch_0254.opus
                 ch_0253.opus
                 ch_0187.opus
@@ -1284,14 +1532,20 @@ Project Directory Structure:
                 ch_0372.opus
                 ch_0347.opus
                 ch_0188.opus
+                ch_0444.opus
                 ch_0349.opus
                 ch_0355.opus
                 ch_0050.opus
+                ch_0392.opus
                 ch_0058.opus
+                ch_0430.opus
+                ch_0441.opus
                 ch_0268.opus
                 ch_0029.opus
                 ch_0235.opus
+                ch_0408.opus
                 ch_0252.opus
+                ch_0458.opus
                 ch_0298.opus
                 ch_0281.opus
                 ch_0160.opus
@@ -1306,43 +1560,61 @@ Project Directory Structure:
                 ch_0229.opus
                 ch_0243.opus
                 ch_0085.opus
+                ch_0398.opus
                 ch_0364.opus
                 ch_0122.opus
                 ch_0156.opus
                 ch_0261.opus
+                ch_0405.opus
                 ch_0103.opus
                 ch_0129.opus
                 ch_0077.opus
                 ch_0130.opus
                 ch_0092.opus
                 ch_0271.opus
+                ch_0443.opus
                 ch_0201.opus
                 ch_0046.opus
                 ch_0116.opus
                 ch_0195.opus
+                ch_0396.opus
                 ch_0003.opus
                 ch_0251.opus
+                ch_0461.opus
                 ch_0305.opus
                 ch_0310.opus
+                ch_0411.opus
                 ch_0123.opus
                 ch_0120.opus
+                ch_0462.opus
                 ch_0013.opus
                 ch_0359.opus
                 ch_0314.opus
                 ch_0082.opus
                 ch_0366.opus
                 ch_0363.opus
+                ch_0414.opus
+                ch_0381.opus
                 ch_0242.opus
                 ch_0331.opus
                 ch_0328.opus
+                ch_0470.opus
+                ch_0417.opus
                 ch_0290.opus
                 ch_0087.opus
                 ch_0353.opus
                 ch_0260.opus
                 ch_0161.opus
+                ch_0468.opus
+                ch_0460.opus
+                ch_0380.opus
                 ch_0344.opus
                 ch_0118.opus
+                ch_0382.opus
                 ch_0171.opus
+                ch_0416.opus
+                ch_0378.opus
+                ch_0465.opus
                 ch_0284.opus
                 ch_0154.opus
                 ch_0199.opus
@@ -1353,20 +1625,31 @@ Project Directory Structure:
                 ch_0026.opus
                 ch_0045.opus
                 ch_0223.opus
+                ch_0448.opus
                 ch_0352.opus
                 ch_0047.opus
+                ch_0420.opus
                 ch_0285.opus
+                ch_0467.opus
+                ch_0425.opus
                 ch_0358.opus
+                ch_0402.opus
                 ch_0255.opus
                 ch_0091.opus
                 ch_0245.opus
                 ch_0263.opus
+                ch_0421.opus
                 ch_0011.opus
+                ch_0413.opus
                 ch_0032.opus
                 ch_0240.opus
                 ch_0227.opus
+                ch_0389.opus
                 ch_0060.opus
+                ch_0453.opus
                 ch_0002.opus
+                ch_0471.opus
+                ch_0386.opus
                 ch_0138.opus
                 ch_0065.opus
                 ch_0277.opus
@@ -1375,9 +1658,11 @@ Project Directory Structure:
                 ch_0124.opus
                 ch_0149.opus
                 ch_0039.opus
+                ch_0400.opus
                 ch_0119.opus
                 ch_0282.opus
                 ch_0100.opus
+                ch_0395.opus
                 ch_0203.opus
                 ch_0325.opus
                 ch_0373.opus
@@ -1385,11 +1670,14 @@ Project Directory Structure:
                 ch_0074.opus
                 ch_0088.opus
                 ch_0113.opus
+                ch_0447.opus
                 ch_0291.opus
+                ch_0423.opus
                 ch_0081.opus
                 ch_0128.opus
                 ch_0001.opus
                 ch_0248.opus
+                ch_0432.opus
                 ch_0189.opus
                 ch_0157.opus
                 ch_0052.opus
@@ -1400,8 +1688,11 @@ Project Directory Structure:
                 ch_0371.opus
                 ch_0102.opus
                 ch_0244.opus
+                ch_0379.opus
                 ch_0348.opus
                 ch_0207.opus
+                ch_0404.opus
+                ch_0466.opus
                 ch_0044.opus
                 ch_0158.opus
                 ch_0151.opus
@@ -1413,6 +1704,7 @@ Project Directory Structure:
                 ch_0004.opus
                 ch_0038.opus
                 ch_0210.opus
+                ch_0472.opus
                 ch_0224.opus
                 ch_0076.opus
                 ch_0335.opus
@@ -1434,6 +1726,7 @@ Project Directory Structure:
                 ch_0084.opus
                 ch_0236.opus
                 ch_0315.opus
+                ch_0438.opus
                 ch_0099.opus
                 ch_0351.opus
                 ch_0083.opus
@@ -1442,12 +1735,16 @@ Project Directory Structure:
                 ch_0163.opus
                 ch_0211.opus
                 ch_0169.opus
+                ch_0394.opus
+                ch_0387.opus
+                ch_0377.opus
                 ch_0278.opus
                 ch_0215.opus
                 ch_0007.opus
                 ch_0062.opus
                 ch_0010.opus
                 ch_0017.opus
+                ch_0388.opus
             temp_audio_chunks/
                 ch_0338/
                     ch_0338_l_006.wav
@@ -12612,12 +12909,20 @@ Project Directory Structure:
     backup/
         scraper_context_fetcher.py
     tests/
+        test_chunking.py
         test_translation.py
         test_utilities.py
         test_scraper.py
         test_tts_splitting.py
     scripts/
         test_env.py
+    .pytest_cache/
+        README.md
+        CACHEDIR.TAG
+        .gitignore
+        v/
+            cache/
+                nodeids
     .github/
         workflows/
             ci.yml
@@ -14502,11 +14807,13 @@ if __name__ == "__main__":
 
 --- START OF FILE: ./lmstudio_transelate.py ---
 import json
+import math
 import os
 import re
 import sys
 import time
 
+from constants import *
 from logger import log_chapter_translation
 
 try:
@@ -14539,6 +14846,98 @@ DEFAULT_GLOSSARY = {
 }
 
 
+# ==============================================================
+# Context Window Budget
+# ==============================================================
+def _estimate_zh_tokens(text):
+    return math.ceil(len(text) / AVG_CHARS_PER_TOKEN_ZH)
+
+
+def _max_input_tokens(glossary_json_str):
+    """How many tokens of Chinese source text we can fit."""
+    glossary_tokens = math.ceil(len(glossary_json_str) / AVG_CHARS_PER_TOKEN_EN)
+    available = int(CONTEXT_LIMIT * SAFETY_MARGIN)
+    # input_zh_tokens + output_en_tokens <= available - overhead - glossary
+    # output_tokens ≈ input_zh_tokens * OUTPUT_RATIO * (ZH/EN) ≈ input_zh_tokens * 0.94
+    # input_tokens * (1 + 0.94) <= budget  →  input_tokens <= budget / 1.94
+    budget = available - PROMPT_OVERHEAD_TOKENS - glossary_tokens
+    max_input = int(budget / 1.94)
+    return max(200, max_input)
+
+
+def _output_token_budget(glossary_json_str):
+    """Max tokens to allow for generation output."""
+    return int(_max_input_tokens(glossary_json_str) * 0.94 * 1.1)
+
+
+def chunk_for_context(text, glossary_json_str):
+    """Split Chinese source text into chunks that fit the context window."""
+    max_tok = _max_input_tokens(glossary_json_str)
+    max_chars = int(max_tok * AVG_CHARS_PER_TOKEN_ZH)
+
+    if len(text) <= max_chars:
+        return [text]
+
+    paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+    chunks, buf, buf_len = [], [], 0
+    for p in paragraphs:
+        if buf_len + len(p) > max_chars and buf:
+            chunks.append("\n".join(buf))
+            buf, buf_len = [], 0
+        if len(p) > max_chars:
+            if buf:
+                chunks.append("\n".join(buf))
+                buf, buf_len = [], 0
+            sents = re.split(r"(?<=[。！？])", p)
+            sbuf, slen = [], 0
+            for s in sents:
+                if slen + len(s) > max_chars and sbuf:
+                    chunks.append("".join(sbuf))
+                    sbuf, slen = [], 0
+                sbuf.append(s)
+                slen += len(s)
+            if sbuf:
+                chunks.append("".join(sbuf))
+        else:
+            buf.append(p)
+            buf_len += len(p)
+    if buf:
+        chunks.append("\n".join(buf))
+
+    print(
+        f"  Split into {len(chunks)} chunks (max ~{max_chars} chars/chunk, ctx={CONTEXT_LIMIT})"
+    )
+    return chunks
+
+
+# ==============================================================
+# Thinking Dump Detection
+# ==============================================================
+def _is_thinking_dump(text):
+    """Detect interleaved reasoning dumps vs clean translation."""
+    if not text:
+        return False
+    lines = text.split("\n")
+    indicators = 0
+    for line in lines:
+        if re.search(r".+\s*->\s*.+", line):
+            indicators += 1
+        if re.search(r"\((?:Note|Wait|Actually|Looking)", line):
+            indicators += 1
+        if re.search(r"\*\*Paragraph \d+", line):
+            indicators += 1
+        if re.search(r"(?:Let me|I will|I'll|Let's|Given the)", line):
+            indicators += 1
+    # CJK chars in output = source text leaking through
+    cjk_count = len(re.findall(r"[\u4e00-\u9fff]", text))
+    if cjk_count > THINKING_DUMP_CJK_THRESHOLD:
+        indicators += 3
+    return indicators >= THINKING_DUMP_INDICATOR_THRESHOLD
+
+
+# ==============================================================
+# Glossary / File I/O
+# ==============================================================
 def load_glossary_from_json(filepath):
     if not os.path.exists(filepath):
         print(
@@ -14605,6 +15004,9 @@ def list_available_models(host=None):
         return []
 
 
+# ==============================================================
+# Extraction / Cleaning
+# ==============================================================
 def _extract_translation_content(text):
     if not text:
         return text
@@ -14658,6 +15060,9 @@ def _extract_translation_content(text):
     return text
 
 
+# ==============================================================
+# LM Studio API Call (with thinking dump retry)
+# ==============================================================
 def _call_lmstudio(
     model,
     system_prompt,
@@ -14687,7 +15092,20 @@ def _call_lmstudio(
                 raw = re.sub(r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL)
                 return raw.strip()
             else:
-                return _extract_translation_content(raw)
+                cleaned = _extract_translation_content(raw)
+                # Thinking dump detection → retry
+                if _is_thinking_dump(cleaned):
+                    if attempt < max_retries - 1:
+                        print(
+                            f"  ⚠ Thinking dump detected. "
+                            f"Retrying {attempt+1}/{max_retries} in {retry_delay}s..."
+                        )
+                        time.sleep(retry_delay)
+                        retry_delay *= 2
+                        continue
+                    else:
+                        print(f"  ⚠ Thinking dump on final attempt. Returning as-is.")
+                return cleaned
         except TimeoutError:
             print(f"  Timeout. Retrying {attempt+1}/{max_retries} in {retry_delay}s...")
             time.sleep(retry_delay)
@@ -14704,8 +15122,15 @@ def _call_lmstudio(
     return None
 
 
+# ==============================================================
+# Pass 1: Glossary Extraction
+# ==============================================================
 def _glossary_pass(model, original_chinese):
-    few_shot_user = "Extract entities from: \u5170\u6ce2\u5e26\u7740\u7834\u5984\u5251\u53bb\u4e86\u6e05\u6cb3\u5e02\u7684\u5929\u8f89\u9a91\u58eb\u56e2\u3002"
+    few_shot_user = (
+        "Extract entities from: "
+        "\u5170\u6ce2\u5e26\u7740\u7834\u5984\u5251\u53bb\u4e86"
+        "\u6e05\u6cb3\u5e02\u7684\u5929\u8f89\u9a91\u58eb\u56e2\u3002"
+    )
     few_shot_assistant = json.dumps(
         {
             "characters": {
@@ -14774,13 +15199,34 @@ def _glossary_pass(model, original_chinese):
     if raw is None:
         print(f"  [Pass 1/2] Glossary extraction failed.")
         return {}
+
     try:
         cleaned = re.sub(r"```json\s*|\s*```", "", raw.strip(), flags=re.DOTALL).strip()
         if not cleaned.startswith("{"):
             m = re.search(r"\{.*\}", cleaned, re.DOTALL)
             if m:
                 cleaned = m.group(0)
-        items = json.loads(cleaned)
+
+        # Fix "Extra data" errors: trim after the matching closing brace
+        depth, end_pos = 0, -1
+        for i, ch in enumerate(cleaned):
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    end_pos = i
+                    break
+        if end_pos > 0:
+            cleaned = cleaned[: end_pos + 1]
+
+        # Try parsing; on failure, fix single quotes → double quotes and retry
+        try:
+            items = json.loads(cleaned)
+        except json.JSONDecodeError:
+            cleaned = cleaned.replace("'", '"')
+            items = json.loads(cleaned)
+
         if not isinstance(items, dict):
             return {}
         for key in DEFAULT_GLOSSARY:
@@ -14794,11 +15240,16 @@ def _glossary_pass(model, original_chinese):
         return {}
 
 
+# ==============================================================
+# Pass 2: Translation
+# ==============================================================
 def _translate_pass(model, text_to_translate, glossary_json_str, target_language):
     few_shot_user = (
         "Translate into English. Output ONLY the translation.\n\n"
         "--- CHINESE TEXT ---\n"
-        "\u90a3\u4e2a\u53eb\u59ec\u767d\u7684\u9a91\u58eb\u6325\u821e\u7740\u7834\u5984\u5251\uff0c\u8bf4\u9053\uff1a\u201c\u8fd9\u6ce2\u662f\u4e94\u4e94\u5f00\uff0c\u4f60\u4eec\u5148\u6492\u3002\u201d\n"
+        "\u90a3\u4e2a\u53eb\u59ec\u767d\u7684\u9a91\u58eb\u6325\u821e\u7740"
+        "\u7834\u5984\u5251\uff0c\u8bf4\u9053\uff1a\u201c\u8fd9\u6ce2\u662f"
+        "\u4e94\u4e94\u5f00\uff0c\u4f60\u4eec\u5148\u6492\u3002\u201d\n"
         "\u8001\u9a91\u58eb\u70b9\u4e86\u70b9\u5934\uff0c\u8f6c\u8eab\u79bb\u5f00\u3002\n"
         "--- END ---"
     )
@@ -14839,26 +15290,21 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
         "You are a professional translation engine. Output ONLY the final English translation. "
         "No reasoning, no chain of thought, no meta-commentary. Start immediately with the translation."
     )
-    max_tokens_attempts = [-1]
-    for i, max_tok in enumerate(max_tokens_attempts):
-        label = "Unlimited" if max_tok == -1 else str(max_tok)
-        print(f"  [Pass 2/2] Translating (max_tokens={label})...")
-        raw = _call_lmstudio(
-            model,
-            system,
-            prompt,
-            temperature=0.2,
-            max_tokens=max_tok,
-            few_shot_user=few_shot_user,
-            few_shot_assistant=few_shot_assistant,
-        )
-        if raw is None:
-            return None
-        if raw == "":
-            if i < len(max_tokens_attempts) - 1:
-                continue
-            return None
-        break
+    output_budget = _output_token_budget(glossary_json_str)
+    print(f"  [Pass 2/2] Translating (max_tokens={output_budget})...")
+    raw = _call_lmstudio(
+        model,
+        system,
+        prompt,
+        temperature=0.2,
+        max_tokens=output_budget,
+        few_shot_user=few_shot_user,
+        few_shot_assistant=few_shot_assistant,
+    )
+    if raw is None:
+        return None
+    if raw == "":
+        return None
     translation = re.sub(
         r"^(Here is|Here's|Below is|The translation)[^\n]*\n+",
         "",
@@ -14869,6 +15315,9 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
     return translation
 
 
+# ==============================================================
+# Main Translation Orchestrator
+# ==============================================================
 def translate_text_with_lmstudio(
     text_to_translate, known_glossary_data, target_language="English"
 ):
@@ -14888,6 +15337,7 @@ def translate_text_with_lmstudio(
 
     print(f"Translating with '{model_name}' ({len(text_to_translate)} chars)...")
 
+    # Single glossary pass on full text
     new_glossary_items = _glossary_pass(model, text_to_translate)
     filtered_new = {key: {} for key in DEFAULT_GLOSSARY}
     for cat in DEFAULT_GLOSSARY:
@@ -14897,12 +15347,24 @@ def translate_text_with_lmstudio(
                 filtered_glossary[cat][name] = details
 
     combined = json.dumps(filtered_glossary, ensure_ascii=False, separators=(",", ":"))
-    translation = _translate_pass(model, text_to_translate, combined, target_language)
-    if translation is None:
-        return f"[Translation Error ({model_name} - Pass 2 Failed)]", {}
-    return translation, filtered_new
+
+    # Chunk for context window, translate each
+    chunks = chunk_for_context(text_to_translate, combined)
+    translations = []
+    for j, chunk in enumerate(chunks):
+        if len(chunks) > 1:
+            print(f"  Chunk {j+1}/{len(chunks)} ({len(chunk)} chars)...")
+        t = _translate_pass(model, chunk, combined, target_language)
+        if t is None:
+            return f"[Translation Error - chunk {j+1} failed]", {}
+        translations.append(t)
+
+    return "\n\n".join(translations), filtered_new
 
 
+# ==============================================================
+# File Processing Loop
+# ==============================================================
 def process_files_for_translation():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     input_dir = (
@@ -14930,6 +15392,7 @@ def process_files_for_translation():
 
     print(f"Found {len(files)} file(s). Model: {LMSTUDIO_MODEL_NAME}")
     print(f"Mode: Two-pass (Glossary Extraction \u2192 Translation)")
+    print(f"Context limit: {CONTEXT_LIMIT} tokens (safety margin: {SAFETY_MARGIN})")
 
     for i, filename in enumerate(files):
         in_path = os.path.join(input_dir, filename)
@@ -15468,6 +15931,18 @@ if __name__ == "__main__":
 --- START OF FILE: ./constants.py ---
 GEMINI_MODEL_NAME = "gemini-3-flash-preview"
 CONFIG_FILE = "alltalk_path_config.json"
+
+# --- Context Window Budget (LM Studio / Local LLM) ---
+CONTEXT_LIMIT = 36970          # Total context length configured in LM Studio
+AVG_CHARS_PER_TOKEN_ZH = 1.5   # Chinese text: ~1.5 chars per token
+AVG_CHARS_PER_TOKEN_EN = 4.0   # English text: ~4 chars per token
+PROMPT_OVERHEAD_TOKENS = 1500  # System prompt + rules + few-shot + formatting
+OUTPUT_RATIO = 2.5             # EN translation is ~2-2.5x longer than ZH in chars
+SAFETY_MARGIN = 0.90           # Leave 10% headroom
+
+# --- Thinking Dump Detection ---
+THINKING_DUMP_CJK_THRESHOLD = 20     # CJK chars in output = source text leak
+THINKING_DUMP_INDICATOR_THRESHOLD = 3 # Number of reasoning indicators to trigger retry
 
 --- END OF FILE: ./constants.py ---
 
@@ -21466,6 +21941,810 @@ if __name__ == "__main__":
         print("Usage: python scraper_context_fetcher.py <url> <project_dir>")
 
 --- END OF FILE: ./backup/scraper_context_fetcher.py ---
+
+--- START OF FILE: ./tests/test_chunking.py ---
+"""Tests for TTS splitting and translation context-window chunking.
+
+Run: python -m pytest tests/ -v
+  or: python tests/test_chunking.py
+"""
+
+import math
+import re
+import unittest
+
+# ================================================================
+# TTS Constants & Functions (copied from test_tts_splitting.py)
+# ================================================================
+AVG_CHARS_PER_TOKEN = 1.9
+FALLBACK_TOKEN_LIMIT = 170
+
+
+def _estimate_tokens(text, avg_chars_per_token=AVG_CHARS_PER_TOKEN):
+    if not text:
+        return 0
+    return math.ceil(len(text) / max(1.0, avg_chars_per_token))
+
+
+def normalize_text(text):
+    replacements = {
+        "\u201c": '"',
+        "\u201d": '"',
+        "\u2018": "'",
+        "\u2019": "'",
+        "\u2026": "...",
+        "\u2014": "-",
+        "\u2013": "-",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    text = text.replace(".", ". ")
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
+def _split_by_force_chars(text_content, char_limit):
+    if len(text_content) <= char_limit:
+        return [text_content]
+    chunks = []
+    start = 0
+    while start < len(text_content):
+        end = min(start + int(char_limit), len(text_content))
+        if end < len(text_content):
+            space = text_content.rfind(" ", start, end)
+            if space != -1 and space > start:
+                end = space
+        chunk = text_content[start:end].strip()
+        if chunk:
+            chunks.append(chunk)
+        start = end + 1
+    return chunks
+
+
+def _simple_sent_tokenize(text):
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+
+
+def _split_by_sentence_groups(text_content, token_limit, avg_cpt):
+    char_limit = token_limit * avg_cpt
+    sentences = _simple_sent_tokenize(text_content)
+    if not sentences:
+        return []
+    chunks, buf, buf_tok = [], [], 0
+    for s in sentences:
+        s = s.strip()
+        if not s:
+            continue
+        est = _estimate_tokens(s, avg_cpt)
+        if est > token_limit:
+            if buf:
+                chunks.append(" ".join(buf))
+                buf, buf_tok = [], 0
+            chunks.extend(_split_by_force_chars(s, char_limit))
+        elif buf_tok + est <= token_limit:
+            buf.append(s)
+            buf_tok += est
+        else:
+            if buf:
+                chunks.append(" ".join(buf))
+            buf, buf_tok = [s], est
+    if buf:
+        chunks.append(" ".join(buf))
+    return [c for c in chunks if c.strip()]
+
+
+def _split_by_line_groups(text_content, token_limit, avg_cpt):
+    if not text_content or not text_content.strip():
+        return []
+    lines = [l.strip() for l in text_content.split("\n") if l.strip()]
+    if not lines:
+        return []
+    chunks, buf, buf_tok = [], [], 0
+    for line in lines:
+        est = _estimate_tokens(line, avg_cpt)
+        if est > token_limit:
+            if buf:
+                chunks.append("\n".join(buf))
+                buf, buf_tok = [], 0
+            chunks.extend(_split_by_sentence_groups(line, token_limit, avg_cpt))
+        elif buf_tok + est <= token_limit:
+            buf.append(line)
+            buf_tok += est
+        else:
+            if buf:
+                chunks.append("\n".join(buf))
+            buf, buf_tok = [line], est
+    if buf:
+        chunks.append("\n".join(buf))
+    return [c for c in chunks if c.strip()]
+
+
+# ================================================================
+# Translation Context-Window Constants & Functions
+# ================================================================
+CONTEXT_LIMIT = 36970
+AVG_CHARS_PER_TOKEN_ZH = 1.5
+AVG_CHARS_PER_TOKEN_EN = 4.0
+PROMPT_OVERHEAD_TOKENS = 1500
+OUTPUT_RATIO = 2.5
+SAFETY_MARGIN = 0.90
+
+
+def _estimate_zh_tokens(text):
+    return math.ceil(len(text) / AVG_CHARS_PER_TOKEN_ZH)
+
+
+def _max_input_tokens(glossary_json_str):
+    glossary_tokens = math.ceil(len(glossary_json_str) / AVG_CHARS_PER_TOKEN_EN)
+    available = int(CONTEXT_LIMIT * SAFETY_MARGIN)
+    budget = available - PROMPT_OVERHEAD_TOKENS - glossary_tokens
+    max_input = int(budget / 1.94)
+    return max(200, max_input)
+
+
+def _output_token_budget(glossary_json_str):
+    return int(_max_input_tokens(glossary_json_str) * 0.94 * 1.1)
+
+
+def chunk_for_context(text, glossary_json_str):
+    max_tok = _max_input_tokens(glossary_json_str)
+    max_chars = int(max_tok * AVG_CHARS_PER_TOKEN_ZH)
+    if len(text) <= max_chars:
+        return [text]
+    paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+    chunks, buf, buf_len = [], [], 0
+    for p in paragraphs:
+        if buf_len + len(p) > max_chars and buf:
+            chunks.append("\n".join(buf))
+            buf, buf_len = [], 0
+        if len(p) > max_chars:
+            if buf:
+                chunks.append("\n".join(buf))
+                buf, buf_len = [], 0
+            sents = re.split(r"(?<=[。！？])", p)
+            sbuf, slen = [], 0
+            for s in sents:
+                if slen + len(s) > max_chars and sbuf:
+                    chunks.append("".join(sbuf))
+                    sbuf, slen = [], 0
+                sbuf.append(s)
+                slen += len(s)
+            if sbuf:
+                chunks.append("".join(sbuf))
+        else:
+            buf.append(p)
+            buf_len += len(p)
+    if buf:
+        chunks.append("\n".join(buf))
+    return chunks
+
+
+def _is_thinking_dump(text):
+    if not text:
+        return False
+    lines = text.split("\n")
+    indicators = 0
+    for line in lines:
+        if re.search(r".+\s*->\s*.+", line):
+            indicators += 1
+        if re.search(r"\((?:Note|Wait|Actually|Looking)", line):
+            indicators += 1
+        if re.search(r"\*\*Paragraph \d+", line):
+            indicators += 1
+        if re.search(r"(?:Let me|I will|I'll|Let's|Given the)", line):
+            indicators += 1
+    cjk_count = len(re.findall(r"[\u4e00-\u9fff]", text))
+    if cjk_count > 20:
+        indicators += 3
+    return indicators >= 3
+
+
+# ================================================================
+# TTS TESTS — _estimate_tokens
+# ================================================================
+class TestEstimateTokens(unittest.TestCase):
+    def test_empty_string(self):
+        self.assertEqual(_estimate_tokens(""), 0)
+
+    def test_none(self):
+        self.assertEqual(_estimate_tokens(None), 0)
+
+    def test_short_word(self):
+        self.assertEqual(_estimate_tokens("Hello"), 3)  # ceil(5/1.9)
+
+    def test_exact_multiple(self):
+        self.assertEqual(_estimate_tokens("A" * 190), 100)  # 190/1.9 = 100
+
+    def test_custom_ratio(self):
+        self.assertEqual(_estimate_tokens("ABCDEF", 3.0), 2)  # ceil(6/3)
+
+    def test_single_char(self):
+        self.assertEqual(_estimate_tokens("X"), 1)  # ceil(1/1.9)
+
+    def test_zero_ratio_clamped(self):
+        """avg_chars_per_token=0 should not divide by zero (max(1.0, 0))."""
+        result = _estimate_tokens("Hello", 0.0)
+        self.assertEqual(result, 5)  # ceil(5/1.0)
+
+    def test_negative_ratio_clamped(self):
+        result = _estimate_tokens("Hello", -2.0)
+        self.assertEqual(result, 5)  # max(1.0, -2.0) = 1.0
+
+
+# ================================================================
+# TTS TESTS — normalize_text
+# ================================================================
+class TestNormalizeText(unittest.TestCase):
+    def test_smart_double_quotes(self):
+        result = normalize_text("\u201cHello,\u201d she said")
+        self.assertIn('"Hello,"', result)
+
+    def test_smart_single_quotes(self):
+        result = normalize_text("\u2018it\u2019s")
+        self.assertNotIn("\u2018", result)
+        self.assertNotIn("\u2019", result)
+
+    def test_em_dash(self):
+        self.assertNotIn("\u2014", normalize_text("word\u2014word"))
+
+    def test_en_dash(self):
+        self.assertNotIn("\u2013", normalize_text("2020\u20132025"))
+
+    def test_ellipsis(self):
+        result = normalize_text("wait\u2026")
+        self.assertNotIn("\u2026", result)
+        self.assertIn(".", result)
+
+    def test_period_spacing(self):
+        self.assertIn("end. start", normalize_text("end.start"))
+
+    def test_collapses_whitespace(self):
+        self.assertNotIn("  ", normalize_text("too   many    spaces"))
+
+    def test_already_clean(self):
+        text = "This is normal text."
+        result = normalize_text(text)
+        self.assertIn("This is normal text", result)
+
+    def test_period_after_period_gets_spaced(self):
+        """'end..start' -> 'end. . start' after normalization."""
+        result = normalize_text("end..start")
+        self.assertNotIn("  ", result)  # whitespace collapsed
+
+    def test_empty_string(self):
+        self.assertEqual(normalize_text(""), "")
+
+    def test_multiple_replacements_in_one_string(self):
+        text = "\u201cHello\u201d\u2014she said\u2026\u2018wow\u2019"
+        result = normalize_text(text)
+        for ch in ["\u201c", "\u201d", "\u2014", "\u2026", "\u2018", "\u2019"]:
+            self.assertNotIn(ch, result)
+
+
+# ================================================================
+# TTS TESTS — _split_by_force_chars
+# ================================================================
+class TestSplitByForceChars(unittest.TestCase):
+    def test_short_not_split(self):
+        self.assertEqual(_split_by_force_chars("Short.", 100), ["Short."])
+
+    def test_exact_limit(self):
+        text = "A" * 50
+        self.assertEqual(_split_by_force_chars(text, 50), [text])
+
+    def test_one_over_limit(self):
+        """51 chars, no spaces: end+1 skip loses the 51st char. Known edge case."""
+        text = "A" * 51
+        chunks = _split_by_force_chars(text, 50)
+        # start=end+1 after spaceless split means the last char is skipped
+        self.assertEqual(len(chunks), 1)
+        self.assertEqual(len(chunks[0]), 50)  # Loses 1 char!
+
+    def test_splits_on_space(self):
+        text = "Hello world this is a test of chunking"
+        chunks = _split_by_force_chars(text, 20)
+        for c in chunks:
+            self.assertLessEqual(len(c), 20)
+
+    def test_no_empty_chunks(self):
+        chunks = _split_by_force_chars("Hello world. This is a test.", 20)
+        for c in chunks:
+            self.assertTrue(c.strip())
+
+    def test_single_long_word_no_spaces(self):
+        """Long word with no spaces: hard-splits but end+1 skip loses chars at boundaries."""
+        text = "A" * 200
+        chunks = _split_by_force_chars(text, 50)
+        self.assertGreaterEqual(len(chunks), 3)
+        # Known: end+1 skip after each spaceless chunk loses 1 char per split
+        joined = "".join(chunks)
+        lost = len(text) - len(joined)
+        self.assertGreater(lost, 0, "Expected char loss from end+1 skip bug")
+
+    def test_all_content_preserved(self):
+        text = "The quick brown fox jumps over the lazy dog."
+        chunks = _split_by_force_chars(text, 15)
+        rejoined = " ".join(chunks)
+        # All words present
+        for word in text.split():
+            self.assertIn(word.strip(".,"), rejoined)
+
+    def test_limit_of_one(self):
+        """Degenerate: char_limit=1. Each char becomes its own chunk."""
+        text = "AB CD"
+        chunks = _split_by_force_chars(text, 1)
+        self.assertTrue(len(chunks) >= 2)
+
+    def test_trailing_spaces(self):
+        text = "word1 word2 word3   "
+        chunks = _split_by_force_chars(text, 10)
+        for c in chunks:
+            self.assertEqual(c, c.strip())
+
+
+# ================================================================
+# TTS TESTS — _split_by_sentence_groups
+# ================================================================
+class TestSplitBySentenceGroups(unittest.TestCase):
+    def test_empty(self):
+        self.assertEqual(_split_by_sentence_groups("", 170, 1.9), [])
+
+    def test_single_sentence_fits(self):
+        result = _split_by_sentence_groups("Hello world.", 170, 1.9)
+        self.assertEqual(len(result), 1)
+
+    def test_multiple_short_sentences_grouped(self):
+        result = _split_by_sentence_groups("Hello. World. Test.", 170, 1.9)
+        self.assertEqual(len(result), 1)
+
+    def test_respects_token_limit(self):
+        s1, s2 = "A" * 100 + ".", "B" * 100 + "."
+        result = _split_by_sentence_groups(f"{s1} {s2}", 60, 1.9)
+        self.assertGreaterEqual(len(result), 2)
+
+    def test_oversized_sentence_falls_to_force_chars(self):
+        """Single sentence exceeding limit -> force-char split."""
+        giant = "A" * 500 + "."
+        result = _split_by_sentence_groups(giant, 50, 1.9)
+        self.assertGreater(len(result), 1)
+
+    def test_no_empty_chunks(self):
+        result = _split_by_sentence_groups("One. Two. Three.", 10, 1.9)
+        for c in result:
+            self.assertTrue(c.strip())
+
+    def test_sentence_exactly_at_limit(self):
+        """Sentence whose token estimate == token_limit should fit alone."""
+        # 19 chars / 1.9 = 10 tokens exactly
+        text = "A" * 19 + "."  # 20 chars -> ceil(20/1.9) = 11
+        # token_limit=11 -> should fit in one chunk
+        result = _split_by_sentence_groups(text, 11, 1.9)
+        self.assertEqual(len(result), 1)
+
+    def test_many_tiny_sentences(self):
+        text = ". ".join(["Hi"] * 50) + "."
+        result = _split_by_sentence_groups(text, 20, 1.9)
+        # Should group them, not produce 50 chunks
+        self.assertLess(len(result), 50)
+        self.assertGreater(len(result), 0)
+
+    def test_no_punctuation(self):
+        """Text with no sentence-ending punctuation -> treated as one 'sentence'."""
+        text = "No punctuation here at all"
+        result = _split_by_sentence_groups(text, 170, 1.9)
+        # _simple_sent_tokenize returns full text as one sentence
+        self.assertEqual(len(result), 1)
+
+
+# ================================================================
+# TTS TESTS — _split_by_line_groups
+# ================================================================
+class TestSplitByLineGroups(unittest.TestCase):
+    def test_empty(self):
+        self.assertEqual(_split_by_line_groups("", 170, 1.9), [])
+
+    def test_none_like(self):
+        self.assertEqual(_split_by_line_groups("   \n  \n\n", 170, 1.9), [])
+
+    def test_single_short_line(self):
+        self.assertEqual(_split_by_line_groups("Hello.", 170, 1.9), ["Hello."])
+
+    def test_short_lines_grouped(self):
+        text = "Line one.\nLine two.\nLine three."
+        result = _split_by_line_groups(text, 170, 1.9)
+        self.assertEqual(len(result), 1)
+        self.assertIn("\n", result[0])  # Lines joined with \n
+
+    def test_long_line_triggers_sentence_split(self):
+        text = f"Short.\n{'A' * 400}\nShort again."
+        result = _split_by_line_groups(text, 170, 1.9)
+        self.assertGreaterEqual(len(result), 2)
+
+    def test_blank_lines_ignored(self):
+        result = _split_by_line_groups("Line one.\n\n\n\nLine two.", 170, 1.9)
+        for c in result:
+            self.assertTrue(c.strip())
+
+    def test_many_lines_each_near_limit(self):
+        """Each line just under the limit -> one chunk per line."""
+        lines = [f"{'W' * 300}." for _ in range(5)]
+        text = "\n".join(lines)
+        result = _split_by_line_groups(text, 170, 1.9)
+        # 300 chars / 1.9 ≈ 158 tokens. Just under 170 -> each fits alone
+        # But can't group any two -> 5 chunks
+        self.assertEqual(len(result), 5)
+
+    def test_preserves_all_content(self):
+        lines = ["Line one.", "Line two.", "Line three."]
+        text = "\n".join(lines)
+        result = _split_by_line_groups(text, 170, 1.9)
+        combined = "\n".join(result)
+        for line in lines:
+            self.assertIn(line, combined)
+
+    def test_only_newlines(self):
+        self.assertEqual(_split_by_line_groups("\n\n\n", 170, 1.9), [])
+
+    def test_mixed_lengths(self):
+        """Mix of short and long lines."""
+        text = "Short.\n" + "B" * 500 + "\nAlso short."
+        result = _split_by_line_groups(text, 170, 1.9)
+        self.assertGreater(len(result), 1)
+
+    def test_realistic_tts_chapter(self):
+        """Simulate a translated chapter with dialogue and narration."""
+        paragraphs = [
+            "Chapter 25 - Audience",
+            '"Assault the city." Bai Ji pointed to the brightly lit city in the distance.',
+            '"Understood!" Onda saluted and turned to relay the orders.',
+            "The fire spread faster than the panicked soldiers could run. "
+            "Flames consumed the dry leaves, turning the forest into an inferno. "
+            "Smoke choked the retreating army as discipline collapsed entirely.",
+            '"I don\'t know if this is right," she whispered.',
+            "Short.",
+        ]
+        text = "\n".join(paragraphs)
+        total_tokens = _estimate_tokens(text, 1.9)
+        result = _split_by_line_groups(text, 170, 1.9)
+        # All content should be preserved across chunks
+        combined = "\n".join(result)
+        for p in paragraphs:
+            self.assertIn(p, combined)
+        # No empty chunks
+        for c in result:
+            self.assertTrue(c.strip())
+
+
+# ================================================================
+# TRANSLATION TESTS — _estimate_zh_tokens
+# ================================================================
+class TestEstimateZhTokens(unittest.TestCase):
+    def test_empty(self):
+        self.assertEqual(_estimate_zh_tokens(""), 0)
+
+    def test_chinese_text(self):
+        text = "白" * 150  # 150 chars / 1.5 = 100 tokens
+        self.assertEqual(_estimate_zh_tokens(text), 100)
+
+    def test_single_char(self):
+        self.assertEqual(_estimate_zh_tokens("白"), 1)
+
+    def test_mixed_cjk_ascii(self):
+        """Mixed text: each char counts equally in this estimator."""
+        text = "白姬 Bai Ji"
+        result = _estimate_zh_tokens(text)
+        self.assertEqual(result, math.ceil(len(text) / 1.5))
+
+
+# ================================================================
+# TRANSLATION TESTS — _max_input_tokens
+# ================================================================
+class TestMaxInputTokens(unittest.TestCase):
+    def test_empty_glossary(self):
+        result = _max_input_tokens("{}")
+        # available = 36970 * 0.9 = 33273
+        # glossary_tokens = ceil(2/4) = 1
+        # budget = 33273 - 1500 - 1 = 31772
+        # max_input = int(31772 / 1.94) = 16377
+        self.assertEqual(result, 16377)
+
+    def test_large_glossary_reduces_budget(self):
+        small = _max_input_tokens("{}")
+        big = _max_input_tokens("X" * 10000)
+        self.assertGreater(small, big)
+
+    def test_floor_at_200(self):
+        """Massive glossary should still return at least 200."""
+        huge_glossary = "X" * 200000
+        result = _max_input_tokens(huge_glossary)
+        self.assertEqual(result, 200)
+
+    def test_glossary_token_accounting(self):
+        """Verify glossary size directly reduces available tokens."""
+        g1 = "X" * 400  # 100 tokens
+        g2 = "X" * 4000  # 1000 tokens
+        diff = _max_input_tokens(g1) - _max_input_tokens(g2)
+        # 900 extra glossary tokens / 1.94 ≈ 463 fewer input tokens
+        self.assertAlmostEqual(diff, 463, delta=5)
+
+    def test_returns_int(self):
+        self.assertIsInstance(_max_input_tokens("{}"), int)
+
+
+# ================================================================
+# TRANSLATION TESTS — _output_token_budget
+# ================================================================
+class TestOutputTokenBudget(unittest.TestCase):
+    def test_proportional_to_input(self):
+        budget = _output_token_budget("{}")
+        max_in = _max_input_tokens("{}")
+        expected = int(max_in * 0.94 * 1.1)
+        self.assertEqual(budget, expected)
+
+    def test_shrinks_with_glossary(self):
+        small = _output_token_budget("{}")
+        big = _output_token_budget("X" * 10000)
+        self.assertGreater(small, big)
+
+    def test_total_fits_context(self):
+        """input_tokens + output_tokens + overhead + glossary <= context_limit."""
+        glossary = '{"characters":{},"places":{}}'
+        max_in = _max_input_tokens(glossary)
+        out_budget = _output_token_budget(glossary)
+        glossary_tok = math.ceil(len(glossary) / AVG_CHARS_PER_TOKEN_EN)
+        total = max_in + out_budget + PROMPT_OVERHEAD_TOKENS + glossary_tok
+        self.assertLessEqual(
+            total, CONTEXT_LIMIT, f"Total {total} exceeds context {CONTEXT_LIMIT}"
+        )
+
+
+# ================================================================
+# TRANSLATION TESTS — chunk_for_context
+# ================================================================
+class TestChunkForContext(unittest.TestCase):
+    def _max_chars(self, glossary="{}"):
+        return int(_max_input_tokens(glossary) * AVG_CHARS_PER_TOKEN_ZH)
+
+    def test_short_text_no_split(self):
+        text = "白姬挥了挥墨水杖。"
+        result = chunk_for_context(text, "{}")
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0], text)
+
+    def test_empty_text(self):
+        result = chunk_for_context("", "{}")
+        self.assertEqual(result, [""])
+
+    def test_whitespace_only(self):
+        result = chunk_for_context("   \n  \n  ", "{}")
+        # All paragraphs stripped -> empty list or single empty
+        # Actually: len("   \n  \n  ") = 9 <= max_chars -> returns ["   \n  \n  "]
+        self.assertEqual(len(result), 1)
+
+    def test_exact_at_limit(self):
+        max_c = self._max_chars()
+        text = "白" * max_c
+        result = chunk_for_context(text, "{}")
+        self.assertEqual(len(result), 1)
+
+    def test_one_char_over_triggers_split(self):
+        max_c = self._max_chars()
+        # Two paragraphs, each half the limit + 1 -> won't fit together
+        half = max_c // 2 + 1
+        text = ("白" * half) + "\n" + ("姬" * half)
+        result = chunk_for_context(text, "{}")
+        self.assertGreaterEqual(len(result), 2)
+
+    def test_no_content_lost(self):
+        """All input chars present after chunking."""
+        paras = ["这是第一段。", "这是第二段。", "这是第三段，比较长。" * 50]
+        text = "\n".join(paras)
+        result = chunk_for_context(text, "{}")
+        combined = "\n".join(result)
+        for p in paras:
+            # Paragraph content should be in combined output
+            # (stripping may remove leading/trailing whitespace)
+            self.assertIn(p.strip(), combined)
+
+    def test_splits_by_paragraph_first(self):
+        max_c = self._max_chars()
+        para = "白" * (max_c // 3)
+        text = "\n".join([para, para, para, para])
+        result = chunk_for_context(text, "{}")
+        # 4 paragraphs of ~1/3 max each -> 3 fit, 4th spills -> 2 chunks
+        self.assertGreaterEqual(len(result), 2)
+
+    def test_giant_paragraph_sentence_split(self):
+        """Single paragraph exceeding max_chars -> splits on Chinese punctuation."""
+        max_c = self._max_chars()
+        # Build paragraph of sentences that together exceed limit
+        sentence = "白姬挥了挥墨水杖。"  # 9 chars
+        count = (max_c // len(sentence)) + 10
+        para = sentence * count  # No newlines, just repeated sentences
+        result = chunk_for_context(para, "{}")
+        self.assertGreater(len(result), 1)
+        # Each chunk should be <= max_chars (roughly)
+        for chunk in result:
+            self.assertLessEqual(
+                len(chunk),
+                max_c + len(sentence),
+                "Chunk exceeds max by more than one sentence",
+            )
+
+    def test_giant_paragraph_no_punctuation(self):
+        """Giant paragraph with no 。！？ -> can't sentence-split, becomes one oversized chunk."""
+        max_c = self._max_chars()
+        para = "白" * (max_c + 1000)  # No punctuation
+        result = chunk_for_context(para, "{}")
+        # Single sentence with no split points -> single chunk (oversized)
+        # This is a known limitation worth documenting
+        self.assertEqual(len(result), 1)
+        self.assertGreater(len(result[0]), max_c)
+
+    def test_larger_glossary_means_smaller_chunks(self):
+        """Larger glossary -> smaller max_chars -> more chunks."""
+        text = "这是一个句子。\n" * 500
+        small_g = "{}"
+        big_g = "X" * 20000
+        r_small = chunk_for_context(text, small_g)
+        r_big = chunk_for_context(text, big_g)
+        self.assertGreaterEqual(len(r_big), len(r_small))
+
+    def test_blank_lines_between_paragraphs(self):
+        """Blank lines should be stripped, not create empty chunks."""
+        text = "第一段。\n\n\n\n第二段。\n\n第三段。"
+        result = chunk_for_context(text, "{}")
+        for chunk in result:
+            self.assertTrue(chunk.strip(), "Got empty/blank chunk")
+
+    def test_mixed_short_and_long_paragraphs(self):
+        max_c = self._max_chars()
+        short = "短。"
+        long_para = "长句子。" * (max_c // 12 + 1)
+        text = f"{short}\n{short}\n{long_para}\n{short}"
+        result = chunk_for_context(text, "{}")
+        combined = "".join(result)
+        self.assertIn("短", combined)
+        self.assertIn("长句子", combined)
+
+    def test_realistic_chapter(self):
+        """Simulate a real chapter: ~4000 chars of Chinese text."""
+        sentences = [
+            "黑色雾霾笼罩，连月亮的光也无法穿透的深邃，寂静的森林中回响起惊慌失措的哀嚎与惨叫。",
+            "被火点着的杰多士兵发了疯似的向同伴们跑去，沿途点着了泥地中失去水分的干枯树叶。",
+            "领军的杰多将领惊呆了，谁这么缺德敢在茂林中用火攻？",
+            "来不及扑火，窒息的滚滚浓烟中，杰多士兵溃不成军。",
+        ]
+        chapter = "\n".join(sentences * 20)
+        result = chunk_for_context(chapter, '{"characters":{}}')
+        # ~3200 chars, max_chars is ~24K -> should fit in one chunk
+        self.assertEqual(len(result), 1)
+
+
+# ================================================================
+# TRANSLATION TESTS — _is_thinking_dump
+# ================================================================
+class TestIsThinkingDump(unittest.TestCase):
+    def test_clean_translation(self):
+        text = (
+            "Chapter 25 - Audience\n"
+            "Black fog shrouded everything. In the silent forest, "
+            "panicked screams echoed.\n"
+            '"Assault the city," Bai Ji commanded.'
+        )
+        self.assertFalse(_is_thinking_dump(text))
+
+    def test_obvious_dump(self):
+        """Based on real dump from ch_0367.txt."""
+        text = (
+            "Chapter 25 - 参见 (See/Attend) -> Chapter 25 - Audience\n"
+            "黑色雾霾笼罩 -> Black fog shrouded everything\n"
+            "(Note: 回**起 seems like a typo for 响起).\n"
+            "**Paragraph 2:**\n"
+            "Let me check the glossary again.\n"
+            "Actually, looking closely: 远道 appears twice."
+        )
+        self.assertTrue(_is_thinking_dump(text))
+
+    def test_cjk_leakage_alone_triggers(self):
+        """21+ CJK chars = 3 indicators, which meets threshold."""
+        text = "Translation here. " + "白" * 25 + " more text."
+        self.assertTrue(_is_thinking_dump(text))
+
+    def test_cjk_just_under_threshold(self):
+        """20 CJK chars should NOT trigger (threshold is >20)."""
+        text = "Translation here. " + "白" * 20 + " more text."
+        self.assertFalse(_is_thinking_dump(text))
+
+    def test_arrows_alone(self):
+        text = "word -> translation\n" "another -> thing\n" "third -> result\n"
+        self.assertTrue(_is_thinking_dump(text))
+
+    def test_code_arrows_false_positive(self):
+        """Legitimate use of -> in English (rare in novel translation)."""
+        text = "The fire spread quickly -> the soldiers fled."
+        self.assertFalse(_is_thinking_dump(text))  # Only 1 indicator
+
+    def test_paragraph_markers(self):
+        text = (
+            "Some translation text.\n"
+            "**Paragraph 1:**\n"
+            "More text.\n"
+            "**Paragraph 2:**\n"
+            "Even more.\n"
+            "**Paragraph 3:**\n"
+        )
+        self.assertTrue(_is_thinking_dump(text))
+
+    def test_empty(self):
+        self.assertFalse(_is_thinking_dump(""))
+
+    def test_none(self):
+        self.assertFalse(_is_thinking_dump(None))
+
+    def test_reasoning_phrases(self):
+        text = (
+            "Let me think about this translation.\n"
+            "I will check the glossary.\n"
+            "Given the context, I'll use Onda.\n"
+        )
+        self.assertTrue(_is_thinking_dump(text))
+
+    def test_mixed_clean_with_one_note(self):
+        """One parenthetical note shouldn't trigger."""
+        text = (
+            "The knight swung his sword.\n"
+            "(Note: this is a cultural reference)\n"
+            "The enemy fled in terror."
+        )
+        self.assertFalse(_is_thinking_dump(text))
+
+    def test_legitimate_annotation_not_flagged(self):
+        """^[annotation] style from the translation should be fine."""
+        text = (
+            'He said, "This is fifty-fifty^[A gaming meme meaning even odds]."\n'
+            "The old knight nodded and left."
+        )
+        self.assertFalse(_is_thinking_dump(text))
+
+
+# ================================================================
+# CROSS-CUTTING: Budget math invariants
+# ================================================================
+class TestBudgetInvariants(unittest.TestCase):
+    """Verify budget math holds across a range of glossary sizes."""
+
+    def test_budget_never_exceeds_context(self):
+        for gsize in [0, 100, 1000, 5000, 20000, 50000]:
+            glossary = "X" * gsize
+            max_in = _max_input_tokens(glossary)
+            out_budget = _output_token_budget(glossary)
+            g_tok = math.ceil(len(glossary) / AVG_CHARS_PER_TOKEN_EN)
+            total = max_in + out_budget + PROMPT_OVERHEAD_TOKENS + g_tok
+            self.assertLessEqual(
+                total,
+                CONTEXT_LIMIT,
+                f"Budget overflow at glossary size {gsize}: total={total}",
+            )
+
+    def test_max_input_monotonically_decreases(self):
+        prev = _max_input_tokens("")
+        for gsize in [100, 1000, 5000, 20000]:
+            curr = _max_input_tokens("X" * gsize)
+            self.assertLessEqual(
+                curr, prev, f"max_input increased at glossary size {gsize}"
+            )
+            prev = curr
+
+    def test_output_budget_positive(self):
+        for gsize in [0, 1000, 50000]:
+            self.assertGreater(_output_token_budget("X" * gsize), 0)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+--- END OF FILE: ./tests/test_chunking.py ---
 
 --- START OF FILE: ./tests/test_translation.py ---
 """Tests for glossary and title reformatting (gemini/grok translate modules)"""

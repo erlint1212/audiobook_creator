@@ -1,8 +1,8 @@
+import ast
 import json
 import math
 import os
 import re
-import sys
 import time
 
 from constants import *
@@ -41,8 +41,6 @@ DEFAULT_GLOSSARY = {
 # ==============================================================
 # Context Window Budget
 # ==============================================================
-def _estimate_zh_tokens(text):
-    return math.ceil(len(text) / AVG_CHARS_PER_TOKEN_ZH)
 
 
 def _max_input_tokens(glossary_json_str):
@@ -125,6 +123,218 @@ def _is_thinking_dump(text):
     if cjk_count > THINKING_DUMP_CJK_THRESHOLD:
         indicators += 3
     return indicators >= THINKING_DUMP_INDICATOR_THRESHOLD
+
+
+# ==============================================================
+# Robust JSON Repair
+# ==============================================================
+def _repair_json_string(raw):
+    """
+    Attempt to repair common JSON malformations from local LLMs.
+    By this point, thinking dumps have already been detected and retried —
+    this only handles legitimately malformed JSON.
+    Returns (parsed_dict, success_bool).
+    """
+    if not raw or not raw.strip():
+        return {}, False
+
+    text = raw.strip()
+
+    # 1. Strip markdown code fences
+    text = re.sub(r"```(?:json)?\s*", "", text, flags=re.DOTALL)
+    text = re.sub(r"\s*```", "", text)
+    text = text.strip()
+
+    # 2. Strip short preamble before the first '{'
+    #    (e.g. "Here is the JSON:\n{...")
+    first_brace = text.find("{")
+    if first_brace == -1:
+        return {}, False
+    text = text[first_brace:]
+
+    # 3. Find the matching closing brace (string-aware)
+    depth, end_pos = 0, -1
+    in_string = False
+    escape_next = False
+    for i, ch in enumerate(text):
+        if escape_next:
+            escape_next = False
+            continue
+        if ch == "\\":
+            escape_next = True
+            continue
+        if ch == '"' and not escape_next:
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                end_pos = i
+                break
+
+    if end_pos > 0:
+        text = text[: end_pos + 1]
+    elif depth > 0:
+        # Truncated JSON — try to close it
+        print(f"  [JSON Repair] Attempting to close truncated JSON (depth={depth})...")
+        text = re.sub(r',\s*"[^"]*$', "", text)  # remove trailing partial key
+        text = re.sub(r",\s*$", "", text)  # remove trailing comma
+        text += "}" * depth
+
+    # 4. Remove single-line comments (// ...)
+    text = re.sub(r"//[^\n]*", "", text)
+
+    # 5. Remove trailing commas before } or ]
+    text = re.sub(r",\s*([}\]])", r"\1", text)
+
+    # 6. Replace Python-style True/False/None with true/false/null
+    text = _replace_python_literals(text)
+
+    # 7. Remove control characters that break JSON (except normal whitespace)
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", text)
+
+    # --- Attempt 1: Direct parse ---
+    try:
+        parsed = json.loads(text)
+        if isinstance(parsed, dict):
+            return parsed, True
+    except json.JSONDecodeError:
+        pass
+
+    # --- Attempt 2: Replace single quotes with double quotes ---
+    try:
+        fixed = _single_to_double_quotes(text)
+        parsed = json.loads(fixed)
+        if isinstance(parsed, dict):
+            return parsed, True
+    except (json.JSONDecodeError, ValueError):
+        pass
+
+    # --- Attempt 3: Fix unquoted keys ---
+    try:
+        fixed = re.sub(
+            r"(?<=[\{,])\s*([a-zA-Z_][\w]*)\s*:",
+            r' "\1":',
+            text,
+        )
+        parsed = json.loads(fixed)
+        if isinstance(parsed, dict):
+            return parsed, True
+    except json.JSONDecodeError:
+        pass
+
+    # --- Attempt 4: ast.literal_eval for Python dict syntax ---
+    try:
+        parsed = ast.literal_eval(text)
+        if isinstance(parsed, dict):
+            return json.loads(json.dumps(parsed, ensure_ascii=False)), True
+    except (ValueError, SyntaxError):
+        pass
+
+    # --- Attempt 5: Line-by-line rescue ---
+    lines = text.split("\n")
+    for trim in range(1, min(5, len(lines))):
+        candidate = "\n".join(lines[:-trim])
+        open_count = candidate.count("{") - candidate.count("}")
+        if open_count > 0:
+            candidate += "}" * open_count
+        try:
+            parsed = json.loads(candidate)
+            if isinstance(parsed, dict):
+                return parsed, True
+        except json.JSONDecodeError:
+            continue
+
+    return {}, False
+
+
+def _replace_python_literals(s):
+    """Replace True/False/None with true/false/null outside quoted strings."""
+    result = []
+    i = 0
+    while i < len(s):
+        if s[i] == '"':
+            j = i + 1
+            while j < len(s):
+                if s[j] == "\\":
+                    j += 2
+                    continue
+                if s[j] == '"':
+                    j += 1
+                    break
+                j += 1
+            result.append(s[i:j])
+            i = j
+        else:
+            for py_val, js_val in [
+                ("True", "true"),
+                ("False", "false"),
+                ("None", "null"),
+            ]:
+                if s[i : i + len(py_val)] == py_val:
+                    before_ok = i == 0 or not s[i - 1].isalnum()
+                    after_ok = (
+                        i + len(py_val) >= len(s) or not s[i + len(py_val)].isalnum()
+                    )
+                    if before_ok and after_ok:
+                        result.append(js_val)
+                        i += len(py_val)
+                        break
+            else:
+                result.append(s[i])
+                i += 1
+    return "".join(result)
+
+
+def _single_to_double_quotes(text):
+    """
+    Replace single-quoted strings with double-quoted strings in JSON-like text.
+    Handles escaped quotes and mixed quoting.
+    """
+    result = []
+    i = 0
+    while i < len(text):
+        if text[i] == '"':
+            # Already a double-quoted string — skip it
+            result.append('"')
+            i += 1
+            while i < len(text):
+                if text[i] == "\\":
+                    result.append(text[i : i + 2])
+                    i += 2
+                    continue
+                result.append(text[i])
+                if text[i] == '"':
+                    i += 1
+                    break
+                i += 1
+        elif text[i] == "'":
+            # Single-quoted string — convert to double
+            result.append('"')
+            i += 1
+            while i < len(text):
+                if text[i] == "\\":
+                    result.append(text[i : i + 2])
+                    i += 2
+                    continue
+                if text[i] == "'":
+                    result.append('"')
+                    i += 1
+                    break
+                # Escape any unescaped double quotes inside
+                if text[i] == '"':
+                    result.append('\\"')
+                else:
+                    result.append(text[i])
+                i += 1
+        else:
+            result.append(text[i])
+            i += 1
+    return "".join(result)
 
 
 # ==============================================================
@@ -253,6 +463,45 @@ def _extract_translation_content(text):
 
 
 # ==============================================================
+# Thinking-Dump Detection for JSON Responses
+# ==============================================================
+def _is_json_thinking_dump(raw):
+    """
+    Detect if a response that should be JSON is actually a thinking dump.
+    Returns True if the model dumped its reasoning instead of outputting JSON.
+    """
+    if not raw or not raw.strip():
+        return True  # empty = failed
+
+    text = raw.strip()
+
+    # Strip tagged thinking (these are expected and fine — check what's left)
+    text = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL)
+    text = re.sub(r"<reasoning>.*?</reasoning>\s*", "", text, flags=re.DOTALL)
+    text = text.strip()
+
+    # If after stripping tags we have something starting with '{', it's not a dump
+    if text.startswith("{"):
+        return False
+
+    # If there's no '{' at all, it's definitely a dump
+    if "{" not in text:
+        return True
+
+    # There's a '{' somewhere but the response leads with reasoning text.
+    # Check how much preamble there is before the first '{'
+    first_brace = text.index("{")
+    preamble = text[:first_brace].strip()
+
+    # A short preamble like "Here is the JSON:" is tolerable
+    if len(preamble) < 80:
+        return False
+
+    # Long preamble = thinking dump
+    return True
+
+
+# ==============================================================
 # LM Studio API Call (with thinking dump retry)
 # ==============================================================
 def _call_lmstudio(
@@ -277,12 +526,36 @@ def _call_lmstudio(
             config = {"temperature": temperature}
             if max_tokens and max_tokens > 0:
                 config["maxTokens"] = max_tokens
+
+            # Force structured JSON output when we expect JSON.
+            # LM Studio applies grammar-level constraints so the model
+            # can only emit valid JSON tokens.
+            if expect_json:
+                config["responseFormat"] = {"type": "json_object"}
+
             result = model.respond(chat, config=config)
             raw = str(result) if result else ""
             if expect_json:
+                # Strip tagged thinking blocks (legitimate format)
                 raw = re.sub(r"<think>.*?</think>\s*", "", raw, flags=re.DOTALL)
                 raw = re.sub(r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL)
-                return raw.strip()
+                raw = raw.strip()
+
+                # Thinking dump detection → retry
+                if _is_json_thinking_dump(raw):
+                    if attempt < max_retries - 1:
+                        print(
+                            f"  ⚠ JSON thinking dump detected. "
+                            f"Retrying {attempt+1}/{max_retries} in {retry_delay}s..."
+                        )
+                        time.sleep(retry_delay)
+                        retry_delay *= 2
+                        continue
+                    else:
+                        print(
+                            f"  ⚠ JSON thinking dump on final attempt. Returning as-is."
+                        )
+                return raw
             else:
                 cleaned = _extract_translation_content(raw)
                 # Thinking dump detection → retry
@@ -305,7 +578,34 @@ def _call_lmstudio(
             if attempt == max_retries - 1:
                 return None
         except Exception as e:
-            print(f"  Error ({type(e).__name__}): {e}")
+            err_msg = str(e).lower()
+            # If the model/server doesn't support responseFormat, fall back
+            if expect_json and (
+                "responseformat" in err_msg
+                or "response_format" in err_msg
+                or "unsupported" in err_msg
+                or "not supported" in err_msg
+            ):
+                print(
+                    f"  [INFO] JSON mode not supported by this model, retrying without it..."
+                )
+                config.pop("responseFormat", None)
+                try:
+                    result = model.respond(chat, config=config)
+                    raw = str(result) if result else ""
+                    raw = re.sub(r"<think>.*?</think>\s*", "", raw, flags=re.DOTALL)
+                    raw = re.sub(
+                        r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL
+                    )
+                    raw = raw.strip()
+                    if not _is_json_thinking_dump(raw):
+                        return raw
+                    # Thinking dump — fall through to retry
+                    print(f"  ⚠ JSON thinking dump on fallback. Will retry...")
+                except Exception as e2:
+                    print(f"  Error on fallback ({type(e2).__name__}): {e2}")
+            else:
+                print(f"  Error ({type(e).__name__}): {e}")
             if attempt < max_retries - 1:
                 time.sleep(retry_delay)
                 retry_delay *= 2
@@ -376,7 +676,9 @@ def _glossary_pass(model, original_chinese):
         f"--- CHINESE TEXT ---\n{original_chinese}\n--- END ---"
     )
     system = (
-        "You are a data extractor. Output ONLY valid JSON. No markdown, no explanation."
+        "You are a data extractor. Output ONLY valid JSON. "
+        "No markdown, no explanation, no code fences. "
+        "Start your response with { and end with }."
     )
     print(f"  [Pass 1/2] Extracting glossary...")
     raw = _call_lmstudio(
@@ -389,47 +691,43 @@ def _glossary_pass(model, original_chinese):
         few_shot_assistant=few_shot_assistant,
     )
     if raw is None:
-        print(f"  [Pass 1/2] Glossary extraction failed.")
+        print(f"  [Pass 1/2] Glossary extraction failed (no response).")
         return {}
 
-    try:
-        cleaned = re.sub(r"```json\s*|\s*```", "", raw.strip(), flags=re.DOTALL).strip()
-        if not cleaned.startswith("{"):
-            m = re.search(r"\{.*\}", cleaned, re.DOTALL)
-            if m:
-                cleaned = m.group(0)
+    # Use the robust JSON repair pipeline
+    items, success = _repair_json_string(raw)
 
-        # Fix "Extra data" errors: trim after the matching closing brace
-        depth, end_pos = 0, -1
-        for i, ch in enumerate(cleaned):
-            if ch == "{":
-                depth += 1
-            elif ch == "}":
-                depth -= 1
-                if depth == 0:
-                    end_pos = i
-                    break
-        if end_pos > 0:
-            cleaned = cleaned[: end_pos + 1]
-
-        # Try parsing; on failure, fix single quotes → double quotes and retry
-        try:
-            items = json.loads(cleaned)
-        except json.JSONDecodeError:
-            cleaned = cleaned.replace("'", '"')
-            items = json.loads(cleaned)
-
-        if not isinstance(items, dict):
-            return {}
-        for key in DEFAULT_GLOSSARY:
-            if key not in items:
-                items[key] = {}
-        counts = [f"{len(items[k])} {k}" for k in DEFAULT_GLOSSARY if items.get(k)]
-        print(f"  [Pass 1/2] Extracted: {', '.join(counts) if counts else 'nothing'}.")
-        return items
-    except json.JSONDecodeError as e:
-        print(f"  [Pass 1/2] JSON parse failed: {e}")
+    if not success:
+        # Log the raw output so the user can diagnose which model is misbehaving
+        preview = raw[:300].replace("\n", "\\n")
+        print(f"  [Pass 1/2] JSON parse failed after all repair attempts.")
+        print(f"  [Pass 1/2] Raw preview: {preview}")
         return {}
+
+    if not isinstance(items, dict):
+        print(f"  [Pass 1/2] Parsed result is not a dict (got {type(items).__name__}).")
+        return {}
+
+    # Ensure all category keys exist
+    for key in DEFAULT_GLOSSARY:
+        if key not in items:
+            items[key] = {}
+
+    # Validate structure: each category should be a dict of dicts
+    for key in DEFAULT_GLOSSARY:
+        if not isinstance(items.get(key), dict):
+            print(f"  [Pass 1/2] Category '{key}' is not a dict, clearing it.")
+            items[key] = {}
+        else:
+            # Remove any entries that aren't dicts themselves
+            bad_keys = [k for k, v in items[key].items() if not isinstance(v, dict)]
+            for bk in bad_keys:
+                print(f"  [Pass 1/2] Removing malformed entry '{bk}' in '{key}'.")
+                del items[key][bk]
+
+    counts = [f"{len(items[k])} {k}" for k in DEFAULT_GLOSSARY if items.get(k)]
+    print(f"  [Pass 1/2] Extracted: {', '.join(counts) if counts else 'nothing'}.")
+    return items
 
 
 # ==============================================================
