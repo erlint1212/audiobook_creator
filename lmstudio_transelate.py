@@ -41,15 +41,10 @@ DEFAULT_GLOSSARY = {
 # ==============================================================
 # Context Window Budget
 # ==============================================================
-
-
 def _max_input_tokens(glossary_json_str):
     """How many tokens of Chinese source text we can fit."""
     glossary_tokens = math.ceil(len(glossary_json_str) / AVG_CHARS_PER_TOKEN_EN)
     available = int(CONTEXT_LIMIT * SAFETY_MARGIN)
-    # input_zh_tokens + output_en_tokens <= available - overhead - glossary
-    # output_tokens ≈ input_zh_tokens * OUTPUT_RATIO * (ZH/EN) ≈ input_zh_tokens * 0.94
-    # input_tokens * (1 + 0.94) <= budget  →  input_tokens <= budget / 1.94
     budget = available - PROMPT_OVERHEAD_TOKENS - glossary_tokens
     max_input = int(budget / 1.94)
     return max(200, max_input)
@@ -101,240 +96,230 @@ def chunk_for_context(text, glossary_json_str):
 
 
 # ==============================================================
-# Thinking Dump Detection
+# Strict Validation & Fallback Chunking
 # ==============================================================
-def _is_thinking_dump(text):
-    """Detect interleaved reasoning dumps vs clean translation."""
-    if not text:
-        return False
-    lines = text.split("\n")
-    indicators = 0
-    for line in lines:
-        if re.search(r".+\s*->\s*.+", line):
-            indicators += 1
-        if re.search(r"\((?:Note|Wait|Actually|Looking)", line):
-            indicators += 1
-        if re.search(r"\*\*Paragraph \d+", line):
-            indicators += 1
-        if re.search(r"(?:Let me|I will|I'll|Let's|Given the)", line):
-            indicators += 1
-    # CJK chars in output = source text leaking through
-    cjk_count = len(re.findall(r"[\u4e00-\u9fff]", text))
-    if cjk_count > THINKING_DUMP_CJK_THRESHOLD:
-        indicators += 3
-    return indicators >= THINKING_DUMP_INDICATOR_THRESHOLD
-
-
-# ==============================================================
-# Robust JSON Repair
-# ==============================================================
-def _repair_json_string(raw):
+def validate_clean_output(text, is_json=False):
     """
-    Attempt to repair common JSON malformations from local LLMs.
-    By this point, thinking dumps have already been detected and retried —
-    this only handles legitimately malformed JSON.
-    Returns (parsed_dict, success_bool).
+    Strictly checks the output. Throws ValueError if a thinking dump is detected.
     """
-    if not raw or not raw.strip():
-        return {}, False
-
-    text = raw.strip()
-
-    # 1. Strip markdown code fences
-    text = re.sub(r"```(?:json)?\s*", "", text, flags=re.DOTALL)
-    text = re.sub(r"\s*```", "", text)
     text = text.strip()
 
-    # 2. Strip short preamble before the first '{'
-    #    (e.g. "Here is the JSON:\n{...")
-    first_brace = text.find("{")
-    if first_brace == -1:
-        return {}, False
-    text = text[first_brace:]
+    # 1. JSON Strict Check
+    if is_json:
+        if not text.startswith(("{", "[")):
+            raise ValueError(
+                "Thinking dump detected: Output does not start with JSON brackets."
+            )
 
-    # 3. Find the matching closing brace (string-aware)
-    depth, end_pos = 0, -1
-    in_string = False
-    escape_next = False
-    for i, ch in enumerate(text):
-        if escape_next:
-            escape_next = False
-            continue
-        if ch == "\\":
-            escape_next = True
-            continue
-        if ch == '"' and not escape_next:
-            in_string = not in_string
-            continue
-        if in_string:
-            continue
-        if ch == "{":
-            depth += 1
-        elif ch == "}":
-            depth -= 1
-            if depth == 0:
-                end_pos = i
-                break
+    # 2. Conversational Filler Check
+    lower_text = text.lower()
+    thinking_triggers = [
+        "thinking process:",
+        "the user wants",
+        "i need to",
+        "here is the",
+        "certainly",
+        "sure,",
+        "let me",
+        "i will",
+        "i'll",
+        "analysis:",
+        "step-by-step:",
+    ]
 
-    if end_pos > 0:
-        text = text[: end_pos + 1]
-    elif depth > 0:
-        # Truncated JSON — try to close it
-        print(f"  [JSON Repair] Attempting to close truncated JSON (depth={depth})...")
-        text = re.sub(r',\s*"[^"]*$', "", text)  # remove trailing partial key
-        text = re.sub(r",\s*$", "", text)  # remove trailing comma
-        text += "}" * depth
+    for trigger in thinking_triggers:
+        if text.startswith(trigger) or (is_json and trigger in lower_text[:200]):
+            raise ValueError(
+                f"Thinking dump detected: Found trigger phrase '{trigger}'."
+            )
 
-    # 4. Remove single-line comments (// ...)
-    text = re.sub(r"//[^\n]*", "", text)
+    return text
 
-    # 5. Remove trailing commas before } or ]
-    text = re.sub(r",\s*([}\]])", r"\1", text)
 
-    # 6. Replace Python-style True/False/None with true/false/null
-    text = _replace_python_literals(text)
+def chunk_text(text, max_chars=1500):
+    """Splits text into smaller chunks by paragraphs for fallback processing."""
+    paragraphs = text.split("\n")
+    chunks = []
+    current_chunk = ""
 
-    # 7. Remove control characters that break JSON (except normal whitespace)
-    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", text)
+    for p in paragraphs:
+        if len(current_chunk) + len(p) > max_chars:
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+            current_chunk = p + "\n"
+        else:
+            current_chunk += p + "\n"
 
-    # --- Attempt 1: Direct parse ---
-    try:
-        parsed = json.loads(text)
-        if isinstance(parsed, dict):
-            return parsed, True
-    except json.JSONDecodeError:
-        pass
+    if current_chunk.strip():
+        chunks.append(current_chunk.strip())
+    return chunks
 
-    # --- Attempt 2: Replace single quotes with double quotes ---
-    try:
-        fixed = _single_to_double_quotes(text)
-        parsed = json.loads(fixed)
-        if isinstance(parsed, dict):
-            return parsed, True
-    except (json.JSONDecodeError, ValueError):
-        pass
 
-    # --- Attempt 3: Fix unquoted keys ---
-    try:
-        fixed = re.sub(
-            r"(?<=[\{,])\s*([a-zA-Z_][\w]*)\s*:",
-            r' "\1":',
-            text,
-        )
-        parsed = json.loads(fixed)
-        if isinstance(parsed, dict):
-            return parsed, True
-    except json.JSONDecodeError:
-        pass
+def call_lmstudio_api(
+    model,
+    system_prompt,
+    user_prompt,
+    temperature=0.2,
+    max_tokens=-1,
+    expect_json=False,
+    few_shot_user=None,
+    few_shot_assistant=None,
+):
+    """Base API caller."""
+    chat = lms.Chat(system_prompt)
+    if few_shot_user and few_shot_assistant:
+        chat.add_user_message(few_shot_user)
+        chat.add_assistant_response(few_shot_assistant)
+    chat.add_user_message(user_prompt)
 
-    # --- Attempt 4: ast.literal_eval for Python dict syntax ---
-    try:
-        parsed = ast.literal_eval(text)
-        if isinstance(parsed, dict):
-            return json.loads(json.dumps(parsed, ensure_ascii=False)), True
-    except (ValueError, SyntaxError):
-        pass
+    config = {"temperature": temperature}
+    if max_tokens and max_tokens > 0:
+        config["maxTokens"] = max_tokens
 
-    # --- Attempt 5: Line-by-line rescue ---
-    lines = text.split("\n")
-    for trim in range(1, min(5, len(lines))):
-        candidate = "\n".join(lines[:-trim])
-        open_count = candidate.count("{") - candidate.count("}")
-        if open_count > 0:
-            candidate += "}" * open_count
+    # Attempt to force structured JSON output if server supports it
+    if expect_json:
         try:
-            parsed = json.loads(candidate)
-            if isinstance(parsed, dict):
-                return parsed, True
-        except json.JSONDecodeError:
-            continue
+            config["responseFormat"] = {"type": "json_object"}
+        except Exception:
+            pass  # fallback if unsupported
 
-    return {}, False
-
-
-def _replace_python_literals(s):
-    """Replace True/False/None with true/false/null outside quoted strings."""
-    result = []
-    i = 0
-    while i < len(s):
-        if s[i] == '"':
-            j = i + 1
-            while j < len(s):
-                if s[j] == "\\":
-                    j += 2
-                    continue
-                if s[j] == '"':
-                    j += 1
-                    break
-                j += 1
-            result.append(s[i:j])
-            i = j
-        else:
-            for py_val, js_val in [
-                ("True", "true"),
-                ("False", "false"),
-                ("None", "null"),
-            ]:
-                if s[i : i + len(py_val)] == py_val:
-                    before_ok = i == 0 or not s[i - 1].isalnum()
-                    after_ok = (
-                        i + len(py_val) >= len(s) or not s[i + len(py_val)].isalnum()
-                    )
-                    if before_ok and after_ok:
-                        result.append(js_val)
-                        i += len(py_val)
-                        break
-            else:
-                result.append(s[i])
-                i += 1
-    return "".join(result)
+    result = model.respond(chat, config=config)
+    return str(result) if result else ""
 
 
-def _single_to_double_quotes(text):
+def process_with_retries(
+    model,
+    system_prompt,
+    user_prompt_template,
+    text_input,
+    is_json,
+    max_retries=1,
+    temperature=0.2,
+    max_tokens=-1,
+    few_shot_user=None,
+    few_shot_assistant=None,
+):
+    """Attempts to process text, retrying aggressively on failure. Returns None if all retries fail."""
+    retry_delay = 5
+
+    for attempt in range(max_retries):
+        try:
+            # Format the dynamic text into the prompt
+            user_prompt = user_prompt_template.format(text=text_input)
+
+            # Escalate pressure on subsequent attempts
+            if attempt > 0 and is_json:
+                user_prompt = (
+                    "/no_think\n"
+                    + user_prompt
+                    + "\n\nCRITICAL: Respond with ONLY valid JSON. Start with { immediately. No markdown."
+                )
+            elif attempt > 0:
+                user_prompt = (
+                    "/no_think\n"
+                    + user_prompt
+                    + "\n\nCRITICAL: Respond with ONLY the target text. No commentary."
+                )
+
+            raw_response = call_lmstudio_api(
+                model=model,
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                temperature=min(temperature + 0.1 * attempt, 0.5),
+                max_tokens=max_tokens,
+                expect_json=is_json,
+                few_shot_user=few_shot_user,
+                few_shot_assistant=few_shot_assistant,
+            )
+
+            # Fail fast if there's a thinking dump
+            validate_clean_output(raw_response, is_json=is_json)
+
+            if is_json:
+                return json.loads(raw_response)  # Will raise JSONDecodeError if invalid
+            return raw_response
+
+        except (ValueError, json.JSONDecodeError) as e:
+            print(
+                f"    ❌ FAILED: {e}. Discarding and restarting (Attempt {attempt+1}/{max_retries})."
+            )
+        except Exception as e:
+            print(f"    ❌ API Error: {e} (Attempt {attempt+1}/{max_retries}).")
+
+        if attempt < max_retries - 1:
+            time.sleep(retry_delay)
+            retry_delay *= 2
+
+    return None  # Failed after all retries
+
+
+def process_chapter_robustly(
+    model,
+    system_prompt,
+    user_prompt_template,
+    chapter_text,
+    is_json=False,
+    temperature=0.2,
+    max_tokens=-1,
+    few_shot_user=None,
+    few_shot_assistant=None,
+):
     """
-    Replace single-quoted strings with double-quoted strings in JSON-like text.
-    Handles escaped quotes and mixed quoting.
+    Main entry point for tasks. Tries full text, falls back to chunking if it keeps failing.
     """
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i] == '"':
-            # Already a double-quoted string — skip it
-            result.append('"')
-            i += 1
-            while i < len(text):
-                if text[i] == "\\":
-                    result.append(text[i : i + 2])
-                    i += 2
-                    continue
-                result.append(text[i])
-                if text[i] == '"':
-                    i += 1
-                    break
-                i += 1
-        elif text[i] == "'":
-            # Single-quoted string — convert to double
-            result.append('"')
-            i += 1
-            while i < len(text):
-                if text[i] == "\\":
-                    result.append(text[i : i + 2])
-                    i += 2
-                    continue
-                if text[i] == "'":
-                    result.append('"')
-                    i += 1
-                    break
-                # Escape any unescaped double quotes inside
-                if text[i] == '"':
-                    result.append('\\"')
-                else:
-                    result.append(text[i])
-                i += 1
+    result = process_with_retries(
+        model=model,
+        system_prompt=system_prompt,
+        user_prompt_template=user_prompt_template,
+        text_input=chapter_text,
+        is_json=is_json,
+        max_retries=3,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        few_shot_user=few_shot_user,
+        few_shot_assistant=few_shot_assistant,
+    )
+
+    if result is not None:
+        return result
+
+    print("  ⚠️ Continuous failures on full text. Falling back to chunking strategy...")
+    chunks = chunk_text(chapter_text, max_chars=1500)
+
+    if is_json:
+        combined_json = {k: {} for k in DEFAULT_GLOSSARY}
+    else:
+        combined_text = ""
+
+    for i, chunk in enumerate(chunks):
+        print(f"  -> Processing sub-chunk {i+1}/{len(chunks)}...")
+        chunk_result = process_with_retries(
+            model=model,
+            system_prompt=system_prompt,
+            user_prompt_template=user_prompt_template,
+            text_input=chunk,
+            is_json=is_json,
+            max_retries=4,  # Give sub-chunks slightly more retries
+            temperature=temperature,
+            max_tokens=max_tokens,
+            few_shot_user=few_shot_user,
+            few_shot_assistant=few_shot_assistant,
+        )
+
+        if chunk_result is None:
+            print(f"  [Fatal Error] Even sub-chunk {i+1} failed completely.")
+            return None
+
+        # Stitch results together
+        if is_json:
+            for key in combined_json.keys():
+                if key in chunk_result and isinstance(chunk_result[key], dict):
+                    combined_json[key].update(chunk_result[key])
         else:
-            result.append(text[i])
-            i += 1
-    return "".join(result)
+            combined_text += chunk_result + "\n\n"
+
+    print("  ✅ Successfully stitched all sub-chunks!")
+    return combined_json if is_json else combined_text.strip()
 
 
 # ==============================================================
@@ -407,214 +392,6 @@ def list_available_models(host=None):
 
 
 # ==============================================================
-# Extraction / Cleaning
-# ==============================================================
-def _extract_translation_content(text):
-    if not text:
-        return text
-    original_len = len(text)
-    text = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL)
-    text = re.sub(r"<reasoning>.*?</reasoning>\s*", "", text, flags=re.DOTALL)
-    thinking_headers = [
-        r"Thinking Process\s*:",
-        r"Analysis\s*:",
-        r"Let me (?:think|analyze|break)",
-        r"Step-by-step\s*:",
-        r"\d+\.\s+\*\*Analyze",
-        r"I'll (?:start|begin) by",
-        r"I need to (?:translate|analyze|consider)",
-        r"First,? (?:let me|I'll|I need)",
-        r"The user wants",
-        r"I need to follow",
-        r"\*\*Text Analysis",
-    ]
-    if re.match(rf"^\s*(?:{'|'.join(thinking_headers)})", text, re.IGNORECASE):
-        content_markers = [
-            r"\n---+\s*\n",
-            r"\nTranslation\s*:\s*\n",
-            r"\nFinal (?:Translation|Output)\s*:\s*\n",
-            r"\nChapter\s+\d+",
-            r"\n\u7b2c\s*\d+\s*\u7ae0",
-            r"\nHere is the translation:\s*\n",
-        ]
-        best_pos = -1
-        for marker in content_markers:
-            m = re.search(marker, text, re.IGNORECASE)
-            if m:
-                pos = (
-                    m.start() + 1
-                    if marker.startswith(r"\nChapter") or marker.startswith(r"\n\u7b2c")
-                    else m.end()
-                )
-                if best_pos == -1 or pos < best_pos:
-                    best_pos = pos
-        if best_pos > 0:
-            text = text[best_pos:]
-        else:
-            parts = text.split("\n\n", 1)
-            if len(parts) > 1:
-                print(f"  [DEBUG] Dropping first paragraph as assumed reasoning.")
-                text = parts[1]
-    text = text.strip()
-    stripped = original_len - len(text)
-    if stripped > 50:
-        print(f"  Extracted translation (stripped {stripped} chars of reasoning).")
-    return text
-
-
-# ==============================================================
-# Thinking-Dump Detection for JSON Responses
-# ==============================================================
-def _is_json_thinking_dump(raw):
-    """
-    Detect if a response that should be JSON is actually a thinking dump.
-    Returns True if the model dumped its reasoning instead of outputting JSON.
-    """
-    if not raw or not raw.strip():
-        return True  # empty = failed
-
-    text = raw.strip()
-
-    # Strip tagged thinking (these are expected and fine — check what's left)
-    text = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL)
-    text = re.sub(r"<reasoning>.*?</reasoning>\s*", "", text, flags=re.DOTALL)
-    text = text.strip()
-
-    # If after stripping tags we have something starting with '{', it's not a dump
-    if text.startswith("{"):
-        return False
-
-    # If there's no '{' at all, it's definitely a dump
-    if "{" not in text:
-        return True
-
-    # There's a '{' somewhere but the response leads with reasoning text.
-    # Check how much preamble there is before the first '{'
-    first_brace = text.index("{")
-    preamble = text[:first_brace].strip()
-
-    # A short preamble like "Here is the JSON:" is tolerable
-    if len(preamble) < 80:
-        return False
-
-    # Long preamble = thinking dump
-    return True
-
-
-# ==============================================================
-# LM Studio API Call (with thinking dump retry)
-# ==============================================================
-def _call_lmstudio(
-    model,
-    system_prompt,
-    user_prompt,
-    temperature=0.2,
-    max_tokens=-1,
-    expect_json=False,
-    few_shot_user=None,
-    few_shot_assistant=None,
-):
-    max_retries = 3
-    retry_delay = 10
-    for attempt in range(max_retries):
-        try:
-            chat = lms.Chat(system_prompt)
-            if few_shot_user and few_shot_assistant:
-                chat.add_user_message(few_shot_user)
-                chat.add_assistant_response(few_shot_assistant)
-            chat.add_user_message(user_prompt)
-            config = {"temperature": temperature}
-            if max_tokens and max_tokens > 0:
-                config["maxTokens"] = max_tokens
-
-            # Force structured JSON output when we expect JSON.
-            # LM Studio applies grammar-level constraints so the model
-            # can only emit valid JSON tokens.
-            if expect_json:
-                config["responseFormat"] = {"type": "json_object"}
-
-            result = model.respond(chat, config=config)
-            raw = str(result) if result else ""
-            if expect_json:
-                # Strip tagged thinking blocks (legitimate format)
-                raw = re.sub(r"<think>.*?</think>\s*", "", raw, flags=re.DOTALL)
-                raw = re.sub(r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL)
-                raw = raw.strip()
-
-                # Thinking dump detection → retry
-                if _is_json_thinking_dump(raw):
-                    if attempt < max_retries - 1:
-                        print(
-                            f"  ⚠ JSON thinking dump detected. "
-                            f"Retrying {attempt+1}/{max_retries} in {retry_delay}s..."
-                        )
-                        time.sleep(retry_delay)
-                        retry_delay *= 2
-                        continue
-                    else:
-                        print(
-                            f"  ⚠ JSON thinking dump on final attempt. Returning as-is."
-                        )
-                return raw
-            else:
-                cleaned = _extract_translation_content(raw)
-                # Thinking dump detection → retry
-                if _is_thinking_dump(cleaned):
-                    if attempt < max_retries - 1:
-                        print(
-                            f"  ⚠ Thinking dump detected. "
-                            f"Retrying {attempt+1}/{max_retries} in {retry_delay}s..."
-                        )
-                        time.sleep(retry_delay)
-                        retry_delay *= 2
-                        continue
-                    else:
-                        print(f"  ⚠ Thinking dump on final attempt. Returning as-is.")
-                return cleaned
-        except TimeoutError:
-            print(f"  Timeout. Retrying {attempt+1}/{max_retries} in {retry_delay}s...")
-            time.sleep(retry_delay)
-            retry_delay *= 2
-            if attempt == max_retries - 1:
-                return None
-        except Exception as e:
-            err_msg = str(e).lower()
-            # If the model/server doesn't support responseFormat, fall back
-            if expect_json and (
-                "responseformat" in err_msg
-                or "response_format" in err_msg
-                or "unsupported" in err_msg
-                or "not supported" in err_msg
-            ):
-                print(
-                    f"  [INFO] JSON mode not supported by this model, retrying without it..."
-                )
-                config.pop("responseFormat", None)
-                try:
-                    result = model.respond(chat, config=config)
-                    raw = str(result) if result else ""
-                    raw = re.sub(r"<think>.*?</think>\s*", "", raw, flags=re.DOTALL)
-                    raw = re.sub(
-                        r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL
-                    )
-                    raw = raw.strip()
-                    if not _is_json_thinking_dump(raw):
-                        return raw
-                    # Thinking dump — fall through to retry
-                    print(f"  ⚠ JSON thinking dump on fallback. Will retry...")
-                except Exception as e2:
-                    print(f"  Error on fallback ({type(e2).__name__}): {e2}")
-            else:
-                print(f"  Error ({type(e).__name__}): {e}")
-            if attempt < max_retries - 1:
-                time.sleep(retry_delay)
-                retry_delay *= 2
-            else:
-                return None
-    return None
-
-
-# ==============================================================
 # Pass 1: Glossary Extraction
 # ==============================================================
 def _glossary_pass(model, original_chinese):
@@ -655,7 +432,7 @@ def _glossary_pass(model, original_chinese):
         },
         ensure_ascii=False,
     )
-    prompt = (
+    prompt_template = (
         "You are a named entity extraction assistant for Chinese fantasy/web novels.\n"
         "Given the Chinese text below, extract ALL named entities and provide English translations.\n\n"
         "CATEGORIES:\n"
@@ -673,56 +450,39 @@ def _glossary_pass(model, original_chinese):
         "- \u65cf (race) / \u79cd (species) \u2192 SPECIES. But \u65cf as family/clan \u2192 ORGANIZATION.\n\n"
         "Return JSON with all six keys. Empty objects for empty categories.\n"
         "ONLY the JSON. No markdown, no explanation.\n\n"
-        f"--- CHINESE TEXT ---\n{original_chinese}\n--- END ---"
+        "--- CHINESE TEXT ---\n{text}\n--- END ---"
     )
     system = (
         "You are a data extractor. Output ONLY valid JSON. "
         "No markdown, no explanation, no code fences. "
         "Start your response with { and end with }."
     )
+
     print(f"  [Pass 1/2] Extracting glossary...")
-    raw = _call_lmstudio(
-        model,
-        system,
-        prompt,
+
+    items = process_chapter_robustly(
+        model=model,
+        system_prompt=system,
+        user_prompt_template=prompt_template,
+        chapter_text=original_chinese,
+        is_json=True,
         temperature=0.1,
-        expect_json=True,
         few_shot_user=few_shot_user,
         few_shot_assistant=few_shot_assistant,
     )
-    if raw is None:
-        print(f"  [Pass 1/2] Glossary extraction failed (no response).")
+
+    if not items:
+        print(f"  [Pass 1/2] Glossary extraction completely failed.")
         return {}
 
-    # Use the robust JSON repair pipeline
-    items, success = _repair_json_string(raw)
-
-    if not success:
-        # Log the raw output so the user can diagnose which model is misbehaving
-        preview = raw[:300].replace("\n", "\\n")
-        print(f"  [Pass 1/2] JSON parse failed after all repair attempts.")
-        print(f"  [Pass 1/2] Raw preview: {preview}")
-        return {}
-
-    if not isinstance(items, dict):
-        print(f"  [Pass 1/2] Parsed result is not a dict (got {type(items).__name__}).")
-        return {}
-
-    # Ensure all category keys exist
+    # Ensure all category keys exist and are dicts
     for key in DEFAULT_GLOSSARY:
-        if key not in items:
-            items[key] = {}
-
-    # Validate structure: each category should be a dict of dicts
-    for key in DEFAULT_GLOSSARY:
-        if not isinstance(items.get(key), dict):
-            print(f"  [Pass 1/2] Category '{key}' is not a dict, clearing it.")
+        if key not in items or not isinstance(items.get(key), dict):
             items[key] = {}
         else:
             # Remove any entries that aren't dicts themselves
             bad_keys = [k for k, v in items[key].items() if not isinstance(v, dict)]
             for bk in bad_keys:
-                print(f"  [Pass 1/2] Removing malformed entry '{bk}' in '{key}'.")
                 del items[key][bk]
 
     counts = [f"{len(items[k])} {k}" for k in DEFAULT_GLOSSARY if items.get(k)]
@@ -750,7 +510,7 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
         'you all retreat first."\n'
         "The old knight nodded and turned to leave."
     )
-    prompt = (
+    prompt_template = (
         f"You are an expert Chinese-to-English translator.\n"
         f"Translate the Chinese text below into high-quality, natural-sounding {target_language}.\n\n"
         f"RULES:\n"
@@ -773,7 +533,7 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
         f"- Anything where the English already conveys the meaning\n\n"
         f"When in doubt, DO NOT annotate. Zero annotations per chapter is fine.\n\n"
         f"GLOSSARY:\n{glossary_json_str}\n\n"
-        f"--- CHINESE TEXT ---\n{text_to_translate}\n--- END ---\n\n"
+        f"--- CHINESE TEXT ---\n{{text}}\n--- END ---\n\n"
         f"Output ONLY the translated text. No reasoning, no commentary."
     )
     system = (
@@ -782,25 +542,22 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
     )
     output_budget = _output_token_budget(glossary_json_str)
     print(f"  [Pass 2/2] Translating (max_tokens={output_budget})...")
-    raw = _call_lmstudio(
-        model,
-        system,
-        prompt,
+
+    translation = process_chapter_robustly(
+        model=model,
+        system_prompt=system,
+        user_prompt_template=prompt_template,
+        chapter_text=text_to_translate,
+        is_json=False,
         temperature=0.2,
         max_tokens=output_budget,
         few_shot_user=few_shot_user,
         few_shot_assistant=few_shot_assistant,
     )
-    if raw is None:
+
+    if not translation:
         return None
-    if raw == "":
-        return None
-    translation = re.sub(
-        r"^(Here is|Here's|Below is|The translation)[^\n]*\n+",
-        "",
-        raw.strip(),
-        flags=re.IGNORECASE,
-    ).strip()
+
     print(f"  [Pass 2/2] Translation complete ({len(translation)} chars).")
     return translation
 
@@ -827,8 +584,9 @@ def translate_text_with_lmstudio(
 
     print(f"Translating with '{model_name}' ({len(text_to_translate)} chars)...")
 
-    # Single glossary pass on full text
+    # Single glossary pass on full text (which now falls back to chunking if it fails)
     new_glossary_items = _glossary_pass(model, text_to_translate)
+
     filtered_new = {key: {} for key in DEFAULT_GLOSSARY}
     for cat in DEFAULT_GLOSSARY:
         for name, details in new_glossary_items.get(cat, {}).items():
@@ -838,15 +596,18 @@ def translate_text_with_lmstudio(
 
     combined = json.dumps(filtered_glossary, ensure_ascii=False, separators=(",", ":"))
 
-    # Chunk for context window, translate each
+    # Chunk for context window (Token Budget), translate each
     chunks = chunk_for_context(text_to_translate, combined)
     translations = []
+
     for j, chunk in enumerate(chunks):
         if len(chunks) > 1:
-            print(f"  Chunk {j+1}/{len(chunks)} ({len(chunk)} chars)...")
+            print(f"  Context Chunk {j+1}/{len(chunks)} ({len(chunk)} chars)...")
+
         t = _translate_pass(model, chunk, combined, target_language)
+
         if t is None:
-            return f"[Translation Error - chunk {j+1} failed]", {}
+            return f"[Translation Error - chunk {j+1} failed completely]", {}
         translations.append(t)
 
     return "\n\n".join(translations), filtered_new
