@@ -20,6 +20,7 @@ except ImportError:
 # --- Configuration (GUI passes these via environment variables) ---
 INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "01_Raw_Text")
 OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "02_Translated")
+LOG_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "..")
 LMSTUDIO_HOST = os.getenv("LMSTUDIO_HOST", "localhost:1234")
 LMSTUDIO_MODEL_NAME = os.getenv("LMSTUDIO_MODEL_NAME", "")
 API_TIMEOUT_SECONDS = 600
@@ -39,6 +40,31 @@ DEFAULT_GLOSSARY = {
 
 
 # ==============================================================
+# Cutoff Detection
+# ==============================================================
+def is_abrupt_cutoff(text):
+    """
+    Checks if the text ends with a proper punctuation mark.
+    Returns True if it appears to be cut off abruptly.
+    """
+    if not text:
+        return True
+
+    clean_text = text.strip()
+    if not clean_text:
+        return True
+
+    # Matches common terminal punctuation, optionally followed by closing quotes or brackets
+    # Also includes Chinese punctuation just in case
+    match = re.search(r"[.!?~…—*。！？][\"\'”’\)\]】》]*$", clean_text)
+
+    if not match:
+        return True
+
+    return False
+
+
+# ==============================================================
 # Context Window Budget
 # ==============================================================
 def _max_input_tokens(glossary_json_str):
@@ -47,7 +73,8 @@ def _max_input_tokens(glossary_json_str):
     available = int(CONTEXT_LIMIT * SAFETY_MARGIN)
     budget = available - PROMPT_OVERHEAD_TOKENS - glossary_tokens
     max_input = int(budget / 1.94)
-    return max(200, max_input)
+    safe_max_input = min(max_input, 2500)
+    return max(200, safe_max_input)
 
 
 def _output_token_budget(glossary_json_str):
@@ -96,41 +123,71 @@ def chunk_for_context(text, glossary_json_str):
 
 
 # ==============================================================
-# Strict Validation & Fallback Chunking
+# Thinking-Block Extraction & Validation
 # ==============================================================
+THINKING_PREFIXES = (
+    "thinking process:",
+    "the user wants",
+    "i need to",
+    "here is the",
+    "certainly",
+    "sure,",
+    "let me",
+    "i will",
+    "i'll",
+    "analysis:",
+    "step-by-step:",
+    "<think>",
+)
+
+
+def extract_model_output(raw_text):
+    """
+    Handles LM Studio leaking <think> blocks into the API response.
+
+    - If '</think>' is found, returns the content after it (the real output).
+    - If thinking patterns are detected but NO '</think>', the model ran out
+      of tokens mid-thought and never produced output — raises ValueError.
+    - If no thinking is detected, returns the text as-is.
+    """
+    raw_text = raw_text.strip()
+    if not raw_text:
+        raise ValueError("Empty response from model.")
+
+    # Check for </think> boundary
+    think_end_idx = raw_text.rfind("</think>")
+    if think_end_idx != -1:
+        payload = raw_text[think_end_idx + len("</think>") :].strip()
+        if not payload:
+            raise ValueError(
+                "Thinking block present with </think> tag, but no output after it."
+            )
+        return payload
+
+    # No </think> tag — check if this looks like a thinking dump without closure
+    lower_start = raw_text[:200].lower()
+    for prefix in THINKING_PREFIXES:
+        if lower_start.startswith(prefix):
+            raise ValueError(
+                f"Incomplete thinking dump (no </think> found). "
+                f"Model likely ran out of tokens during reasoning."
+            )
+
+    # No thinking detected — return as-is
+    return raw_text
+
+
 def validate_clean_output(text, is_json=False):
     """
-    Strictly checks the output. Throws ValueError if a thinking dump is detected.
+    Extracts real output from behind any thinking block, then validates it.
+    Raises ValueError on failure.
     """
-    text = text.strip()
+    text = extract_model_output(text)
 
-    # 1. JSON Strict Check
     if is_json:
         if not text.startswith(("{", "[")):
             raise ValueError(
-                "Thinking dump detected: Output does not start with JSON brackets."
-            )
-
-    # 2. Conversational Filler Check
-    lower_text = text.lower()
-    thinking_triggers = [
-        "thinking process:",
-        "the user wants",
-        "i need to",
-        "here is the",
-        "certainly",
-        "sure,",
-        "let me",
-        "i will",
-        "i'll",
-        "analysis:",
-        "step-by-step:",
-    ]
-
-    for trigger in thinking_triggers:
-        if text.startswith(trigger) or (is_json and trigger in lower_text[:200]):
-            raise ValueError(
-                f"Thinking dump detected: Found trigger phrase '{trigger}'."
+                f"Output does not start with JSON brackets. Starts with: {repr(text[:60])}"
             )
 
     return text
@@ -176,13 +233,6 @@ def call_lmstudio_api(
     if max_tokens and max_tokens > 0:
         config["maxTokens"] = max_tokens
 
-    # Attempt to force structured JSON output if server supports it
-    if expect_json:
-        try:
-            config["responseFormat"] = {"type": "json_object"}
-        except Exception:
-            pass  # fallback if unsupported
-
     result = model.respond(chat, config=config)
     return str(result) if result else ""
 
@@ -198,51 +248,43 @@ def process_with_retries(
     max_tokens=-1,
     few_shot_user=None,
     few_shot_assistant=None,
+    check_cutoff=False,  # Added parameter here
 ):
-    """Attempts to process text, retrying aggressively on failure. Returns None if all retries fail."""
+    """Attempts to process text, retrying on failure. Returns None if all retries fail."""
     retry_delay = 5
 
     for attempt in range(max_retries):
         try:
-            # Format the dynamic text into the prompt
-            user_prompt = user_prompt_template.format(text=text_input)
-
-            # Escalate pressure on subsequent attempts
-            if attempt > 0 and is_json:
-                user_prompt = (
-                    "/no_think\n"
-                    + user_prompt
-                    + "\n\nCRITICAL: Respond with ONLY valid JSON. Start with { immediately. No markdown."
-                )
-            elif attempt > 0:
-                user_prompt = (
-                    "/no_think\n"
-                    + user_prompt
-                    + "\n\nCRITICAL: Respond with ONLY the target text. No commentary."
-                )
+            user_prompt = user_prompt_template.replace("{text}", text_input)
 
             raw_response = call_lmstudio_api(
                 model=model,
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
-                temperature=min(temperature + 0.1 * attempt, 0.5),
+                temperature=temperature,
                 max_tokens=max_tokens,
                 expect_json=is_json,
                 few_shot_user=few_shot_user,
                 few_shot_assistant=few_shot_assistant,
             )
 
-            # Fail fast if there's a thinking dump
-            validate_clean_output(raw_response, is_json=is_json)
+            # Extract real output from behind any thinking block, then validate
+            cleaned = validate_clean_output(raw_response, is_json=is_json)
 
             if is_json:
-                return json.loads(raw_response)  # Will raise JSONDecodeError if invalid
-            return raw_response
+                return json.loads(cleaned)
+
+            # Perform Cutoff Check on standard text if requested
+            if check_cutoff and not is_json:
+                if is_abrupt_cutoff(cleaned):
+                    raise ValueError(
+                        "Abrupt cutoff detected in generated text (missing terminal punctuation)."
+                    )
+
+            return cleaned
 
         except (ValueError, json.JSONDecodeError) as e:
-            print(
-                f"    ❌ FAILED: {e}. Discarding and restarting (Attempt {attempt+1}/{max_retries})."
-            )
+            print(f"    ❌ FAILED: {e} (Attempt {attempt+1}/{max_retries}).")
         except Exception as e:
             print(f"    ❌ API Error: {e} (Attempt {attempt+1}/{max_retries}).")
 
@@ -263,6 +305,7 @@ def process_chapter_robustly(
     max_tokens=-1,
     few_shot_user=None,
     few_shot_assistant=None,
+    check_cutoff=False,  # Passed down from caller
 ):
     """
     Main entry point for tasks. Tries full text, falls back to chunking if it keeps failing.
@@ -278,6 +321,7 @@ def process_chapter_robustly(
         max_tokens=max_tokens,
         few_shot_user=few_shot_user,
         few_shot_assistant=few_shot_assistant,
+        check_cutoff=check_cutoff,
     )
 
     if result is not None:
@@ -304,6 +348,7 @@ def process_chapter_robustly(
             max_tokens=max_tokens,
             few_shot_user=few_shot_user,
             few_shot_assistant=few_shot_assistant,
+            check_cutoff=check_cutoff,
         )
 
         if chunk_result is None:
@@ -469,6 +514,7 @@ def _glossary_pass(model, original_chinese):
         temperature=0.1,
         few_shot_user=few_shot_user,
         few_shot_assistant=few_shot_assistant,
+        check_cutoff=False,  # No cutoff check for JSON
     )
 
     if not items:
@@ -511,37 +557,27 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
         "The old knight nodded and turned to leave."
     )
     prompt_template = (
-        f"You are an expert Chinese-to-English translator.\n"
-        f"Translate the Chinese text below into high-quality, natural-sounding {target_language}.\n\n"
-        f"RULES:\n"
+        f"You are an expert Chinese-to-English translator for a fantasy web novel.\n"
+        f"Translate the Chinese text below into high-quality, natural-sounding {target_language} prose. It should read like a published English novel.\n\n"
+        f"CRITICAL RULES:\n"
+        f"- ABSOLUTELY NO CHINESE CHARACTERS in the final output. You must translate everything into English.\n"
+        f"- Do NOT use parentheses like 'word (translation)' to explain things.\n"
         f"- Use 'english_name' from the glossary below for all known names.\n"
-        f"- Pronouns: Chinese often omits them. Infer from context.\n"
-        f"- Titles: Translate \u8001\u7237\u5b50, \u5e08\u5144, \u5144\u5f1f etc. contextually, not literally.\n\n"
-        f"ANNOTATION RULES \u2014 BE EXTREMELY SELECTIVE:\n"
-        f"Only annotate with ^[explanation] for things genuinely obscure to non-Chinese readers.\n\n"
-        f"DO annotate:\n"
-        f"- Internet memes/slang with no English equivalent (\u4e94\u4e94\u5f00, \u67e0\u6aac\u7cbe, 996, \u8eba\u5e73)\n"
-        f"- Homophonic puns where the joke is lost in translation\n"
-        f"- References to specific Chinese pop culture, history, or social media\n"
-        f"- Idioms kept literal for style where meaning is non-obvious\n\n"
-        f"DO NOT annotate:\n"
-        f"- Standard idioms already translated into natural English\n"
-        f"- Words clear from context ('demon race', 'knight order', 'magic array')\n"
-        f"- Character names, place names, or titles\n"
-        f"- Common expressions, greetings, emotional reactions\n"
-        f"- Self-explanatory fantasy/cultivation terms\n"
-        f"- Anything where the English already conveys the meaning\n\n"
-        f"When in doubt, DO NOT annotate. Zero annotations per chapter is fine.\n\n"
+        f"- Pronouns: Chinese often omits them. Infer carefully from context so it sounds natural.\n"
+        f"- Smooth out clunky idioms. If a literal translation sounds weird in English, adapt the meaning into natural English phrasing.\n\n"
+        f"ANNOTATION RULES:\n"
+        f"Only annotate with ^[explanation] for things genuinely obscure to non-Chinese readers (like specific internet memes). Do NOT annotate standard vocabulary.\n\n"
         f"GLOSSARY:\n{glossary_json_str}\n\n"
         f"--- CHINESE TEXT ---\n{{text}}\n--- END ---\n\n"
         f"Output ONLY the translated text. No reasoning, no commentary."
     )
+
     system = (
         "You are a professional translation engine. Output ONLY the final English translation. "
-        "No reasoning, no chain of thought, no meta-commentary. Start immediately with the translation."
+        "Absolutely no Chinese characters are allowed in the output."
     )
-    output_budget = _output_token_budget(glossary_json_str)
-    print(f"  [Pass 2/2] Translating (max_tokens={output_budget})...")
+
+    print(f"  [Pass 2/2] Translating (Infinite output for Reasoning Model)...")
 
     translation = process_chapter_robustly(
         model=model,
@@ -549,10 +585,11 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
         user_prompt_template=prompt_template,
         chapter_text=text_to_translate,
         is_json=False,
-        temperature=0.2,
-        max_tokens=output_budget,
+        temperature=0.4,
+        max_tokens=-1,
         few_shot_user=few_shot_user,
         few_shot_assistant=few_shot_assistant,
+        check_cutoff=True,
     )
 
     if not translation:
@@ -700,7 +737,7 @@ def process_files_for_translation():
             print(f"Saved: {out_path}")
             save_glossary_to_json(glossary_path, glossary_data)
 
-            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME)
+            log_chapter_translation(LOG_OUTPUT_DIR, filename, LMSTUDIO_MODEL_NAME)
 
             if i < len(files) - 1:
                 time.sleep(1.0)
@@ -709,7 +746,7 @@ def process_files_for_translation():
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(f"[ERROR PROCESSING FILE: {e}]")
 
-            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME, f"Error: {e}")
+            log_chapter_translation(LOG_OUTPUT_DIR, filename, LMSTUDIO_MODEL_NAME, f"Error: {e}")
 
     print(f"\n--- Translation Run Summary ---")
     print(f"Total: {len(files)} files checked")

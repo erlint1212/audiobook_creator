@@ -28,21 +28,30 @@ Project Directory Structure:
     context_builder.py
     .gitignore
     shell.nix
+    detect_cutoff_chapters.py
+    auto_cleaner.py
     pipe_system_gui.py
     Novels/
         icon.svg
         prompts.md
         The_Blood_Princess_And_The_Knight/
+            translation_glossary copy (1).json
             The_Blood_Princess_And_The_Knight.epub
             failed_chunks.log
+            gloss_deduplicator.py
+            translation_history.csv
             translation_glossary.json
+            find_repeats.py
             custom_scraper.py
             metadata.json
             custom_scraper_old.py
             translation_glossary copy.json
             cover.jpg
+            translation_glossary.json.bak
+            early_cutoff_chapters.json
             HQ.md
             03_Audio_WAV/
+                ch_0499.wav
                 ch_0398.wav
                 ch_0097.wav
                 ch_0376.wav
@@ -51,7 +60,9 @@ Project Directory Structure:
                 ch_0379.wav
                 ch_0290.wav
                 ch_0197.wav
+                ch_0502.wav
                 ch_0076.wav
+                ch_0492.wav
                 ch_0208.wav
                 ch_0086.wav
                 ch_0309.wav
@@ -59,6 +70,7 @@ Project Directory Structure:
                 ch_0473.wav
                 ch_0418.wav
                 ch_0231.wav
+                ch_0483.wav
                 ch_0200.wav
                 ch_0239.wav
                 ch_0375.wav
@@ -73,6 +85,7 @@ Project Directory Structure:
                 ch_0430.wav
                 ch_0467.wav
                 ch_0217.wav
+                ch_0479.wav
                 ch_0037.wav
                 ch_0287.wav
                 ch_0364.wav
@@ -82,12 +95,14 @@ Project Directory Structure:
                 ch_0380.wav
                 ch_0221.wav
                 ch_0317.wav
+                ch_0507.wav
                 ch_0072.wav
                 ch_0193.wav
                 ch_0154.wav
                 ch_0143.wav
                 ch_0301.wav
                 ch_0125.wav
+                ch_0409.wav
                 ch_0330.wav
                 ch_0212.wav
                 ch_0026.wav
@@ -106,6 +121,9 @@ Project Directory Structure:
                 ch_0003.wav
                 ch_0310.wav
                 ch_0302.wav
+                ch_0497.wav
+                ch_0486.wav
+                ch_0459.wav
                 ch_0391.wav
                 ch_0146.wav
                 ch_0052.wav
@@ -119,6 +137,7 @@ Project Directory Structure:
                 ch_0382.wav
                 ch_0131.wav
                 ch_0220.wav
+                ch_0506.wav
                 ch_0256.wav
                 ch_0261.wav
                 ch_0308.wav
@@ -133,6 +152,7 @@ Project Directory Structure:
                 ch_0119.wav
                 ch_0264.wav
                 ch_0401.wav
+                ch_0495.wav
                 ch_0153.wav
                 ch_0073.wav
                 ch_0116.wav
@@ -159,12 +179,14 @@ Project Directory Structure:
                 ch_0260.wav
                 ch_0472.wav
                 ch_0392.wav
+                ch_0480.wav
                 ch_0047.wav
                 ch_0058.wav
                 ch_0303.wav
                 ch_0170.wav
                 ch_0172.wav
                 ch_0045.wav
+                ch_0491.wav
                 ch_0150.wav
                 ch_0041.wav
                 ch_0014.wav
@@ -172,7 +194,10 @@ Project Directory Structure:
                 ch_0255.wav
                 ch_0177.wav
                 ch_0465.wav
+                ch_0504.wav
                 ch_0396.wav
+                ch_0510.wav
+                ch_0503.wav
                 ch_0236.wav
                 ch_0389.wav
                 ch_0393.wav
@@ -184,7 +209,10 @@ Project Directory Structure:
                 ch_0383.wav
                 ch_0291.wav
                 ch_0394.wav
+                ch_0487.wav
+                ch_0456.wav
                 ch_0171.wav
+                ch_0474.wav
                 ch_0368.wav
                 ch_0188.wav
                 ch_0422.wav
@@ -209,6 +237,7 @@ Project Directory Structure:
                 ch_0286.wav
                 ch_0181.wav
                 ch_0411.wav
+                ch_0488.wav
                 ch_0043.wav
                 ch_0056.wav
                 ch_0441.wav
@@ -223,7 +252,9 @@ Project Directory Structure:
                 ch_0424.wav
                 ch_0305.wav
                 ch_0408.wav
+                ch_0493.wav
                 ch_0246.wav
+                ch_0481.wav
                 ch_0446.wav
                 ch_0099.wav
                 ch_0101.wav
@@ -272,6 +303,7 @@ Project Directory Structure:
                 ch_0348.wav
                 ch_0349.wav
                 ch_0215.wav
+                ch_0451.wav
                 ch_0313.wav
                 ch_0025.wav
                 ch_0206.wav
@@ -295,6 +327,7 @@ Project Directory Structure:
                 ch_0327.wav
                 ch_0152.wav
                 ch_0419.wav
+                ch_0476.wav
                 ch_0075.wav
                 ch_0067.wav
                 ch_0203.wav
@@ -307,14 +340,18 @@ Project Directory Structure:
                 ch_0417.wav
                 ch_0363.wav
                 ch_0414.wav
+                ch_0508.wav
                 ch_0002.wav
+                ch_0452.wav
                 ch_0278.wav
                 ch_0333.wav
                 ch_0470.wav
                 ch_0269.wav
                 ch_0332.wav
+                ch_0484.wav
                 ch_0098.wav
                 ch_0377.wav
+                ch_0511.wav
                 ch_0117.wav
                 ch_0463.wav
                 ch_0022.wav
@@ -349,7 +386,9 @@ Project Directory Structure:
                 ch_0051.wav
                 ch_0381.wav
                 ch_0425.wav
+                ch_0478.wav
                 ch_0350.wav
+                ch_0477.wav
                 ch_0345.wav
                 ch_0324.wav
                 ch_0129.wav
@@ -366,6 +405,7 @@ Project Directory Structure:
                 ch_0228.wav
                 ch_0293.wav
                 ch_0168.wav
+                ch_0501.wav
                 ch_0213.wav
                 ch_0031.wav
                 ch_0429.wav
@@ -378,6 +418,7 @@ Project Directory Structure:
                 ch_0066.wav
                 ch_0285.wav
                 ch_0147.wav
+                ch_0505.wav
                 ch_0397.wav
                 ch_0040.wav
                 ch_0252.wav
@@ -413,6 +454,7 @@ Project Directory Structure:
                 ch_0294.wav
                 ch_0242.wav
                 ch_0036.wav
+                ch_0490.wav
                 ch_0306.wav
                 ch_0084.wav
                 ch_0144.wav
@@ -430,22 +472,27 @@ Project Directory Structure:
                 ch_0033.wav
                 ch_0346.wav
                 ch_0122.wav
+                ch_0509.wav
                 ch_0328.wav
                 ch_0068.wav
+                ch_0498.wav
                 ch_0010.wav
                 ch_0373.wav
                 ch_0410.wav
+                ch_0496.wav
                 ch_0204.wav
                 ch_0338.wav
                 ch_0071.wav
                 ch_0063.wav
                 ch_0019.wav
+                ch_0494.wav
                 ch_0431.wav
                 ch_0460.wav
                 ch_0108.wav
                 ch_0130.wav
                 ch_0183.wav
                 ch_0184.wav
+                ch_0485.wav
                 ch_0102.wav
                 ch_0355.wav
                 ch_0351.wav
@@ -488,9 +535,12 @@ Project Directory Structure:
                 ch_0457.wav
                 ch_0011.wav
                 ch_0337.wav
+                ch_0489.wav
+                ch_0482.wav
                 ch_0214.wav
                 ch_0080.wav
                 ch_0089.wav
+                ch_0500.wav
                 ch_0466.wav
                 ch_0420.wav
                 ch_0386.wav
@@ -508,12 +558,14 @@ Project Directory Structure:
                 ch_0444.wav
                 ch_0230.wav
                 ch_0277.wav
+                ch_0445.wav
                 ch_0321.wav
                 ch_0245.wav
                 ch_0222.wav
             02_Translated/
                 ch_0188.txt
                 ch_0102.txt
+                ch_0619.txt
                 ch_0263.txt
                 ch_0109.txt
                 ch_0338.txt
@@ -529,14 +581,19 @@ Project Directory Structure:
                 ch_0376.txt
                 ch_0302.txt
                 ch_0437.txt
+                ch_0630.txt
                 ch_0399.txt
                 ch_0270.txt
+                ch_0593.txt
                 ch_0415.txt
                 ch_0475.txt
                 ch_0474.txt
                 ch_0092.txt
+                ch_0514.txt
                 ch_0218.txt
+                ch_0581.txt
                 ch_0336.txt
+                ch_0620.txt
                 ch_0077.txt
                 ch_0460.txt
                 ch_0435.txt
@@ -544,27 +601,34 @@ Project Directory Structure:
                 ch_0278.txt
                 ch_0125.txt
                 ch_0088.txt
+                ch_0563.txt
                 ch_0421.txt
                 ch_0144.txt
                 ch_0311.txt
+                ch_0624.txt
                 ch_0329.txt
                 ch_0281.txt
                 ch_0224.txt
                 ch_0347.txt
                 ch_0062.txt
+                ch_0505.txt
                 ch_0185.txt
                 ch_0153.txt
                 ch_0382.txt
                 ch_0058.txt
                 ch_0358.txt
+                ch_0518.txt
                 ch_0271.txt
                 ch_0233.txt
                 ch_0134.txt
                 ch_0416.txt
+                ch_0503.txt
                 ch_0166.txt
                 ch_0130.txt
+                ch_0591.txt
                 ch_0198.txt
                 ch_0146.txt
+                ch_0510.txt
                 ch_0315.txt
                 ch_0067.txt
                 ch_0049.txt
@@ -577,6 +641,8 @@ Project Directory Structure:
                 ch_0397.txt
                 ch_0009.txt
                 ch_0097.txt
+                ch_0601.txt
+                ch_0589.txt
                 ch_0138.txt
                 ch_0321.txt
                 ch_0434.txt
@@ -588,9 +654,11 @@ Project Directory Structure:
                 ch_0400.txt
                 ch_0423.txt
                 ch_0479.txt
+                ch_0582.txt
                 ch_0488.txt
                 ch_0388.txt
                 ch_0300.txt
+                ch_0523.txt
                 ch_0050.txt
                 ch_0183.txt
                 ch_0012.txt
@@ -599,6 +667,8 @@ Project Directory Structure:
                 ch_0055.txt
                 ch_0064.txt
                 ch_0337.txt
+                ch_0599.txt
+                ch_0554.txt
                 ch_0022.txt
                 ch_0422.txt
                 ch_0175.txt
@@ -610,6 +680,7 @@ Project Directory Structure:
                 ch_0308.txt
                 ch_0356.txt
                 ch_0286.txt
+                ch_0621.txt
                 ch_0170.txt
                 ch_0046.txt
                 ch_0284.txt
@@ -617,10 +688,14 @@ Project Directory Structure:
                 ch_0480.txt
                 ch_0471.txt
                 ch_0014.txt
+                ch_0583.txt
+                ch_0555.txt
                 ch_0217.txt
                 ch_0245.txt
                 ch_0007.txt
+                ch_0544.txt
                 ch_0192.txt
+                ch_0573.txt
                 ch_0033.txt
                 ch_0450.txt
                 ch_0453.txt
@@ -628,8 +703,13 @@ Project Directory Structure:
                 ch_0069.txt
                 ch_0111.txt
                 ch_0177.txt
+                ch_0562.txt
                 ch_0127.txt
+                ch_0538.txt
+                ch_0564.txt
                 ch_0179.txt
+                ch_0545.txt
+                ch_0631.txt
                 ch_0349.txt
                 ch_0060.txt
                 ch_0114.txt
@@ -637,7 +717,9 @@ Project Directory Structure:
                 ch_0384.txt
                 ch_0369.txt
                 ch_0451.txt
+                ch_0521.txt
                 ch_0276.txt
+                ch_0507.txt
                 ch_0165.txt
                 ch_0123.txt
                 ch_0080.txt
@@ -648,6 +730,7 @@ Project Directory Structure:
                 ch_0025.txt
                 ch_0495.txt
                 ch_0466.txt
+                translation_history.csv
                 ch_0352.txt
                 ch_0409.txt
                 ch_0381.txt
@@ -658,50 +741,72 @@ Project Directory Structure:
                 ch_0351.txt
                 ch_0065.txt
                 ch_0444.txt
+                ch_0539.txt
+                ch_0600.txt
                 ch_0335.txt
+                ch_0629.txt
+                ch_0603.txt
                 ch_0083.txt
                 ch_0096.txt
                 ch_0440.txt
                 ch_0375.txt
                 ch_0122.txt
+                ch_0607.txt
                 ch_0231.txt
                 ch_0379.txt
                 ch_0082.txt
+                ch_0500.txt
+                ch_0532.txt
+                ch_0565.txt
                 ch_0310.txt
                 ch_0424.txt
                 ch_0317.txt
+                ch_0553.txt
                 ch_0290.txt
+                ch_0612.txt
                 ch_0100.txt
                 ch_0366.txt
                 ch_0195.txt
                 ch_0477.txt
+                ch_0557.txt
                 ch_0006.txt
                 ch_0035.txt
                 ch_0340.txt
                 ch_0257.txt
                 ch_0076.txt
+                ch_0501.txt
                 ch_0045.txt
+                ch_0580.txt
                 ch_0108.txt
+                ch_0560.txt
                 ch_0237.txt
                 ch_0143.txt
+                ch_0542.txt
                 ch_0362.txt
                 ch_0408.txt
                 ch_0222.txt
                 ch_0363.txt
                 ch_0164.txt
+                ch_0608.txt
+                ch_0602.txt
+                ch_0530.txt
+                ch_0585.txt
                 ch_0365.txt
                 ch_0432.txt
                 ch_0085.txt
                 ch_0439.txt
+                ch_0511.txt
                 ch_0184.txt
                 ch_0057.txt
                 ch_0091.txt
                 ch_0011.txt
+                ch_0575.txt
                 ch_0456.txt
                 ch_0093.txt
                 ch_0323.txt
                 ch_0402.txt
                 ch_0272.txt
+                ch_0524.txt
                 ch_0131.txt
                 ch_0228.txt
                 ch_0394.txt
@@ -711,7 +816,9 @@ Project Directory Structure:
                 ch_0066.txt
                 ch_0158.txt
                 ch_0291.txt
+                ch_0571.txt
                 ch_0396.txt
+                ch_0595.txt
                 ch_0034.txt
                 ch_0040.txt
                 ch_0070.txt
@@ -722,6 +829,7 @@ Project Directory Structure:
                 ch_0226.txt
                 ch_0353.txt
                 ch_0106.txt
+                ch_0537.txt
                 ch_0293.txt
                 ch_0156.txt
                 ch_0135.txt
@@ -742,6 +850,7 @@ Project Directory Structure:
                 ch_0345.txt
                 ch_0295.txt
                 ch_0483.txt
+                ch_0546.txt
                 ch_0017.txt
                 ch_0155.txt
                 ch_0208.txt
@@ -753,23 +862,32 @@ Project Directory Structure:
                 ch_0259.txt
                 ch_0367.txt
                 ch_0478.txt
+                ch_0616.txt
+                ch_0517.txt
                 ch_0330.txt
                 ch_0133.txt
                 ch_0391.txt
+                ch_0576.txt
                 ch_0232.txt
+                ch_0588.txt
                 ch_0262.txt
                 ch_0142.txt
+                ch_0594.txt
                 ch_0387.txt
+                ch_0615.txt
+                ch_0622.txt
                 ch_0326.txt
                 ch_0360.txt
                 ch_0018.txt
                 ch_0024.txt
+                ch_0574.txt
                 ch_0364.txt
                 ch_0116.txt
                 ch_0301.txt
                 ch_0393.txt
                 ch_0039.txt
                 ch_0430.txt
+                ch_0596.txt
                 chapters.json
                 ch_0238.txt
                 ch_0389.txt
@@ -780,17 +898,26 @@ Project Directory Structure:
                 ch_0414.txt
                 ch_0005.txt
                 ch_0137.txt
+                ch_0592.txt
                 ch_0207.txt
                 ch_0289.txt
+                ch_0527.txt
                 ch_0496.txt
+                ch_0613.txt
                 ch_0492.txt
                 ch_0386.txt
+                ch_0628.txt
+                ch_0590.txt
                 ch_0176.txt
                 ch_0008.txt
+                ch_0509.txt
+                ch_0569.txt
+                ch_0525.txt
                 ch_0051.txt
                 ch_0283.txt
                 ch_0053.txt
                 ch_0417.txt
+                ch_0502.txt
                 ch_0157.txt
                 ch_0350.txt
                 ch_0147.txt
@@ -805,20 +932,32 @@ Project Directory Structure:
                 ch_0047.txt
                 ch_0075.txt
                 ch_0150.txt
+                ch_0540.txt
                 ch_0470.txt
+                ch_0512.txt
+                ch_0533.txt
+                ch_0547.txt
                 ch_0378.txt
+                ch_0623.txt
                 ch_0003.txt
+                ch_0526.txt
+                ch_0558.txt
                 ch_0148.txt
                 ch_0319.txt
                 ch_0211.txt
                 ch_0252.txt
+                ch_0515.txt
                 ch_0324.txt
                 ch_0081.txt
                 ch_0244.txt
+                ch_0627.txt
                 ch_0087.txt
+                ch_0606.txt
                 ch_0056.txt
                 ch_0099.txt
                 ch_0455.txt
+                ch_0609.txt
+                ch_0570.txt
                 ch_0105.txt
                 ch_0303.txt
                 ch_0314.txt
@@ -836,18 +975,23 @@ Project Directory Structure:
                 ch_0325.txt
                 ch_0227.txt
                 ch_0225.txt
+                ch_0598.txt
                 ch_0371.txt
                 ch_0071.txt
+                ch_0522.txt
+                ch_0549.txt
                 ch_0441.txt
                 ch_0343.txt
                 ch_0182.txt
                 ch_0467.txt
                 ch_0405.txt
+                ch_0610.txt
                 ch_0241.txt
                 ch_0463.txt
                 ch_0406.txt
                 ch_0494.txt
                 ch_0401.txt
+                ch_0520.txt
                 ch_0383.txt
                 ch_0112.txt
                 ch_0410.txt
@@ -859,7 +1003,9 @@ Project Directory Structure:
                 ch_0229.txt
                 ch_0197.txt
                 ch_0161.txt
+                ch_0584.txt
                 ch_0234.txt
+                ch_0535.txt
                 ch_0274.txt
                 ch_0167.txt
                 ch_0277.txt
@@ -871,15 +1017,21 @@ Project Directory Structure:
                 ch_0201.txt
                 ch_0487.txt
                 ch_0042.txt
+                ch_0541.txt
+                ch_0513.txt
                 ch_0180.txt
                 ch_0264.txt
+                ch_0572.txt
                 ch_0339.txt
+                ch_0519.txt
+                ch_0508.txt
                 ch_0282.txt
                 ch_0118.txt
                 ch_0255.txt
                 ch_0119.txt
                 ch_0404.txt
                 ch_0247.txt
+                ch_0561.txt
                 ch_0136.txt
                 ch_0392.txt
                 ch_0030.txt
@@ -889,16 +1041,21 @@ Project Directory Structure:
                 ch_0420.txt
                 ch_0357.txt
                 ch_0249.txt
+                ch_0586.txt
                 ch_0098.txt
                 ch_0160.txt
+                ch_0529.txt
                 ch_0447.txt
                 ch_0428.txt
                 ch_0052.txt
                 ch_0464.txt
                 ch_0128.txt
+                ch_0617.txt
                 ch_0269.txt
                 ch_0171.txt
                 ch_0001.txt
+                ch_0618.txt
+                ch_0556.txt
                 ch_0120.txt
                 ch_0103.txt
                 ch_0485.txt
@@ -908,6 +1065,7 @@ Project Directory Structure:
                 ch_0454.txt
                 ch_0261.txt
                 ch_0473.txt
+                ch_0516.txt
                 ch_0425.txt
                 ch_0048.txt
                 ch_0020.txt
@@ -915,12 +1073,17 @@ Project Directory Structure:
                 ch_0139.txt
                 ch_0452.txt
                 ch_0493.txt
+                ch_0605.txt
                 ch_0499.txt
                 ch_0084.txt
                 ch_0348.txt
                 ch_0449.txt
+                ch_0625.txt
                 ch_0275.txt
+                ch_0534.txt
+                ch_0604.txt
                 ch_0154.txt
+                ch_0626.txt
                 ch_0438.txt
                 ch_0204.txt
                 ch_0316.txt
@@ -932,12 +1095,14 @@ Project Directory Structure:
                 ch_0206.txt
                 ch_0368.txt
                 ch_0021.txt
+                ch_0543.txt
                 ch_0309.txt
                 ch_0037.txt
                 ch_0459.txt
                 ch_0163.txt
                 ch_0322.txt
                 ch_0465.txt
+                ch_0552.txt
                 ch_0015.txt
                 ch_0313.txt
                 ch_0429.txt
@@ -945,16 +1110,22 @@ Project Directory Structure:
                 ch_0443.txt
                 ch_0385.txt
                 ch_0267.txt
+                ch_0550.txt
                 ch_0029.txt
                 ch_0214.txt
+                ch_0506.txt
                 ch_0124.txt
+                ch_0559.txt
                 ch_0140.txt
                 ch_0089.txt
+                ch_0577.txt
                 ch_0243.txt
                 ch_0445.txt
                 ch_0268.txt
                 ch_0196.txt
+                ch_0587.txt
                 ch_0068.txt
+                ch_0567.txt
                 ch_0287.txt
                 ch_0141.txt
                 ch_0498.txt
@@ -966,46 +1137,59 @@ Project Directory Structure:
                 ch_0489.txt
                 ch_0095.txt
                 ch_0010.txt
+                ch_0579.txt
                 ch_0169.txt
                 ch_0304.txt
+                ch_0551.txt
                 ch_0354.txt
                 ch_0235.txt
                 ch_0280.txt
                 ch_0132.txt
                 ch_0328.txt
                 ch_0285.txt
+                ch_0531.txt
                 ch_0446.txt
                 ch_0342.txt
                 ch_0472.txt
                 ch_0431.txt
+                ch_0536.txt
                 ch_0162.txt
                 ch_0273.txt
                 ch_0205.txt
+                ch_0597.txt
                 ch_0346.txt
                 ch_0288.txt
                 ch_0079.txt
                 ch_0258.txt
                 ch_0223.txt
+                ch_0504.txt
                 ch_0486.txt
                 ch_0061.txt
                 ch_0332.txt
+                ch_0568.txt
                 ch_0115.txt
+                ch_0548.txt
+                ch_0566.txt
+                ch_0614.txt
                 ch_0210.txt
                 ch_0279.txt
                 ch_0193.txt
                 ch_0230.txt
+                ch_0528.txt
                 ch_0200.txt
                 ch_0178.txt
                 ch_0126.txt
                 ch_0299.txt
                 ch_0239.txt
                 ch_0331.txt
+                ch_0611.txt
                 ch_0121.txt
                 ch_0469.txt
                 ch_0004.txt
                 ch_0002.txt
                 ch_0016.txt
                 ch_0497.txt
+                ch_0578.txt
                 ch_0110.txt
                 ch_0266.txt
                 ch_0407.txt
@@ -1017,39 +1201,82 @@ Project Directory Structure:
                     ch_0102.txt
                     ch_0263.txt
                     ch_0109.txt
+                    ch_0338.txt
+                    ch_0458.txt
+                    ch_0307.txt
+                    ch_0482.txt
+                    ch_0390.txt
+                    ch_0419.txt
                     ch_0213.txt
+                    ch_0372.txt
+                    ch_0457.txt
                     ch_0028.txt
+                    ch_0376.txt
+                    ch_0302.txt
+                    ch_0437.txt
+                    ch_0399.txt
+                    ch_0270.txt
+                    ch_0415.txt
+                    ch_0475.txt
+                    ch_0474.txt
                     ch_0092.txt
                     ch_0218.txt
+                    ch_0336.txt
                     ch_0077.txt
+                    ch_0460.txt
+                    ch_0435.txt
                     ch_0203.txt
+                    ch_0278.txt
                     ch_0125.txt
                     ch_0088.txt
+                    ch_0421.txt
                     ch_0144.txt
+                    ch_0311.txt
+                    ch_0329.txt
+                    ch_0281.txt
                     ch_0224.txt
+                    ch_0347.txt
                     ch_0062.txt
+                    ch_0505.txt
                     ch_0185.txt
                     ch_0153.txt
+                    ch_0382.txt
                     ch_0058.txt
+                    ch_0358.txt
+                    ch_0271.txt
                     ch_0233.txt
                     ch_0134.txt
+                    ch_0416.txt
                     ch_0166.txt
                     ch_0130.txt
                     ch_0198.txt
                     ch_0146.txt
+                    ch_0315.txt
                     ch_0067.txt
                     ch_0049.txt
+                    ch_0442.txt
                     ch_0202.txt
                     ch_0216.txt
                     ch_0199.txt
                     ch_0074.txt
                     ch_0145.txt
+                    ch_0397.txt
                     ch_0009.txt
                     ch_0097.txt
                     ch_0138.txt
+                    ch_0321.txt
+                    ch_0434.txt
+                    ch_0481.txt
                     ch_0187.txt
+                    ch_0320.txt
                     ch_0094.txt
                     ch_0032.txt
+                    ch_0400.txt
+                    ch_0423.txt
+                    ch_0479.txt
+                    ch_0488.txt
+                    ch_0388.txt
+                    ch_0300.txt
                     ch_0050.txt
                     ch_0183.txt
                     ch_0012.txt
@@ -1057,27 +1284,46 @@ Project Directory Structure:
                     ch_0194.txt
                     ch_0055.txt
                     ch_0064.txt
+                    ch_0337.txt
                     ch_0022.txt
+                    ch_0422.txt
                     ch_0175.txt
                     ch_0078.txt
+                    ch_0370.txt
                     ch_0086.txt
                     ch_0242.txt
+                    ch_0318.txt
+                    ch_0308.txt
+                    ch_0356.txt
+                    ch_0286.txt
                     ch_0170.txt
                     ch_0046.txt
+                    ch_0284.txt
                     ch_0027.txt
+                    ch_0480.txt
+                    ch_0471.txt
                     ch_0014.txt
                     ch_0217.txt
                     ch_0245.txt
                     ch_0007.txt
                     ch_0192.txt
                     ch_0033.txt
+                    ch_0450.txt
+                    ch_0453.txt
+                    ch_0380.txt
                     ch_0069.txt
                     ch_0111.txt
                     ch_0177.txt
                     ch_0127.txt
                     ch_0179.txt
+                    ch_0349.txt
                     ch_0060.txt
                     ch_0114.txt
+                    ch_0374.txt
+                    ch_0384.txt
+                    ch_0369.txt
+                    ch_0451.txt
+                    ch_0276.txt
                     ch_0165.txt
                     ch_0123.txt
                     ch_0080.txt
@@ -1086,160 +1332,306 @@ Project Directory Structure:
                     ch_0117.txt
                     ch_0246.txt
                     ch_0025.txt
+                    ch_0495.txt
+                    ch_0466.txt
+                    ch_0352.txt
+                    ch_0409.txt
+                    ch_0381.txt
                     ch_0149.txt
                     ch_0013.txt
                     ch_0104.txt
                     ch_0256.txt
+                    ch_0351.txt
                     ch_0065.txt
+                    ch_0444.txt
+                    ch_0335.txt
                     ch_0083.txt
                     ch_0096.txt
+                    ch_0440.txt
+                    ch_0375.txt
                     ch_0122.txt
                     ch_0231.txt
+                    ch_0379.txt
                     ch_0082.txt
+                    ch_0500.txt
+                    ch_0310.txt
+                    ch_0424.txt
+                    ch_0317.txt
+                    ch_0290.txt
                     ch_0100.txt
+                    ch_0366.txt
                     ch_0195.txt
+                    ch_0477.txt
                     ch_0006.txt
                     ch_0035.txt
+                    ch_0340.txt
                     ch_0257.txt
                     ch_0076.txt
+                    ch_0501.txt
                     ch_0045.txt
                     ch_0108.txt
                     ch_0237.txt
                     ch_0143.txt
+                    ch_0362.txt
+                    ch_0408.txt
                     ch_0222.txt
+                    ch_0363.txt
                     ch_0164.txt
+                    ch_0365.txt
+                    ch_0432.txt
                     ch_0085.txt
+                    ch_0439.txt
                     ch_0184.txt
                     ch_0057.txt
                     ch_0091.txt
                     ch_0011.txt
+                    ch_0456.txt
                     ch_0093.txt
+                    ch_0323.txt
+                    ch_0402.txt
+                    ch_0272.txt
                     ch_0131.txt
                     ch_0228.txt
+                    ch_0394.txt
                     ch_0251.txt
                     ch_0038.txt
+                    ch_0292.txt
                     ch_0066.txt
                     ch_0158.txt
+                    ch_0291.txt
+                    ch_0396.txt
                     ch_0034.txt
                     ch_0040.txt
                     ch_0070.txt
+                    ch_0448.txt
                     ch_0152.txt
+                    ch_0334.txt
                     ch_0226.txt
+                    ch_0353.txt
                     ch_0106.txt
+                    ch_0293.txt
                     ch_0156.txt
                     ch_0135.txt
+                    ch_0462.txt
                     ch_0265.txt
+                    ch_0411.txt
                     ch_0113.txt
+                    ch_0355.txt
                     ch_0254.txt
                     ch_0260.txt
+                    ch_0436.txt
                     ch_0221.txt
+                    ch_0294.txt
                     ch_0043.txt
+                    ch_0461.txt
                     ch_0031.txt
                     ch_0044.txt
+                    ch_0345.txt
+                    ch_0295.txt
+                    ch_0483.txt
                     ch_0017.txt
                     ch_0155.txt
                     ch_0208.txt
+                    ch_0413.txt
+                    ch_0333.txt
+                    ch_0377.txt
                     ch_0023.txt
+                    ch_0418.txt
                     ch_0259.txt
+                    ch_0367.txt
+                    ch_0478.txt
+                    ch_0330.txt
                     ch_0133.txt
+                    ch_0391.txt
                     ch_0232.txt
                     ch_0262.txt
                     ch_0142.txt
+                    ch_0387.txt
+                    ch_0326.txt
+                    ch_0360.txt
                     ch_0018.txt
                     ch_0024.txt
+                    ch_0364.txt
                     ch_0116.txt
+                    ch_0301.txt
+                    ch_0393.txt
                     ch_0039.txt
+                    ch_0430.txt
                     chapters.json
                     ch_0238.txt
+                    ch_0389.txt
+                    ch_0305.txt
+                    ch_0426.txt
                     ch_0041.txt
+                    ch_0341.txt
+                    ch_0414.txt
                     ch_0005.txt
                     ch_0137.txt
                     ch_0207.txt
+                    ch_0289.txt
+                    ch_0496.txt
+                    ch_0492.txt
+                    ch_0386.txt
                     ch_0176.txt
                     ch_0008.txt
                     ch_0051.txt
+                    ch_0283.txt
                     ch_0053.txt
+                    ch_0417.txt
+                    ch_0502.txt
                     ch_0157.txt
+                    ch_0350.txt
                     ch_0147.txt
+                    ch_0403.txt
+                    ch_0297.txt
                     ch_0209.txt
                     ch_0174.txt
+                    ch_0359.txt
+                    ch_0427.txt
+                    ch_0327.txt
                     ch_0250.txt
                     ch_0047.txt
                     ch_0075.txt
                     ch_0150.txt
+                    ch_0470.txt
+                    ch_0378.txt
                     ch_0003.txt
                     ch_0148.txt
+                    ch_0319.txt
                     ch_0211.txt
                     ch_0252.txt
+                    ch_0324.txt
                     ch_0081.txt
                     ch_0244.txt
                     ch_0087.txt
                     ch_0056.txt
                     ch_0099.txt
+                    ch_0455.txt
                     ch_0105.txt
+                    ch_0303.txt
+                    ch_0314.txt
+                    ch_0306.txt
                     ch_0090.txt
+                    ch_0312.txt
+                    ch_0296.txt
                     ch_0101.txt
+                    ch_0412.txt
                     ch_0181.txt
                     ch_0190.txt
+                    ch_0491.txt
                     ch_0189.txt
+                    ch_0298.txt
+                    ch_0325.txt
                     ch_0227.txt
                     ch_0225.txt
+                    ch_0371.txt
                     ch_0071.txt
+                    ch_0441.txt
+                    ch_0343.txt
                     ch_0182.txt
+                    ch_0467.txt
+                    ch_0405.txt
                     ch_0241.txt
+                    ch_0463.txt
+                    ch_0406.txt
+                    ch_0494.txt
+                    ch_0401.txt
+                    ch_0383.txt
                     ch_0112.txt
+                    ch_0410.txt
+                    ch_0373.txt
                     ch_0186.txt
                     ch_0063.txt
+                    ch_0395.txt
                     ch_0220.txt
                     ch_0229.txt
                     ch_0197.txt
                     ch_0161.txt
                     ch_0234.txt
+                    ch_0274.txt
                     ch_0167.txt
+                    ch_0277.txt
                     ch_0253.txt
                     ch_0240.txt
+                    ch_0361.txt
                     ch_0173.txt
                     ch_0059.txt
                     ch_0201.txt
+                    ch_0487.txt
                     ch_0042.txt
                     ch_0180.txt
                     ch_0264.txt
+                    ch_0339.txt
+                    ch_0282.txt
                     ch_0118.txt
                     ch_0255.txt
                     ch_0119.txt
+                    ch_0404.txt
                     ch_0247.txt
                     ch_0136.txt
+                    ch_0392.txt
                     ch_0030.txt
+                    ch_0344.txt
                     ch_0036.txt
                     ch_0172.txt
+                    ch_0420.txt
+                    ch_0357.txt
                     ch_0249.txt
                     ch_0098.txt
                     ch_0160.txt
+                    ch_0447.txt
+                    ch_0428.txt
                     ch_0052.txt
+                    ch_0464.txt
                     ch_0128.txt
+                    ch_0269.txt
                     ch_0171.txt
                     ch_0001.txt
                     ch_0120.txt
                     ch_0103.txt
+                    ch_0485.txt
+                    ch_0433.txt
                     ch_0212.txt
                     ch_0073.txt
+                    ch_0454.txt
                     ch_0261.txt
+                    ch_0473.txt
+                    ch_0425.txt
                     ch_0048.txt
                     ch_0020.txt
                     ch_0019.txt
                     ch_0139.txt
+                    ch_0452.txt
+                    ch_0493.txt
+                    ch_0499.txt
                     ch_0084.txt
+                    ch_0348.txt
+                    ch_0449.txt
+                    ch_0275.txt
                     ch_0154.txt
+                    ch_0438.txt
                     ch_0204.txt
+                    ch_0316.txt
+                    ch_0468.txt
+                    ch_0398.txt
                     ch_0215.txt
                     ch_0236.txt
                     ch_0151.txt
                     ch_0206.txt
+                    ch_0368.txt
                     ch_0021.txt
+                    ch_0309.txt
                     ch_0037.txt
+                    ch_0459.txt
                     ch_0163.txt
+                    ch_0322.txt
+                    ch_0465.txt
                     ch_0015.txt
+                    ch_0313.txt
+                    ch_0429.txt
                     ch_0026.txt
+                    ch_0443.txt
+                    ch_0385.txt
                     ch_0267.txt
                     ch_0029.txt
                     ch_0214.txt
@@ -1247,37 +1639,65 @@ Project Directory Structure:
                     ch_0140.txt
                     ch_0089.txt
                     ch_0243.txt
+                    ch_0445.txt
+                    ch_0268.txt
                     ch_0196.txt
                     ch_0068.txt
+                    ch_0287.txt
                     ch_0141.txt
+                    ch_0498.txt
+                    ch_0490.txt
                     ch_0054.txt
                     ch_0129.txt
                     ch_0107.txt
+                    ch_0476.txt
+                    ch_0489.txt
                     ch_0095.txt
                     ch_0010.txt
                     ch_0169.txt
+                    ch_0304.txt
+                    ch_0354.txt
                     ch_0235.txt
+                    ch_0280.txt
                     ch_0132.txt
+                    ch_0328.txt
+                    ch_0285.txt
+                    ch_0446.txt
+                    ch_0342.txt
+                    ch_0472.txt
+                    ch_0431.txt
                     ch_0162.txt
+                    ch_0273.txt
                     ch_0205.txt
+                    ch_0346.txt
+                    ch_0288.txt
                     ch_0079.txt
                     ch_0258.txt
                     ch_0223.txt
+                    ch_0504.txt
+                    ch_0486.txt
                     ch_0061.txt
+                    ch_0332.txt
                     ch_0115.txt
                     ch_0210.txt
+                    ch_0279.txt
                     ch_0193.txt
                     ch_0230.txt
                     ch_0200.txt
                     ch_0178.txt
                     ch_0126.txt
+                    ch_0299.txt
                     ch_0239.txt
+                    ch_0331.txt
                     ch_0121.txt
+                    ch_0469.txt
                     ch_0004.txt
                     ch_0002.txt
                     ch_0016.txt
+                    ch_0497.txt
                     ch_0110.txt
                     ch_0266.txt
+                    ch_0407.txt
                     ch_0219.txt
                     ch_0191.txt
                     ch_0168.txt
@@ -1287,14 +1707,17 @@ Project Directory Structure:
                 ch_0218.opus
                 ch_0144.opus
                 ch_0139.opus
+                ch_0445.opus
                 ch_0121.opus
                 ch_0431.opus
                 ch_0241.opus
+                ch_0509.opus
                 ch_0181.opus
                 ch_0179.opus
                 ch_0317.opus
                 ch_0247.opus
                 ch_0330.opus
+                ch_0459.opus
                 ch_0326.opus
                 ch_0014.opus
                 ch_0427.opus
@@ -1304,8 +1727,10 @@ Project Directory Structure:
                 ch_0446.opus
                 ch_0183.opus
                 ch_0374.opus
+                ch_0493.opus
                 ch_0172.opus
                 ch_0428.opus
+                ch_0502.opus
                 ch_0206.opus
                 ch_0357.opus
                 ch_0024.opus
@@ -1319,7 +1744,10 @@ Project Directory Structure:
                 ch_0216.opus
                 ch_0246.opus
                 ch_0343.opus
+                ch_0485.opus
+                ch_0491.opus
                 ch_0422.opus
+                ch_0495.opus
                 ch_0265.opus
                 ch_0174.opus
                 ch_0040.opus
@@ -1327,13 +1755,16 @@ Project Directory Structure:
                 ch_0033.opus
                 ch_0053.opus
                 ch_0231.opus
+                ch_0477.opus
                 ch_0054.opus
                 ch_0439.opus
                 ch_0182.opus
                 ch_0283.opus
                 ch_0143.opus
+                ch_0505.opus
                 ch_0390.opus
                 ch_0213.opus
+                ch_0474.opus
                 ch_0031.opus
                 ch_0175.opus
                 ch_0049.opus
@@ -1354,6 +1785,7 @@ Project Directory Structure:
                 ch_0442.opus
                 ch_0346.opus
                 ch_0259.opus
+                ch_0499.opus
                 ch_0361.opus
                 ch_0469.opus
                 ch_0079.opus
@@ -1363,6 +1795,8 @@ Project Directory Structure:
                 ch_0454.opus
                 ch_0464.opus
                 ch_0069.opus
+                ch_0490.opus
+                ch_0497.opus
                 ch_0126.opus
                 ch_0426.opus
                 ch_0257.opus
@@ -1395,6 +1829,7 @@ Project Directory Structure:
                 ch_0104.opus
                 ch_0435.opus
                 ch_0267.opus
+                ch_0503.opus
                 ch_0475.opus
                 ch_0307.opus
                 ch_0220.opus
@@ -1406,11 +1841,14 @@ Project Directory Structure:
                 ch_0230.opus
                 ch_0205.opus
                 ch_0105.opus
+                ch_0476.opus
                 ch_0080.opus
                 ch_0250.opus
                 ch_0193.opus
+                ch_0488.opus
                 ch_0279.opus
                 ch_0212.opus
+                ch_0492.opus
                 ch_0030.opus
                 ch_0391.opus
                 ch_0332.opus
@@ -1455,6 +1893,7 @@ Project Directory Structure:
                 ch_0365.opus
                 ch_0217.opus
                 ch_0202.opus
+                ch_0510.opus
                 ch_0037.opus
                 ch_0249.opus
                 ch_0164.opus
@@ -1490,12 +1929,15 @@ Project Directory Structure:
                 ch_0167.opus
                 ch_0096.opus
                 ch_0112.opus
+                ch_0480.opus
                 ch_0403.opus
                 ch_0350.opus
                 ch_0059.opus
                 ch_0274.opus
                 ch_0145.opus
                 ch_0440.opus
+                ch_0506.opus
+                ch_0489.opus
                 ch_0131.opus
                 ch_0434.opus
                 ch_0302.opus
@@ -1509,6 +1951,8 @@ Project Directory Structure:
                 ch_0136.opus
                 ch_0455.opus
                 ch_0463.opus
+                ch_0504.opus
+                ch_0501.opus
                 ch_0362.opus
                 ch_0437.opus
                 ch_0299.opus
@@ -1517,10 +1961,13 @@ Project Directory Structure:
                 ch_0180.opus
                 ch_0095.opus
                 ch_0264.opus
+                ch_0478.opus
                 ch_0127.opus
                 ch_0061.opus
                 ch_0450.opus
+                ch_0481.opus
                 ch_0301.opus
+                ch_0494.opus
                 ch_0234.opus
                 ch_0023.opus
                 ch_0376.opus
@@ -1543,13 +1990,16 @@ Project Directory Structure:
                 ch_0050.opus
                 ch_0392.opus
                 ch_0058.opus
+                ch_0508.opus
                 ch_0430.opus
                 ch_0441.opus
+                ch_0500.opus
                 ch_0268.opus
                 ch_0029.opus
                 ch_0235.opus
                 ch_0408.opus
                 ch_0252.opus
+                ch_0511.opus
                 ch_0458.opus
                 ch_0298.opus
                 ch_0281.opus
@@ -1560,6 +2010,7 @@ Project Directory Structure:
                 ch_0300.opus
                 ch_0369.opus
                 ch_0148.opus
+                ch_0496.opus
                 ch_0166.opus
                 ch_0072.opus
                 ch_0229.opus
@@ -1582,12 +2033,14 @@ Project Directory Structure:
                 ch_0046.opus
                 ch_0116.opus
                 ch_0195.opus
+                ch_0409.opus
                 ch_0396.opus
                 ch_0003.opus
                 ch_0251.opus
                 ch_0461.opus
                 ch_0305.opus
                 ch_0310.opus
+                ch_0507.opus
                 ch_0411.opus
                 ch_0123.opus
                 ch_0120.opus
@@ -1618,6 +2071,8 @@ Project Directory Structure:
                 ch_0382.opus
                 ch_0171.opus
                 ch_0416.opus
+                ch_0498.opus
+                ch_0483.opus
                 ch_0378.opus
                 ch_0465.opus
                 ch_0284.opus
@@ -1628,6 +2083,7 @@ Project Directory Structure:
                 ch_0146.opus
                 ch_0142.opus
                 ch_0026.opus
+                ch_0487.opus
                 ch_0045.opus
                 ch_0223.opus
                 ch_0448.opus
@@ -1645,6 +2101,8 @@ Project Directory Structure:
                 ch_0263.opus
                 ch_0421.opus
                 ch_0011.opus
+                ch_0451.opus
+                ch_0456.opus
                 ch_0413.opus
                 ch_0032.opus
                 ch_0240.opus
@@ -1695,9 +2153,11 @@ Project Directory Structure:
                 ch_0244.opus
                 ch_0379.opus
                 ch_0348.opus
+                ch_0484.opus
                 ch_0207.opus
                 ch_0404.opus
                 ch_0466.opus
+                ch_0482.opus
                 ch_0044.opus
                 ch_0158.opus
                 ch_0151.opus
@@ -1720,6 +2180,7 @@ Project Directory Structure:
                 ch_0222.opus
                 ch_0200.opus
                 ch_0312.opus
+                ch_0452.opus
                 ch_0111.opus
                 ch_0056.opus
                 ch_0134.opus
@@ -1733,6 +2194,7 @@ Project Directory Structure:
                 ch_0315.opus
                 ch_0438.opus
                 ch_0099.opus
+                ch_0486.opus
                 ch_0351.opus
                 ch_0083.opus
                 ch_0168.opus
@@ -1750,15 +2212,9 @@ Project Directory Structure:
                 ch_0010.opus
                 ch_0017.opus
                 ch_0388.opus
+                ch_0479.opus
+                bak/
             temp_audio_chunks/
-                ch_0338/
-                    ch_0338_l_006.wav
-                    ch_0338_l_004.wav
-                    ch_0338_l_002.wav
-                    ch_0338_l_007.wav
-                    ch_0338_l_005.wav
-                    ch_0338_l_003.wav
-                    ch_0338_l_001.wav
                 ch_0029/
                     ch_0029_l_002.wav
                     ch_0029_l_028.wav
@@ -12919,8 +13375,20 @@ Project Directory Structure:
         test_utilities.py
         test_scraper.py
         test_tts_splitting.py
+    ch_0293.txt/
+        translation_history.csv
+    ch_0319.txt/
+        translation_history.csv
+    ch_0312.txt/
+        translation_history.csv
+    ch_0298.txt/
+        translation_history.csv
+    ch_0274.txt/
+        translation_history.csv
     scripts/
         test_env.py
+    ch_0275.txt/
+        translation_history.csv
     .pytest_cache/
         README.md
         CACHEDIR.TAG
@@ -12931,6 +13399,8 @@ Project Directory Structure:
     .github/
         workflows/
             ci.yml
+    ch_0280.txt/
+        translation_history.csv
 
 
 File Contents:
@@ -14013,12 +14483,13 @@ import time
 
 from google.generativeai.types import HarmBlockThreshold, HarmCategory
 
-from prompts import DEFAULT_GLOSSARY, SYSTEM_COMBINED, build_combined_prompt
 from logger import log_chapter_translation
+from prompts import DEFAULT_GLOSSARY, SYSTEM_COMBINED, build_combined_prompt
 
 # --- Configuration ---
 INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "SnakeFairy_CH_Qushucheng")
 OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "SnakeFairy_EN_transelated")
+MODEL_NAME = "gemini-3-flash-preview"
 GLOSSARY_JSON_FILE = "translation_glossary.json"
 
 
@@ -14107,10 +14578,10 @@ def translate_text_with_gemini(
     )
 
     safety_settings = {
-        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
     }
 
     max_retries = 3
@@ -14260,7 +14731,7 @@ def process_files_for_translation():
             print(f"  Saved: {out_path}")
             save_glossary_to_json(glossary_path, glossary_data)
 
-            log_chapter_translation(filename, "gemini-3-flash-preview")
+            log_chapter_translation(OUTPUT_DIR, filename, MODEL_NAME)
 
             if i < len(files) - 1:
                 time.sleep(5.0)
@@ -14269,7 +14740,7 @@ def process_files_for_translation():
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(f"[ERROR PROCESSING FILE: {e}]")
 
-            log_chapter_translation(filename, "gemini-3-flash-preview", f"Error: {e}")
+            log_chapter_translation(OUTPUT_DIR, filename, MODEL_NAME, f"Error: {e}")
 
     print(f"\n--- Done. {len(files)} files checked ---")
 
@@ -14833,6 +15304,7 @@ except ImportError:
 # --- Configuration (GUI passes these via environment variables) ---
 INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "01_Raw_Text")
 OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "02_Translated")
+LOG_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "..")
 LMSTUDIO_HOST = os.getenv("LMSTUDIO_HOST", "localhost:1234")
 LMSTUDIO_MODEL_NAME = os.getenv("LMSTUDIO_MODEL_NAME", "")
 API_TIMEOUT_SECONDS = 600
@@ -14852,20 +15324,41 @@ DEFAULT_GLOSSARY = {
 
 
 # ==============================================================
+# Cutoff Detection
+# ==============================================================
+def is_abrupt_cutoff(text):
+    """
+    Checks if the text ends with a proper punctuation mark.
+    Returns True if it appears to be cut off abruptly.
+    """
+    if not text:
+        return True
+
+    clean_text = text.strip()
+    if not clean_text:
+        return True
+
+    # Matches common terminal punctuation, optionally followed by closing quotes or brackets
+    # Also includes Chinese punctuation just in case
+    match = re.search(r"[.!?~…—*。！？][\"\'”’\)\]】》]*$", clean_text)
+
+    if not match:
+        return True
+
+    return False
+
+
+# ==============================================================
 # Context Window Budget
 # ==============================================================
-
-
 def _max_input_tokens(glossary_json_str):
     """How many tokens of Chinese source text we can fit."""
     glossary_tokens = math.ceil(len(glossary_json_str) / AVG_CHARS_PER_TOKEN_EN)
     available = int(CONTEXT_LIMIT * SAFETY_MARGIN)
-    # input_zh_tokens + output_en_tokens <= available - overhead - glossary
-    # output_tokens ≈ input_zh_tokens * OUTPUT_RATIO * (ZH/EN) ≈ input_zh_tokens * 0.94
-    # input_tokens * (1 + 0.94) <= budget  →  input_tokens <= budget / 1.94
     budget = available - PROMPT_OVERHEAD_TOKENS - glossary_tokens
     max_input = int(budget / 1.94)
-    return max(200, max_input)
+    safe_max_input = min(max_input, 2500)
+    return max(200, safe_max_input)
 
 
 def _output_token_budget(glossary_json_str):
@@ -14914,240 +15407,248 @@ def chunk_for_context(text, glossary_json_str):
 
 
 # ==============================================================
-# Thinking Dump Detection
+# Thinking-Block Extraction & Validation
 # ==============================================================
-def _is_thinking_dump(text):
-    """Detect interleaved reasoning dumps vs clean translation."""
-    if not text:
-        return False
-    lines = text.split("\n")
-    indicators = 0
-    for line in lines:
-        if re.search(r".+\s*->\s*.+", line):
-            indicators += 1
-        if re.search(r"\((?:Note|Wait|Actually|Looking)", line):
-            indicators += 1
-        if re.search(r"\*\*Paragraph \d+", line):
-            indicators += 1
-        if re.search(r"(?:Let me|I will|I'll|Let's|Given the)", line):
-            indicators += 1
-    # CJK chars in output = source text leaking through
-    cjk_count = len(re.findall(r"[\u4e00-\u9fff]", text))
-    if cjk_count > THINKING_DUMP_CJK_THRESHOLD:
-        indicators += 3
-    return indicators >= THINKING_DUMP_INDICATOR_THRESHOLD
+THINKING_PREFIXES = (
+    "thinking process:",
+    "the user wants",
+    "i need to",
+    "here is the",
+    "certainly",
+    "sure,",
+    "let me",
+    "i will",
+    "i'll",
+    "analysis:",
+    "step-by-step:",
+    "<think>",
+)
 
 
-# ==============================================================
-# Robust JSON Repair
-# ==============================================================
-def _repair_json_string(raw):
+def extract_model_output(raw_text):
     """
-    Attempt to repair common JSON malformations from local LLMs.
-    By this point, thinking dumps have already been detected and retried —
-    this only handles legitimately malformed JSON.
-    Returns (parsed_dict, success_bool).
+    Handles LM Studio leaking <think> blocks into the API response.
+
+    - If '</think>' is found, returns the content after it (the real output).
+    - If thinking patterns are detected but NO '</think>', the model ran out
+      of tokens mid-thought and never produced output — raises ValueError.
+    - If no thinking is detected, returns the text as-is.
     """
-    if not raw or not raw.strip():
-        return {}, False
+    raw_text = raw_text.strip()
+    if not raw_text:
+        raise ValueError("Empty response from model.")
 
-    text = raw.strip()
+    # Check for </think> boundary
+    think_end_idx = raw_text.rfind("</think>")
+    if think_end_idx != -1:
+        payload = raw_text[think_end_idx + len("</think>") :].strip()
+        if not payload:
+            raise ValueError(
+                "Thinking block present with </think> tag, but no output after it."
+            )
+        return payload
 
-    # 1. Strip markdown code fences
-    text = re.sub(r"```(?:json)?\s*", "", text, flags=re.DOTALL)
-    text = re.sub(r"\s*```", "", text)
-    text = text.strip()
+    # No </think> tag — check if this looks like a thinking dump without closure
+    lower_start = raw_text[:200].lower()
+    for prefix in THINKING_PREFIXES:
+        if lower_start.startswith(prefix):
+            raise ValueError(
+                f"Incomplete thinking dump (no </think> found). "
+                f"Model likely ran out of tokens during reasoning."
+            )
 
-    # 2. Strip short preamble before the first '{'
-    #    (e.g. "Here is the JSON:\n{...")
-    first_brace = text.find("{")
-    if first_brace == -1:
-        return {}, False
-    text = text[first_brace:]
+    # No thinking detected — return as-is
+    return raw_text
 
-    # 3. Find the matching closing brace (string-aware)
-    depth, end_pos = 0, -1
-    in_string = False
-    escape_next = False
-    for i, ch in enumerate(text):
-        if escape_next:
-            escape_next = False
-            continue
-        if ch == "\\":
-            escape_next = True
-            continue
-        if ch == '"' and not escape_next:
-            in_string = not in_string
-            continue
-        if in_string:
-            continue
-        if ch == "{":
-            depth += 1
-        elif ch == "}":
-            depth -= 1
-            if depth == 0:
-                end_pos = i
-                break
 
-    if end_pos > 0:
-        text = text[: end_pos + 1]
-    elif depth > 0:
-        # Truncated JSON — try to close it
-        print(f"  [JSON Repair] Attempting to close truncated JSON (depth={depth})...")
-        text = re.sub(r',\s*"[^"]*$', "", text)  # remove trailing partial key
-        text = re.sub(r",\s*$", "", text)  # remove trailing comma
-        text += "}" * depth
+def validate_clean_output(text, is_json=False):
+    """
+    Extracts real output from behind any thinking block, then validates it.
+    Raises ValueError on failure.
+    """
+    text = extract_model_output(text)
 
-    # 4. Remove single-line comments (// ...)
-    text = re.sub(r"//[^\n]*", "", text)
+    if is_json:
+        if not text.startswith(("{", "[")):
+            raise ValueError(
+                f"Output does not start with JSON brackets. Starts with: {repr(text[:60])}"
+            )
 
-    # 5. Remove trailing commas before } or ]
-    text = re.sub(r",\s*([}\]])", r"\1", text)
+    return text
 
-    # 6. Replace Python-style True/False/None with true/false/null
-    text = _replace_python_literals(text)
 
-    # 7. Remove control characters that break JSON (except normal whitespace)
-    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", text)
+def chunk_text(text, max_chars=1500):
+    """Splits text into smaller chunks by paragraphs for fallback processing."""
+    paragraphs = text.split("\n")
+    chunks = []
+    current_chunk = ""
 
-    # --- Attempt 1: Direct parse ---
-    try:
-        parsed = json.loads(text)
-        if isinstance(parsed, dict):
-            return parsed, True
-    except json.JSONDecodeError:
-        pass
+    for p in paragraphs:
+        if len(current_chunk) + len(p) > max_chars:
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+            current_chunk = p + "\n"
+        else:
+            current_chunk += p + "\n"
 
-    # --- Attempt 2: Replace single quotes with double quotes ---
-    try:
-        fixed = _single_to_double_quotes(text)
-        parsed = json.loads(fixed)
-        if isinstance(parsed, dict):
-            return parsed, True
-    except (json.JSONDecodeError, ValueError):
-        pass
+    if current_chunk.strip():
+        chunks.append(current_chunk.strip())
+    return chunks
 
-    # --- Attempt 3: Fix unquoted keys ---
-    try:
-        fixed = re.sub(
-            r"(?<=[\{,])\s*([a-zA-Z_][\w]*)\s*:",
-            r' "\1":',
-            text,
-        )
-        parsed = json.loads(fixed)
-        if isinstance(parsed, dict):
-            return parsed, True
-    except json.JSONDecodeError:
-        pass
 
-    # --- Attempt 4: ast.literal_eval for Python dict syntax ---
-    try:
-        parsed = ast.literal_eval(text)
-        if isinstance(parsed, dict):
-            return json.loads(json.dumps(parsed, ensure_ascii=False)), True
-    except (ValueError, SyntaxError):
-        pass
+def call_lmstudio_api(
+    model,
+    system_prompt,
+    user_prompt,
+    temperature=0.2,
+    max_tokens=-1,
+    expect_json=False,
+    few_shot_user=None,
+    few_shot_assistant=None,
+):
+    """Base API caller."""
+    chat = lms.Chat(system_prompt)
+    if few_shot_user and few_shot_assistant:
+        chat.add_user_message(few_shot_user)
+        chat.add_assistant_response(few_shot_assistant)
+    chat.add_user_message(user_prompt)
 
-    # --- Attempt 5: Line-by-line rescue ---
-    lines = text.split("\n")
-    for trim in range(1, min(5, len(lines))):
-        candidate = "\n".join(lines[:-trim])
-        open_count = candidate.count("{") - candidate.count("}")
-        if open_count > 0:
-            candidate += "}" * open_count
+    config = {"temperature": temperature}
+    if max_tokens and max_tokens > 0:
+        config["maxTokens"] = max_tokens
+
+    result = model.respond(chat, config=config)
+    return str(result) if result else ""
+
+
+def process_with_retries(
+    model,
+    system_prompt,
+    user_prompt_template,
+    text_input,
+    is_json,
+    max_retries=1,
+    temperature=0.2,
+    max_tokens=-1,
+    few_shot_user=None,
+    few_shot_assistant=None,
+    check_cutoff=False,  # Added parameter here
+):
+    """Attempts to process text, retrying on failure. Returns None if all retries fail."""
+    retry_delay = 5
+
+    for attempt in range(max_retries):
         try:
-            parsed = json.loads(candidate)
-            if isinstance(parsed, dict):
-                return parsed, True
-        except json.JSONDecodeError:
-            continue
+            user_prompt = user_prompt_template.replace("{text}", text_input)
 
-    return {}, False
+            raw_response = call_lmstudio_api(
+                model=model,
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                expect_json=is_json,
+                few_shot_user=few_shot_user,
+                few_shot_assistant=few_shot_assistant,
+            )
 
+            # Extract real output from behind any thinking block, then validate
+            cleaned = validate_clean_output(raw_response, is_json=is_json)
 
-def _replace_python_literals(s):
-    """Replace True/False/None with true/false/null outside quoted strings."""
-    result = []
-    i = 0
-    while i < len(s):
-        if s[i] == '"':
-            j = i + 1
-            while j < len(s):
-                if s[j] == "\\":
-                    j += 2
-                    continue
-                if s[j] == '"':
-                    j += 1
-                    break
-                j += 1
-            result.append(s[i:j])
-            i = j
-        else:
-            for py_val, js_val in [
-                ("True", "true"),
-                ("False", "false"),
-                ("None", "null"),
-            ]:
-                if s[i : i + len(py_val)] == py_val:
-                    before_ok = i == 0 or not s[i - 1].isalnum()
-                    after_ok = (
-                        i + len(py_val) >= len(s) or not s[i + len(py_val)].isalnum()
+            if is_json:
+                return json.loads(cleaned)
+
+            # Perform Cutoff Check on standard text if requested
+            if check_cutoff and not is_json:
+                if is_abrupt_cutoff(cleaned):
+                    raise ValueError(
+                        "Abrupt cutoff detected in generated text (missing terminal punctuation)."
                     )
-                    if before_ok and after_ok:
-                        result.append(js_val)
-                        i += len(py_val)
-                        break
-            else:
-                result.append(s[i])
-                i += 1
-    return "".join(result)
+
+            return cleaned
+
+        except (ValueError, json.JSONDecodeError) as e:
+            print(f"    ❌ FAILED: {e} (Attempt {attempt+1}/{max_retries}).")
+        except Exception as e:
+            print(f"    ❌ API Error: {e} (Attempt {attempt+1}/{max_retries}).")
+
+        if attempt < max_retries - 1:
+            time.sleep(retry_delay)
+            retry_delay *= 2
+
+    return None  # Failed after all retries
 
 
-def _single_to_double_quotes(text):
+def process_chapter_robustly(
+    model,
+    system_prompt,
+    user_prompt_template,
+    chapter_text,
+    is_json=False,
+    temperature=0.2,
+    max_tokens=-1,
+    few_shot_user=None,
+    few_shot_assistant=None,
+    check_cutoff=False,  # Passed down from caller
+):
     """
-    Replace single-quoted strings with double-quoted strings in JSON-like text.
-    Handles escaped quotes and mixed quoting.
+    Main entry point for tasks. Tries full text, falls back to chunking if it keeps failing.
     """
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i] == '"':
-            # Already a double-quoted string — skip it
-            result.append('"')
-            i += 1
-            while i < len(text):
-                if text[i] == "\\":
-                    result.append(text[i : i + 2])
-                    i += 2
-                    continue
-                result.append(text[i])
-                if text[i] == '"':
-                    i += 1
-                    break
-                i += 1
-        elif text[i] == "'":
-            # Single-quoted string — convert to double
-            result.append('"')
-            i += 1
-            while i < len(text):
-                if text[i] == "\\":
-                    result.append(text[i : i + 2])
-                    i += 2
-                    continue
-                if text[i] == "'":
-                    result.append('"')
-                    i += 1
-                    break
-                # Escape any unescaped double quotes inside
-                if text[i] == '"':
-                    result.append('\\"')
-                else:
-                    result.append(text[i])
-                i += 1
+    result = process_with_retries(
+        model=model,
+        system_prompt=system_prompt,
+        user_prompt_template=user_prompt_template,
+        text_input=chapter_text,
+        is_json=is_json,
+        max_retries=3,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        few_shot_user=few_shot_user,
+        few_shot_assistant=few_shot_assistant,
+        check_cutoff=check_cutoff,
+    )
+
+    if result is not None:
+        return result
+
+    print("  ⚠️ Continuous failures on full text. Falling back to chunking strategy...")
+    chunks = chunk_text(chapter_text, max_chars=1500)
+
+    if is_json:
+        combined_json = {k: {} for k in DEFAULT_GLOSSARY}
+    else:
+        combined_text = ""
+
+    for i, chunk in enumerate(chunks):
+        print(f"  -> Processing sub-chunk {i+1}/{len(chunks)}...")
+        chunk_result = process_with_retries(
+            model=model,
+            system_prompt=system_prompt,
+            user_prompt_template=user_prompt_template,
+            text_input=chunk,
+            is_json=is_json,
+            max_retries=4,  # Give sub-chunks slightly more retries
+            temperature=temperature,
+            max_tokens=max_tokens,
+            few_shot_user=few_shot_user,
+            few_shot_assistant=few_shot_assistant,
+            check_cutoff=check_cutoff,
+        )
+
+        if chunk_result is None:
+            print(f"  [Fatal Error] Even sub-chunk {i+1} failed completely.")
+            return None
+
+        # Stitch results together
+        if is_json:
+            for key in combined_json.keys():
+                if key in chunk_result and isinstance(chunk_result[key], dict):
+                    combined_json[key].update(chunk_result[key])
         else:
-            result.append(text[i])
-            i += 1
-    return "".join(result)
+            combined_text += chunk_result + "\n\n"
+
+    print("  ✅ Successfully stitched all sub-chunks!")
+    return combined_json if is_json else combined_text.strip()
 
 
 # ==============================================================
@@ -15220,229 +15721,6 @@ def list_available_models(host=None):
 
 
 # ==============================================================
-# Extraction / Cleaning
-# ==============================================================
-def _extract_translation_content(text):
-    if not text:
-        return text
-    original_len = len(text)
-    text = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL)
-    text = re.sub(r"<reasoning>.*?</reasoning>\s*", "", text, flags=re.DOTALL)
-    thinking_headers = [
-        r"Thinking Process\s*:",
-        r"Analysis\s*:",
-        r"Let me (?:think|analyze|break)",
-        r"Step-by-step\s*:",
-        r"\d+\.\s+\*\*Analyze",
-        r"I'll (?:start|begin) by",
-        r"I need to (?:translate|analyze|consider)",
-        r"First,? (?:let me|I'll|I need)",
-        r"The user wants",
-        r"I need to follow",
-        r"\*\*Text Analysis",
-    ]
-    if re.match(rf"^\s*(?:{'|'.join(thinking_headers)})", text, re.IGNORECASE):
-        content_markers = [
-            r"\n---+\s*\n",
-            r"\nTranslation\s*:\s*\n",
-            r"\nFinal (?:Translation|Output)\s*:\s*\n",
-            r"\nChapter\s+\d+",
-            r"\n\u7b2c\s*\d+\s*\u7ae0",
-            r"\nHere is the translation:\s*\n",
-        ]
-        best_pos = -1
-        for marker in content_markers:
-            m = re.search(marker, text, re.IGNORECASE)
-            if m:
-                pos = (
-                    m.start() + 1
-                    if marker.startswith(r"\nChapter") or marker.startswith(r"\n\u7b2c")
-                    else m.end()
-                )
-                if best_pos == -1 or pos < best_pos:
-                    best_pos = pos
-        if best_pos > 0:
-            text = text[best_pos:]
-        else:
-            parts = text.split("\n\n", 1)
-            if len(parts) > 1:
-                print(f"  [DEBUG] Dropping first paragraph as assumed reasoning.")
-                text = parts[1]
-    text = text.strip()
-    stripped = original_len - len(text)
-    if stripped > 50:
-        print(f"  Extracted translation (stripped {stripped} chars of reasoning).")
-    return text
-
-
-# ==============================================================
-# Thinking-Dump Detection for JSON Responses
-# ==============================================================
-def _is_json_thinking_dump(raw):
-    """
-    Detect if a response that should be JSON is actually a thinking dump.
-    Returns True if the model dumped its reasoning instead of outputting JSON.
-    """
-    if not raw or not raw.strip():
-        return True  # empty = failed
-
-    text = raw.strip()
-
-    # Strip tagged thinking (these are expected and fine — check what's left)
-    text = re.sub(r"<think>.*?</think>\s*", "", text, flags=re.DOTALL)
-    text = re.sub(r"<reasoning>.*?</reasoning>\s*", "", text, flags=re.DOTALL)
-    text = text.strip()
-
-    # If after stripping tags we have something starting with '{', it's not a dump
-    if text.startswith("{"):
-        return False
-
-    # If there's no '{' at all, it's definitely a dump
-    if "{" not in text:
-        return True
-
-    # There's a '{' somewhere but the response leads with reasoning text.
-    # Check how much preamble there is before the first '{'
-    first_brace = text.index("{")
-    preamble = text[:first_brace].strip()
-
-    # A short preamble like "Here is the JSON:" is tolerable
-    if len(preamble) < 80:
-        return False
-
-    # Long preamble = thinking dump
-    return True
-
-
-# ==============================================================
-# LM Studio API Call (with thinking dump retry)
-# ==============================================================
-def _call_lmstudio(
-    model,
-    system_prompt,
-    user_prompt,
-    temperature=0.2,
-    max_tokens=-1,
-    expect_json=False,
-    few_shot_user=None,
-    few_shot_assistant=None,
-):
-    max_retries = 3
-    retry_delay = 10
-    json_mode_supported = True  # assume yes until proven otherwise
-
-    for attempt in range(max_retries):
-        try:
-            # On retries after thinking dumps, escalate anti-thinking pressure.
-            # Qwen 3.x honours "/no_think"; the stronger system prompt
-            # also helps other models that ignore responseFormat.
-            sys_prompt = system_prompt
-            usr_prompt = user_prompt
-            temp = temperature
-            if attempt > 0 and expect_json:
-                sys_prompt = (
-                    "CRITICAL: Output ONLY raw JSON. No thinking, no analysis, "
-                    "no reasoning, no markdown. Start with { and end with }.\n\n"
-                    + system_prompt
-                )
-                usr_prompt = (
-                    "/no_think\n"
-                    + user_prompt
-                    + "\n\nRemember: respond with ONLY the JSON object. "
-                    "Start your response with the { character immediately."
-                )
-                temp = min(temperature + 0.1 * attempt, 0.5)
-
-            chat = lms.Chat(sys_prompt)
-            if few_shot_user and few_shot_assistant:
-                chat.add_user_message(few_shot_user)
-                chat.add_assistant_response(few_shot_assistant)
-            chat.add_user_message(usr_prompt)
-            config = {"temperature": temp}
-            if max_tokens and max_tokens > 0:
-                config["maxTokens"] = max_tokens
-
-            # Force structured JSON output when we expect JSON.
-            # LM Studio applies grammar-level constraints so the model
-            # can only emit valid JSON tokens.
-            if expect_json and json_mode_supported:
-                config["responseFormat"] = {"type": "json_object"}
-
-            result = model.respond(chat, config=config)
-            raw = str(result) if result else ""
-            if expect_json:
-                # Strip tagged thinking blocks (legitimate format)
-                raw = re.sub(r"<think>.*?</think>\s*", "", raw, flags=re.DOTALL)
-                raw = re.sub(r"<reasoning>.*?</reasoning>\s*", "", raw, flags=re.DOTALL)
-                raw = raw.strip()
-
-                # Thinking dump detection → retry with escalation
-                if _is_json_thinking_dump(raw):
-                    if attempt < max_retries - 1:
-                        print(
-                            f"  ⚠ JSON thinking dump detected. "
-                            f"Retrying {attempt+1}/{max_retries} in {retry_delay}s "
-                            f"(escalating prompt)..."
-                        )
-                        time.sleep(retry_delay)
-                        retry_delay *= 2
-                        continue
-                    else:
-                        print(
-                            f"  ⚠ JSON thinking dump on final attempt. Returning as-is."
-                        )
-                return raw
-            else:
-                cleaned = _extract_translation_content(raw)
-                # Thinking dump detection → retry
-                if _is_thinking_dump(cleaned):
-                    if attempt < max_retries - 1:
-                        print(
-                            f"  ⚠ Thinking dump detected. "
-                            f"Retrying {attempt+1}/{max_retries} in {retry_delay}s..."
-                        )
-                        time.sleep(retry_delay)
-                        retry_delay *= 2
-                        continue
-                    else:
-                        print(f"  ⚠ Thinking dump on final attempt. Returning as-is.")
-                return cleaned
-        except TimeoutError:
-            print(f"  Timeout. Retrying {attempt+1}/{max_retries} in {retry_delay}s...")
-            time.sleep(retry_delay)
-            retry_delay *= 2
-            if attempt == max_retries - 1:
-                return None
-        except Exception as e:
-            err_msg = str(e).lower()
-            # If the model/server doesn't support responseFormat, disable
-            # for all remaining attempts and loop again without burning a retry
-            if (
-                expect_json
-                and json_mode_supported
-                and (
-                    "responseformat" in err_msg
-                    or "response_format" in err_msg
-                    or "unsupported" in err_msg
-                    or "not supported" in err_msg
-                )
-            ):
-                print(
-                    f"  [INFO] JSON mode not supported, disabling for remaining retries..."
-                )
-                json_mode_supported = False
-                continue  # don't burn a retry slot
-            else:
-                print(f"  Error ({type(e).__name__}): {e}")
-            if attempt < max_retries - 1:
-                time.sleep(retry_delay)
-                retry_delay *= 2
-            else:
-                return None
-    return None
-
-
-# ==============================================================
 # Pass 1: Glossary Extraction
 # ==============================================================
 def _glossary_pass(model, original_chinese):
@@ -15483,7 +15761,7 @@ def _glossary_pass(model, original_chinese):
         },
         ensure_ascii=False,
     )
-    prompt = (
+    prompt_template = (
         "You are a named entity extraction assistant for Chinese fantasy/web novels.\n"
         "Given the Chinese text below, extract ALL named entities and provide English translations.\n\n"
         "CATEGORIES:\n"
@@ -15501,56 +15779,40 @@ def _glossary_pass(model, original_chinese):
         "- \u65cf (race) / \u79cd (species) \u2192 SPECIES. But \u65cf as family/clan \u2192 ORGANIZATION.\n\n"
         "Return JSON with all six keys. Empty objects for empty categories.\n"
         "ONLY the JSON. No markdown, no explanation.\n\n"
-        f"--- CHINESE TEXT ---\n{original_chinese}\n--- END ---"
+        "--- CHINESE TEXT ---\n{text}\n--- END ---"
     )
     system = (
         "You are a data extractor. Output ONLY valid JSON. "
         "No markdown, no explanation, no code fences. "
         "Start your response with { and end with }."
     )
+
     print(f"  [Pass 1/2] Extracting glossary...")
-    raw = _call_lmstudio(
-        model,
-        system,
-        prompt,
+
+    items = process_chapter_robustly(
+        model=model,
+        system_prompt=system,
+        user_prompt_template=prompt_template,
+        chapter_text=original_chinese,
+        is_json=True,
         temperature=0.1,
-        expect_json=True,
         few_shot_user=few_shot_user,
         few_shot_assistant=few_shot_assistant,
+        check_cutoff=False,  # No cutoff check for JSON
     )
-    if raw is None:
-        print(f"  [Pass 1/2] Glossary extraction failed (no response).")
+
+    if not items:
+        print(f"  [Pass 1/2] Glossary extraction completely failed.")
         return {}
 
-    # Use the robust JSON repair pipeline
-    items, success = _repair_json_string(raw)
-
-    if not success:
-        # Log the raw output so the user can diagnose which model is misbehaving
-        preview = raw[:300].replace("\n", "\\n")
-        print(f"  [Pass 1/2] JSON parse failed after all repair attempts.")
-        print(f"  [Pass 1/2] Raw preview: {preview}")
-        return {}
-
-    if not isinstance(items, dict):
-        print(f"  [Pass 1/2] Parsed result is not a dict (got {type(items).__name__}).")
-        return {}
-
-    # Ensure all category keys exist
+    # Ensure all category keys exist and are dicts
     for key in DEFAULT_GLOSSARY:
-        if key not in items:
-            items[key] = {}
-
-    # Validate structure: each category should be a dict of dicts
-    for key in DEFAULT_GLOSSARY:
-        if not isinstance(items.get(key), dict):
-            print(f"  [Pass 1/2] Category '{key}' is not a dict, clearing it.")
+        if key not in items or not isinstance(items.get(key), dict):
             items[key] = {}
         else:
             # Remove any entries that aren't dicts themselves
             bad_keys = [k for k, v in items[key].items() if not isinstance(v, dict)]
             for bk in bad_keys:
-                print(f"  [Pass 1/2] Removing malformed entry '{bk}' in '{key}'.")
                 del items[key][bk]
 
     counts = [f"{len(items[k])} {k}" for k in DEFAULT_GLOSSARY if items.get(k)]
@@ -15578,57 +15840,45 @@ def _translate_pass(model, text_to_translate, glossary_json_str, target_language
         'you all retreat first."\n'
         "The old knight nodded and turned to leave."
     )
-    prompt = (
-        f"You are an expert Chinese-to-English translator.\n"
-        f"Translate the Chinese text below into high-quality, natural-sounding {target_language}.\n\n"
-        f"RULES:\n"
+    prompt_template = (
+        f"You are an expert Chinese-to-English translator for a fantasy web novel.\n"
+        f"Translate the Chinese text below into high-quality, natural-sounding {target_language} prose. It should read like a published English novel.\n\n"
+        f"CRITICAL RULES:\n"
+        f"- ABSOLUTELY NO CHINESE CHARACTERS in the final output. You must translate everything into English.\n"
+        f"- Do NOT use parentheses like 'word (translation)' to explain things.\n"
         f"- Use 'english_name' from the glossary below for all known names.\n"
-        f"- Pronouns: Chinese often omits them. Infer from context.\n"
-        f"- Titles: Translate \u8001\u7237\u5b50, \u5e08\u5144, \u5144\u5f1f etc. contextually, not literally.\n\n"
-        f"ANNOTATION RULES \u2014 BE EXTREMELY SELECTIVE:\n"
-        f"Only annotate with ^[explanation] for things genuinely obscure to non-Chinese readers.\n\n"
-        f"DO annotate:\n"
-        f"- Internet memes/slang with no English equivalent (\u4e94\u4e94\u5f00, \u67e0\u6aac\u7cbe, 996, \u8eba\u5e73)\n"
-        f"- Homophonic puns where the joke is lost in translation\n"
-        f"- References to specific Chinese pop culture, history, or social media\n"
-        f"- Idioms kept literal for style where meaning is non-obvious\n\n"
-        f"DO NOT annotate:\n"
-        f"- Standard idioms already translated into natural English\n"
-        f"- Words clear from context ('demon race', 'knight order', 'magic array')\n"
-        f"- Character names, place names, or titles\n"
-        f"- Common expressions, greetings, emotional reactions\n"
-        f"- Self-explanatory fantasy/cultivation terms\n"
-        f"- Anything where the English already conveys the meaning\n\n"
-        f"When in doubt, DO NOT annotate. Zero annotations per chapter is fine.\n\n"
+        f"- Pronouns: Chinese often omits them. Infer carefully from context so it sounds natural.\n"
+        f"- Smooth out clunky idioms. If a literal translation sounds weird in English, adapt the meaning into natural English phrasing.\n\n"
+        f"ANNOTATION RULES:\n"
+        f"Only annotate with ^[explanation] for things genuinely obscure to non-Chinese readers (like specific internet memes). Do NOT annotate standard vocabulary.\n\n"
         f"GLOSSARY:\n{glossary_json_str}\n\n"
-        f"--- CHINESE TEXT ---\n{text_to_translate}\n--- END ---\n\n"
+        f"--- CHINESE TEXT ---\n{{text}}\n--- END ---\n\n"
         f"Output ONLY the translated text. No reasoning, no commentary."
     )
+
     system = (
         "You are a professional translation engine. Output ONLY the final English translation. "
-        "No reasoning, no chain of thought, no meta-commentary. Start immediately with the translation."
+        "Absolutely no Chinese characters are allowed in the output."
     )
-    output_budget = _output_token_budget(glossary_json_str)
-    print(f"  [Pass 2/2] Translating (max_tokens={output_budget})...")
-    raw = _call_lmstudio(
-        model,
-        system,
-        prompt,
-        temperature=0.2,
-        max_tokens=output_budget,
+
+    print(f"  [Pass 2/2] Translating (Infinite output for Reasoning Model)...")
+
+    translation = process_chapter_robustly(
+        model=model,
+        system_prompt=system,
+        user_prompt_template=prompt_template,
+        chapter_text=text_to_translate,
+        is_json=False,
+        temperature=0.4,
+        max_tokens=-1,
         few_shot_user=few_shot_user,
         few_shot_assistant=few_shot_assistant,
+        check_cutoff=True,
     )
-    if raw is None:
+
+    if not translation:
         return None
-    if raw == "":
-        return None
-    translation = re.sub(
-        r"^(Here is|Here's|Below is|The translation)[^\n]*\n+",
-        "",
-        raw.strip(),
-        flags=re.IGNORECASE,
-    ).strip()
+
     print(f"  [Pass 2/2] Translation complete ({len(translation)} chars).")
     return translation
 
@@ -15655,8 +15905,9 @@ def translate_text_with_lmstudio(
 
     print(f"Translating with '{model_name}' ({len(text_to_translate)} chars)...")
 
-    # Single glossary pass on full text
+    # Single glossary pass on full text (which now falls back to chunking if it fails)
     new_glossary_items = _glossary_pass(model, text_to_translate)
+
     filtered_new = {key: {} for key in DEFAULT_GLOSSARY}
     for cat in DEFAULT_GLOSSARY:
         for name, details in new_glossary_items.get(cat, {}).items():
@@ -15666,15 +15917,18 @@ def translate_text_with_lmstudio(
 
     combined = json.dumps(filtered_glossary, ensure_ascii=False, separators=(",", ":"))
 
-    # Chunk for context window, translate each
+    # Chunk for context window (Token Budget), translate each
     chunks = chunk_for_context(text_to_translate, combined)
     translations = []
+
     for j, chunk in enumerate(chunks):
         if len(chunks) > 1:
-            print(f"  Chunk {j+1}/{len(chunks)} ({len(chunk)} chars)...")
+            print(f"  Context Chunk {j+1}/{len(chunks)} ({len(chunk)} chars)...")
+
         t = _translate_pass(model, chunk, combined, target_language)
+
         if t is None:
-            return f"[Translation Error - chunk {j+1} failed]", {}
+            return f"[Translation Error - chunk {j+1} failed completely]", {}
         translations.append(t)
 
     return "\n\n".join(translations), filtered_new
@@ -15767,7 +16021,7 @@ def process_files_for_translation():
             print(f"Saved: {out_path}")
             save_glossary_to_json(glossary_path, glossary_data)
 
-            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME)
+            log_chapter_translation(LOG_OUTPUT_DIR, filename, LMSTUDIO_MODEL_NAME)
 
             if i < len(files) - 1:
                 time.sleep(1.0)
@@ -15776,7 +16030,7 @@ def process_files_for_translation():
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(f"[ERROR PROCESSING FILE: {e}]")
 
-            log_chapter_translation(filename, LMSTUDIO_MODEL_NAME, f"Error: {e}")
+            log_chapter_translation(LOG_OUTPUT_DIR, filename, LMSTUDIO_MODEL_NAME, f"Error: {e}")
 
     print(f"\n--- Translation Run Summary ---")
     print(f"Total: {len(files)} files checked")
@@ -16428,9 +16682,12 @@ def get_git_hash():
         return "unknown-hash"
 
 
-def log_chapter_translation(filename, model_name, status="Success"):
-    """Appends a record to the translation history CSV."""
-    log_file = "translation_history.csv"
+def log_chapter_translation(novel_dir, filename, model_name, status="Success"):
+    """Appends a record to the translation history CSV inside the specific novel folder."""
+    # Ensure the target directory exists just in case
+    os.makedirs(novel_dir, exist_ok=True)
+
+    log_file = os.path.join(novel_dir, "translation_history.csv")
     file_exists = os.path.exists(log_file)
     git_hash = get_git_hash()
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -16448,7 +16705,7 @@ def log_chapter_translation(filename, model_name, status="Success"):
             # Write the actual log data
             writer.writerow([timestamp, filename, model_name, git_hash, status])
     except IOError as e:
-        print(f"  Warning: Could not write to log file: {e}")
+        print(f"  Error writing to log file {log_file}: {e}")
 
 --- END OF FILE: ./logger.py ---
 
@@ -16807,6 +17064,367 @@ if __name__ == "__main__":
     create_epub_project()
 
 --- END OF FILE: ./txt_to_epub.py ---
+
+--- START OF FILE: ./detect_cutoff_chapters.py ---
+import argparse
+import json
+import os
+import re
+import statistics
+
+# --- Configuration & Thresholds ---
+LOWER_BOUND_RATIO = 0.45  # Flag if smaller than 45% of median (Severe Cutoff)
+UPPER_BOUND_RATIO = 2.50  # Flag if larger than 250% of median (Thinking dump)
+ABSOLUTE_MIN_CHARS = 1000  # Anything under this is functionally empty
+MIN_EXPECTED_RATIO = 2.0  # English text must be >= 2.0x the Chinese length
+
+OUTPUT_FILENAME = "early_cutoff_chapters.json"
+
+
+def strip_for_counting(text):
+    """Strips annotations and excess whitespace in-memory to get a true character count."""
+    if not text:
+        return ""
+    # Remove the translator annotations: ^[explanation]
+    clean = re.sub(r"\^\[.*?\]", "", text, flags=re.DOTALL)
+    # Remove standard brackets if the LLM hallucinated notes
+    clean = re.sub(
+        r"\[(?:Note|Translation|TL|Editor).*?\]",
+        "",
+        clean,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    return clean.strip()
+
+
+def analyze_chapter_ending(text):
+    """
+    Returns True if the chapter seems to end abruptly.
+    A valid ending MUST have terminal punctuation (. ! ? ~ … —) optionally followed by quotes.
+    """
+    clean_text = text.strip()
+    if not clean_text:
+        return True, ""
+
+    if clean_text.endswith("..."):
+        return False, "..."
+
+    # Regex Explanation:
+    # [.!?~…—*] -> Must contain at least one terminal punctuation mark.
+    # [\"\'”’\)\]]*$ -> Can optionally be followed by closing quotes or brackets at the very end of the string.
+    match = re.search(r"[.!?~…—*][\"\'”’\)\]]*$", clean_text)
+
+    if match:
+        return False, clean_text[-1]
+
+    # If no terminal punctuation is found at the end, it's an abrupt cutoff (e.g., ends in a letter, comma, or stray apostrophe)
+    return True, clean_text[-1]
+
+
+def process_novel_directory(novel_dir):
+    raw_dir = os.path.join(novel_dir, "01_Raw_Text")
+    trans_dir = os.path.join(novel_dir, "02_Translated")
+
+    if not os.path.exists(trans_dir):
+        print(f"  [Error] Directory '{trans_dir}' does not exist.")
+        return
+
+    txt_files = sorted([f for f in os.listdir(trans_dir) if f.endswith(".txt")])
+    if not txt_files:
+        print(f"  [Skip] No text files found in '{trans_dir}'.")
+        return
+
+    print(f"\nScanning '{os.path.basename(novel_dir)}' ({len(txt_files)} chapters)...")
+
+    file_data = {}
+    trans_lengths = []
+
+    for filename in txt_files:
+        trans_path = os.path.join(trans_dir, filename)
+        raw_path = os.path.join(raw_dir, filename)
+
+        try:
+            with open(trans_path, "r", encoding="utf-8") as f:
+                trans_content = f.read()
+
+            stripped_trans = strip_for_counting(trans_content)
+            trans_len = len(stripped_trans)
+
+            raw_len = 0
+            if os.path.exists(raw_path):
+                with open(raw_path, "r", encoding="utf-8") as f:
+                    raw_len = len(f.read().strip())
+
+            file_data[filename] = {
+                "trans_content": trans_content,
+                "stripped_trans": stripped_trans,  # Added this to memory!
+                "trans_len": trans_len,
+                "raw_len": raw_len,
+            }
+
+            if trans_len > 0:
+                trans_lengths.append(trans_len)
+
+        except Exception as e:
+            print(f"  Error reading {filename}: {e}")
+
+    if not trans_lengths:
+        return
+
+    median_len = statistics.median(trans_lengths)
+    lower_limit = int(median_len * LOWER_BOUND_RATIO)
+    upper_limit = int(median_len * UPPER_BOUND_RATIO)
+
+    print(f"  -> Median English Chapter: {median_len} chars")
+
+    flagged_chapters = {}
+
+    for filename, data in file_data.items():
+        reasons = []
+        trans_len = data["trans_len"]
+        raw_len = data["raw_len"]
+        original_content = data["trans_content"]
+        stripped_trans = data["stripped_trans"]
+
+        # 1. Absolute limits
+        if trans_len < ABSOLUTE_MIN_CHARS:
+            reasons.append(f"Severely truncated ({trans_len} chars)")
+
+        # 2. Statistical Bounds
+        elif trans_len < lower_limit:
+            reasons.append(f"Statistically too short ({trans_len} chars)")
+        elif trans_len > upper_limit:
+            reasons.append(
+                f"Statistically too long / Thinking dump ({trans_len} chars)"
+            )
+
+        # 3. Translation Ratio
+        if raw_len > 0:
+            ratio = trans_len / raw_len
+            if ratio < MIN_EXPECTED_RATIO:
+                reasons.append(
+                    f"Low translation ratio: {ratio:.2f}x (Raw: {raw_len}, Trans: {trans_len})"
+                )
+
+        # 4. Abrupt Ending
+        is_abrupt, last_char = analyze_chapter_ending(original_content)
+        if is_abrupt and trans_len > 0:
+            reasons.append(
+                f"Abrupt ending detected (ends with '{last_char}' lacking terminal punctuation)"
+            )
+
+        # 5. Chinese Character Leak Detection
+        # We now scan `stripped_trans`, which ignores characters safely tucked inside ^[annotations]
+        if re.search(r"[\u4e00-\u9fff]", stripped_trans):
+            reasons.append("Leaked Chinese characters detected")
+
+        if reasons:
+            snippet_end = (
+                original_content.strip()[-60:].replace("\n", " ")
+                if trans_len > 0
+                else ""
+            )
+            flagged_chapters[filename] = {
+                "stripped_length": trans_len,
+                "raw_length": raw_len,
+                "reasons": reasons,
+                "snippet_end": f"...{snippet_end}",
+            }
+
+    output_path = os.path.join(novel_dir, OUTPUT_FILENAME)
+
+    if flagged_chapters:
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(flagged_chapters, f, indent=4, ensure_ascii=False)
+        print(f"\n  ⚠️ Found {len(flagged_chapters)} anomalous chapters!")
+        print(f"  💾 Saved target list to: {output_path}")
+    else:
+        if os.path.exists(output_path):
+            os.remove(output_path)
+        print(
+            "\n  ✅ All chapters passed length, ratio, punctuation, and leakage checks!"
+        )
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Find malformed translated chapters.")
+    parser.add_argument("novel", type=str, help="The exact folder name of the novel")
+    parser.add_argument(
+        "--base", type=str, default="Novels", help="Base directory (default: 'Novels')"
+    )
+
+    args = parser.parse_args()
+    novel_path = os.path.join(args.base, args.novel)
+
+    if not os.path.exists(novel_path):
+        print(f"Error: Novel directory '{novel_path}' does not exist.")
+        return
+
+    process_novel_directory(novel_path)
+
+
+if __name__ == "__main__":
+    main()
+
+--- END OF FILE: ./detect_cutoff_chapters.py ---
+
+--- START OF FILE: ./auto_cleaner.py ---
+import argparse
+import json
+import os
+
+# --- Directory Configuration ---
+# Change these if your project structure is slightly different
+DIR_TRANSLATED = "02_Translated"
+DIR_WAV = "03_Audio_WAV"
+DIR_OPUS = "04_Audio_Opus"  # Adjust if your opus files are saved in a different folder
+JSON_REPORT_FILE = "early_cutoff_chapters.json"
+
+
+def delete_file(filepath):
+    """Deletes a file if it exists and logs the action."""
+    if os.path.exists(filepath):
+        try:
+            os.remove(filepath)
+            print(f"  🗑️  [DELETED] {filepath}")
+            return True
+        except Exception as e:
+            print(f"  ❌ [ERROR] Could not delete {filepath}: {e}")
+            return False
+    return False
+
+
+def clean_chapter(novel_dir, chapter_filename):
+    """Deletes the .txt, .wav, and .opus files for a given chapter base name."""
+    # Ensure we just have the base name (e.g., "ch_0484" instead of "ch_0484.txt")
+    base_name = os.path.splitext(chapter_filename)[0]
+
+    # Construct full paths
+    trans_path = os.path.join(novel_dir, DIR_TRANSLATED, f"{base_name}.txt")
+    wav_path = os.path.join(novel_dir, DIR_WAV, f"{base_name}.wav")
+    opus_path = os.path.join(novel_dir, DIR_OPUS, f"{base_name}.opus")
+
+    print(f"\nTargeting: {base_name}")
+
+    deleted_any = False
+    if delete_file(trans_path):
+        deleted_any = True
+    if delete_file(wav_path):
+        deleted_any = True
+    if delete_file(opus_path):
+        deleted_any = True
+
+    if not deleted_any:
+        print(f"  [SKIPPED] No files existed for this chapter.")
+
+
+def auto_clean_from_json(novel_dir):
+    """Reads the early_cutoff_chapters.json report and deletes all flagged files, updating the JSON."""
+    json_path = os.path.join(novel_dir, JSON_REPORT_FILE)
+
+    if not os.path.exists(json_path):
+        print(f"Error: No JSON report found at '{json_path}'.")
+        print("Run the detection script first to generate the report.")
+        return
+
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            suspects = json.load(f)
+    except Exception as e:
+        print(f"Error reading JSON file: {e}")
+        return
+
+    if not suspects:
+        print("JSON report is empty. Nothing to clean!")
+        return
+
+    print(f"Found {len(suspects)} flagged chapters in {JSON_REPORT_FILE}.")
+
+    # Prompt for safety confirmation
+    confirm = input(
+        f"Are you sure you want to delete the translation, WAV, and Opus files for these {len(suspects)} chapters? (y/N): "
+    )
+    if confirm.lower() != "y":
+        print("Aborting.")
+        return
+
+    # Convert keys to a list so we can modify the dictionary while iterating
+    for chapter_filename in list(suspects.keys()):
+        clean_chapter(novel_dir, chapter_filename)
+
+        # Pop the chapter from the dictionary now that it's clean
+        suspects.pop(chapter_filename)
+
+        # Update the JSON file immediately so our progress is saved
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(suspects, f, indent=4)
+
+    # After the loop, the dictionary (and JSON file) will be empty!
+    print(
+        "\n✅ Auto-clean complete. All processed chapters have been removed from the JSON report."
+    )
+
+    # We can still offer to delete the empty JSON file just to tidy up the folder
+    cleanup_json = input(
+        f"The '{JSON_REPORT_FILE}' is now empty. Do you want to delete it? (y/N): "
+    )
+    if cleanup_json.lower() == "y":
+        delete_file(json_path)
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Clean up malformed translations and their generated audio files."
+    )
+
+    # REQUIRED: The specific novel folder name
+    parser.add_argument(
+        "novel",
+        type=str,
+        help="The exact folder name of the novel (e.g., The_Blood_Princess_And_The_Knight)",
+    )
+
+    # Optional arguments for targeting specific files instead of the JSON
+    parser.add_argument(
+        "--chapter",
+        type=str,
+        help="Target a specific chapter to clean instead of using the JSON (e.g., 'ch_0484.txt' or 'ch_0484')",
+        default=None,
+    )
+
+    parser.add_argument(
+        "--base",
+        type=str,
+        default="Novels",
+        help="Base directory containing the novel folders (default: 'Novels')",
+    )
+
+    args = parser.parse_args()
+    novel_path = os.path.join(args.base, args.novel)
+
+    if not os.path.exists(novel_path):
+        print(f"Error: Novel directory '{novel_path}' does not exist.")
+        return
+
+    # Check if user wants to delete a specific chapter manually
+    if args.chapter:
+        confirm = input(
+            f"Are you sure you want to delete text/audio for {args.chapter}? (y/N): "
+        )
+        if confirm.lower() == "y":
+            clean_chapter(novel_path, args.chapter)
+            # Note: We don't pop from JSON here since this is a manual, single-file override.
+        else:
+            print("Aborted.")
+    else:
+        # Default behavior: run the auto-cleaner based on the JSON
+        auto_clean_from_json(novel_path)
+
+
+if __name__ == "__main__":
+    main()
+
+--- END OF FILE: ./auto_cleaner.py ---
 
 --- START OF FILE: ./pipe_system_gui.py ---
 import glob
@@ -18054,6 +18672,301 @@ if __name__ == "__main__":
     root.mainloop()
 
 --- END OF FILE: ./pipe_system_gui.py ---
+
+--- START OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/gloss_deduplicator.py ---
+import json
+import re
+
+# Load the glossary
+with open("translation_glossary.json", "r", encoding="utf-8") as f:
+    glossary = json.load(f)
+
+removed = []
+
+# ── 1. Characters: remove placeholder and clear duplicates ──
+
+char_removals = {
+    # Placeholder entry
+    "Name": "placeholder with '...' values",
+    # 小缇娜 duplicates 缇娜 (both english_name "Tina")
+    "小缇娜": "duplicate of 缇娜 (both 'Tina')",
+    # 小雅娜 duplicates 雅娜 (both english_name "Yana")
+    "小雅娜": "duplicate of 雅娜 (both 'Yana')",
+    # Bullet-character variants (• vs · vs no separator)
+    "白姬•拉萨姆博": "near-duplicate of 白姬拉萨姆博 (only bullet char differs)",
+    "莉莉娅丝•拉萨姆博": "near-duplicate of 莉莉娅丝·拉萨姆博 (only bullet char differs)",
+    # Corrupt / joke variants
+    "莉莉biao丝": "corrupt/typo variant of 莉莉娅丝",
+    "莉莉婊丝": "derogatory variant of 莉莉娅丝",
+}
+
+for key, reason in char_removals.items():
+    if key in glossary["characters"]:
+        del glossary["characters"][key]
+        removed.append(f"characters.{key} — {reason}")
+
+# ── 2. Items: remove bracket-wrapped duplicates and typo variants ──
+
+item_removals = {
+    "【破妄】": "bracket-wrapped duplicate of 破妄",
+    "【银色王座】": "bracket-wrapped duplicate of 银色王座",
+    "焱候": "typo variant of 焱侯 (候→侯)",
+    "【惊石】长剑": "duplicate of 惊石长剑",
+}
+
+for key, reason in item_removals.items():
+    if key in glossary["items"]:
+        del glossary["items"][key]
+        removed.append(f"items.{key} — {reason}")
+
+# ── 3. Skills: remove bracket-wrapped duplicates ──
+
+skill_removals = {
+    "【觉醒：白昼梦魇】": "bracket-wrapped duplicate of 觉醒：白昼梦魇",
+    "【罪系神罚】": "bracket-wrapped duplicate of 罪系神罚",
+    "【召唤类羽翼】": "bracket-wrapped duplicate of 召唤类羽翼 (in skills as 召唤类羽翼)",
+    "【召唤类小型甲盾】": "bracket-wrapped duplicate of 召唤类小型甲盾 (in skills as 召唤类小型甲盾)",
+}
+
+for key, reason in skill_removals.items():
+    if key in glossary["skills"]:
+        del glossary["skills"][key]
+        removed.append(f"skills.{key} — {reason}")
+
+# Check for same english_name within skills
+skills = glossary["skills"]
+en_to_keys = {}
+for k, v in skills.items():
+    en = v.get("english_name", "")
+    en_to_keys.setdefault(en, []).append(k)
+
+for en, keys in en_to_keys.items():
+    if len(keys) > 1:
+        # Keep the shortest / most canonical key, remove the rest
+        keys_sorted = sorted(keys, key=lambda x: (len(x), x))
+        for dup_key in keys_sorted[1:]:
+            if dup_key in glossary["skills"]:
+                del glossary["skills"][dup_key]
+                removed.append(
+                    f"skills.{dup_key} — same english_name '{en}' as {keys_sorted[0]}"
+                )
+
+# ── 4. Items: same english_name duplicates ──
+
+items = glossary["items"]
+en_to_keys_items = {}
+for k, v in items.items():
+    en = v.get("english_name", "")
+    en_to_keys_items.setdefault(en, []).append(k)
+
+for en, keys in en_to_keys_items.items():
+    if len(keys) > 1:
+        keys_sorted = sorted(keys, key=lambda x: (len(x), x))
+        for dup_key in keys_sorted[1:]:
+            if dup_key in glossary["items"]:
+                del glossary["items"][dup_key]
+                removed.append(
+                    f"items.{dup_key} — same english_name '{en}' as {keys_sorted[0]}"
+                )
+
+# ── 5. Characters: same english_name duplicates ──
+
+chars = glossary["characters"]
+en_to_keys_chars = {}
+for k, v in chars.items():
+    en = v.get("english_name", "")
+    en_to_keys_chars.setdefault(en, []).append(k)
+
+for en, keys in en_to_keys_chars.items():
+    if len(keys) > 1:
+        keys_sorted = sorted(keys, key=lambda x: (len(x), x))
+        for dup_key in keys_sorted[1:]:
+            if dup_key in glossary["characters"]:
+                del glossary["characters"][dup_key]
+                removed.append(
+                    f"characters.{dup_key} — same english_name '{en}' as {keys_sorted[0]}"
+                )
+
+# ── 6. Places: same english_name duplicates ──
+
+places = glossary["places"]
+en_to_keys_places = {}
+for k, v in places.items():
+    en = v.get("english_name", "")
+    en_to_keys_places.setdefault(en, []).append(k)
+
+for en, keys in en_to_keys_places.items():
+    if len(keys) > 1:
+        keys_sorted = sorted(keys, key=lambda x: (len(x), x))
+        for dup_key in keys_sorted[1:]:
+            if dup_key in glossary["places"]:
+                del glossary["places"][dup_key]
+                removed.append(
+                    f"places.{dup_key} — same english_name '{en}' as {keys_sorted[0]}"
+                )
+
+# ── 7. Organizations: same english_name duplicates ──
+
+orgs = glossary["organizations"]
+en_to_keys_orgs = {}
+for k, v in orgs.items():
+    en = v.get("english_name", "")
+    en_to_keys_orgs.setdefault(en, []).append(k)
+
+for en, keys in en_to_keys_orgs.items():
+    if len(keys) > 1:
+        keys_sorted = sorted(keys, key=lambda x: (len(x), x))
+        for dup_key in keys_sorted[1:]:
+            if dup_key in glossary["organizations"]:
+                del glossary["organizations"][dup_key]
+                removed.append(
+                    f"organizations.{dup_key} — same english_name '{en}' as {keys_sorted[0]}"
+                )
+
+# ── 8. Species: same english_name duplicates ──
+
+species = glossary["species"]
+en_to_keys_species = {}
+for k, v in species.items():
+    en = v.get("english_name", "")
+    en_to_keys_species.setdefault(en, []).append(k)
+
+for en, keys in en_to_keys_species.items():
+    if len(keys) > 1:
+        keys_sorted = sorted(keys, key=lambda x: (len(x), x))
+        for dup_key in keys_sorted[1:]:
+            if dup_key in glossary["species"]:
+                del glossary["species"][dup_key]
+                removed.append(
+                    f"species.{dup_key} — same english_name '{en}' as {keys_sorted[0]}"
+                )
+
+# ── 9. Cross-category: same key + same english_name in multiple categories ──
+
+all_categories = ["characters", "places", "organizations", "items", "skills", "species"]
+key_locations = {}
+for cat in all_categories:
+    for k, v in glossary.get(cat, {}).items():
+        en = v.get("english_name", "")
+        key_locations.setdefault(k, []).append((cat, en))
+
+# For cross-category duplicates with same english_name, keep in the
+# "most specific" category. Priority: characters > species > places > organizations > items > skills
+priority = {
+    "characters": 0,
+    "species": 1,
+    "places": 2,
+    "organizations": 3,
+    "items": 4,
+    "skills": 5,
+}
+
+for key, locations in key_locations.items():
+    if len(locations) <= 1:
+        continue
+    # Group by english_name
+    en_groups = {}
+    for cat, en in locations:
+        en_groups.setdefault(en, []).append(cat)
+    for en, cats in en_groups.items():
+        if len(cats) > 1:
+            cats_sorted = sorted(cats, key=lambda c: priority.get(c, 99))
+            for dup_cat in cats_sorted[1:]:
+                if key in glossary.get(dup_cat, {}):
+                    del glossary[dup_cat][key]
+                    removed.append(
+                        f"{dup_cat}.{key} — cross-category duplicate "
+                        f"(same key+english_name '{en}' already in {cats_sorted[0]})"
+                    )
+
+# ── Output ──
+
+print(f"\n{'='*60}")
+print(f"DUPLICATES REMOVED: {len(removed)}")
+print(f"{'='*60}\n")
+for r in sorted(removed):
+    print(f"  ✕ {r}")
+
+# Count remaining entries
+total = sum(len(glossary[cat]) for cat in all_categories)
+print(f"\n{'='*60}")
+print(f"REMAINING ENTRIES: {total}")
+for cat in all_categories:
+    print(f"  {cat}: {len(glossary[cat])}")
+print(f"{'='*60}\n")
+
+# Write cleaned glossary
+with open("translation_glossary_cleaned.json", "w", encoding="utf-8") as f:
+    json.dump(glossary, f, ensure_ascii=False, indent=4)
+
+print("✓ Cleaned glossary written to: translation_glossary_cleaned.json")
+
+--- END OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/gloss_deduplicator.py ---
+
+--- START OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/find_repeats.py ---
+import json
+from collections import defaultdict
+
+
+def find_glossary_repeats(filepath):
+    # Step 1: Open and load the JSON data
+    try:
+        with open(filepath, "r", encoding="utf-8") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        print(f"Error: Could not find '{filepath}'. Please check the file name.")
+        return
+
+    # Step 2: Set up dictionaries to track our items
+    # defaultdict(list) automatically creates an empty list if a key doesn't exist yet
+    key_tracker = defaultdict(list)
+    english_name_tracker = defaultdict(list)
+
+    # Step 3: Loop through the JSON data
+    for category, entries in data.items():
+        for original_term, details in entries.items():
+
+            # Track the original Chinese term and what category it belongs to
+            key_tracker[original_term].append(category)
+
+            # Get the English name, convert to lowercase to catch "Gulan" vs "gulan"
+            english_name = details.get("english_name", "").strip().lower()
+            if english_name:
+                # Track the English name, noting its original term and category
+                english_name_tracker[english_name].append((original_term, category))
+
+    # Step 4: Display Duplicate Keys (Original terms in multiple categories)
+    print("=== DUPLICATE ORIGINAL TERMS (Across Categories) ===")
+    found_key_repeats = False
+    for term, categories in key_tracker.items():
+        if len(categories) > 1:
+            print(f"- '{term}' appears in: {', '.join(categories)}")
+            found_key_repeats = True
+
+    if not found_key_repeats:
+        print("No cross-category duplicate terms found.")
+
+    # Step 5: Display Duplicate English Names
+    print("\n=== DUPLICATE ENGLISH NAMES ===")
+    found_eng_repeats = False
+    for eng_name, locations in english_name_tracker.items():
+        if len(locations) > 1:
+            print(
+                f"\n- The English name '{eng_name}' is used for {len(locations)} entries:"
+            )
+            for term, cat in locations:
+                print(f"    * '{term}' in category '{cat}'")
+            found_eng_repeats = True
+
+    if not found_eng_repeats:
+        print("No duplicate English names found.")
+
+
+# Run the function
+if __name__ == "__main__":
+    find_glossary_repeats("translation_glossary.json")
+
+--- END OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/find_repeats.py ---
 
 --- START OF FILE: ./Novels/The_Blood_Princess_And_The_Knight/custom_scraper.py ---
 import json

@@ -20,9 +20,12 @@ def get_git_hash():
         return "unknown-hash"
 
 
-def log_chapter_translation(filename, model_name, status="Success"):
-    """Appends a record to the translation history CSV."""
-    log_file = "translation_history.csv"
+def log_chapter_translation(novel_dir, filename, model_name, status="Success"):
+    """Appends a record to the translation history CSV inside the specific novel folder."""
+    # Ensure the target directory exists just in case
+    os.makedirs(novel_dir, exist_ok=True)
+
+    log_file = os.path.join(novel_dir, "translation_history.csv")
     file_exists = os.path.exists(log_file)
     git_hash = get_git_hash()
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -40,4 +43,4 @@ def log_chapter_translation(filename, model_name, status="Success"):
             # Write the actual log data
             writer.writerow([timestamp, filename, model_name, git_hash, status])
     except IOError as e:
-        print(f"  Warning: Could not write to log file: {e}")
+        print(f"  Error writing to log file {log_file}: {e}")

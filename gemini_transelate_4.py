@@ -6,12 +6,13 @@ import time
 
 from google.generativeai.types import HarmBlockThreshold, HarmCategory
 
-from prompts import DEFAULT_GLOSSARY, SYSTEM_COMBINED, build_combined_prompt
 from logger import log_chapter_translation
+from prompts import DEFAULT_GLOSSARY, SYSTEM_COMBINED, build_combined_prompt
 
 # --- Configuration ---
 INPUT_DIR = os.getenv("PROJECT_TRANS_INPUT_DIR", "SnakeFairy_CH_Qushucheng")
 OUTPUT_DIR = os.getenv("PROJECT_TRANS_OUTPUT_DIR", "SnakeFairy_EN_transelated")
+MODEL_NAME = "gemini-3-flash-preview"
 GLOSSARY_JSON_FILE = "translation_glossary.json"
 
 
@@ -100,10 +101,10 @@ def translate_text_with_gemini(
     )
 
     safety_settings = {
-        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
     }
 
     max_retries = 3
@@ -253,7 +254,7 @@ def process_files_for_translation():
             print(f"  Saved: {out_path}")
             save_glossary_to_json(glossary_path, glossary_data)
 
-            log_chapter_translation(filename, "gemini-3-flash-preview")
+            log_chapter_translation(OUTPUT_DIR, filename, MODEL_NAME)
 
             if i < len(files) - 1:
                 time.sleep(5.0)
@@ -262,7 +263,7 @@ def process_files_for_translation():
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(f"[ERROR PROCESSING FILE: {e}]")
 
-            log_chapter_translation(filename, "gemini-3-flash-preview", f"Error: {e}")
+            log_chapter_translation(OUTPUT_DIR, filename, MODEL_NAME, f"Error: {e}")
 
     print(f"\n--- Done. {len(files)} files checked ---")
 

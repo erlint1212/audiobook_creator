@@ -89,6 +89,7 @@ def process_novel_directory(novel_dir):
 
             file_data[filename] = {
                 "trans_content": trans_content,
+                "stripped_trans": stripped_trans,  # Added this to memory!
                 "trans_len": trans_len,
                 "raw_len": raw_len,
             }
@@ -115,6 +116,7 @@ def process_novel_directory(novel_dir):
         trans_len = data["trans_len"]
         raw_len = data["raw_len"]
         original_content = data["trans_content"]
+        stripped_trans = data["stripped_trans"]
 
         # 1. Absolute limits
         if trans_len < ABSOLUTE_MIN_CHARS:
@@ -136,13 +138,17 @@ def process_novel_directory(novel_dir):
                     f"Low translation ratio: {ratio:.2f}x (Raw: {raw_len}, Trans: {trans_len})"
                 )
 
-        # 4. Abrupt Ending - NOW STRICT AND INDEPENDENT OF LENGTH
+        # 4. Abrupt Ending
         is_abrupt, last_char = analyze_chapter_ending(original_content)
         if is_abrupt and trans_len > 0:
-            # We explicitly mention what character it failed on to help with debugging
             reasons.append(
                 f"Abrupt ending detected (ends with '{last_char}' lacking terminal punctuation)"
             )
+
+        # 5. Chinese Character Leak Detection
+        # We now scan `stripped_trans`, which ignores characters safely tucked inside ^[annotations]
+        if re.search(r"[\u4e00-\u9fff]", stripped_trans):
+            reasons.append("Leaked Chinese characters detected")
 
         if reasons:
             snippet_end = (
@@ -167,7 +173,9 @@ def process_novel_directory(novel_dir):
     else:
         if os.path.exists(output_path):
             os.remove(output_path)
-        print("\n  ✅ All chapters passed length, ratio, and punctuation checks!")
+        print(
+            "\n  ✅ All chapters passed length, ratio, punctuation, and leakage checks!"
+        )
 
 
 def main():

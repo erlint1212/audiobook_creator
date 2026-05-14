@@ -39,6 +39,7 @@ SCRIPTS = {
     "Audio Converter": "convert_audio_to_opus_3.py",
     "Tag Audio": "tag_audiobook_files_opus_3.py",
     "EPUB Creator": "txt_to_epub.py",
+    "Cleanup WAV": "cleanup_wav_files.py",
 }
 
 
@@ -105,6 +106,7 @@ class PipelineGUI:
             "tts": tk.BooleanVar(value=True),
             "convert": tk.BooleanVar(value=True),
             "tag": tk.BooleanVar(value=True),
+            "cleanup_wav": tk.BooleanVar(value=False),
         }
         self.trans_engine = tk.StringVar(value="Translate (Gemini)")
 
@@ -437,6 +439,7 @@ class PipelineGUI:
             ("4. TTS Gen", "tts"),
             ("5. Opus Conv", "convert"),
             ("6. Tag Audio", "tag"),
+            ("7. Cleanup WAV", "cleanup_wav"),
         ]
         for i, (text, key) in enumerate(steps):
             r, c = divmod(i, 2)
@@ -712,8 +715,8 @@ class PipelineGUI:
                 img.thumbnail((250, 350))
                 self.cover_image_ref = ImageTk.PhotoImage(img)
                 self.lbl_cover_preview.configure(image=self.cover_image_ref, text="")
-            except Exception as e:
-                self.lbl_cover_preview.configure(image="", text=f"Error loading image")
+            except Exception:
+                self.lbl_cover_preview.configure(image="", text="Error loading image")
         else:
             self.lbl_cover_preview.configure(image="", text="No cover.jpg found")
 
@@ -1040,7 +1043,7 @@ class PipelineGUI:
             )
             if os.path.exists(custom_path):
                 script_path = custom_path
-                self.log(f"--- Using Custom Chapter Scraper ---")
+                self.log("--- Using Custom Chapter Scraper ---")
 
         if script_key.startswith("Translate"):
             script_path = SCRIPTS.get(self.trans_engine.get())
@@ -1150,6 +1153,9 @@ class PipelineGUI:
             if self.pipeline_vars["tag"].get():
                 if not self.run_script("Tag Audio"):
                     raise Exception("Tagging Failed")
+            if self.pipeline_vars["cleanup_wav"].get():
+                if not self.run_script("Cleanup WAV"):
+                    raise Exception("WAV Cleanup Failed")
             self.log("=== COMPLETED ===")
         except Exception as e:
             self.log(f"=== PIPELINE ENDED: {e} ===")
@@ -1162,7 +1168,7 @@ class PipelineGUI:
         url = self.index_url.get().strip()
         if not proj or not url:
             return messagebox.showwarning("Info", "Select Project + URL.")
-        self.log(f"--- Fetching Metadata ---")
+        self.log("--- Fetching Metadata ---")
 
         def _worker():
             try:

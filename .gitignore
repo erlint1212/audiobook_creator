@@ -2,6 +2,7 @@ Novels/
 __pycache__/
 tts/
 *.json
+*.txt
 *.csv
 .venv
 backup
